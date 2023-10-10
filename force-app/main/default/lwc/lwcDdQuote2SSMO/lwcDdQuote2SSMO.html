@@ -1,0 +1,82 @@
+<template>
+    <div class="slds-is-relative">
+        <!-- Spinner -->
+        <template if:true={isSending}>
+            <div>
+                <lightning-spinner alternative-text="Sending Quote" size="large" variant="brand"></lightning-spinner>
+            </div>
+        </template>
+
+    <lightning-quick-action-panel header="Send Quote to SSMO">
+        <div class={flexipageRegionWidth}>
+            <template if:true={recordId}>
+                &nbsp;
+            </template>
+
+            <template if:true={launchMessage}>
+                <lightning-layout vertical-align="top" horizontal-align="left">
+                    <lightning-layout-item>
+                        <span style="color: black;"> Please ensure Quote details are accurate and reflect the rates discussed with the Mx.</span>
+                        <div style="height: 200px"></div>
+                    </lightning-layout-item>
+                </lightning-layout>
+            </template>
+
+            <template if:true={isError}>
+                <lightning-layout vertical-align="top" horizontal-align="left">
+                    <lightning-layout-item>
+                        <span style="color: red;font-weight: bold;"> Please resolve below errors.</span>
+                        <div style="height: 200px">
+                        
+                            <ul style="list-style-type:disc">
+                                <template for:each={errors} for:item="error">
+                                    <li key={error} style="color: red;">{error}</li>
+                                </template>
+                            </ul>
+                        </div>
+                    </lightning-layout-item>
+                </lightning-layout>
+            </template>
+            <template if:true={success}>
+                <lightning-layout vertical-align="center" horizontal-align="center">
+                    <lightning-layout-item>
+                        <span style="color: green;"> {success}</span>
+                        <div style="height: 200px"></div>
+                    </lightning-layout-item>
+                </lightning-layout>
+            </template>
+        </div>
+        <!--
+        <div slot="footer">
+            <template if:false={success}>  
+                <lightning-button
+                    variant="brand"
+                    label="Continue"
+                    class="slds-m-left_x-small" onclick={validateQuoteData}></lightning-button>
+            </template>
+            <lightning-button
+                variant="brand"
+                label="Close"
+                class="slds-m-left_x-small" onclick={closeWindow}></lightning-button>
+        </div>
+        -->
+        <div class="slds-grid slds-grid_vertical-align-end slds-grid_align-end">               
+            <div class="slds-col">
+                <span>
+                    <template if:false={success}>  
+                        <lightning-button
+                            variant="brand"
+                            label="Continue"
+                            class="slds-m-right_x-small slds-grid_align-end" onclick={validateQuoteData}></lightning-button>
+                    </template>
+                </span>
+            </div>
+            <div class="slds-col">
+                <span>
+                    <lightning-button variant="brand" label="Close" class="slds-m-right_x-small slds-grid_align-end" onclick={closeWindow}></lightning-button>
+                </span>
+            </div>
+        </div>
+    </lightning-quick-action-panel>
+    </div> 
+</template>

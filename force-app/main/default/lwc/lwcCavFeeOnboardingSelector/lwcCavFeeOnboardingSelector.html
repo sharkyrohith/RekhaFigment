@@ -1,0 +1,35 @@
+<!--
+ - Created by Jeremy S. Johnson, Perficient Inc., on 7/1/2020.
+ -
+ - Implements: BZAP-8198 Create Lightning Component for Caviar / Online Ordering STN
+-->
+
+<!-- Fee Onboarding Selector -->
+<template>
+    <lightning-card  title={label.title}>
+        <lightning-spinner data-id="spinner" variant="brand" size="large" class="slds-hidden" alternative-text="Waiting for response from server."></lightning-spinner>
+        <div class="slds-m-around_medium">
+            <lightning-datatable
+                    columns={columns}
+                    data={data}
+                    key-field="feeId"
+                    selected-rows={selectedRows}
+                    sorted-by="programLabel">
+            </lightning-datatable >
+        </div>
+        <div class="slds-m-around_medium">
+            <lightning-button
+                      data-id="createBtn"
+                      label={label.buttonText}
+                      onclick={createProgramsAndFees}
+                      disabled={disableButton}>
+            </lightning-button>
+        </div>
+        <div class="slds-m-around_medium">
+            <lightning-input read-only=true data-id="resultDiv" class="slds-p-around_small" style="width:inherit"></lightning-input>
+        </div>
+        <div class="slds-m-around_medium">
+            <lightning-input read-only=true data-id="errorDiv" class="slds-p-around_small" style="width:inherit"></lightning-input>
+        </div>
+    </lightning-card>
+</template>

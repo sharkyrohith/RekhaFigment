@@ -1,0 +1,100 @@
+<template>
+    <div class="c-container">
+        <lightning-layout multiple-rows="true">
+            <lightning-layout-item class="slds-p-left_medium" size="12">
+                <lightning-spinner data-id="spinner" variant="brand" size="large" class="slds-hidden" alternative-text="Waiting for response from server."></lightning-spinner>
+            </lightning-layout-item>
+            <!-- File Selector -->
+            <lightning-layout-item class="slds-p-left_medium" size="12">
+                <div class="slds-form">
+                    <div class="slds-form-element">
+                        <span class="slds-form-element__label" id="fileSelector">{label.fileInstructions} {msSyncStage}</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-file-selector slds-file-selector_files">
+                                <div class="slds-file-selector__dropzone">
+                                    <input type="file" class="slds-file-selector__input slds-assistive-text"
+                                            accept="text/csv"
+                                            id="fileSelectorInput"
+                                            data-id="fileSelectorInput"
+                                            aria-labelledby="file-selector-primary-label file-selector-secondary-label"
+                                            onchange={handleUpload}
+                                            onclick={handleUploadClick}
+                                    />
+                                    <label class="slds-file-selector__body" for="fileSelectorInput" id="file-selector-secondary-label">
+                                        <span class="slds-file-selector__button slds-button slds-button_neutral">{label.uploadButton}</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>&nbsp;
+                        <span class="slds-form-element__label" id="fileNameLabel">{label.fileInfo}: </span>
+                        <span id="fileName" data-my-id="fileName">{filename}</span>
+                    </div>
+                </div>
+            </lightning-layout-item>
+
+            <!-- Data Table Preview -->
+
+            <lightning-layout-item class="slds-p-left_medium" size="12">
+                <div class="slds-form-element slds-is-collapsed slds-scrollable" data-id="dataTable">
+                    <span class="slds-form-element__label">{label.tablePreview}:</span>
+                    <div class="slds-form-element__control" style="height:300px">
+                        <lightning-datatable
+                                show-row-number-column=true
+                                hide-checkbox-column=true
+                                key-field="rowKey"
+                                columns={columns}
+                                data={data}
+                                errors={errors}
+                        >
+                        </lightning-datatable>
+                    </div>
+                </div>
+            </lightning-layout-item>
+
+            <lightning-layout-item class="slds-p-left_medium" size="7">
+                <!-- Upload Messages -->
+                <div data-id="uploadMessages" class="slds-form-element slds-is-collapsed">
+                    <label class="slds-form-element__label" for="uploadMessagesDiv">{label.tableUploadResults}</label>
+                    <div id="uploadMessagesDiv" data-id="uploadMessagesDiv" class="slds-box">{uploadMessages}</div>
+                </div>
+
+                <!-- Import/Reset -->
+                <div data-id="importResetDiv" class="slds-is-collapsed">
+                    <lightning-slider label={label.batchSize} min="1" max="25" value={batchSize} onchange={handleSliderChange} size="x-small"></lightning-slider>
+                    <lightning-button disabled data-id="importButton" label={label.importButton} title="Import" onclick={handleImport} class="slds-m-left_x-medium"></lightning-button>
+                    <lightning-button data-id="resetButton" label={label.resetButton} title="Rest" onclick={handleReset} class="slds-m-left_x-medium"></lightning-button>
+                </div>
+            </lightning-layout-item>
+
+            <lightning-layout-item class="slds-p-left_medium" size="7">
+            <!-- Import Status -->
+                <div data-id="importStatus" class="slds-form-element slds-is-collapsed slds-m-top_medium">
+                    <label class="slds-form-element__label slds-m-top_medium" for="importStatusDiv">{label.importStatus}</label>
+                    <div id="importStatusDiv" data-id="importStatusDiv">{importStatus}</div>
+
+                    <label class="slds-form-element__label slds-m-top_medium" for="progressIndicatorDiv">{label.importProress}</label>
+                    <div id="progressIndicatorDiv">
+                        <lightning-progress-indicator data-id="progressIndicator" current-step={currentStep} has-error={hasError} type="path" variant="base" onclick={getProgress}>
+                            <lightning-progress-step label={label.progressSubmitted} value="submitted"></lightning-progress-step>
+                            <lightning-progress-step label={label.progressHolding} value="holding"></lightning-progress-step>
+                            <lightning-progress-step label={label.progressQueued} value="queued"></lightning-progress-step>
+                            <lightning-progress-step label={label.progressPreparing} value="preparing"></lightning-progress-step>
+                            <lightning-progress-step label={label.progressProcessing} value="processing"></lightning-progress-step>
+                            <lightning-progress-step label={label.progressCompleted} value="completed"></lightning-progress-step>
+                        </lightning-progress-indicator>
+
+                        <label class="slds-form-element__label slds-m-top_medium" for="progressBar">Batch Progress</label>
+                        <div id="progressBar">
+                            <lightning-progress-bar value={progressValue} size="large"></lightning-progress-bar>
+                        </div>
+
+                        <label class="slds-form-element__label slds-m-top_medium" for="importMessages">Import Results</label>
+                        <div id="importMessages" data-id="importMessages" class="slds-box">{importMessages}</div>
+                    </div>
+                </div>
+            </lightning-layout-item>
+        </lightning-layout>
+    </div>
+</template>

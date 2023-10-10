@@ -1,0 +1,32 @@
+<apex:page id="PDd" standardController="Account" recordSetVar="accounts" extensions="CDdCoverageCheckMassActionCtrl" docType="html-5.0" showHeader="true" sidebar="true" standardStylesheets="false" cache="false" applyHtmlTag="true">
+    <script src="../../soap/ajax/45.0/connection.js" type="text/javascript"></script>
+    <apex:includeScript value="/support/console/45.0/integration.js"/>
+    <apex:includeLightning />
+    <apex:outputPanel id="panel" layout="block" html-data-role="panel" styleClass="slds">
+        <apex:outputPanel id="loading" layout="block" style="width: 100%; text-align: center; font-family: 'HelveticaNeue', Helvetica, Arial, sans-serif;">
+            <img src="/img/spinner.gif" alt="{!$Label.INFO_MSG_LOADING}" title="{!$Label.INFO_MSG_LOADING}" border="0" width="48" height="48" />
+            <p>{!$Label.INFO_MSG_LOADING}</p>
+        </apex:outputPanel>
+        <apex:outputPanel id="lightning" layout="block"/>
+    </apex:outputPanel>
+    <script>
+        $Lightning.use('c:LDdCoverageCheckApp', function() {
+            var attributes = {
+                selectedIdsSerializedString: '{!selectedIdsSerializedString}'
+            };
+            $Lightning.createComponent('c:LDdCoverageCheckCmp', attributes, 'PDd:lightning', function(component) {
+                document.getElementById('PDd:loading').style.display = 'none';
+				$A.eventService.addHandler({
+				    event: 'force:navigateToObjectHome',
+				    handler: function(event) {
+				        if (sforce && sforce.one) {
+				            sforce.one.back(true);
+				        } else {
+				            window.top.location.href = '{!retURL}';
+				        }
+				    }
+				});                
+            });
+        });
+    </script>
+</apex:page>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Marketplace Onboarding Queue IDs</label>
+    <protected>false</protected>
+    <values>
+        <field>Queue_IDs_Part_1__c</field>
+        <value xsi:type="xsd:string">00G2L00000294yi, 00G2L0000020flo, 00G2L00000294yd, 00G2L00000294yn, 00G2L00000294yT, 00G2L00000294zM, 00G2L000002FrnS, 00G2L00000294yY, 00G2L000002Frnh, 00G2L000001qPRN, 00G2L00000294zH, 00G2L00000294zC, 00G1a000001k3O7, 00G2L000001WoLb, 00G2L000002Fs1e</value>
+    </values>
+    <values>
+        <field>Queue_IDs_Part_2__c</field>
+        <value xsi:type="xsd:string">00G2L000001vHiR, 00G2L00000294ys, 00G2L00000294z7, 00G2L00000294yx, 00G2L0000020flp, 00G2L000001vHee, 00G2L000001qPRO, 00G2L0000020fli, 00G2L0000020flj, 00G2L0000020flk, 00G2L0000020fll, 00G2L000002950Z, 00G2L0000020flm, 00G2L000001vHeZ, 00G2L0000020fln</value>
+    </values>
+    <values>
+        <field>Queue_IDs_Part_3__c</field>
+        <value xsi:type="xsd:string">00G2L0000020fls, 00G1a000001Sa8I, 00G2L000001WoLv, 00G2L000001WoLg, 00G2L000001WoLl, 00G2L000002FrnX, 00G2L000002Frnc, 00G2L000002Frnr, 00G2L000002Fs1K, 00G2L000002Fs10, 00G2L000002Fs0v, 00G2L000002Fs1F, 00G2L000002Fs1Z, 00G2L000002Fs1P, 00G2L000002Fs1U</value>
+    </values>
+    <values>
+        <field>Queue_IDs_Part_4__c</field>
+        <value xsi:type="xsd:string">00G2L000002Fs2D, 00G2L0000029J6k, 00G2L000001r1bR</value>
+    </values>
+    <values>
+        <field>Queue_IDs_Part_5__c</field>
+        <value xsi:type="xsd:string">00G2L000002Fs2D, 00G2L0000029J5m, 00G2L0000029J6k, 00G2L000001r1bR, 00G2L000001fvXg, 00G55000006bdlw, 00GK0000003kptK, 00G2D000004twad, 00G2L000001USyW, 00G2i000003Mpbw, 00G2L000001fvXv, 00G2L000001fvXw, 00G6t0000010mHj, 00G6t0000010mHk</value>
+    </values>
+</CustomMetadata>

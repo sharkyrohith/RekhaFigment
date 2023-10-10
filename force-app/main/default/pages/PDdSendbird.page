@@ -1,0 +1,27 @@
+<apex:page showHeader="false"
+           sidebar="false"
+           standardStylesheets="false"
+           standardController="Case"
+           extensions="CDdSendbirdChatController">
+    <apex:includeScript value="/support/console/53.0/integration.js"/>
+    <html style="height:100%">
+        <script>
+        	window.sendbirdSFDCInstance = "{!orgInstance}";
+        </script>
+        <body style="background:#fff;height:100%;margin:0px;">
+            <apex:iframe id="sendbird-chat-iframe" src="{!$Resource.SendbirdChatUIUnified + '/index.html?classic=true&instance='+orgInstance}" height="100%" />
+        </body>
+    </html>
+    <script>
+        window.agentUserId = "{!$User.Id}";
+        window.quickTextFieldMap = {
+            Contact: {
+                FirstName: "{!contactFirstName}",
+            },
+            Contact_FirstName: "{!contactFirstName}",
+        };
+        window.sendbirdChannelUrl = "{!sendbirdChannelUrl}";
+        window.caseId = "{!caseRecord.Id}";
+    </script>
+    <script src="{!$Resource.SendbirdVFController}" />
+</apex:page>

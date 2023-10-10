@@ -1,0 +1,315 @@
+<!-- sldsValidatorIgnore -->
+<template> 
+   <div class="slds-grid slds-gutters">
+        <div class="slds-col">
+            <lightning-card  title={accountName} icon-name="standard:account"></lightning-card>
+        </div>
+        <div class="slds-col">
+            <lightning-card  title={oppName}  icon-name="standard:opportunity"></lightning-card>
+        </div>
+        <div class="slds-col">
+            <lightning-card  title={quoteName}  icon-name="custom:custom93"></lightning-card>  
+        </div>   
+    </div> 
+  <!-- Spinner -->
+  <div if:true={working}>
+      <lightning-spinner alternative-text="Cloning..."  size="large" variant="brand"></lightning-spinner>
+  </div>
+  <div if:false={working} style="height: 750px;">
+    <div class="slds-p-around_medium">
+      <lightning-card if:true={showTabs}>
+        <h3 slot="title">
+          <lightning-icon icon-name="standard:opportunity" size="small" class="slds-m-right_medium" ></lightning-icon>
+          <lightning-formatted-text value={labels.selectValuesLabel}></lightning-formatted-text>
+        </h3>
+        <lightning-layout vertical-align="center">
+          <lightning-layout-item padding="around-medium">
+            <lightning-input type="checkbox" label="Bulk Activation" data-id="BulkActivation" onchange={handleBulkActivationChange}></lightning-input>
+          </lightning-layout-item> 
+          <lightning-layout-item padding="around-medium">
+            <lightning-combobox
+              name="stageName"
+              label="Opportunity Stage"
+              value={stageValue}
+              placeholder="Select Stage"
+              options={stageOptions}
+              onchange={handleStageChange} >
+            </lightning-combobox>
+          </lightning-layout-item>
+        </lightning-layout>      
+     </lightning-card>
+    </div>
+    <div class="slds-p-around_medium">
+      <!-- Buttons -->
+      <lightning-button-group>
+        <lightning-button 
+            label="Clone" 
+            variant="brand"
+            onclick={cloneOppAndQuote}
+            disabled={cloneDisabled}>
+        </lightning-button>
+        <lightning-button 
+            label="Return to Opportunity"
+            variant={returnVariant} 
+            onclick={returnToOpp}>
+        </lightning-button>
+      </lightning-button-group>
+    </div>      
+    <div if:true={showSuccess}>
+      <div class="slds-scoped-notification slds-media slds-media_center slds-theme_success" role="status">
+          <div class="slds-media__figure">
+            <span class="slds-icon_container slds-icon-utility-success" title="success">
+              <svg class="slds-icon slds-icon_small" aria-hidden="true">
+                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#success"></use>
+              </svg>
+              <span class="slds-assistive-text">success</span>
+            </span>
+          </div>
+          <div class="slds-media__body">
+            <p>{labels.successLabel}</p>
+          </div>
+      </div>
+    </div>            
+    <div if:true={errorHeader}>
+      <template for:each={errorHeaderMessages} for:item="errorMessage" for:index="index"> 
+          <div key={errorMessage.index} class="slds-scoped-notification slds-media slds-media_center slds-theme_error" role="status">
+              <div class="slds-media__figure">
+                <span class="slds-icon_container slds-icon-utility-error" title="error">
+                  <svg class="slds-icon slds-icon_small" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#error"></use>
+                  </svg>
+                  <span class="slds-assistive-text">error</span>
+                </span>
+              </div>
+              <div class="slds-media__body">
+                <p>{errorMessage}
+                </p>
+              </div>
+            </div>
+      </template>
+    </div>
+    <!-- Tabset -->
+    <div>
+      <lightning-tabset variant="scoped" if:true={showTabs}>
+        <lightning-tab label="Child Accounts" value="0" onactive={handleActive}>
+          <div class="slds-p-top_medium">
+            <div class="slds-p-around_medium lgc-bg" if:true={tabDataChild.showTable}>
+              {labels.selectAccountLabel} <b>{accountStoreLabel}</b>
+            </div>
+            <div class="slds-p-around_medium lgc-bg" if:true={tabDataChild.showTable}>
+              {labels.selectedStoresLabel} <b>{selectedStores}</b>
+            </div>
+          </div>
+          <div if:true={tabDataChild.showTable}>
+            <lightning-datatable
+                      key-field="id"
+                      data={tabDataChild.dataTable}
+                      columns={columns}
+                      onrowselection={selectedRowHandler}
+                      sorted-by="Name"
+                      data-id="Table0">
+            </lightning-datatable>                     
+          </div>
+          <div class="slds-p-top_medium">
+            <div class="slds-p-around_medium lgc-bg" if:true={tabDataChild.showTableCloned}>
+              {labels.accountClonedLabel} <b>{accountStoreLabel}</b>
+            </div>
+          </div>     
+          <div if:true={tabDataChild.showTableCloned}>
+            <lightning-datatable
+                      key-field="id"
+                      data={tabDataChild.dataTableCloned}
+                      columns={columns}
+                      sorted-by="Name" 
+                      hide-checkbox-column="true">
+            </lightning-datatable>                     
+          </div>           
+          <div if:true={tabDataChild.showError}>
+            <template for:each={tabDataChild.errorMessages} for:item="errorMessage" for:index="index"> 
+                <div key={errorMessage.index} class="slds-scoped-notification slds-media slds-media_center slds-theme_error" role="status">
+                    <div class="slds-media__figure">
+                      <span class="slds-icon_container slds-icon-utility-error" title="error">
+                        <svg class="slds-icon slds-icon_small" aria-hidden="true">
+                          <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#error"></use>
+                        </svg>
+                        <span class="slds-assistive-text">error</span>
+                      </span>
+                    </div>
+                    <div class="slds-media__body">
+                      <p>{errorMessage}
+                      </p>
+                    </div>
+                  </div>
+            </template>
+          </div>
+        </lightning-tab>
+        <lightning-tab label="All Related Accounts" value="1" onactive={handleActive}>
+          <div class="slds-p-top_medium">
+            <div class="slds-p-around_medium lgc-bg">
+              {labels.selectAccountLabel} <b>{accountStoreLabel}</b>
+            </div>
+            <div class="slds-p-around_medium lgc-bg" if:true={tabDataRelated.showTable}>
+              {labels.selectedStoresLabel} <b>{selectedStores}</b>
+            </div>
+          </div>
+          <div if:true={tabDataRelated.showTable}>
+            <lightning-datatable
+                      key-field="id"
+                      data={tabDataRelated.dataTable}
+                      columns={columns}
+                      onrowselection={selectedRowHandler}
+                      sorted-by="Name"
+                      data-id="Table1">
+            </lightning-datatable>                     
+          </div>  
+          <div class="slds-p-around_medium lgc-bg" if:true={tabDataRelated.showTableCloned}>
+            {labels.accountClonedLabel} <b>{accountStoreLabel}</b>
+          </div>     
+          <div if:true={tabDataRelated.showTableCloned}>
+            <lightning-datatable
+                      key-field="id"
+                      data={tabDataRelated.dataTableCloned}
+                      columns={columns}
+                      sorted-by="Name" 
+                      hide-checkbox-column="true">
+            </lightning-datatable>                     
+          </div>           
+          <div if:true={tabDataRelated.showError}>
+            <template for:each={tabDataRelated.errorMessages} for:item="errorMessage" for:index="index"> 
+                <div key={errorMessage.index} class="slds-scoped-notification slds-media slds-media_center slds-theme_error" role="status">
+                    <div class="slds-media__figure">
+                      <span class="slds-icon_container slds-icon-utility-error" title="error">
+                        <svg class="slds-icon slds-icon_small" aria-hidden="true">
+                          <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#error"></use>
+                        </svg>
+                        <span class="slds-assistive-text">error</span>
+                      </span>
+                    </div>
+                    <div class="slds-media__body">
+                      <p>{errorMessage}
+                      </p>
+                    </div>
+                  </div>
+            </template>
+          </div>
+        </lightning-tab>
+        <lightning-tab label="Account Search" value="2" onactive={handleActive}>          
+          <div class="slds-p-top_medium">
+            <div class="slds-p-around_medium lgc-bg">
+              {labels.selectAccountLabel} <b>{accountStoreLabel}</b>
+            </div>
+            <div class="slds-p-around_medium lgc-bg" if:true={searchShowTable}>
+              {labels.selectedStoresLabel} <b>{selectedStores}</b>
+            </div>
+          </div>
+          <div class="slds-size_1-of-3" style="width: 52%;">
+            <lightning-record-edit-form object-api-name="Opportunity">                
+              <lightning-input-field field-name="AccountId" onchange={handleChange}></lightning-input-field>                    
+            </lightning-record-edit-form>
+          </div>        
+          <div if:true={searchShowTable}>
+            <lightning-datatable
+                      key-field="id"
+                      data={searchDataTable}
+                      columns={columns}
+                      onrowselection={selectedRowHandler}
+                      sorted-by="Name"
+                      data-id="Table2">
+            </lightning-datatable>                     
+          </div>
+          <div class="slds-p-around_medium lgc-bg" if:true={searchShowTableCloned}>
+            {labels.accountClonedLabel} <b>{accountStoreLabel}</b>
+          </div>     
+          <div if:true={searchShowTableCloned}>
+            <lightning-datatable
+                      key-field="id"
+                      data={searchDataTableCloned}
+                      columns={columns}
+                      sorted-by="Name" 
+                      hide-checkbox-column="true">
+            </lightning-datatable>                     
+          </div>           
+          <div if:true={searchShowError}>
+            <template for:each={searchErrorMessages} for:item="errorMessage" for:index="index"> 
+                <div key={errorMessage.index} class="slds-scoped-notification slds-media slds-media_center slds-theme_error" role="status">
+                    <div class="slds-media__figure">
+                      <span class="slds-icon_container slds-icon-utility-error" title="error">
+                        <svg class="slds-icon slds-icon_small" aria-hidden="true">
+                          <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#error"></use>
+                        </svg>
+                        <span class="slds-assistive-text">error</span>
+                      </span>
+                    </div>
+                    <div class="slds-media__body">
+                      <p>{errorMessage}
+                      </p>
+                    </div>
+                  </div>
+            </template>
+          </div>
+        </lightning-tab>
+        <lightning-tab label="CSV Import" value="3" onactive={handleActive}>
+          <div class="slds-p-top_medium">
+            <div class="slds-p-around_medium lgc-bg">
+              {labels.selectAccountLabel} <b>{accountStoreLabel}</b>
+            </div>
+            <div class="slds-p-around_medium lgc-bg">
+              {labels.csvInstructionsLabel}
+            </div>            
+            <div class="slds-p-around_medium lgc-bg" if:true={importShowTable}>
+              {labels.selectedStoresLabel} <b>{selectedStores}</b>
+            </div>
+          </div>
+          <div class="slds-p-top_medium" >
+            <c-lwc-dd-generic-upload-c-s-v 
+            onfileadded={handleFileAdded}
+            onfirefilereaderror={handleFileReadError}
+            onfileremoved={handleFileRemoved}
+            >
+            </c-lwc-dd-generic-upload-c-s-v>
+          </div>
+          <div if:true={importShowTable} >
+            <lightning-datatable
+                      key-field="id"
+                      data={importDataTable}
+                      columns={columns}
+                      onrowselection={selectedRowHandler}
+                      sorted-by="Name"
+                      data-id="Table3">
+            </lightning-datatable>                     
+          </div>
+          <div class="slds-p-around_medium lgc-bg" if:true={importShowTableCloned}>
+            {labels.accountClonedLabel} <b>{accountStoreLabel}</b>
+          </div>     
+          <div if:true={importShowTableCloned}>
+            <lightning-datatable
+                      key-field="id"
+                      data={importDataTableCloned}
+                      columns={columns}
+                      sorted-by="Name" 
+                      hide-checkbox-column="true">
+            </lightning-datatable>                     
+          </div>           
+          <div if:true={importShowError}>
+            <template for:each={importErrorMessages} for:item="errorMessage" for:index="index"> 
+                <div key={errorMessage.index} class="slds-scoped-notification slds-media slds-media_center slds-theme_error" role="status">
+                    <div class="slds-media__figure">
+                      <span class="slds-icon_container slds-icon-utility-error" title="error">
+                        <svg class="slds-icon slds-icon_small" aria-hidden="true">
+                          <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#error"></use>
+                        </svg>
+                        <span class="slds-assistive-text">error</span>
+                      </span>
+                    </div>
+                    <div class="slds-media__body">
+                      <p>{errorMessage}
+                      </p>
+                    </div>
+                  </div>
+            </template>
+          </div>
+        </lightning-tab>
+      </lightning-tabset>
+    </div>
+  </div>  
+</template>

@@ -1,0 +1,200 @@
+{
+  "agent_chat_end_chat_button_text": "End Chat",
+  "agent_chat_header_created_at_prefix": "Created",
+  "agent_chat_header_menu_button_accessibility_label": "Options",
+  "agent_chat_transfer_chat_button_text": "Transfer",
+  "agent_chat_header_new_message": {
+    "value": "New Message",
+    "context": "Banner to show 1 new message"
+  },
+  "agent_chat_header_new_messages": {
+    "value": "New Messages",
+    "context": "Banner to show 1 new message"
+  },
+  "chatapp_agent_connect_msg":
+    "You're now connected to our support agent {{agentName}}",
+  "chatapp_headerStrings_label": "DoorDash",
+  "chatapp_subHeaderStrings_label": "Support",
+  "chatapp_channel_error": "Unable to load messages due to a network issue",
+  "chatapp_closeModal_title": "End chat with support?",
+  "chatapp_closeModal_content":
+    "You're still in the middle of receiving support from our agent.\nAre you sure you want to end the chat with them?",
+  "chatapp_closeModal_primary_button": "End Chat",
+  "chatapp_closeModal_secondary_button": "Nevermind",
+  "chatapp_helpModal_title": "Prefer to call us?",
+  "chatapp_helpModal_content":
+    "Get in touch with us at {{supportNumber}} to speak to a live agent",
+  "chatapp_helpModal_primary_button": "Call Support",
+  "chatapp_helpModal_secondary_button": "Dismiss",
+  "chatapp_input_accessibility_label": "Send",
+  "chatapp_input_message_label": "Enter a message",
+  "chatapp_input_message_placeholder": "Type message",
+  "chatapp_customer_status": "Delivered",
+  "timestamp_just_now": "Just now",
+  "chatapp_incoming_timestamp_just_now": "Received just now",
+  "chatapp_incoming_timestamp_lt_20mins": "Received {{timestamp}} ago",
+  "chatapp_incoming_timestamp_gt_20mins": "Received at {{timestamp}}",
+  "chatapp_incoming_timestamp_gt_12_hrs": "{{timestamp}}",
+  "chatapp_message_status_canceled": "Canceled",
+  "chatapp_message_status_failed": "Failed to send",
+  "chatapp_message_status_pending": "Sending...",
+  "chatapp_outgoing_timestamp_just_now": "Sent just now",
+  "chatapp_outgoing_timestamp_lt_20mins": "Sent {{timestamp}} ago",
+  "chatapp_outgoing_timestamp_gt_20mins": "Sent at {{timestamp}}",
+  "chatapp_outgoing_timestamp_gt_12_hrs": "{{timestamp}}",
+  "chatapp_close": "Close",
+  "chatapp_close_chat": "Close Chat",
+  "chatapp_submit_rating": "Submit Rating",
+  "chatapp_acknowledge_survey_msg": "Thank you for the feedback!",
+  "chatapp_reconnect_with_agent": "Reconnect with an Agent",
+  "chatapp_reconnect_error_message":
+    "There was a network error, try again to reconnect",
+  "chatapp_inital_survey_rating_text": "Tap to review",
+  "chatapp_reconnect_error_cta": "Try Again",
+  "typing_indicator_is_typing": "is typing...",
+  "disable_message_text": "Messaging disabled until agent connects",
+  "image_thumbnail_accessibility_label": "Expand image",
+  "image_upload_accessibility_label": "Upload image",
+  "quick_reply_cta": "Send a quick response below:",
+  "chatapp_csat_modal_submit_rating": "Submit Rating",
+  "chatapp_csat_modal_dismiss": "Dismiss",
+  "chatapp_csat_feedback_dismiss": "Dismiss",
+  "chatapp_order_modal_orderSummary": "Order Summary",
+  "chatapp_order_modal_orderDetail": "Order Detail",
+  "chatapp_order_modal_pickupAddress": "Pickup Address",
+  "chatapp_order_modal_deliveryAddress": "Delivery Address",
+  "chatapp_order_modal_dasherInstruction": "Instructions:",
+  "chatapp_order_modal_cancelText": "Dismiss",
+  "chatapp_transfer_chat_accessibility_label": "Transfer Chat",
+  "chatapp_transfer_chat_textfield_placeholder":
+    "Find a queue to transfer this chat...",
+  "chatapp_transfer_chat_return_button_label": "Return to Chat",
+  "chatapp_transfer_chat_header_label": "Transfer Chat",
+  "chatapp_bot_survey_submit_button": {
+    "value": "Submit",
+    "context": "This is the button text for submit the survey for bot chat"
+  },
+  "chatapp_bot_survey_title": "How was your support experience?",
+  "chatapp_bot_survey_dismiss_button": {
+    "value": "Dismiss",
+    "context": "This is the button text for dismiss the survey for bot chat"
+  },
+  "chatapp_header_caviar_label": {
+    "value": "Caviar",
+    "context": "Header text for Caviar chat"
+  },
+  "chatapp_outage_mobile_message" : 
+  { "value": "We’re sorry, we were not able to load this Chat due to an issue. For instant support, you can check out our in-app self-help options.",
+    "context": "For chat outage this is the message consumer gets for mobile web"
+  },
+  "chatapp_outage_call_support_label": {
+    "value": "Call Support",
+    "context": "Label for button on the top of chat in case of outage"
+  },
+  "chatapp_outage_naviage_self_help_label": {
+    "value" : "Go to doordash.com/help",
+    "context" : "Button text in case of chat is down during outage. This provides alternative support options"
+  },
+  "chatapp_outage_dialog_content": {
+    "value" : "We’re sorry, we were not able to load this Chat due to an issue.",
+    "context" : "Context of dialog on desktop in case of chat outage"
+  },
+  "chatapp_outage_dialog_subtext": {
+    "value": "For instant support, you can check out our in-app self-help options. If you are still looking for help, check us out at doordash.com/help or call us via the phone icon at the top.",
+    "context" : "sub text of dialog on desktop in case of chat outage"
+  },
+  "chatapp_long_wait_agent_time_dialog_text": {
+    "value": "We’re sorry, we can't find an agent at this time",
+    "context": "When the agent join time to chat is long, dialog will show this text"
+  },
+  "chatapp_long_wait_agent_time_dialog_subtext": {
+    "value": "We are experiencing high demand right now. You can continue waiting for a moment or come back later.",
+    "context": "When the agent join time to chat is long, dialog will show this subtext"
+  },
+
+  "chatapp_long_wait_agent_time_dialog_close_button": {
+    "value": "Close Chat",
+    "context": "Close chat button text"
+  },
+  "chatapp_long_wait_agent_time_dialog_continue_button": {
+    "value": "Continue",
+    "context": "Continue with chat button text"
+  },
+  "chatapp_long_wait_times_body": {
+    "value": "We’ll help you as soon as possible. Keep your chat open in the app and we’ll send a push notification when an agent is available. You can also end the chat if you no longer need support.",
+    "context": "content of the bottom sheet for long wait times in chat"
+  },
+  "chatapp_long_wait_times_title": {
+    "value": "Unusually High Wait Times",
+    "context": "title of the bottom sheet for long wait times in chat"
+  },
+  "chatapp_long_wait_times_primary_button": {
+    "value": "Got it",
+    "context": "primary button text of the bottom sheet for long wait times in chat"
+  },
+  "chatapp_long_wait_times_secondary_button": {
+    "value": "End chat",
+    "context": "secondary button text of the bottom sheet for long wait times in chat"
+  },
+  "chatapp_idle_response_body": {
+    "value": "Thanks for continuing to be patient while we help other customers. Confirm that you’re still waiting so the chat doesn’t time out or end the chat if you no longer need support.",
+    "context": "content of the bottom sheet for idle response in chat"
+  },
+  "chatapp_idle_response_title": {
+    "value": "Confirm You’re Still There",
+    "context": "title of the bottom sheet for idle response in chat"
+  },
+  "chatapp_idle_response_primary_button": {
+    "value": "Still here, continue waiting",
+    "context": "primary button text of the bottom sheet for idle response in chat"
+  },
+  "chatapp_idle_response_secondary_button": {
+    "value": "End chat",
+    "context": "secondary button text of the bottom sheet for idle response in chat"
+  },
+  "chatapp_teammate_outage_body": {
+    "value": "Our chat support systems went down unexpectedly so we had to end the chat. Try calling us so we can get this resolved for you as soon as possible.",
+    "context": "content of the bottom sheet for teammate outage in chat"
+  },
+  "chatapp_teammate_outage_title": {
+    "value": "Chat Support Outage Detected",
+    "context": "title of the bottom sheet for teammate outage in chat"
+  },
+  "chatapp_teammate_outage_primary_button": {
+    "value": "Call Support",
+    "context": "primary button text of the bottom sheet for teammate outage in chat"
+  },
+  "chatapp_teammate_outage_secondary_button": {
+    "value": "End chat",
+    "context": "secondary button text of the bottom sheet for teammate outage in chat"
+  },
+  "chatapp_chat_outage_body": {
+    "value": "Chat support is temporarily down. If you still need help, you can call us below.",
+    "context": "content of the bottom sheet for chat outage in chat"
+  },
+  "chatapp_chat_outage_primary_button": {
+    "value": "Call Support",
+    "context": "primary button text of the bottom sheet for chat outage"
+  },
+  "chatapp_chat_outage_secondary_button": {
+    "value": "End Chat",
+    "context": "secondary button text of the bottom sheet for chat outage"
+  },
+  "chatapp_chat_throttle_outage_body": {
+    "value": "Our chat support systems went down unexpectedly so we had to end the chat. Please visit our Help Center below for guidance.",
+    "context": "content of the bottom sheet for chat outage in chat when phone support is throttled"
+  },
+  
+  "chatapp_chat_throttle_outage_title": {
+    "value": "Chat Support Outage Detected",
+    "context": "title of the bottom sheet for chat outage in chat when phone support is throttled"
+  },
+  "chatapp_chat_throttle_outage_primary_button": {
+    "value": "Visit Help Center",
+    "context": "primary button text of the bottom sheet for chat outage in chat when phone support is throttled"
+  },
+  "chatapp_chat_throttle_outage_secondary_button": {
+    "value": "Close",
+    "context": "secondary button text of the bottom sheet chat outage in chat when phone support is throttled"
+  }
+}

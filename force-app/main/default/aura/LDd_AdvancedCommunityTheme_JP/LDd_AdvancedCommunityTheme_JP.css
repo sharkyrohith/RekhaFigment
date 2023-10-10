@@ -1,0 +1,1369 @@
+@font-face {
+    font-family: 'DDTTNorms1', Helvetica, Arial, sans-serif;
+    src: url('sfsites/c/resource/DDTTNorms1') format('woff');
+}
+/*-- Header Top --*/
+
+.THIS section.ddst-header {
+    /*  position: relative; 
+    margin-top: 50px;*/
+    display: block;
+    
+}
+
+.THIS .ddst-header-wrap {
+    /*  
+    position: fixed;
+    top: 0;    */
+    width: 100%;
+    background: #FFF;
+    border-bottom: 1px #eee solid;
+    z-index: 20;
+    
+}
+
+.THIS .ddst-header-fixed {
+    /*   display: block;
+    position: fixed;
+    */
+    width: 100%;
+    background: #FFF;
+    border-bottom: 1px #eee solid;
+}
+
+
+.THIS .ddst-header-top-wrap {
+    padding: 0px 0 20px 0px;
+    max-width: 1200px;
+    margin: 0px auto;
+}
+
+.THIS .ddst-languageBar {
+    background: #fff;
+    position: relative;
+    top: 0px;
+}
+
+.THIS .ddst-languageBar div[data-region-name="languageBar"] {
+    max-width: 1180px;
+    margin: 0px auto;
+    text-align: right;
+}
+
+
+.THIS .ddst-logo img {
+    height: 25px;
+    margin: 4px 0 6px;
+    width: 175px;
+}
+
+.THIS .ddst-logo img.ddst-logo-red-full { 
+    width: 160px;
+    height: 34px;
+    border-right: #CCC solid 1px;
+    padding-right: 15px;
+}
+
+.THIS .ddst-logo span.ddst-logo-id {
+    display: inline-block;
+    padding-left: 10px;
+    height: 36px;
+    color: #686868;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.THIS .ddst-contact {
+    text-align: right;
+}
+
+.THIS .ddst-contact a.ddst-topiccatalog:hover {
+    background-color: #FAE4E1;
+}
+
+.THIS .forceCommunityGlobalNavigation {
+    background-color: #FFF;
+}
+
+.THIS .forceCommunityGlobalNavigation .button.slds-container_fluid.slds-button.slds-button--reset.slds-truncate {
+    color: #000;
+}
+
+/*-- Navigation Desktop --*/
+@media only screen and (min-width:47.9375em) {
+    
+    .THIS .forceCommunityGlobalNavigation nav ul.comm-navigation__list li.slds-list__item a{
+        color: #000;
+    }
+    
+    .THIS .forceCommunityGlobalNavigation .slds-list__item a, .THIS .forceCommunityGlobalNavigation .slds-list__item button {
+        background-color: transparent !important;
+    }
+    
+    /*
+    .THIS .forceCommunityGlobalNavigation nav ul.comm-navigation__list li.slds-list__item a::after {
+    content: '';
+    background-image: url(/consumers/resource/SRDdHelpSelectAssets/arrow-2px.svg);
+    height: 15px;
+    width: 15px;
+    display: inline-block;
+    background-repeat: no-repeat;
+    position: relative;
+    top: 5px;
+    margin-left: 5px;
+}
+    */
+    
+    .THIS.Merchant .forceCommunityGlobalNavigation nav ul.comm-navigation__list li.slds-list__item a::after {
+        display: none;
+    }
+    
+    .THIS .forceCommunityGlobalNavigation nav ul.comm-navigation__list li.overflowContainer a::after {
+        display: none;
+    }
+    
+    .THIS .forceCommunityGlobalNavigation nav ul.comm-navigation__list li.slds-list__item a[title="Home"]::after {
+        display: none;
+    }
+    
+    .THIS .forceCommunityGlobalNavigation .slds-list_horizontal>.slds-list__item>.comm-navigation__item>.slds-is-nested {
+        border-radius: .125rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.07);
+        min-width: 175px;
+        margin-top: 16px;
+    }
+    /*-- Drop down main nav --*/
+    
+    .THIS .forceCommunityGlobalNavigation nav ul.comm-navigation__list ul.slds-is-nested li.slds-list__item a::after {
+        display: none;
+    }
+    
+    .THIS .forceCommunityGlobalNavigation .slds-list__item a, .THIS .forceCommunityGlobalNavigation .slds-list__item button {
+        color: #000;
+    }
+    
+    .THIS .forceCommunityGlobalNavigation .slds-list__item a:hover, .THIS .forceCommunityGlobalNavigation .slds-list__item button:hover {
+        color: rgb(255, 48, 8)!important;
+        background-color: transparent !important;
+    }
+    
+    /* - adds nub above main menu dropdown --- 
+    .THIS .forceCommunityGlobalNavigation nav ul.comm-navigation__list li.overflowContainer ul.slds-is-nested:before {
+    width: 1rem;
+    height: 1rem;
+    position: absolute;
+    transform: rotate(45deg);
+    content: '';
+    background-color: inherit;
+    left: 50%;
+    top: -.5rem;
+    margin-left: -.5rem;
+}
+    */
+    
+    .THIS .forceCommunityGlobalNavigation nav ul.comm-navigation__list li.overflowContainer button{
+        color: #000;
+        background-color: #ffffff !important;
+        padding: .2rem .75rem;
+    }
+    
+    .THIS .forceCommunityGlobalNavigation .slds-list_vertical {
+        background-color: #ffffff !important;
+    }
+    
+    .THIS .forceCommunityGlobalNavigation .slds-list_vertical li.slds-list__item {
+        padding: 0px !important;
+    }
+    
+    .THIS .forceCommunityGlobalNavigation .slds-list_vertical li.slds-list__item a{
+        padding: 5px 10px !important;
+    }
+    
+    .THIS .forceCommunityGlobalNavigation nav ul.comm-navigation__list {
+        flex-direction: row;
+        justify-content: flex-end; 
+    }
+    
+    .THIS .forceCommunityGlobalNavigation nav ul.comm-navigation__list li.slds-list__item {
+        padding-left: 30px;
+        line-height: 30px;
+        white-space: nowrap;
+        
+    }
+    
+    .THIS .forceCommunityGlobalNavigation nav ul.comm-navigation__list li a{
+        font-weight: bold;
+        font-size: .875rem;
+        padding: 0 5px;
+        width: 100%;
+        text-align: left;
+        line-height: 33px;
+    }
+    
+    .THIS .forceCommunityGlobalNavigation nav ul.comm-navigation__list li a:hover{
+        background-color: transparent !important;
+        color: rgb(255, 48, 8) !important;
+    }
+    
+    .THIS .forceCommunityGlobalNavigation nav ul.comm-navigation__list li a.slds-is-active{
+        background-color: transparent !important;
+    }
+    
+    .THIS .forceCommunityGlobalNavigation nav ul.comm-navigation__list li a.slds-is-active{
+        border-bottom: 2px solid rgb(255, 48, 8);
+    }    
+    
+    /*-- Add border-radius to search results container --*/
+    .THIS .forceCommunitySearchBox .result-container {
+        border-radius: 10px;
+        margin-top: 10px;
+    }
+    
+    .THIS .forceCommunityDeflection .uiAutocompleteList {
+        background-color: transparent;
+    }
+    
+    /*-- Hides article search results metadata from list-view --*/
+    
+    .THIS .forceCommunityDeflectionOption .option-attribute-list {
+        display: none;
+    }
+}
+/*-- Hero Banner -- */
+
+.THIS .ddst-hero-banner-wrap {
+    display: block;
+    background-size: cover;
+    margin: 0px auto;
+    width: 100%;
+    height: 375px;
+    padding: 118px 30px;
+}
+
+.THIS .ddst-hero-banner {
+    max-width: 1180px;
+    margin: 0px auto;
+}
+
+
+
+
+/*-- Home Hero Banner --*/
+
+.THIS .ddst-header.Home .ddst-hero-banner-wrap {
+    height: 360px;
+    padding: 60px 30px 0px 30px;
+    background-color: #cccccc;
+    position: relative;
+    border-bottom: 1px #eee solid;
+}
+
+
+
+.THIS .ddst-header.Home .ddst-hero-banner-content {
+    color: #000;
+    text-align: left;
+    font-weight: 500;
+    
+}
+
+.THIS .ddst-hero-small-title {
+    text-align: left;
+    font-size: 1.5rem;
+    width: 100%;
+    text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.85);
+}
+
+.THIS .ddst-hero-inner-title{
+    text-align: center;
+    font-size: 1.5rem;
+    width: 100%;
+    text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.85);
+    padding-bottom: 10px;
+}
+
+
+
+.THIS .ddst-hero-title {
+    text-align: left;
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin-top: 12px;
+    width: 100%;
+    text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.85);
+}
+
+.THIS .ddst-header.Home .ddst-searchBox {
+    width: 60%;
+    margin-top: 2.5rem;
+}
+
+.THIS button.slds-button.slds-button_brand.search-button {
+    background-image: url(/resource/SRDdHelpSelectAssets/SVGs/ic_search_white.svg);
+    font-size: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 18px;
+    width: 80px;
+    
+}
+
+/*-- Inner Hero Banner and Article Detail Hero Banner --*/
+
+.THIS .ddst-header.Inner .ddst-hero-banner-wrap, .THIS .ddst-header.ArticleDetail .ddst-hero-banner-wrap  {
+    height: 125px;
+    padding: 16px 30px 0px 30px;
+    background-color: #cccccc;
+    background-position: bottom;
+}
+
+.THIS .ddst-header.Inner .ddst-hero-title, .THIS .ddst-header.ArticleDetail .ddst-hero-title {
+    padding: 15px 20px 5px 20px;
+}
+
+
+
+/*-- DCC Hero Banner --*/
+
+.THIS .ddst-header.DCC .ddst-hero-dcc-title {
+    font-family: DDTTNorms1;
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin-top: 12px;
+    color: #FFFFFF;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+/*-- Consumer Home Hero Banner --*/
+
+.THIS.Consumer .ddst-header.Home .ddst-hero-banner-wrap {
+    background-image: url(/consumers/resource/SRDd_CommunityHero/DD_AppLogo_Food_V3.jpg);
+}
+
+/*-- Merchant Inner Hero Banner --*/
+
+.THIS.Consumer .ddst-header.Inner .ddst-hero-banner-wrap, .THIS.Consumer .ddst-header.ArticleDetail .ddst-hero-banner-wrap {
+    background-image: url(/consumers/resource/SRDd_CommunityHero/DD_AppLogo_Food_V3.jpg);
+    background-position: top;
+    
+}
+
+/*-- Dasher Home Hero Banner --*/
+
+.THIS.Dasher .ddst-header.Home .ddst-hero-banner-wrap {
+    background-image: url(/dashers/resource/SRDd_CommunityHero/Dashers.jpg);
+}
+
+/*-- Dasher Inner Hero Banner --*/
+
+.THIS.Dasher .ddst-header.Inner .ddst-hero-banner-wrap {
+    background-image: url(/dashers/resource/SRDd_CommunityHero/Dashers.jpg);
+}
+
+.THIS.Dasher .ddst-header.ArticleDetail .ddst-hero-banner-wrap {
+    background-image: url(/dashers/resource/SRDd_CommunityHero/Dashers.jpg);
+}
+
+/*-- DCC --*/
+
+.THIS.Dasher .ddst-header.DCC .ddst-hero-banner-wrap {
+    background-image: url(/dashers/resource/SRDd_CommunityHero/DCC-header-image-cropped-third.jpg);
+    background-position: bottom center;
+    background-size: cover;
+}
+
+/*-- VDC --*/
+.THIS.Dasher .ddst-header.VDC .ddst-hero-banner-wrap {
+    background-image: url(/dashers/resource/SRDd_CommunityHero/VDC_Banner_Community_blank.jpg);
+    background-position: center center;
+    background-size: cover;
+}
+
+
+/*-- Merchant Home Hero Banner --*/
+
+.THIS.Merchant .ddst-header.Home .ddst-hero-banner-wrap {
+    background-image: url('/merchants/resource/SRDd_CommunityHero/Merchant.jpg');
+    background-size: cover;
+}
+
+/*-- Merchant Inner Hero Banner --*/
+
+.THIS.Merchant .ddst-header .ddst-hero-banner-wrap {
+    background-image: url('/merchants/resource/SRDd_CommunityHero/Merchant.jpg');
+    background-position: left center;
+    background-size: 155%;
+}
+.THIS.Merchant .ddst-header.ArticleDetail .ddst-hero-banner-wrap {
+    background-image: url('/merchants/resource/SRDd_CommunityHero/Merchant.jpg');
+}
+
+/*-- Work Home Hero Banner --*/
+
+.THIS.Work .ddst-header.Home .ddst-hero-banner-wrap {
+    background-image: url('/work/resource/SRDd_CommunityHero/dd-work-hero-red.jpg');
+    background-size: cover;
+}
+
+/*-- Work Inner Hero Banner --*/
+
+.THIS.Work .ddst-header .ddst-hero-banner-wrap {
+    background-image: url('/work/resource/SRDd_CommunityHero/dd-work-hero-blue.jpg');
+    background-position: top center;
+    background-size: 100%;
+}
+.THIS.Work .ddst-header.ArticleDetail .ddst-hero-banner-wrap {
+    background-image: url('/work/resource/SRDd_CommunityHero/dd-work-hero-yellow.jpg');
+    background-position: center;
+}
+
+
+
+/*-- Search V2 -- */
+
+.THIS .contentWrapper {
+    border-radius: 50px !important;
+}
+
+.THIS .ddst-searchBox {
+    width: 60%;
+}
+
+.THIS .forceCommunitySearchBox .ddst-searchBox input {
+    background: #fff !important;
+    
+}
+
+.THIS .forceCommunitySearchBox .search-field {
+    border-radius: 25px;
+    font-size: 18px;
+    color: rgba(0, 0, 0, 0.8);
+    padding-right: 16px;
+    border: 1px solid rgb(229, 229, 229) !important;
+}
+
+.THIS .forceCommunitySearchBox .search-field::placeholder {
+    font-size: 18px;
+    color: #999;
+}
+
+.THIS .ddst-searchBox .inputWrapper {
+    padding-left: 3rem;
+    background: #fff;
+    height: 40px;
+}
+
+.THIS .ddst-search-wrap {
+    display: block;
+    width: 100%;
+}
+
+.THIS .forceCommunitySearchBox .search-button {
+    width: 100px;
+    height: 100%;
+    border-radius: 0px 25px 25px 0px;
+    border: 1px solid rgb(229, 229, 229) !important;
+}
+
+/*-- Body --*/
+.THIS .ddst-body-wrap {
+    display: block;
+    width: 100%;
+    
+}
+
+.THIS .interiorFrame {
+    max-width: 1200px;
+    margin: 5px auto 20px auto;
+}
+
+/*-- Inner Search --*/
+
+.THIS .ddst-header.Inner .ddst-search-wrap {
+    display: inline-block;
+    width: 100%;
+    margin-right: 25px;
+    position: relative;
+    top: 0px;
+    /*   max-width: 330px; */
+}
+
+.THIS .ddst-header.Inner .forceCommunitySearchBox .search-field {
+    border: 1px #CCC solid;
+}
+
+.THIS .ddst-header.Inner .ddst-searchBox {
+    width: 100%;
+    max-width: 550px;
+    margin: 0px auto;
+}
+
+.THIS .ddst-header.Inner .ddst-searchBox .inputWrapper {
+    padding-left: 2.5rem;
+    background: #fff;
+    height: 30px;
+}
+
+/*-- Article Detail Search --*/
+
+.THIS .ddst-header.ArticleDetail .ddst-search-wrap {
+    display: inline-block;
+    width: 100%;
+    margin-right: 25px;
+    position: relative;
+    top: 0px;
+    /*   max-width: 330px; */
+}
+
+.THIS .ddst-header.ArticleDetail .forceCommunitySearchBox .search-field {
+    border: 1px #CCC solid;
+}
+
+.THIS .ddst-header.ArticleDetail .ddst-searchBox {
+    width: 100%;
+    max-width: 550px;
+    margin: 0px auto;
+}
+
+.THIS .ddst-header.ArticleDetail .ddst-searchBox .inputWrapper {
+    padding-left: 2.5rem;
+    background: #fff;
+    height: 30px;
+}
+
+/*-- Overwrites --*/
+
+/*- headline -*/
+.THIS .forceCommunityHeadline .headlineTitle {
+    text-align: left;
+    font-size: 28px;
+    font-weight: 500;
+    padding-top: 0px;
+}
+
+/*- article list by topics -*/
+
+.THIS .forceCommunityTopArticleList h2.title {
+    font-size: 18px;
+    line-height: 1.375;
+    font-weight: 100;
+}
+
+
+/*-- Feature Topics --*/
+.THIS .forceTopicFeaturedTopicItem.topicItem {
+    width: 33.33333333333333%;
+    height: 150px;
+}
+
+.THIS .forceTopicFeaturedTopics .topicContent .topicLabel {
+    text-align: center;
+    font-size: 15px;
+}
+
+
+
+/* from CSS file */
+
+
+/*-- Desktop --*/
+@media only screen and (min-width:47.9375em) {
+    
+    
+    /* Featured Topic Overrides  */
+    
+    .THIS.Consumer .forceTopicFeaturedTopicItem.topicItem, .THIS.Dasher .forceTopicFeaturedTopicItem.topicItem, .THIS.Merchant .forceTopicFeaturedTopicItem.topicItem {
+        height: 360px !important;
+        padding-right: 20px !important;
+        padding-bottom: 20px  !important;
+    }
+    
+    .THIS.Consumer .forceTopicFeaturedTopicItem .topicImage, .THIS.Dasher .forceTopicFeaturedTopicItem .topicImage, .THIS.Merchant .forceTopicFeaturedTopicItem .topicImage {
+        background-position: center -20px !important;
+    }
+    
+    .THIS.Consumer .forceTopicFeaturedTopicItem .topicLabel, .THIS.Dasher .forceTopicFeaturedTopicItem .topicLabel, .THIS.Merchant .forceTopicFeaturedTopicItem .topicLabel {
+        min-width: min-content;
+        align-self: center;
+        color: #ffffff;
+        text-transform: capitalize;
+        font-size: .8125rem;
+        font-weight: 500;
+        line-height: 52px;
+        font-size: 32px !important;
+        letter-spacing: 0ch;
+        padding: 18px;
+        top: 7%;
+        position: relative;
+        text-shadow: 1px 1px 0 rgba(0,0,0, 0.85);
+        line-height: 2.3rem;
+    }
+    
+}
+
+@media only screen and (max-width:47.9375em) {
+    .THIS.Consumer .forceTopicFeaturedTopicItem.topicItem, .THIS.Dasher .forceTopicFeaturedTopicItem.topicItem, .THIS.Merchant .forceTopicFeaturedTopicItem.topicItem {
+        height: 360px !important;
+        
+    }
+    
+    .THIS.Consumer .forceTopicFeaturedTopicItem .topicLabel, .THIS.Dasher .forceTopicFeaturedTopicItem .topicLabel, .THIS.Merchant .forceTopicFeaturedTopicItem .topicLabel {
+        min-width: min-content;
+        align-self: center;
+        color: #ffffff;
+        text-transform: capitalize;
+        font-size: .8125rem;
+        font-weight: 500;
+        line-height: 52px;
+        font-size: 28px !important;
+        letter-spacing: 0ch;
+        padding: 18px;
+        top: 10%;
+        position: relative;
+    }
+    
+}
+@media (max-width:767px) {
+    .THIS.Consumer .forceTopicFeaturedTopicItem.topicItem, .THIS.Dasher .forceTopicFeaturedTopicItem.topicItem, .THIS.Merchant .forceTopicFeaturedTopicItem.topicItem {
+        display: block !important;
+        width: 100% !important;
+        clear: both;
+        width: 100% !important;
+        max-width: 360px !important;
+        height: 330px !important;
+        padding-bottom: 10px  !important;
+    }  
+    .THIS .forceCommunityThemeHeroBase .contentTitle {
+        line-height: 1.1 !important;
+        margin-top: 8px;
+    }
+    .THIS .forceCommunityThemeHeroBase .contentCaption {
+        font-size: 22px !important;
+        line-height: 1.5;
+    }
+    
+}
+@media (max-width:480px) {
+    .THIS.Consumer .forceTopicFeaturedTopicItem.topicItem, .THIS.Dasher .forceTopicFeaturedTopicItem.topicItem, .THIS.Merchant .forceTopicFeaturedTopicItem.topicItem {
+        display: block !important;
+        width: 100% !important;
+        clear: both;
+        width: 100% !important;
+        max-width: 100% !important;
+        height: 330px !important;
+    }  
+    .THIS.Consumer .forceTopicFeaturedTopicItem .topicLink, .THIS.Dasher .forceTopicFeaturedTopicItem .topicLink, .THIS.Merchant .forceTopicFeaturedTopicItem .topicLink {
+        width: 100% !important;
+        height: 100% !important;
+    }    
+}
+
+
+
+
+/*-- Article Lists --*/
+
+.THIS .forceCommunityTopArticleList .forceCommunityTopArticleItem a.article-title-link span {
+    color: rgba(0, 0, 0, 0.8);
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.THIS .forceCommunityTopArticleList .forceCommunityTopArticleItem a.article-title-link:hover span {
+    color: #d42200;
+}
+
+
+
+/*-- Article Detail Style Overrides --*/
+
+.THIS article.content .test-id__field-label-container.slds-form-element__label {
+    display: none;
+}
+
+.THIS .selfServiceArticleLayout .slds-rich-text-editor__output.forceOutputRichText {
+    line-height: 1.8;
+}
+
+/* hides article toolip */
+.THIS .selfServiceArticleLayout .tooltipIcon, .THIS .selfServiceArticleLayout .tooltipIcon .slds-icon {
+    display: none !important;
+}
+
+
+/* adds padding to bottom of article body */
+
+.THIS .selfServiceArticleLayout .content .itemBody {
+    padding-bottom: 20px !important;
+}
+
+
+/*-- Topic Detail Overrides --*/
+/*- hides tabs from topic layout -*/
+.THIS .interiorFrame .forceCommunityResultsList .uiTabBar[role="tablist"] {
+    display: none;
+}
+
+.THIS .forceTopicSubTopicNavigation .topic-subNavContainer {
+    font-size: 1rem;
+    text-align: left;
+}
+
+/*-- Search Results Overrides --*/
+.THIS .forceCommunitySearch .slds-tile .slds-tile__detail.slds-text-body--small {
+    display: none;
+}
+
+.THIS .forceCommunitySearch .slds-border_right.slds-medium-size_1-of-6 {
+    display: none !important;
+}
+
+.THIS .forceCommunitySearch .slds-tile .itemTitle {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+/*-- Breakpoint for Tablet --*/
+@media screen and (max-width: 768px) {
+    .THIS .ddst-header.Home .ddst-hero-banner-wrap {
+        height: 200px;
+        padding: 25px 30px 65px 30px;
+        background-position: center center;
+        background-size: cover;
+    }
+    
+    .THIS .ddst-header.Home .ddst-hero-banner-wrap {
+        height: 200px;
+        padding: 25px 30px 65px 30px;
+        background-position: center center;
+        background-size: cover;
+    }
+    
+    .THIS.Consumer .ddst-header.Home .ddst-hero-banner-wrap {
+        background-position: left center;
+    }
+    
+    .THIS.Consumer .ddst-header .ddst-hero-banner-wrap {
+        background-position: left;
+        background-size: 120%;
+    }
+    
+    .THIS.Dasher .ddst-header.Home .ddst-hero-banner-wrap {
+        background-position: left center;
+        background-size: 175%;
+    }
+    
+    .THIS.Dasher .ddst-header .ddst-hero-banner-wrap {
+        background-position: left;
+        background-size: 120%;
+    }
+    
+    .THIS.Merchant .ddst-header.Home .ddst-hero-banner-wrap {
+        background-position: left top;
+        background-size: 165%;
+    }
+    
+    .THIS.Merchant .ddst-header .ddst-hero-banner-wrap {
+        background-position: top left;
+        background-size: 125%;
+    }
+    
+    .THIS .ddst-logo  { 
+        text-align: right;
+    }    
+    
+    .THIS .ddst-logo img { 
+        width: 130px;
+    }
+    
+    .THIS .ddst-navBar {
+        padding-left: 0px;
+    }
+    
+    .THIS .forceCommunityGlobalNavigation community_navigation-global-navigation-list > .slds-grid {
+        padding-left: 0px;
+    }
+    .THIS  .ddst-header-top-wrap {
+        padding: 5px 0 5px;
+    }
+    
+    .THIS .ddst-header.Home .ddst-hero-banner-content {
+        text-align: center;
+    }
+    
+    .THIS .ddst-hero-small-title {
+        text-align: center;
+        font-size: 1.3rem;
+    }
+    
+    .THIS .ddst-header.Home .ddst-hero-title {
+        padding: 0px 20px 10px 20px;
+        text-align: center;
+        font-size: 3rem;
+        line-height: 1.1;
+        margin-top: 0px;
+    }    
+    
+    .THIS .ddst-header.Home .ddst-searchBox {
+        width: 100%;
+        margin-top: 0rem;
+    }
+    
+    .THIS .forceCommunitySearchBox .mobile-search-icon {
+        margin: 0 auto;
+        background-color: rgb(255, 48, 8);
+        padding: 2px 8px;
+        border-radius: 4px;
+    }
+    
+    .THIS .forceCommunitySearchBox .mobile-search-icon lightning-primitive-icon {
+        color: #fff;
+    }
+    
+    .THIS .forceCommunitySearchBox.focused .close-button.slds-button {
+        color: #fff;
+        background-color: rgb(255, 48, 8);  
+        border-radius: 0px 50px 50px 0;
+    }
+    
+    .THIS .forceCommunityDeflectionOption a.suggestion {
+        padding: 12px 8px 12px 8px;
+    }
+    
+    .THIS .forceCommunitySearchBox.focused .forceCommunityDeflectionOption .option-attribute-list {
+        display: none;
+    }
+    
+    .THIS .forceCommunitySearchBox.focused {
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 8000;
+    }
+    
+    .THIS .forceCommunitySearchBox .search-wrapper {
+        z-index: 10;
+    }
+    
+    .THIS .forceCommunitySearchBox.focused .search-wrapper {
+        z-index: 8000;
+    }
+    
+    .THIS .forceCommunitySearchBox.focused .search-container {
+        border: none;
+    }
+    
+    .THIS .forceCommunitySearchBox.focused .zero-state-panel {
+        background-color: #fff;
+    }
+    
+    .THIS .forceCommunitySearchBox.focused .search-container {
+        border-radius: 26px;
+    }
+    
+    .THIS .ddst-header.Inner .forceCommunitySearchBox .mobile-search-icon lightning-primitive-icon {
+        color: #fff;
+    }
+    
+    .THIS .ddst-languageBar {
+        padding-left: 0px;
+    }
+    
+    /* hides 'Ask a Question' from mobile search bar */
+    .THIS .forceCommunitySearchBox.focused .zero-state-panel {
+        display: none !important;
+    }
+    
+    .THIS lightning-combobox.forceCommunityLanguageSelector43 .slds-form-element__control {
+        max-width: 100% !important;
+    }
+    /*-- set width of language dropdown options --*/
+    .THIS lightning-combobox.forceCommunityLanguageSelector43 .slds-dropdown_fluid, .THIS lightning-combobox.forceCommunityLanguageSelector43 .slds-dropdown--fluid {
+        min-width: 8rem;
+        max-width: 100%;
+        width: 100%;
+    }
+    
+    
+    .THIS .forceCommunityGlobalNavigation lightning-button-icon button svg {
+        fill: #000;
+    }
+    
+    .THIS .forceCommunityGlobalNavigation lightning-button-icon button:hover svg {
+        fill: #d42200;
+    }
+    
+    /*-- Mobile Nav --*/
+    
+    .THIS .forceCommunityGlobalNavigation .slds-list_vertical {
+        height: auto;
+        width: 100%;
+        overflow-y: scroll;
+    }
+    
+    .THIS .forceCommunityGlobalNavigation .slds-list_vertical {
+        background-color: #fff; 
+        position: relative;
+        /* top: 65px; */
+    }
+    
+    .THIS .forceCommunityGlobalNavigation community_navigation-global-navigation-item a {
+        color: #000;
+        padding: 17px 0px;
+        font-size: 16px;
+        font-weight: bold;
+        outline: none !important;
+    }
+    .THIS .forceCommunityGlobalNavigation community_navigation-global-navigation-item a:hover {
+        background-color: #fae4e1; 
+    } 
+    
+    .THIS .ddst-header.ArticleDetail .ddst-hero-banner-wrap, .THIS .ddst-header.Inner .ddst-hero-banner-wrap {
+        height: 120px;
+        padding: 15px 15px 0px 15px;
+    }
+    
+    /*-- DCC Hero Banner --*/
+    
+    .THIS .ddst-header.DCC .ddst-hero-dcc-title, .THIS .ddst-header.VDC .ddst-hero-dcc-title {
+        font-size: 2rem;
+        line-height: 1.1;
+        margin-top: 12px;
+    }
+    
+    .THIS.Dasher .ddst-header.DCC .ddst-hero-banner-wrap, .THIS.Dasher .ddst-header.VDC .ddst-hero-banner-wrap {
+        height: 120px;
+        padding: 30px 15px 15px 15px;
+    }
+    
+    /*-- Styles the inner hamburger dropdown menu --*/
+    
+    .THIS .forceCommunityGlobalNavigation .slds-list__item a,  .THIS .forceCommunityGlobalNavigation .slds-list__item button {
+        white-space: nowrap;
+        color: #000;
+        padding: 14px 0;
+        font-size: 16px;
+        font-weight: bold;
+        background-color: transparent !important;
+    }
+    
+    .THIS .forceCommunityGlobalNavigation .slds-list_vertical.slds-is-nested {
+        top: 0px !important;
+    }
+    
+    .THIS .forceCommunityGlobalNavigation .slds-list_vertical.slds-is-nested li.slds-list__item {
+        padding-left: 10px;
+    }
+    
+    /*-- article content padding for tablet and mobile --*/   
+    .THIS .selfServiceArticleLayout.zoom.article-column {
+        padding: 0 10px 0;
+    }
+    
+}
+
+/*-- Breakpoint for Mobile --*/
+
+@media screen and (max-width: 480px) {
+    
+    .THIS .ddst-header.Home .ddst-hero-banner-wrap {
+        height: 140px;
+        padding: 1px 3px;
+    }
+    
+    .THIS.Merchant .ddst-header .ddst-hero-banner-wrap {
+        background-position: top left;
+        background-size: 145% !important;    }
+    
+    .THIS.Dasher .ddst-header .ddst-hero-banner-wrap {
+        background-position: bottom left;
+        background-size: 150%!important;
+    }
+    
+    .THIS.Consumer  .ddst-header .ddst-hero-banner-wrap {
+        background-position: bottom left;
+        background-size: 120%!important;
+    }
+    
+    .THIS .ddst-header.Inner .ddst-hero-banner-wrap {
+        height: 115px;
+        padding: 15px 30px;
+    }
+    
+    .THIS.Merchant .ddst-header.Home .ddst-hero-banner-wrap {
+        background-position: top left;
+        background-size: 145% !important;
+    }
+    
+    .THIS.Dasher .ddst-header.Home .ddst-hero-banner-wrap {
+        background-position: bottom left;
+        background-size: 150%!important;
+    }
+    
+    .THIS.Consumer .ddst-header.Home .ddst-hero-banner-wrap {
+        background-position: top left;
+        background-size: 130% !important;
+    }
+    
+    .THIS .ddst-header.Home .ddst-hero-small-title {
+        padding-top: 12px;
+    }
+    
+    .THIS .ddst-header.Home .ddst-hero-title {
+        padding: 5px 10px 15px 20px;
+        line-height: 28px;
+        font-size: 30px;
+    }
+    
+    .THIS .ddst-header.Home .ddst-searchBox {
+        width: 100%;
+    }
+    
+    .THIS .ddst-header.Inner .ddst-hero-title {
+        padding: 30px 10px 0 10px;
+        line-height: 24px;
+        font-size: 24px;
+        text-align: center;
+    }
+    
+    .THIS .ddst-header.Inner .ddst-searchBox .inputWrapper {
+        height: 32px;
+    }
+    
+    .THIS .ddst-header.Inner .ddst-search-wrap {
+        width: 100%;
+        margin-right: 0px;
+        position: relative;
+        padding-left: 0px;
+        top: 4px;
+    }
+    
+    .THIS .ddst-contact a.ddst-contact-support {
+        font-size: 12px;
+        padding: 0 10px;
+    }
+    
+    .THIS .forceCommunitySearchBox .mobile-search-icon {
+        margin: 0 auto;
+        background-color: rgb(255, 48, 8);
+        padding: 3px 12px 6px 12px;
+        border-radius: 4px;
+        position: relative;
+        top: -3px;
+    }
+    
+    .THIS .forceCommunitySearchBox .mobile-search-icon lightning-primitive-icon {
+        color: #fff;
+    }
+    
+}
+
+/*-- LANGUAGE PICKER STYLES --*/
+
+.THIS lightning-combobox.forceCommunityLanguageSelector43  input.slds-input {
+    text-align: right;
+    padding-right: 28px;
+    background-color: transparent;
+    color: #000;
+    border: none;
+    cursor: pointer;
+    padding: 0px 28px 0px 0px;
+    font-size: .775rem;
+}
+
+.THIS lightning-combobox.forceCommunityLanguageSelector43 svg {
+    fill: rgba(0, 0, 0, 0.8);
+}
+
+.THIS lightning-combobox.forceCommunityLanguageSelector43 {
+    background-color: transparent !important;
+    width: 100%;
+    float: right;
+    max-width: 300px;
+}
+
+/*-- Language Selector Tablet and Mobile--*/
+
+@media only screen and (max-width:768px) {
+    .THIS lightning-combobox.forceCommunityLanguageSelector43 {
+        z-index: 300;
+        background-color: rgb(255, 255, 255, 1);
+        max-width: 300px;
+    }
+    
+    .THIS lightning-combobox.forceCommunityLanguageSelector43  input.slds-input {
+        font-size: .675rem;
+        height: 20px !important;
+        min-height: 24px !important;
+    }
+}
+
+.THIS div[data-region-name="footer"] .forceTopicFeaturedTopics {
+    margin-top: 0px;
+}
+
+/*-- New Feature Topic Style as of 09/02/2020 --
+
+*/
+
+
+
+/*-- Work overrides --*/
+
+/* DESKTOP */
+@media only screen and (min-width:47.9375em) {
+    .THIS.Work .ddst-hero-title {
+        font-size: 60px !important;
+        font-weight: 700 !important;
+        color: #fff;
+        margin-bottom: 24px !important;
+    }
+    
+    /*--- Featured Topics ---*/
+    
+    .THIS.Work .forceTopicFeaturedTopics {
+        padding-bottom: 28px;
+    }
+    
+    .THIS.Work .forceTopicFeaturedTopicItem.topicItem {
+        width: 20% !important; 
+        height: 220px !important;
+    }
+    
+    .THIS.Work .forceTopicFeaturedTopics .topicImage {
+        background-position: bottom center !important;
+        /*    background-size: 225px; */
+        background-size: 85%;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+    }
+    
+    .THIS.Work .forceTopicFeaturedTopicItem .topicLink {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 85%;
+        overflow: visible;
+    }
+    
+    .THIS.Work .forceTopicFeaturedTopics .topicContent .topicLabel {
+        text-align: center;
+        text-shadow: none !important;
+        font-size: 22px !important;
+        font-weight: 700;
+        line-height: 27px;
+        padding: 0px;
+        color: #494949;
+        position: relative;
+        top: 30px;
+    }
+}
+
+@media only screen and (max-width:1400px) {
+    .THIS.Work .forceTopicFeaturedTopics .topicContent .topicLabel {
+        font-size: 18px !important;
+        line-height: 20px;
+    }
+    
+    .THIS.Work .forceTopicFeaturedTopicItem.topicItem {
+    }
+}
+
+
+@media only screen and (max-width:960px) {
+    .THIS.Work .forceTopicFeaturedTopics .topicContent .topicLabel {
+        font-size: 18px!important;
+        line-height: 20px;
+            top: 20px;
+        position: relative;
+    }
+    
+        .THIS.Work .forceTopicFeaturedTopicItem .topicImage {
+            background-position: center -22px !important;
+    background-size: contain;
+    }
+    
+    .THIS.Work .forceTopicFeaturedTopicItem .topicContent {
+        height: 86%;
+    }
+}
+
+@media only screen and (max-width:560px) {
+    .THIS.Work .forceTopicFeaturedTopics .topicContent .topicLabel {
+        font-size: 22px!important;
+        line-height: 20px;
+        top: 0px;
+        position: relative;
+    }
+    
+    .THIS.Work .forceTopicFeaturedTopicItem .topicContent {
+        height: 86%;
+    }
+        
+    .THIS.Work .forceTopicFeaturedTopicItem.topicItem {
+        width: 100% !important;
+        display: block !important;
+        height: 300px;
+    }
+    
+    .THIS.Work .forceTopicFeaturedTopicItem .topicImage {
+        background-position: center -50px !important;
+        background-size: contain;
+    }
+    
+    
+}
+
+
+
+/* TABLET AND HANDHELD */
+@media only screen and (max-width:47.9375em) {
+    .THIS.Work .forceCommunitySearchBox .mobile-search-icon {
+        background-color: #b71000 !important;
+        border: solid 1px #eee !important;
+    }
+    
+    .THIS.Work .ddst-header.Home .ddst-hero-banner-wrap {
+        background-size: auto;
+        background-position: top left;
+    }
+    
+    .THIS.Work .ddst-logo {
+        text-align: right;
+        width: 66.3% !important;
+    }
+    
+    .THIS.Work .forceTopicFeaturedTopicItem .topicImage {
+        background-position: center;
+        background-size: contain;
+        
+    }
+    
+    
+    
+    
+}
+
+/* TABLET ONLY */
+@media screen and (max-width: 480px) {
+    
+    .THIS.Work .ddst-header.Home .ddst-hero-banner-wrap {
+        background-size: auto;
+        background-position: top left;
+    }
+    
+}
+
+
+.THIS.Work .ddst-hero-title {
+    font-weight: 700 !important;
+    color: #fff;
+    text-shadow: none;
+}
+.THIS.Work .ddst-header-fixed {
+    padding-top: 20px;
+}
+
+.THIS.Work .ddst-header.Home .ddst-hero-banner-content, .THIS.Work .ddst-hero-inner-title {
+    color: #FFF;
+}
+
+
+.THIS.Work .ddst-hero-small-title {
+    text-shadow: none;
+}
+
+.THIS.Work .ddst-hero-inner-title {
+    font-weight: 700 !important;
+    text-shadow: none;
+}
+
+.THIS.Work button.slds-button.slds-button_brand.search-button {
+    background-color: #b71000 !important;
+}
+
+.THIS.Work .selfServiceArticleLayout .content .forcePageBlockSectionRow:nth-child(1) {
+    display: none !important;
+}
+
+
+.THIS.Work .selfServiceArticleLayout .content .forcePageBlockSectionRow:nth-child(3) {
+    display: block !important;
+}
+
+.THIS.Work  .ddst-header.ArticleDetail {
+    padding-bottom: 25px;
+}
+
+.THIS.Work  .selfServiceArticleLayout h1.article-head.selfServiceArticleHeaderDetail {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 32px;
+    letter-spacing: -0.04ch;
+    display: block !important;
+}
+
+/*-- End Work Community Overrides --*/
+
+/* -- Mx Updated - 09/20-2020 --*/
+
+/*-- Navigation Desktop --*/
+@media only screen and (min-width:47.9375em) {
+    .THIS.Merchant .forceCommunityGlobalNavigation nav ul.comm-navigation__list li.slds-list__item a[title="Merchant Portal Login"] {
+        background-color: #eb1700 !important;
+        font-size: .9rem;
+        line-height: 1.5;
+        display: inline-block;
+        color: #FFF;
+        min-width: 120px !important;
+        text-align: center;
+        padding: .375rem 2rem !important;
+        border-radius: 500px;
+        position: relative;
+        top: 3px;
+        transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    }
+    
+    .THIS.Merchant .forceCommunityGlobalNavigation nav ul.comm-navigation__list li.slds-list__item a[title="Merchant Portal Login"]:hover {
+        background-color: #d21500 !important;
+        color: #FFF !important;
+        transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    }
+    
+    .THIS.Merchant .forceCommunityGlobalNavigation nav ul.comm-navigation__list li.slds-list__item a[title="Merchant Portal Login"]:after {
+        display: none;
+    }
+}
+
+@media only screen and (max-width:47.9375em) {
+    .THIS.Merchant .forceCommunityGlobalNavigation nav ul.comm-navigation__list li.slds-list__item a[title="Merchant Portal Login"] {
+        background-color: #eb1700 !important;
+        color: #FFF;
+    }
+    
+    .THIS.Merchant .forceCommunityGlobalNavigation nav ul.comm-navigation__list li.slds-list__item a[title="Merchant Portal Login"]:hover {
+        background-color: #d21500 !important;
+        color: #FFF;
+    }
+}
+
+
+/* -- Mx Updates end --*/
+
+/*-- Salesforce CMS Overrides --*/
+
+.THIS .forceCommunityTileLayout .slds-rich-text-editor__textarea b, .THIS .forceCommunityTileLayout .slds-rich-text-editor__output b{
+    font-weight: bold !important;
+    color: #000 !important;
+    text-shadow: 0px 0px 0 #000, 0px 0px 0 #000, 0px 0px 0 #000, 0px 0px 0 #000;
+}
+
+.THIS .forceCommunityTileLayout .slds-rich-text-editor__textarea p, .THIS .forceCommunityTileLayout .slds-rich-text-editor__output span {
+line-height: 24px;
+    font-size: 1rem;
+}

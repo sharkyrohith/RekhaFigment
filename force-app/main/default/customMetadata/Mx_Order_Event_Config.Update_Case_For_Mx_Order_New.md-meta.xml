@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Update Case For Mx Order New</label>
+    <protected>false</protected>
+    <values>
+        <field>Apex_Mapping_Handler__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Event_Name__c</field>
+        <value xsi:type="xsd:string">Update Case For Mx Order New</value>
+    </values>
+    <values>
+        <field>Is_Active__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>Source_SObject_Fields_Changed__c</field>
+        <value xsi:type="xsd:string">Order_Status__c</value>
+    </values>
+    <values>
+        <field>Source_SObject_Key_API_Field__c</field>
+        <value xsi:type="xsd:string">Case__c</value>
+    </values>
+    <values>
+        <field>Source_SObject_Record_Types__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Source_SObject_Type__c</field>
+        <value xsi:type="xsd:string">Mx_Order__c</value>
+    </values>
+    <values>
+        <field>Target_SObject_DML_Operation__c</field>
+        <value xsi:type="xsd:string">UPDATE</value>
+    </values>
+    <values>
+        <field>Target_SObject_Key_API_Field__c</field>
+        <value xsi:type="xsd:string">Id</value>
+    </values>
+    <values>
+        <field>Target_SObject_Type__c</field>
+        <value xsi:type="xsd:string">Case</value>
+    </values>
+</CustomMetadata>

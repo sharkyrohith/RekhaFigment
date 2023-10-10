@@ -1,0 +1,70 @@
+<aura:component controller="CDdCaseRelatedCasesCtrl" implements="force:hasRecordId,flexipage:availableForAllPageTypes" access="GLOBAL">
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    <aura:attribute name="title" type="String" default="Related Deliveries"/>
+    <aura:attribute name="relatedField" type="String" default="Delivery__c"/>
+    <aura:attribute name="fields" type="String" Default="CaseNumber,Customer_Type__c,Account_Email__c,Status,CreatedDate,Subject,Issue_Type__c,Issue__c,DeliveryNoFF__c"/>
+    <aura:attribute name="additionalFilter" type="String" Default=""/>
+    <aura:attribute name="data" type="Object"/>
+    <aura:attribute name="columns" type="List"/>
+    <aura:attribute name="NoOfRecords" type="Integer" default="0"/>
+    <aura:attribute name="RecordPerPage" type="Integer" default="10"/>
+    <aura:attribute name="loadMoreDisabled" type="Boolean" default="false"/>
+    <aura:attribute name="MergeButton" type="Boolean" default="false"/>
+    <aura:attribute name="isModalOpen" type="boolean" default="false"/>
+    <aura:attribute name="selectedRow" type="Object" default="false"/>
+    <aura:attribute name="currentCase" type="Object" default="false"/>
+    <aura:handler event="aura:doneWaiting" action="{!c.spinnerOff}" />
+    <aura:handler event="aura:waiting" action="{!c.spinnerOn}" />
+    <lightning:spinner aura:id="pageSpinner" alternativeText="Loading..." variant="brand" size="large"/>
+    <lightning:card title="{!v.title}" iconName="standard:case">
+        <aura:if isTrue="{!v.data.length > 0}">
+            <p class="slds-text-title_bold slds-p-around_small">Highlighted Row shows Cases created in Last 24 hours</p>
+            <lightning:datatable
+                keyField="Id"
+                data="{!v.data}"
+                columns="{!v.columns}"
+                hideCheckboxColumn="true"
+                onrowaction="{!c.recordAction}">
+            </lightning:datatable>
+            <lightning:button aura:id="loadMoreBtn" variant="Neutral" label="Load More" title="Load More" onclick="{! c.loadMore }" class="slds-button_stretch" disabled="{!loadMoreDisabled}"/>
+            <aura:set attribute="else">
+                <div>There are no related cases to display.</div>
+            </aura:set>
+        </aura:if>
+    </lightning:card>
+
+    <aura:if isTrue="{!v.isModalOpen}">
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header">
+                    <lightning:buttonIcon iconName="utility:close"
+                                            onclick="{! c.closeModel }"
+                                            alternativeText="close"
+                                            variant="bare-inverse"
+                                            class="slds-modal__close"/>
+                    <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Confirm Merge</h2>
+                </header>
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <div>
+                        The case you are working on will be set to closed and merged with the case you selected.<br/>
+                    </div>
+                    <div>
+                        <b>Parent Case</b> : {!v.selectedRow.CaseNumber} <br/>
+                        <b>Case to be Merged and Closed</b> : {!v.currentCase.CaseNumber}
+                    </div>
+                </div>
+                <footer class="slds-modal__footer">
+                    <lightning:button variant="neutral"
+                                        label="Cancel"
+                                        title="Cancel"
+                                        onclick="{! c.closeModel }"/>
+                    <lightning:button variant="brand"
+                                        label="OK"
+                                        title="OK"
+                                        onclick="{!c.performMerge}"/>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </aura:if>
+</aura:component>

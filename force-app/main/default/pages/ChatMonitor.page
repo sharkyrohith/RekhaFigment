@@ -1,0 +1,202 @@
+<apex:page standardController="Case" sidebar="false" showHeader="true" extensions="VChatMonitor" id="thePage">
+  <apex:includeScript value="/support/console/38.0/integration.js"/>
+  <apex:includeScript value="{!$Resource.Sendbird_ChatMonitor}"/>
+  <script type="text/javascript">
+    var ChatMonitor = {
+      init: function(fireOmniEvents) {
+        if(fireOmniEvents) {
+          sforce.console.addEventListener(sforce.console.ConsoleEvent.PRESENCE.WORK_ACCEPTED, this.onWorkItemAccepted);
+          sforce.console.addEventListener(sforce.console.ConsoleEvent.PRESENCE.WORK_ASSIGNED, this.onWorkItemAssigned);   
+          //sforce.console.addEventListener(sforce.console.ConsoleEvent.OPEN_TAB, this.onOpenTab);
+        }
+      },
+      loadMessage: function(val) {
+        document.getElementById('loading').style.display = val;
+      },
+      onGetPageInfoComplete: function(tabName, tabId, caseRecord, pageInfoResult) {
+        console.log('caseRecord >>> ' + JSON.stringify(caseRecord));
+        console.log('tabName : ' + JSON.stringify(tabName));
+        if(pageInfoResult.success) {
+          var pageInfo = JSON.parse(pageInfoResult.pageInfo);
+
+          
+          if(pageInfo.objectId == tabName.substring(0, 15)) {
+            console.log('tabId >>> ' + JSON.stringify(tabId));
+            sforce.console.openSubtab(tabId,'/'+caseRecord.Id+'/e', 
+              true,
+              'Case: '+ caseRecord.CaseNumber, 
+              null, 
+              null, 
+              null);
+            sforce.console.refreshPrimaryTabById(tabId, false);
+          }
+        } else {
+          alert('Error retrieving page info.');
+        }
+      },
+      onGetPrimaryTabIdsComplete(tabName, caseRecord, primaryTabResult) {
+        console.log('caseRecord : ' + JSON.stringify(caseRecord));
+        if(primaryTabResult.ids) {
+          primaryTabResult.ids.forEach(function(tabId) {
+            sforce.console.getPageInfo(tabId, function(pageInfoResult) {
+              console.log('TAB ID: ' + tabId);
+              ChatMonitor.onGetPageInfoComplete(tabName, tabId, caseRecord, pageInfoResult);
+            });
+          });
+        } else {
+          console.log('Error retrieving tab ids.');
+          alert('Error retrieving tab ids.');
+        }
+      },
+      onCreateCaseComplete: function(tabName, createCaseResult, event) {
+        console.log('createCaseResult : ' + JSON.stringify(createCaseResult));
+        ChatMonitor.loadMessage('none');
+        sforce.console.setCustomConsoleComponentVisible(false);
+
+        if(event.status) {
+          sforce.console.getPrimaryTabIds(function(primaryTabResult) {
+            ChatMonitor.onGetPrimaryTabIdsComplete(tabName, createCaseResult, primaryTabResult);
+          })
+          
+        } else {
+          console.log(event.message);
+          alert('Error: ' + event.message);
+        }
+      },
+      onGetDetailsSuccess: function(tabName, chatKey, chatDetails) {
+        if (chatDetails.success == true) {
+          var consumerId = 0;
+          var dasherId = 0;
+          var merchantId = 0;
+          var deliveryId = 0;
+          var deliveryUUID = "";
+          var chatButtonId = chatDetails.details.liveChatButtonId;
+          var dispatchResponse = "";
+
+          for(var i=0; i<chatDetails.details.customDetails.length; i++) {
+            var labelLowerCase=chatDetails.details.customDetails[i].label.toLowerCase();
+            if (chatDetails.details.customDetails[i].value){
+                if(labelLowerCase == 'consumerid'|| labelLowerCase == 'consumer_id') {
+                  consumerId = chatDetails.details.customDetails[i].value;
+                }
+                if(labelLowerCase == 'dasherid'|| labelLowerCase == 'dasher_id' || labelLowerCase == 'id') {
+                  dasherId = chatDetails.details.customDetails[i].value;
+                }
+                if(labelLowerCase == 'storeid' || labelLowerCase == 'store_id') {
+                  storeId = chatDetails.details.customDetails[i].value;
+                }
+                if(labelLowerCase == 'deliveryid'|| labelLowerCase == 'delivery_id') {
+                  deliveryId = chatDetails.details.customDetails[i].value;
+                  if(deliveryId.includes("-")) {
+                    deliveryUUID = deliveryId; 
+                    deliveryId = 0; 
+                  }
+                }
+                if(labelLowerCase == 'deliveryuuid'|| labelLowerCase == 'delivery_uuid') {
+                  deliveryUUID = chatDetails.details.customDetails[i].value;
+                }
+                if(labelLowerCase == 'merchantid'|| labelLowerCase == 'merchant_id') {
+                    merchantId = chatDetails.details.customDetails[i].value;
+                }
+                if(labelLowerCase == 'dispatchresponse' || labelLowerCase == 'dispatch_response') {
+                  dispatchResponse = chatDetails.details.customDetails[i].value;
+                }
+            }
+          }
+        } else {
+            console.log('Getting the details was not successful');
+        }
+
+        Visualforce.remoting.Manager.invokeAction(
+          "{!$RemoteAction.VChatMonitor.createCase}",
+          chatKey,
+          deliveryId,
+          deliveryUUID,
+          consumerId,
+          dasherId,
+          merchantId,
+          chatButtonId,
+          dispatchResponse,
+          function(createCaseResult, event) { ChatMonitor.onCreateCaseComplete(tabName, createCaseResult, event) });
+
+      },
+      onGetChatComplete: function(chatRecord, event) {
+        if(event.status && chatRecord != null) {
+          ChatMonitor.loadMessage('block');
+          sforce.console.setCustomConsoleComponentVisible(true);
+
+          console.log('>>>Omni Event Getting details for chat key: ' + chatRecord.ChatKey);
+          sforce.console.chat.getDetailsByChatKey(chatRecord.ChatKey, function(chatDetails) { 
+            ChatMonitor.onGetDetailsSuccess(chatRecord.Id, chatRecord.ChatKey, chatDetails) 
+          });
+        }
+      },
+      onWorkItemAccepted: function(result) {
+        var workItemId = result.workItemId;
+
+        // 570 prefix is live agent chat transcript.
+        if(workItemId && workItemId.indexOf('570') == 0) {
+          Visualforce.remoting.Manager.invokeAction("{!$RemoteAction.VChatMonitor.getChat}",
+            workItemId, ChatMonitor.onGetChatComplete);
+        } else if(workItemId && workItemId.indexOf('500') == 0 ) {
+          Visualforce.remoting.Manager.invokeAction("{!$RemoteAction.VChatMonitor.isDispatchSuccessful}",
+            workItemId, function(isDispatchSuccessful, event){
+              if(!isDispatchSuccessful) {
+                Visualforce.remoting.Manager.invokeAction("{!$RemoteAction.VChatMonitor.SendbirdCaseToDispatch}",
+            workItemId, ChatMonitor.onSendbirdComplete);
+              }
+            });
+        }
+      },
+      onSendbirdComplete: function(chatRecord, event) {
+        if (chatRecord){
+            sforce.console.getPrimaryTabIds(function(primaryTabResult) {
+                primaryTabResult.ids.forEach(function(tabId) {
+                    sforce.console.getPageInfo(tabId, function(pageInfoResult) {
+                        console.log('TAB ID: ' + tabId);
+                        if(pageInfoResult.success) {
+                            var pageInfo = JSON.parse(pageInfoResult.pageInfo);
+                            if(pageInfo.objectId === chatRecord.Id.substring(0, 15)) {
+                                sforce.console.refreshPrimaryTabById(tabId, false);
+                            } 
+                        }
+                    });
+                });
+            });
+        }
+      },
+      onWorkItemAssigned: function(result) {
+        var workItemId = result.workItemId;
+
+        // 500 prefix is Case.
+        if(workItemId && workItemId.indexOf('500') == 0) {
+          Visualforce.remoting.Manager.invokeAction("{!$RemoteAction.VChatMonitor.stampPreviousQueue}",
+            workItemId,  function (result, event) {});
+        }
+      },
+      onOpenTab: function(evt){
+        // 500 prefix is Case.
+        if(evt.objectId && evt.objectId.indexOf('500') == 0) {
+          Visualforce.remoting.Manager.invokeAction("{!$RemoteAction.VChatMonitor.takeOwnership}",
+            evt.objectId,  function (result, event) {
+                sforce.console.refreshPrimaryTabById(evt.id, true);
+            });
+        }
+      }
+    }
+
+
+    var fireOmniEvents = {!fireOmniEvents};
+    ChatMonitor.init(fireOmniEvents);
+    
+  </script>
+  <body>
+    <apex:outputPanel id="msglayer">
+    <div id="loading" style="font-weight: bold; font-size: 12px;">
+      Creating Case while you engage with the customer, once done a Case window will popup for you...
+    </div>
+    </apex:outputPanel>
+
+    
+  </body>
+ </apex:page>

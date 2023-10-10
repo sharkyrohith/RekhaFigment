@@ -1,0 +1,37 @@
+<apex:page standardController="Opportunity" showHeader="false" sidebar="false" title="Embedded Opportunity">
+	<GBLite:TabbedPageComponent pageAPIName="GBTabs_Embedded_Opportunity" customJsIds="" customCssIds="">
+	<GBLite:EmbedComponent baseGridUrl="{!$Page.GBLite__Grid}" />
+		<script>
+			var pageDefinition = {
+	"name": "Embedded Opportunity",
+	"tabs": [
+		{
+			"name": "Grandparent Grid",
+			"content": "{!gridPage}gname=Grandparents w Parent Accounts&amp;sh=0&amp;sfname=default&amp;fpf=Account.Id&amp;fpv={!Opportunity.Account.ParentId}",
+			"id": 1583947482793
+		},
+		{
+			"name": "Parent Grid",
+			"content": "{!gridPage}gname=Parent Accts w Accts and Leads&amp;sh=0&amp;sfname=default&amp;fpf=Account.Id&amp;fpv={!Opportunity.AccountId}",
+			"id": 1583531571274
+		},
+		{
+			"id": 1586457978600,
+			"content": "{!gridPage}gname=Franchise Opportunities&amp;sh=0&amp;sfname=default&amp;fpf=Opportunity.Id&amp;fpv={!Opportunity.Parent_Opportunity__c}",
+			"name": "Child Opportunities"
+		}
+	],
+	"id": 1583531571273,
+	"selectedCustomCSSIds": [],
+	"selectedCustomJSIds": [],
+	"description": "",
+	"globalButtons": true,
+	"object": "Opportunity",
+	"height": "",
+	"showHeader": false,
+	"showSidebar": false,
+	"pageAPIName": "GBTabs_Embedded_Opportunity"
+};
+		</script>
+	</GBLite:TabbedPageComponent>
+</apex:page>

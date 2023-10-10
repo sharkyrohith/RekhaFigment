@@ -1,0 +1,82 @@
+{
+    "MKTPL-0000103":{
+        "productName":"Marketplace DashPass",
+        "isTrial":false,
+        "quoteLineFieldName":"Final_Commission__c",
+        "quoteLineFieldValue":13.00,
+        "orderItemFieldName":"Final_Commission__c",
+        "orderItemFieldValue":13.00
+    },
+    "MKTPL-0000110":{
+        "productName":"Phone Orders",
+        "isTrial":false,
+        "quoteLineFieldName":null,
+        "quoteLineFieldValue":null,
+        "orderItemFieldName":null,
+        "orderItemFieldValue":null
+    },
+    "MKTPL-0000111":{
+        "productName":"Tablet Fee",
+        "isTrial":false,
+        "quoteLineFieldName":null,
+        "quoteLineFieldValue":null,
+        "orderItemFieldName":null,
+        "orderItemFieldValue":null
+    },
+    "MKTPL-0000114":{
+        "productName":"Printer Fee",
+        "isTrial":false,
+        "quoteLineFieldName":null,
+        "quoteLineFieldValue":null,
+        "orderItemFieldName":null,
+        "orderItemFieldValue":null
+    },
+    "MKTPL-0000119":{
+        "productName":"Cx Delivery Fee",
+        "isTrial":false,
+        "quoteLineFieldName":null,
+        "quoteLineFieldValue":null,
+        "orderItemFieldName":null,
+        "orderItemFieldValue":null
+    },
+    "MKTPL-0000124":{
+        "productName":"Marketplace Delivery",
+        "isTrial":false,
+        "quoteLineFieldName":"Final_Commission__c",
+        "quoteLineFieldValue":25.50,
+        "orderItemFieldName":"Final_Commission__c",
+        "orderItemFieldValue":25.50
+    },
+    "MKTPL-0000134":{
+        "productName":"Service Fee",
+        "isTrial":true,
+        "quoteLineFieldName":"Trial_Commission__c",
+        "quoteLineFieldValue":12.50,
+        "orderItemFieldName":"Trial_Commission__c",
+        "orderItemFieldValue":12.50
+    },
+    "MKTPL-0000108":{
+        "productName":"DD Weblinks Pickup",
+        "isTrial":false,
+        "quoteLineFieldName":null,
+        "quoteLineFieldValue":null,
+        "orderItemFieldName":null,
+        "orderItemFieldValue":null
+    },
+    "MKTPL-0000146":{
+        "productName":"Activation Fee",
+        "isTrial":false,
+        "quoteLineFieldName":"Final_Fee__c",
+        "quoteLineFieldValue":18.00,
+        "orderItemFieldName":"UnitPrice",
+        "orderItemFieldValue":18.00
+    },
+    "MKTPL-0000149":{
+        "productName":"Mx Delivery Fee",
+        "isTrial":false,
+        "quoteLineFieldName":null,
+        "quoteLineFieldValue":null,
+        "orderItemFieldName":null,
+        "orderItemFieldValue":null
+    }
+}

@@ -1,0 +1,16 @@
+<aura:component access="global" implements="forceCommunity:availableForAllPageTypes">
+    <aura:attribute default="On" name="visibility" type="string" />    
+
+    <style>
+  
+    </style>
+    <div>
+             <aura:if isTrue="{!v.visibility == 'On'}">
+ <div class="dd-incident-banner-container">
+        <div class="dd-incident-banner-wrap">
+        <a href="https://help.doordash.com/dashers/s/doordash-data-incident">Learn more about the DoorDash data incident</a>
+    	</div>
+     </div>
+    </aura:if>
+  </div>   
+</aura:component>

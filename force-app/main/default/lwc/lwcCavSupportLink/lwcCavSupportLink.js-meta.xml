@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>51.0</apiVersion>
+    <isExposed>true</isExposed>
+    <targets>
+        <target>lightningCommunity__Page</target>
+        <target>lightningCommunity__Default</target>
+    </targets>
+
+    <targetConfigs>
+        <targetConfig targets="lightningCommunity__Default">
+            <property label="Link Text" name="linkText" type="String"/>
+            <property label="Desktop URL" name="desktopURL" type="String"/>
+            <property label="Tablet URL" name="tabletURL" type="String"/>
+            <property label="Mobile URL" name="mobileURL" type="String"/>
+            <property label="Show Carat" name="showCarat" type="Boolean"/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

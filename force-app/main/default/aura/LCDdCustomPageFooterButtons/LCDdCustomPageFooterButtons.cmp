@@ -1,0 +1,62 @@
+<aura:component access="global" implements="forceCommunity:availableForAllPageTypes">
+    <aura:attribute default="Two" name="ButtonCount" type="String" />
+    <aura:attribute default="primary" name="ButtonOneStyle" type="String" />
+    <aura:attribute default="#" name="ButtonOneLink" type="String" />
+    <aura:attribute default="Share Feedback" name="ButtonOneLabel" type="String" />
+    <aura:attribute default="secondary" name="ButtonTwoStyle" type="String" />
+    <aura:attribute default="#" name="ButtonTwoLink" type="String" />
+    <aura:attribute default="View FAQ" name="ButtonTwoLabel" type="String" />    
+
+    <aura:attribute default="inactive" name="ApplyButtonStyle" type="String" />
+    <aura:attribute default="#" name="ApplyButtonLink" type="String" />
+    <aura:attribute default="Apply Today" name="ApplyButtonLabel" type="String" />      
+    <div>
+        
+                <div class="dd-custom-apply-wrap">
+              
+            <div class="dd-dcc-subtitle">Get Involved</div>
+            
+                    <!--
+            <div class="dd-dcc-text">Each DCC group serves a six-month term. The application for the July 2020 DCC is now open until 11:59pm Pacific time on May 25, 2020, and for the first time, Caviar Couriers are also welcome to apply! We encourage all Dashers and Couriers who meet the following criteria (by May 25) to submit their application. 
+				<ul>
+                <li>Customer rating of 4.7 or higher (Dasher only) </li>
+                    <li>Completion rate of 95% or higher (Dasher only) </li>
+                    <li>Completed 500 lifetime deliveries (Dasher, Courier)</li>
+                    <li>Have completed a minimum of 30 deliveries total in the last three months (Dasher, Courier) </li>
+                </ul>
+                <div style="text-align: center;">
+                <a href="https://doordash.formstack.com/forms/dccapph22020" target="_blank" class="{!'dd-custom-button dd-apply-button dd-custom-button-' + v.ApplyButtonStyle}">
+			{!v.ApplyButtonLabel}
+        		</a>
+                
+                <br />
+                    </div>
+                    </div>  
+					-->
+                    
+            <div class="dd-dcc-text">
+Applications for the July 2020 DCC are now closed (as of May 25, 2020). Thank you for your application if you submitted one, decisions will be announced in late June 2020. If you missed the application for this term, please check back in October 2020, when we will open up applications for the January 2021 DCC.
+                    </div>
+        </div>
+
+        
+        <div class="dd-custom-button-wrap">
+            
+            <div class="dd-dcc-subtitle">Thoughts or feedback?</div>
+            
+            <div class="dd-dcc-text">Have your own thoughts on how to improve the Dasher experience? We want to hear them.</div>
+               
+        <a href="{!v.ButtonOneLink}" target="_blank" class="{!'dd-custom-button dd-custom-button-' + v.ButtonOneStyle}">
+			{!v.ButtonOneLabel}
+        </a>
+        <aura:if isTrue="{!v.ButtonCount == 'Two'}">
+
+        <a href="{!v.ButtonTwoLink}" class="{!'dd-custom-button dd-custom-button-' + v.ButtonTwoStyle}">
+			{!v.ButtonTwoLabel}
+         </a>  
+       </aura:if>
+        </div>
+        
+    </div>
+	
+</aura:component>

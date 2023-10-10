@@ -1,0 +1,12 @@
+<aura:component controller="CDdQueueMonitorController" 
+    implements="lightning:backgroundUtilityItem,flexipage:availableForAllPageTypes" 
+    access="global" > 
+    <aura:attribute name="isLiveAgentUser" type="Boolean" default="false" />
+    <aura:attribute name="currentQueues" type="String" default="" />
+    <aura:attribute name="currentUserId" type="String" default="" />
+    <aura:attribute name="membershipIntervalId" type="String" default="" />
+    <aura:attribute name="membershipCacheIntervalId" type="String" default="" />
+    <aura:registerEvent name="queueMonitorEvt" type="c:LDdQueueMonitorEvt" />
+    <lightning:omniToolkitAPI aura:id="omniToolkit" /> 
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+</aura:component>

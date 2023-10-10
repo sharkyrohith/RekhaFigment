@@ -1,0 +1,31 @@
+<aura:component access="global" implements="forceCommunity:availableForAllPageTypes">
+    <div>
+        <div class="colorBackgroundCallout mainRed">
+            <h2 class="slds-text-align_center">Where We Are</h2>
+            <h4 class="slds-text-align_center">Explore Where the DCC is Located</h4>
+            <div class="slds-grid slds-wrap">
+                <div
+                    class="slds-large-size_1-of-3 slds-medium-size_1-of-3 slds-small-size_1-of-1 slds-text-align_center">
+                    <a href="/dashers/s/dcc-australia">
+                        <img src="{!$Resource.DCCImages + '/AUS.png'}" />
+                        <h5>Australia</h5>
+                    </a>
+                </div>
+                <div
+                    class="slds-large-size_1-of-3 slds-medium-size_1-of-3 slds-small-size_1-of-1 slds-text-align_center">
+                    <a href="/dashers/s/dcc-united-states">
+                        <img src="{!$Resource.DCCImages + '/US.png'}" />
+                        <h5>United States</h5>
+                    </a>
+                </div>
+                <div
+                    class="slds-large-size_1-of-3 slds-medium-size_1-of-3 slds-small-size_1-of-1 slds-text-align_center">
+                    <a href="/dashers/s/dcc-canada">
+                        <img src="{!$Resource.DCCImages + '/CAN.png'}" />
+                        <h5>Canada</h5>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</aura:component>

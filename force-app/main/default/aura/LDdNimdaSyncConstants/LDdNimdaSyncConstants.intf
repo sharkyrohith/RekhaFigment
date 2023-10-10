@@ -1,0 +1,627 @@
+<aura:interface description="Interface template">
+    <aura:attribute name="STEP_INITIALIZE" type="String" access="PRIVATE" default="Initialize"/>
+    <aura:attribute name="STEP_SEARCH_ADDRESS" type="String" access="PRIVATE" default="Search Address"/>
+    <aura:attribute name="STEP_SEARCH_STORE" type="String" access="PRIVATE" default="Search Store"/>
+    <aura:attribute name="STEP_GET_STORE" type="String" access="PRIVATE" default="Get Store"/>
+    <aura:attribute name="STEP_UPDATE_STORE" type="String" access="PRIVATE" default="Update Store"/>
+    <aura:attribute name="STEP_CREATE_STORE" type="String" access="PRIVATE" default="Create Store"/>
+    <aura:attribute name="STEP_CREATE_USER" type="String" access="PRIVATE" default="Create User"/>
+    <aura:attribute name="STEP_CREATE_MERCHANT" type="String" access="PRIVATE" default="Create Merchant"/>
+    <aura:attribute name="STEP_PAYMENT_ACCOUNT" type="String" access="PRIVATE" default="Payment Account"/>
+    <aura:attribute name="STEP_STRIPE_BANK_TOKEN" type="String" access="PRIVATE" default="Stripe Bank Token"/>
+    <aura:attribute name="STEP_STRIPE_BANK_ACCOUNT" type="String" access="PRIVATE" default="Stripe Bank Account"/>
+    <aura:attribute name="STEP_COMPLETE" type="String" access="PRIVATE" default="Complete"/>
+    <aura:attribute name="STEP_FINISHED" type="String" access="PRIVATE" default="Finished"/>
+    <aura:attribute name="STEP_PRODUCT_AND_PRICING_ONBOARDING" type="String" access="PRIVATE" default="Product and Pricing Onboarding"/>
+	<aura:attribute name="STEP_FEE_ONBOARDING" type="String" access="PRIVATE" default="Fee Onboarding"/>
+    <aura:attribute name="FULL_ONBOARDING_CREATE" type="String" access="PRIVATE" default="Full Onboarding Create"/>
+    <aura:attribute name="FULL_ONBOARDING_UPDATE" type="String" access="PRIVATE" default="Full Onboarding Update"/>
+    <aura:attribute name="CHANGE_OF_OWNERSHIP_CREATE" type="String" access="PRIVATE" default="Change of Ownership Create"/>
+    <aura:attribute name="CHANGE_OF_OWNERSHIP_UPDATE" type="String" access="PRIVATE" default="Change of Ownership Update"/> 
+    <aura:attribute name="STEP_CHANGE_OF_OWNERSHIP_CONFIRMATION" type="String" access="PRIVATE" default="Change of Ownership Confirmation"/> 
+    <aura:attribute name="CHANGE_OF_OWNERSHIP_ACTIONS" type="List" access="PRIVATE" default="['Change of Ownership Create', 'Change of Ownership Update']"/>  
+    <aura:attribute name="FULL_ONBOARDING_POLLING_ACTIONS" type="List" access="PRIVATE" default="['Full Onboarding Create', 'Full Onboarding Update', 'Change of Ownership Create', 'Change of Ownership Update']"/> 
+    <aura:attribute name="OPPORTUNITY_TYPE_CHANGE_OF_OWNERSHIP" type="String" access="PRIVATE" default="Change of Ownership"/>    
+    <aura:attribute name="ACTION_FULL_ONBOARDING" type="String" default="Full Onboarding Update" access="PRIVATE" />
+    <aura:attribute name="ACTION_STORE_UPDATE" type="String" default="Store Update" access="PRIVATE" />
+    <aura:attribute name="CUSTOM_PERMISSION_S2N_V3_PAYMENT_PERMISSION" type="String" default="S2N_V3_Payment_Permission" access="PRIVATE" />
+    <aura:attribute name="STORE_UPDATE_ACTIONS_V3" 
+                    type="List" 
+                    access="PRIVATE" 
+                    default="[
+                                {
+                                    label: 'Full Onboarding',
+                                    value: 'Full Onboarding Update',
+									disabled: false,                             
+                                    helpText: 'Store Update, Store Partnership, Payment Account, Admin Portal User, Tablet User etc.'
+                                },
+                                {
+                                    label: 'Store and/or Store Partnership Update',
+                                    value: 'Store Update',
+									disabled: false,                             
+                                    helpText: 'Apply updates to the Store and/or Store Partnership records in Nimda and Salesforce'
+                                }                                
+                            ]"/>
+    <aura:attribute name="STORE_UPDATE_ACTIONS_V4" 
+                    type="List" 
+                    access="PRIVATE" 
+                    default="[
+                                {
+                                    label: 'Full Onboarding',
+                                    value: 'Full Onboarding Update',
+									disabled: false,
+                                    helpText: 'Store Update, Store Partnership, Payment Account, Admin Portal User, Tablet User etc.'
+                                }                                
+                            ]"/>    
+    <aura:attribute name="steps" 
+                    type="List"
+                    access="PRIVATE"
+                    default="[
+                                { label: 'Create Store', value: 'Create Store' },
+                                { label: 'Create User', value: 'Create User' },
+                                { label: 'Create Merchant', value: 'Create Merchant' },
+                                { label: 'Payment Account', value: 'Payment Account' },
+                                { label: 'Stripe Bank Token', value: 'Stripe Bank Token' },
+                                { label: 'Stripe Bank Account', value: 'Stripe Bank Account' },
+                                { label: 'Complete', value: 'Complete' }            
+                            ]" />
+    <aura:attribute name="STEPS_FULL_ONBOARDING_CREATE" 
+                    type="List"
+                    access="PRIVATE"
+                    default="[
+                                { label: 'Create Store', value: 'Create Store' },
+                                { label: 'Create User', value: 'Create User' },
+                                { label: 'Create Merchant', value: 'Create Merchant' },
+                                { label: 'Payment Account', value: 'Payment Account' },
+                                { label: 'Stripe Bank Account', value: 'Stripe Bank Account' },
+                                { label: 'Complete', value: 'Finished' }            
+                            ]" />         
+    <aura:attribute name="STEPS_FULL_ONBOARDING_UPDATE" 
+                    type="List"
+                    access="PRIVATE"
+                    default="[
+                                { label: 'Update Store', value: 'Update Store' },
+                                { label: 'Create User', value: 'Create User' },
+                                { label: 'Create Merchant', value: 'Create Merchant' },
+                                { label: 'Payment Account', value: 'Payment Account' },
+                                { label: 'Stripe Bank Account', value: 'Stripe Bank Account' },
+                                { label: 'Complete', value: 'Finished' }            
+                            ]" />     
+    <aura:attribute name="ORDER_PROTOCOL_MAP" 
+                    type="List"
+                    access="PRIVATE"
+                    default="[
+                                { label: 'Android Tablet (Merchant Owns)', value: 'IPAD' },
+                                { label: 'Email', value: 'EMAIL' },
+                                { label: 'Fax', value: 'FAX' },
+                                { label: 'iOS Tablet (Merchant Owns)', value: 'IPAD' },
+                                { label: 'Other', value: 'OTHER' },
+                                { label: 'Tablet (DoorDash Owns)', value: 'IPAD' },
+                                { label: 'Tablet and Printer (DoorDash Owns)', value: 'IPAD' },
+                                { label: 'POS', value: 'POINT_OF_SALE' },
+                                { label: 'POS and Tablet (Merchant Owns)', value: 'POINT_OF_SALE' },
+                                { label: 'POS and and Tablet (DoorDash Owns)', value: 'POINT_OF_SALE' },
+                                { label: 'POS and Tablet Return Label', value: 'POINT_OF_SALE' },
+                                { label: 'Phone', value: 'PHONE' }            
+                            ]" />
+    <aura:attribute name="ORDER_PROTOCOL_POINT_OF_SALE" type="String" access="PRIVATE" default="POINT_OF_SALE"/>    
+    <aura:attribute name="ERROR_TYPE_FATAL" type="String" access="PRIVATE" default="Fatal Error"/>
+    <aura:attribute name="ERROR_TYPE_VALIDATION" type="String" access="PRIVATE" default="Validation Error"/>
+    <aura:attribute name="ERROR_INVALID_DATA" type="String" access="PRIVATE" default="Invalid data received. Unable to parse data."/>
+    <aura:attribute name="ERROR_STORE_ID_NOT_FOUND" type="String" access="PRIVATE" default="Store Id not available on the account record."/>    
+    <aura:attribute name="ERROR_POLLING_TIMEOUT_MESSAGE" type="String" access="PRIVATE" default="This took longer than expected, please try again!"/>
+    <aura:attribute name="ERROR_POLLING_TIMEOUT_MESSAGE_V3_RETRY" type="String" access="PRIVATE" default="This took longer than expected, an error may have occurred. Checking Mx Portal…"/>
+    <aura:attribute name="S2N_V45_HEADER_LABEL_SECTION_V4" type="String" access="PRIVATE" default="Full Onboarding - Creating Store, User, Merchant, Payment Accounts..."/>
+    <aura:attribute name="S2N_V45_HEADER_LABEL_SECTION_V3" type="String" access="PRIVATE" default="Verifying Mx information was created in Mint/Nimda/Mx Portal..."/>    
+    <aura:attribute name="S2N_V3_PAYMENT_MSG_SUCCESS_STORE" type="String" access="PRIVATE" default="Store {0} was created successfully."/>
+    <aura:attribute name="S2N_V3_PAYMENT_MSG_CHECK_USER" type="String" access="PRIVATE" default="Mx Portal User Account creation status unknown, please check "/>
+    <aura:attribute name="S2N_V3_PAYMENT_MSG_CHECK_TABLET_CREDENTIAL" type="String" access="PRIVATE" default="Tablet Credential creation status unknown, please check "/>
+    <aura:attribute name="MX_PORTAL_LINK" type="String" access="PRIVATE" default="&lt;a href='https://www.doordash.com/merchant/summary?store_id=%storeId%' target='_blank'&gt;Mx Portal&lt;/a&gt;"/>
+    <aura:attribute name="FORM_ITEM_READ_ONLY" type="String" access="PRIVATE" default="Read-Only"/>
+    <aura:attribute name="FORM_ITEM_INLINE_EDIT" type="String" access="PRIVATE" default="Inline-Edit"/>
+    <aura:attribute name="FORM_ITEM_EDIT" type="String" access="PRIVATE" default="Edit"/>
+    <aura:attribute name="FORM_ITEM_EVENT_TYPE_CHANGE_MODE" type="String" access="PRIVATE" default="Change Mode"/>
+    <aura:attribute name="FORM_ITEM_EVENT_TYPE_CHANGE_VALUE" type="String" access="PRIVATE" default="Change Value"/>
+    <aura:attribute name="FORM_ITEM_EVENT_TYPE_VALUE_VALIDITY" type="String" access="PRIVATE" default="Value Validity"/>
+    <aura:attribute name="DEFAULT_STORE_DATA" 
+                    type="List"
+                    access="PRIVATE"
+                    default="[
+                                {
+                                    label: 'Store Name',
+                                    property: 'name',
+                                    type: 'text',
+                                    readOnly: false,
+                                    oldValue: null,
+                                    newValue: null,
+                                    options: []
+                                },
+                                {
+                                    label: 'Store ID',
+                                    property: 'id',
+                                    type: 'text',
+                                    readOnly: true,
+                                    oldValue: null,
+                                    newValue: null,
+                                    options: []
+                                },
+                                {
+                                    label: 'Salesforce ID',
+                                    property: 'salesforce_id',
+                                    type: 'text',
+                                    readOnly: true,
+                                    oldValue: null,
+                                    newValue: null,
+                                    options: []
+                                },
+                                {
+                                    label: 'Merchant Supplied ID',
+                                    property: 'merchant_supplied_id',
+                                    type: 'text',
+                                    readOnly: false,
+                                    oldValue: null,
+                                    newValue: null,
+                                    options: []
+                                },
+                                {
+                                    label: 'Business',
+                                    property: 'business_id',
+                                    type: 'number',
+                                    scale: 0,
+                                    readOnly: false,
+                                    oldValue: null,
+                                    newValue: null,
+                                    options: []
+                                },
+                                {
+                                    label: 'Order Protocol',
+                                    property: 'order_protocol',
+                                    type: 'select',
+                                    readOnly: false,
+                                    oldValue: null,
+                                    newValue: null,
+                                    options: ['IPAD','EMAIL','FAX','OTHER','POINT_OF_SALE','PHONE']
+                                },
+                                {
+                                    label: 'Confirm Protocol',
+                                    property: 'confirm_protocol',
+                                    type: 'select',
+                                    readOnly: true,
+                                    oldValue: null,
+                                    newValue: null,
+                                    options: ['ROBOCALL_LONG_DELAY','ROBOCALL_SIMPLE','NO_CONFIRMATION']
+                                },
+                                {
+                                    label: 'Payment Protocol',
+                                    property: 'payment_protocol',
+                                    type: 'select',
+                                    readOnly: false,
+                                    oldValue: null,
+                                    newValue: null,
+                                    options: ['Dasher Red Card','Direct Deposit']
+                                },
+                                {
+                                    label: 'Market',
+                                    property: 'market_id',
+                                    type: 'text',
+                                    readOnly: true,
+                                    oldValue: null,
+                                    newValue: null,
+                                    options: []
+                                },
+                                {
+                                    label: 'Sub Market',
+                                    property: 'submarket_id',
+                                    type: 'text',
+                                    readOnly: true,
+                                    oldValue: null,
+                                    newValue: null,
+                                    options: []
+                                },
+                                {
+                                    label: 'Starting Point Id',
+                                    property: 'starting_point_id',
+                                    type: 'text',
+                                    readOnly: true,
+                                    oldValue: null,
+                                    newValue: null,
+                                    options: []
+                                },
+                                {
+                                    label: 'Is Active',
+                                    property: 'is_active',
+                                    type: 'select',
+                                    readOnly: false,
+                                    oldValue: null,
+                                    newValue: null,
+                                    options: ['true','false']
+                                },                             
+                                {
+                                    label: 'Phone Number',
+                                    property: 'phone_number',
+                                    type: 'tel',
+                                    readOnly: false,
+                                    oldValue: null,
+                                    newValue: null,
+                                    options: []
+                                },
+                                {
+                                    label: 'Street',
+                                    property: 'street_address',
+                                    type: 'text',
+                                    readOnly: false,
+                                    oldValue: null,
+                                    newValue: null,
+                                    options: []
+                                },
+                                {
+                                    label: 'City',
+                                    property: 'city',
+                                    type: 'text',
+                                    readOnly: false,
+                                    oldValue: null,
+                                    newValue: null,
+                                    options: []
+                                },
+                                {
+                                    label: 'State',
+                                    property: 'state',
+                                    type: 'text',
+                                    readOnly: false,
+                                    oldValue: null,
+                                    newValue: null,
+                                    options: []
+                                },
+                                {
+                                    label: 'Postal Code',
+                                    property: 'zipcode',
+                                    type: 'text',
+                                    readOnly: false,
+                                    oldValue: null,
+                                    newValue: null,
+                                    options: []
+                                },
+                                {
+                                    label: 'Country',
+                                    property: 'country',
+                                    type: 'select',
+                                    readOnly: true,
+                                    oldValue: null,
+                                    newValue: null,
+                                    options: ['Australia','Canada','United States']
+                                },
+                                {
+                                    label: 'Price Range',
+                                    property: 'price_range',
+                                    type: 'select',
+                                    readOnly: false,
+                                    oldValue: null,
+                                    newValue: null,
+                                    options: ['1','2','3','4']
+                                },
+                                {
+                                    label: 'Tier Level',
+                                    property: 'tier_level',
+                                    type: 'text',
+                                    readOnly: true,
+                                    oldValue: null,
+                                    newValue: null,
+                                    options: []
+                                },
+                                {
+                                    label: 'Offers Pickup',
+                                    property: 'offers_pickup',
+                                    type: 'select',
+                                    readOnly: true,
+                                    oldValue: null,
+                                    newValue: null,
+                                    options: ['Unknown','Yes','No']
+                                },
+                                {
+                                    label: 'Offers Delivery',
+                                    property: 'offers_delivery',
+                                    type: 'select',
+                                    readOnly: true,
+                                    oldValue: null,
+                                    newValue: null,
+                                    options: ['true','false']
+                                },                             
+                                {
+                                    label: 'Fax Number',
+                                    property: 'fax_number',
+                                    type: 'tel',
+                                    readOnly: false,
+                                    oldValue: null,
+                                    newValue: null,
+                                    options: []
+                                },
+                                {
+                                    label: 'Email',
+                                    property: 'email',
+                                    type: 'email',
+                                    readOnly: false,
+                                    oldValue: null,
+                                    newValue: null,
+                                    options: []
+                                },
+                                {
+                                    label: 'Contact Emails',
+                                    property: 'contact_emails',
+                                    type: 'text',
+                                    readOnly: false,
+                                    oldValue: null,
+                                    newValue: null,
+                                    options: []
+                                },
+                                {
+                                    label: 'Error Report Frequency',
+                                    property: 'error_report_frequency',
+                                    type: 'select',
+                                    readOnly: false,
+                                    oldValue: null,
+                                    newValue: null,
+                                    options: ['daily','weekly']
+                                },
+                                {
+                                    label: 'Error Report Emails',
+                                    property: 'error_report_emails',
+                                    type: 'text',
+                                    readOnly: true,
+                                    oldValue: null,
+                                    newValue: null,
+                                    options: []
+                                },
+                                {
+                                    label: 'Fulfills Own Deliveries',
+                                    property: 'fulfills_own_deliveries',
+                                    type: 'select',
+                                    readOnly: true,
+                                    oldValue: null,
+                                    newValue: null,
+                                    options: ['true','false']
+                                },
+                                {
+                                    label: 'Delivery Radius',
+                                    property: 'delivery_radius',
+                                    type: 'number',
+                                    scale: 0,
+                                    readOnly: true,
+                                    oldValue: null,
+                                    newValue: null,
+                                    options: []
+                                },
+                                {
+                                    label: 'Custom Delivery Fee',
+                                    property: 'custom_delivery_fee',
+                                    type: 'currency',
+                                    scale: 0,
+                                    readOnly: true,
+                                    oldValue: null,
+                                    newValue: null,
+                                    options: []
+                                },
+                                {
+                                    label: 'Fulfills Own Deliveries Disabled',
+                                    property: 'fulfills_own_deliveries_disabled',
+                                    type: 'select',
+                                    readOnly: false,
+                                    oldValue: null,
+                                    newValue: null,
+                                    options: ['true','false']
+                                },                             
+                                {
+                                    label: 'Is Consumer Subscription Eligible',
+                                    property: 'is_consumer_subscription_eligible',
+                                    type: 'select',
+                                    readOnly: true,
+                                    oldValue: null,
+                                    newValue: null,
+                                    options: ['true','false']
+                                },
+                                {
+                                    label: 'Maximum Order Size',
+                                    property: 'max_order_size',
+                                    type: 'number',
+                                    scale: 0,
+                                    readOnly: false,
+                                    oldValue: null,
+                                    newValue: null,
+                                    options: []
+                                },
+                                {
+                                    label: 'Override Tax Rate',
+                                    property: 'override_tax_rate',
+                                    type: 'percent',
+                                    scale: 2,
+                                    readOnly: false,
+                                    oldValue: null,
+                                    newValue: null,
+                                    options: []
+                                },
+                                {
+                                    label: 'Is Test',
+                                    property: 'is_test',
+                                    type: 'select',
+                                    readOnly: false,
+                                    oldValue: null,
+                                    newValue: null,
+                                    options: ['true','false']
+                                },
+                                {
+                                    label: 'Drive Store Id',
+                                    property: 'drive_store_id',
+                                    type: 'text',
+                                    readOnly: true,
+                                    oldValue: null,
+                                    newValue: null,
+                                    options: []
+                                },
+                                {
+                                    label: 'Payment Account Id',
+                                    property: 'payment_account_id',
+                                    type: 'text',
+                                    readOnly: true,
+                                    oldValue: null,
+                                    newValue: null,
+                                    options: []
+                                },                 
+
+                            ]" />
+    <aura:attribute name="DEFAULT_STORE_PARTNERSHIP_DATA" 
+                    type="List"
+                    access="PRIVATE"
+                    default="[
+                                {
+                                    label: 'Is Partner',
+                                    property: 'is_partner',
+                                    type: 'select',
+                                    readOnly: false,
+                                    oldValue: null,
+                                    newValue: null,
+                                    options: ['true','false']
+                                },
+                                {
+                                    label: 'Weekly Tablet Fee',
+                                    property: 'weekly_tablet_subscription_fee',
+                                    type: 'currency',
+                                    scale: 0,
+                                    readOnly: true,
+                                    oldValue: null,
+                                    newValue: null,
+                                    options: []
+                                },
+                                {
+                                    label: 'Weekly Printer Fee',
+                                    property: 'weekly_printer_subscription_fee',
+                                    type: 'currency',
+                                    scale: 0,
+                                    readOnly: true,
+                                    oldValue: null,
+                                    newValue: null,
+                                    options: []
+                                },
+                                {
+                                    label: 'Flat Commission Fee',
+                                    property: 'flat_commission_fee',
+                                    type: 'currency',
+                                    scale: 0,
+                                    readOnly: true,
+                                    oldValue: null,
+                                    newValue: null,
+                                    options: []
+                                },                             
+                                {
+                                    label: 'Commission Rate',
+                                    property: 'commission_rate',
+                                    type: 'percent',
+                                    scale: 3,
+                                    readOnly: true,
+                                    oldValue: null,
+                                    newValue: null,
+                                    options: []
+                                },
+                                {
+                                    label: 'Reduced Commission Rate',
+                                    property: 'reduced_commission_rate',
+                                    type: 'percent',
+                                    scale: 3,
+                                    readOnly: true,
+                                    oldValue: null,
+                                    newValue: null,
+                                    options: []
+                                },
+                                {
+                                    label: 'Pickup Commission Rate',
+                                    property: 'pickup_commission_rate',
+                                    type: 'percent',
+                                    scale: 3,
+                                    readOnly: true,
+                                    oldValue: null,
+                                    newValue: null,
+                                    options: []
+                                },
+                                {
+                                    label: 'Reduced Pickup Commission Rate',
+                                    property: 'reduced_pickup_commission_rate',
+                                    type: 'percent',
+                                    scale: 3,
+                                    readOnly: true,
+                                    oldValue: null,
+                                    newValue: null,
+                                    options: []
+                                },
+                                {
+                                    label: 'Subscription Commission Rate',
+                                    property: 'subscription_commission_rate',
+                                    type: 'percent',
+                                    scale: 3,
+                                    readOnly: true,
+                                    oldValue: null,
+                                    newValue: null,
+                                    options: []
+                                },
+                                {
+                                    label: 'Subscription Flat Fee',
+                                    property: 'subscription_flat_fee',
+                                    type: 'currency',
+                                    scale: 2,
+                                    readOnly: true,
+                                    oldValue: null,
+                                    newValue: null,
+                                    options: []
+                                },
+                                {
+                                    label: 'Service Rate',
+                                    property: 'service_rate',
+                                    type: 'percent',
+                                    scale: 3,
+                                    readOnly: true,
+                                    oldValue: null,
+                                    newValue: null,
+                                    options: []
+                                },
+                                {
+                                    label: 'Inflation Rate',
+                                    property: 'inflation_rate',
+                                    type: 'percent',
+                                    scale: 3,
+                                    readOnly: true,
+                                    oldValue: null,
+                                    newValue: null,
+                                    options: []
+                                },
+                                {
+                                    label: 'Inflation Round Unit',
+                                    property: 'inflation_rounding_unit',
+                                    type: 'number',
+                                    scale: 0,
+                                    readOnly: true,
+                                    oldValue: null,
+                                    newValue: null,
+                                    options: []
+                                }
+                            ]" />
+    <aura:attribute name="DEFAULT_STORE_POS_DATA" 
+                    type="List"
+                    access="PRIVATE"
+                    default="[
+                                {
+                                    label: 'Location ID',
+                                    property: 'location_id',
+                                    type: 'text',
+                                    readOnly: true,
+                                    oldValue: null,
+                                    newValue: null,
+                                    options: []
+                                },
+                                {
+                                    label: 'Provider Type',
+                                    property: 'provider_type',
+                                    type: 'text',
+                                    readOnly: true,
+                                    oldValue: null,
+                                    newValue: null,
+                                    options: []
+                                }
+                             ]" />    
+</aura:interface>

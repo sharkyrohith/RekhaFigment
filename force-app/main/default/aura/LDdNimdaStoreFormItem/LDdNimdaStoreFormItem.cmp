@@ -1,0 +1,80 @@
+<aura:component controller="CDdLtngNimdaSyncCtrl" implements="force:appHostable,force:hasRecordId,c:LDdNimdaSyncConstants" access="global">
+
+    <!-- public attributes -->
+    <aura:attribute name="property" type="String" access="PUBLIC" />
+    <aura:attribute name="mode" type="String" access="PUBLIC" />
+    <aura:attribute name="label" type="String" access="PUBLIC" /> 
+    <aura:attribute name="value" type="String" access="PUBLIC" />
+    <aura:attribute name="type" type="String" default="text" access="PUBLIC" />
+    <aura:attribute name="placeholder" type="String" default="text" access="PUBLIC" />
+    <aura:attribute name="pattern" type="String" default="text" access="PUBLIC" />
+    <aura:attribute name="scale" type="Integer" default="0" access="PUBLIC" />
+    <aura:attribute name="options" type="List" default="[]" access="PUBLIC" />
+    <aura:attribute name="isModified" type="Boolean" default="false" access="PUBLIC" />
+
+    <aura:attribute name="step" type="String" default="1" access="PRIVATE" />
+
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    <!-- register event-->
+    <aura:registerEvent name="LDdNimdaStoreFormItemEvent" type="c:LDdNimdaStoreFormItemEvent"/>          
+
+    <aura:if isTrue="{!(v.mode eq v.FORM_ITEM_READ_ONLY)}">
+        <div class="slds-form__item" role="listitem">
+            <div class="slds-form-element slds-form-element_readonly slds-form-element_stacked slds-hint-parent">
+                <span class="slds-form-element__label">{!v.label}</span>
+                <div class="slds-form-element__control">
+                    <div id="{!(v.isModified ? 'staticHighlightId' : 'staticId')}" class="{!'slds-form-element__static' + ' ' + (v.isModified ? 'fieldHighlightStatic' : 'slds-text-color_default')}">{!v.value}</div>
+                </div>
+            </div>
+        </div>
+    </aura:if>
+    <aura:if isTrue="{!(v.mode eq v.FORM_ITEM_INLINE_EDIT)}">
+        <div class="slds-form__item" role="listitem">
+            <div class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-form-element_stacked slds-hint-parent">
+                <span class="slds-form-element__label">{!v.label}</span>
+                <div class="slds-form-element__control">
+                    <div id="{!(v.isModified ? 'staticHighlightId' : 'staticId')}" class="{!'slds-form-element__static' + ' ' + (v.isModified ? 'fieldHighlightStatic' : 'slds-text-color_default')}">{!v.value}</div>
+                    <lightning:buttonIcon iconName="utility:edit" 
+                                        variant="bare" 
+                                        onclick="{!c.handleInlineEdit}" 
+                                        alternativeText="{!'Edit: ' + v.label}" />
+                </div>
+            </div>
+        </div>
+    </aura:if>        
+    <aura:if isTrue="{!(v.mode eq v.FORM_ITEM_EDIT)}">
+        <div class="slds-form__item" role="listitem">
+            <div class="slds-form-element slds-form-element_edit slds-is-editing slds-form-element_stacked slds-hint-parent">
+                <aura:if isTrue="{!(v.type eq 'text')}">
+                    <lightning:input aura:id="input1" class="{!(v.isModified ? 'fieldHighlightText' : 'slds-text-color_default')}" name="input1" label="{!v.label}" value="{!v.value}" required="true" autocomplete="off" onchange="{!c.handleInputValueChange}" onblur="{!c.handleBlur}"/>
+                </aura:if>
+                <aura:if isTrue="{!(v.type eq 'number')}">
+                    <lightning:input aura:id="input1" type="number" class="{!(v.isModified ? 'fieldHighlightText' : 'slds-text-color_default')}" name="input1" label="{!v.label}" value="{!v.value}" required="true" autocomplete="off" step="{!v.step}" onchange="{!c.handleInputValueChange}" onblur="{!c.handleBlur}"/>
+                </aura:if>
+                <aura:if isTrue="{!(v.type eq 'tel')}">
+                    <label class="slds-form-element__label" for="input1">
+                        {!v.label}
+                    </label>
+                    <c:LDdHelpText content="{! 'Please use format ' + v.placeholder}"/>
+                    <lightning:input aura:id="input1" type="tel" class="{!(v.isModified ? 'fieldHighlightText' : 'slds-text-color_default')}" name="input1" label="{!v.label}" variant="label-hidden" value="{!v.value}" required="true" autocomplete="off" onchange="{!c.handleInputValueChange}" onblur="{!c.handleBlur}" placeholder="{!v.placeholder}" pattern="^\d{3}\s\d{3}\s\d{3}|^\(\d{3}\)\s\d{3}-\d{4}|^\d{3}-\d{4}-\d{4}|^\d{2}-\d{4}-\d{4}" />
+                </aura:if>
+                <aura:if isTrue="{!(v.type eq 'email')}">
+                    <lightning:input aura:id="input1" type="email" class="{!(v.isModified ? 'fieldHighlightText' : 'slds-text-color_default')}" name="input1" label="{!v.label}" value="{!v.value}" required="true" autocomplete="off" onchange="{!c.handleInputValueChange}" onblur="{!c.handleBlur}"/>
+                </aura:if>                                                 
+                <aura:if isTrue="{!(v.type eq 'currency')}">
+                    <lightning:input aura:id="input1" type="number" class="{!(v.isModified ? 'fieldHighlightText' : 'slds-text-color_default')}" name="input1" label="{!v.label}" value="{!v.value}" required="true" autocomplete="off" formatter="currency" step="{!v.step}" onchange="{!c.handleInputValueChange}" onblur="{!c.handleBlur}"/>
+                </aura:if>                
+                <aura:if isTrue="{!(v.type eq 'percent')}">
+                    <lightning:input aura:id="input1" type="number" class="{!(v.isModified ? 'fieldHighlightText' : 'slds-text-color_default')}" name="input1" label="{!v.label}" value="{!v.value}" required="true" autocomplete="off" formatter="percent-fixed" step="{!v.step}" onchange="{!c.handleInputValueChange}" onblur="{!c.handleBlur}"/>
+                </aura:if>                
+                <aura:if isTrue="{!(v.type eq 'select')}">
+                    <lightning:select aura:id="inputSelect1" class="{!(v.isModified ? 'fieldHighlightSelect' : 'slds-text-color_default')}" name="inputSelect1" label="{!v.label}" value="{!v.value}" onchange="{!c.handleSelectValueChange}">
+                        <aura:iteration items="{!v.options}" var="item">
+                            <option text="{!item}" value="{!item}" selected="{!(item eq v.value)}"/>
+                        </aura:iteration>
+                    </lightning:select>
+                </aura:if>
+            </div>
+        </div>
+    </aura:if>	
+</aura:component>

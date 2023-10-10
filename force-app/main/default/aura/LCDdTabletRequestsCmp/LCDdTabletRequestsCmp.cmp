@@ -1,0 +1,17 @@
+<!--
+  * Created by Jeremy S. Johnson, Perficient, Inc.
+ -->
+
+<aura:component description="Tablet Requests" controller="CDdTabletRequestController" implements="force:hasRecordId,flexipage:availableForAllPageTypes" access="GLOBAL">
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="data" type="Object"/>
+    <aura:attribute name="columns" type="List"/>
+
+    <lightning:datatable class="slds-m-top--medium"
+        keyField="Id"
+        data="{!v.data}"
+        columns="{!v.columns}"
+        hideCheckboxColumn="true">
+    </lightning:datatable>
+</aura:component>

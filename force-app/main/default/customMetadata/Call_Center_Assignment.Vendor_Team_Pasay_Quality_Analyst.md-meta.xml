@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Vendor_Team_Pasay_Quality_Analyst</label>
+    <protected>false</protected>
+    <values>
+        <field>Call_Center_Id__c</field>
+        <value xsi:type="xsd:string">04v2L000000TNlzQAG</value>
+    </values>
+    <values>
+        <field>Description__c</field>
+        <value xsi:type="xsd:string">Vendor Team - Pasay Quality Analyst - AC Console Adapter</value>
+    </values>
+    <values>
+        <field>Profile_Id__c</field>
+        <value xsi:type="xsd:string">00e1a000000N8iIAAS</value>
+    </values>
+    <values>
+        <field>UserRole_Id__c</field>
+        <value xsi:type="xsd:string">00E1a000000qZUeEAM</value>
+    </values>
+</CustomMetadata>

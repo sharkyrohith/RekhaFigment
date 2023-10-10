@@ -1,0 +1,23 @@
+<aura:component access="global" implements="forceCommunity:availableForAllPageTypes">
+    <div>
+        <p>
+            <b>If you want to update your store details, such as menu, store hours, address, and giving employees account access, the quickest way is through the </b><a target="null" href="https://help.doordash.com/merchants/s/article/What-is-the-Merchant-Portal?language=en_US"><b>Merchant Portal</b></a><b>.  Below are the most commonly used functions: </b>
+        </p>
+        <ul class="dd-support-message-left">
+            <li><a target="_blank" href="https://help.doordash.com/merchants/s/article/Forgot-password-How-do-I-reset-my-merchant-portal-username-and-password"><b>Reset Portal password/username</b></a></li>
+            <li><a target="_blank" href="https://help.doordash.com/merchants/s/article/How-do-I-manage-my-Employees-on-the-Merchant-Portal"><b>Add Users to Portal</b></a></li>
+            <li><a target="_blank" href="https://help.doordash.com/merchants/s/article/How-do-I-update-my-store-hours"><b>Update Non-POS Store Hours</b></a></li>
+             <li><a target="null" href="https://help.doordash.com/merchants/s/article/POS-integration-updating-store-hours-closures"><b>POS Integration Store Hours</b></a></li>
+        </ul>
+        
+        <ul class="dd-support-message-right">
+            <li><a target="_blank" href="https://help.doordash.com/merchants/s/article/How-can-I-update-my-pickup-instructions"><b>Update Dasher Pick-up Instructions</b></a></li>
+            <li><a target="_blank" href="https://help.doordash.com/merchants/s/article/How-can-my-employees-access-the-Merchant-Portal"><b>Download Order/Summary Reports</b></a></li>
+            <li><a target="_blank" href="https://help.doordash.com/merchants/s/article/How-do-I-temporarily-deactivate-from-DoorDash"><b>Temporarily Deactivate Store</b></a></li>
+           <li><a target="_blank" href="https://help.doordash.com/merchants/s/article/How-do-I-update-my-Menu-on-DoorDash"><b>How do I update my menu on DoorDash?
+</b></a></li>
+
+        </ul>
+    </div>
+    
+</aura:component>

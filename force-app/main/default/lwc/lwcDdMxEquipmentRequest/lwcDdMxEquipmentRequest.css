@@ -1,0 +1,29 @@
+.myClass {
+   background: var(--lwc-colorBackgroundAlt);
+   border-color: var(--lwc-colorBorderBrand);
+}
+.tooltip {
+   position: relative;
+   display: inline-block;
+   border-bottom: 1px dotted rgb(49, 43, 231);
+}
+
+.tooltip .tooltiptext {
+   visibility: hidden;
+   width: 1200px;
+   background-color: rgb(5, 164, 250);
+   color: #fff;
+   text-align: left;
+   border-radius: 50px;
+   padding: 5px 0;
+
+   /* Position the tooltip */
+   position: absolute;
+   z-index: 1;
+   top: -5px;
+   left: 105%;
+}
+
+.tooltip:hover .tooltiptext {
+   visibility: visible;
+}

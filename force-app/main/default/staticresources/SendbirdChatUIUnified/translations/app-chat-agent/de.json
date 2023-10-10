@@ -1,0 +1,14 @@
+{
+  "agent_ui_end_chat_dismiss": "Schließen",
+  "agent_ui_end_chat_subtitle": "Beim Versuch, die Chat-Sitzung zu beenden, ist ein Fehler aufgetreten.",
+  "agent_ui_end_chat_title": "Fehler beim Beenden des Chats",
+  "agent_ui_transer_chat_confirmation_message": "Chat-Übertragung an Warteschlange {{queueName}}.",
+  "agent_ui_transer_chat_confirmation_close_message": "Diese Fall-Tab wird automatisch geschlossen.",
+  "agent_ui_transfer_chat_modal_subtitle": "Du überträgst diesen Chat an",
+  "agent_ui_transfer_chat_modal_title": "Chat übertragen",
+  "agent_ui_transfer_chat_modal_primary_text": "Übertragung",
+  "agent_ui_transfer_chat_error_text": "Diese Anfrage stornieren und nach der Fehlerbehebung erneut versuchen",
+  "agent_ui_transfer_chat_modal_secondary_text": "Abbrechen",
+  "agent_ui_transfer_chat_modal_failure_message": "Die Übertragung ist fehlgeschlagen. Bitte versuche es erneut.",
+  "agent_ui_cannot_connect_msg": "Dieser Chat ist nicht mehr aktiv. Die vorherige Unterhaltung findest du im Transkript."
+}

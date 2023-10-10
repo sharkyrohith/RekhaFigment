@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>56.0</apiVersion>
+    <isExposed>true</isExposed>
+    <description>Show Articles with this topic grouped or in list. Use KB_Article_Category__mdt to define Category and KB_Article_Subcategory__mdt to define Subcategory for articles.</description>
+    <masterLabel>Articles With This Topic</masterLabel>
+    <targets>
+        <target>lightning__HomePage</target>
+        <target>lightningCommunity__Page</target>
+        <target>lightningCommunity__Default</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightningCommunity__Default">
+            <property name="topicId" type="String" label="Topic ID" default="{!topicId}" description="The value should be {!topicId}."/>
+            <property name="limitSize" type="Integer" label="Number of Articles" default="10"/>
+            <property name="community" type="String" label="Community" description="Specify the name of the community"/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

@@ -1,0 +1,98 @@
+<template>
+    <lightning-card variant="Narrow" title="Vendor Distribution Owner JSON former" icon-name="utility:anchor">
+        <!--Show Error-->
+        <template if:true={showError}>
+            <div class="error">
+                {errorMsg}
+            </div>
+        </template>
+
+        <!--Spinner-->
+        <template if:true={isLoading}>
+            <div class="slds-is-relative slds-m-around_large slds-align_absolute-center">
+                <lightning-spinner alternative-text="Loading..." variant="brand"></lightning-spinner>
+            </div>
+        </template>
+        <!--Input-->
+        <div class="columnFlex">
+
+            <div class="slds-p-horizontal_medium">
+                <lightning-combobox name="vendorNames"
+                    label="Vendor Name"
+                    value={vendorValue}
+                    options={vendorNameOptions}
+                    onchange={handleVendorChange}
+                    required> </lightning-combobox>
+            </div>
+            <div style="padding:10px;">
+                <lightning-combobox name="queueNames"
+                    label="Queue Name"
+                    value={queueValue}
+                    options={queueNameOptions}
+                    onchange={handleQueueChange}
+                    required>
+                </lightning-combobox>
+            </div>
+            <div style="padding:10px;">
+                <lightning-button
+                variant="brand"
+                title="Add"
+                label="Add"
+                onclick={handleAdd}
+                class="slds-m-left_x-small">
+                </lightning-button>
+            </div>
+            <div style="padding:10px;">
+                <template if:true={showTableSection}>
+                    <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                        <thead>
+                        <tr class="slds-line-height_reset">
+                            <th class="" scope="col">
+                            <div class="slds-truncate" title="Key">Vendor</div>
+                            </th>
+                            <th class="" scope="col">
+                            <div class="slds-truncate" title="Value">Queue Name</div>
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <template for:each={mapSelectedVendorQueueUI} for:item="mapkey" for:index="index">
+                                <tr key={mapkey.key}>
+                                    <th scope="col">
+                                        {mapkey.key}
+                                    </th>
+                                    <th scope="col">
+                                        {mapkey.value}
+                                    </th>
+                                    <th>
+                                        <lightning-button
+                                        variant="brand"
+                                        icon-name="action:delete"
+                                        title="Remove"
+                                        onclick={handleRemove}
+                                        class="slds-m-left_x-small"
+                                        data-index={index}>
+                                        </lightning-button> <!-- Added the data-index attribute here to use in JS. -->
+                                    </th>
+                                </tr>
+                            </template>
+                        </tbody>
+                    </table>
+                </template>
+            </div>
+
+            <template if:true={showTableSection}>
+                <div class="slds-p-horizontal_medium" style="overflow-wrap: break-word; padding:10px">
+                    <h1>JSON is : {jsonFromMap}</h1>
+                    <lightning-helptext content="Copy this JSON to use in Routing Config Owner Queue Name field.">
+                    </lightning-helptext>
+                </div>
+            </template>
+            <div>
+                <lightning-file-upload accept={acceptedFormats} label="Upload csv file"
+                multiple="multiple" onuploadfinished={handleUploadFinished} record-id={recordId}>
+                </lightning-file-upload>
+            </div>
+        </div>
+    </lightning-card>
+</template>

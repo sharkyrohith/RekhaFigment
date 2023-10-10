@@ -1,0 +1,22 @@
+<design:component>
+    <design:attribute name="showItem1" label="Show Item 1?"></design:attribute>
+    <design:attribute name="image1URL" label="Image 1 URL"></design:attribute>
+    <design:attribute name="content1Title" label="Title for image 1"></design:attribute>
+    <design:attribute name="content1Body" label="Body text for image 1"></design:attribute>
+
+    <design:attribute name="showItem2" label="Show Item 2?"></design:attribute>
+    <design:attribute name="image2URL" label="Image 2 URL"></design:attribute>
+    <design:attribute name="content2Title" label="Title for image 2"></design:attribute>
+    <design:attribute name="content2Body" label="Body text for image 2"></design:attribute>
+
+    <design:attribute name="showItem3" label="Show Item 3?"></design:attribute>
+    <design:attribute name="image3URL" label="Image 3 URL"></design:attribute>
+    <design:attribute name="content3Title" label="Title for image 3"></design:attribute>
+    <design:attribute name="content3Body" label="Body text for image 3"></design:attribute>
+
+    <design:attribute name="showItem4" label="Show Item 4?"></design:attribute>
+    <design:attribute name="image4URL" label="Image 4 URL"></design:attribute>
+    <design:attribute name="content4Title" label="Title for image 4"></design:attribute>
+    <design:attribute name="content4Body" label="Body text for image 4"></design:attribute>
+
+</design:component>

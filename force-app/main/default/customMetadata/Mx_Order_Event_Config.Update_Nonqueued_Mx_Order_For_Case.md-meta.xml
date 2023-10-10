@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Update Nonqueued Mx Order For Case</label>
+    <protected>false</protected>
+    <values>
+        <field>Apex_Mapping_Handler__c</field>
+        <value xsi:type="xsd:string">CDdMxOrderMappingHandlerCaseToMxOrder</value>
+    </values>
+    <values>
+        <field>Event_Name__c</field>
+        <value xsi:type="xsd:string">Update Nonqueued Mx Order For Case Update</value>
+    </values>
+    <values>
+        <field>Is_Active__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>Source_SObject_Fields_Changed__c</field>
+        <value xsi:type="xsd:string">RecordTypeId,
+Status,
+Request_Type__c,
+Language__c,
+Return_Shipping_Address_Street__c,
+Return_Shipping_Address_Suite_Apt_etc__c,
+Return_Shipping_Address_City__c,
+Return_Shipping_Address_State__c,
+Shipping_Address_Country__c,
+Return_Shipping_Address_Zip__c,
+Shipping_Type__c,
+AccountId,
+ContactId,
+Denali_Record_ID__c</value>
+    </values>
+    <values>
+        <field>Source_SObject_Key_API_Field__c</field>
+        <value xsi:type="xsd:string">Id</value>
+    </values>
+    <values>
+        <field>Source_SObject_Record_Types__c</field>
+        <value xsi:type="xsd:string">Tablet_Requests</value>
+    </values>
+    <values>
+        <field>Source_SObject_Type__c</field>
+        <value xsi:type="xsd:string">Case</value>
+    </values>
+    <values>
+        <field>Target_SObject_DML_Operation__c</field>
+        <value xsi:type="xsd:string">UPDATE</value>
+    </values>
+    <values>
+        <field>Target_SObject_Key_API_Field__c</field>
+        <value xsi:type="xsd:string">Case__c</value>
+    </values>
+    <values>
+        <field>Target_SObject_Type__c</field>
+        <value xsi:type="xsd:string">Mx_Order__c</value>
+    </values>
+</CustomMetadata>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Item Unavailable POC MerchantIds</label>
+    <protected>false</protected>
+    <values>
+        <field>Boolean_Value__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>Date_Time_Value__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Date_Value__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Description__c</field>
+        <value xsi:type="xsd:string">MerchantIds for Item Unavailable POC</value>
+    </values>
+    <values>
+        <field>Number_Value__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Text_Value__c</field>
+        <value xsi:type="xsd:string">715696;360894;388144;437107;814097;490929;724685;491;600797;1304;1162;802297;6731;802318;600479;105;627594;13067;605185;143067;857625;42492;2746;341674;437114;43285;434300;742332;20947;55699;576315;601693;308020;589380;434089;679756;810522;124787;1542;517537;177370;314650;865412;802283;3673;479186;446565;12387;227760;697427;12704;41312;434736;8159;206180;554309;945068;413164;493867;976242;462246;12264;400712;41933;1431;1264;48856;1857;12860;589468;24025;47852;61274;799015;472252;23720;3346841;44477;512284;612915;7401089;810171;9115;104815;1123446;12177718;13206181;14211754;157376;16201896;17436529;18479193;19412816;201855;2143294;225235;23434024;24335808;</value>
+    </values>
+    <values>
+        <field>Type__c</field>
+        <value xsi:type="xsd:string">Text</value>
+    </values>
+    <values>
+        <field>Value__c</field>
+        <value xsi:nil="true"/>
+    </values>
+</CustomMetadata>

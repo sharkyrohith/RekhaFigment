@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Store Front Integration User</label>
+    <protected>true</protected>
+    <values>
+        <field>Category__c</field>
+        <value xsi:type="xsd:string">15-Digit</value>
+    </values>
+    <values>
+        <field>Id__c</field>
+        <value xsi:type="xsd:string">0052L000003MD9f</value>
+    </values>
+</CustomMetadata>

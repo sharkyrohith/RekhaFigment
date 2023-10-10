@@ -1,0 +1,32 @@
+<apex:page standardController="Opportunity" showHeader="false" sidebar="false" title="Bulk Process Grids">
+	<GBLite:TabbedPageComponent pageAPIName="GBTabs_Bulk_Process_Grids" customJsIds="" customCssIds="">
+	<GBLite:EmbedComponent baseGridUrl="{!$Page.GBLite__Grid}" />
+		<script>
+			var pageDefinition = {
+	"pageAPIName": "GBTabs_Bulk_Process_Grids",
+	"showSidebar": false,
+	"showHeader": false,
+	"height": "",
+	"object": "Opportunity",
+	"globalButtons": true,
+	"description": "",
+	"selectedCustomJSIds": [],
+	"selectedCustomCSSIds": [],
+	"id": 1586301397192,
+	"tabs": [
+		{
+			"id": 1586301397192,
+			"content": "{!gridPage}gname=Franch Accts with Bulk Opp Failures&amp;sh=0&amp;sfname=default&amp;fpf=ID&amp;fpv={!Opportunity.Id}",
+			"name": "Franchise Account Failures"
+		},
+		{
+			"id": 1586301415732,
+			"content": "{!gridPage}gname=Franch Opps with Bulk Opp Failures&amp;sh=0&amp;sfname=default&amp;fpf=ID&amp;fpv={!Opportunity.Id}",
+			"name": "Franchise Opp Failures"
+		}
+	],
+	"name": "Bulk Process Grids"
+};
+		</script>
+	</GBLite:TabbedPageComponent>
+</apex:page>

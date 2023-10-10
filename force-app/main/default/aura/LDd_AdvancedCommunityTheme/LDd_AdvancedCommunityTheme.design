@@ -1,0 +1,8 @@
+<design:component label="DoorDash Advanced Community Theme">
+
+    <design:attribute name="communityName" label="Community Name" datasource="Consumer,Dasher,Merchant,Work"
+        default="Default" />
+    <design:attribute name="pageTheme" label="Page Type"
+        datasource="Home,Inner,ArticleDetail,DCC,DCCInterior,VDC,LegalDocs,HomeUpdated" default="Inner" />
+
+</design:component>

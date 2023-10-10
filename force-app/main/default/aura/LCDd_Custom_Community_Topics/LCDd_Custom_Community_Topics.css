@@ -1,0 +1,102 @@
+.THIS {
+}
+
+.THIS .dd-featured-topic-title {
+    text-transform: none !important;
+    font-size: 1.5em !important;
+    color: #484848 !important;
+    display: inline-block;
+    border-bottom: 2px solid #ff3008;
+    padding-bottom: 1em;
+}
+
+.THIS .dd-featured-tile-wrap {
+    padding: 10px 0px 30px 0px;
+}
+
+.THIS .dd-featured-item {
+    width: 25%;
+    min-width: 235px;
+}
+
+.THIS .dd-featured-tile {
+    border: none;
+    width: 100%;
+    display: inline-block;
+    max-width: 340px;
+    box-sizing: border-box;
+    margin: auto;
+    height: 200px;
+    position: relative;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.THIS .dd-featured-tile:hover {
+    text-transform: none !important;
+    text-decoration: none !important;
+    
+}
+
+.THIS span.dd-featured-label {
+    display: block;
+    text-align: center;
+    color: #484848;
+    font-size: 1.3rem;
+    font-weight: bold;
+    position: absolute;
+    width: 100%;
+    bottom: -28px;
+    line-height: 22px;
+}
+
+.THIS .dd-featured-tile:hover span.dd-featured-label {
+    text-transform: none !important;
+    color: rgb(255, 48, 8);
+}
+
+/* Desktop */
+
+@media only screen and (min-width:47.9375em) {
+    
+    .THIS .dd-featured-item-four {
+        width: 25%;
+        min-width: 235px;
+    }
+    .THIS .dd-featured-item-five {
+        width: 20%;
+        min-width: 235px;
+    }
+    .THIS .dd-featured-item-six {
+        width: 16%;
+        min-width: 190px;
+    }
+}
+
+/* TABLET AND HANDHELD */
+@media only screen and (max-width:47.9375em) {
+    .THIS .dd-featured-tile-wrap {
+        padding: 10px 0px 30px 0px;
+    }
+    .THIS .dd-featured-item {
+        width: 25%;
+        min-width: 235px;
+    }
+}
+
+/* Handheld ONLY */
+@media screen and (max-width: 480px) {
+    .THIS .dd-featured-tile-wrap {
+        padding: 10px 0px 30px 0px;
+    }
+    .THIS .dd-featured-item {
+        width: 100%
+    }
+    
+    .THIS span.dd-featured-label {
+        width: 100%;
+        bottom: -18px;
+        line-height: 22px;
+    }
+}

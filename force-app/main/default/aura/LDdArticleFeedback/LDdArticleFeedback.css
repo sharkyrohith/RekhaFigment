@@ -1,0 +1,22 @@
+.THIS {
+    padding: 0px 0px 0px 25px;
+}
+
+@media (max-width:480px) {
+ .THIS {
+    padding: 0px 0px 0px 5px;
+}   
+}
+
+
+.THIS .slds-form-element__label {
+
+color: rgba(0, 0, 0, 0.8);
+    font-size: 1rem;
+
+}
+.THIS .slds-radio {
+
+    padding: 5px 0px;
+
+}

@@ -1,0 +1,231 @@
+<!-- sldsValidatorIgnore -->
+<template>
+    <template if:true={isConsumers}>
+        <div class="dd-footer-choice">
+            <div class="dd-footer-choice-title">
+                {label.DdCommunity_Footer_NotDdCustomer}
+            </div>
+            <div class="dd-footer-choice-button-wrap">
+                <a class="dd-footer-choice-button dd-footer-choice-dashers" target="_blank" href={label.DdCommunity_Footer_ImaDasher_link}  alt="I'm a Dasher">
+                    <img class="ddhs-select-icon" src={image.Image_Dasher} alt="I'm a Dasher"/>
+                    {label.DdCommunity_Footer_ImaDasher}
+                    <img class="ddhs-select-arrow-svg" src={image.Image_Arrow}></img>
+                </a>
+                <a class="dd-footer-choice-button dd-footer-choice-merchants" target="_blank" href={label.DdCommunity_Footer_ImaMerchant_Link} alt="I'm a Merchant">
+                    <img class="ddhs-select-icon" src={image.Image_Merchant} alt="I'm a Merchant">
+                    {label.DdCommunity_Footer_ImaMerchant}
+                    <img class="ddhs-select-arrow-svg" src={image.Image_Arrow}></img>
+                </a>
+            </div>
+        </div>
+    </template>
+
+    <template if:true={isDashers}>
+        <div class="dd-footer-choice">
+            <div class="dd-footer-choice-title">
+                {label.DdCommunity_Footer_NotDdDasher}
+            </div>
+            <div class="dd-footer-choice-button-wrap">
+                <a class="dd-footer-choice-button dd-footer-choice-customers" target="_blank" href={label.DdCommunity_Footer_ImaCustomer_Link} alt="I'm a Customer" >
+                    <img class="ddhs-select-icon" src={image.Image_Customer} alt="I'm a Customer"/>
+                    {label.DdCommunity_Footer_ImaCustomer}
+                    <img class="ddhs-select-arrow-svg" src={image.Image_Arrow}></img>
+                </a>
+                <a class="dd-footer-choice-button dd-footer-choice-merchants" target="_blank" href={label.DdCommunity_Footer_ImaMerchant_Link} alt="I'm a Merchant">
+                    <img class="ddhs-select-icon" src={image.Image_Merchant} alt="I'm a Merchant"/>
+                    {label.DdCommunity_Footer_ImaMerchant}
+                    <img class="ddhs-select-arrow-svg" src={image.Image_Arrow}></img>
+                </a>
+            </div>
+        </div>
+    </template>
+
+    <template if:true={isMerchants}>
+        <div class="dd-footer-choice">
+            <div class="dd-footer-choice-title">
+                {label.DdCommunity_Footer_NotDdMerchant}
+            </div>
+            <div class="dd-footer-choice-button-wrap">
+                <a class="dd-footer-choice-button dd-footer-choice-dashers" target="_blank" href={label.DdCommunity_Footer_ImaDasher_link}  alt="I'm a Dasher">
+                    <img class="ddhs-select-icon" src={image.Image_Dasher} alt="I'm a Dasher"/>
+                    {label.DdCommunity_Footer_ImaDasher}
+                    <img class="ddhs-select-arrow-svg" src={image.Image_Arrow}></img>
+                </a>
+                <a class="dd-footer-choice-button dd-footer-choice-customers" target="_blank" href={label.DdCommunity_Footer_ImaCustomer_Link} alt="I'm a Customer" >
+                    <img class="ddhs-select-icon" src={image.Image_Customer} alt="I'm a Customer"/>
+                    {label.DdCommunity_Footer_ImaCustomer}
+                    <img class="ddhs-select-arrow-svg" src={image.Image_Arrow}></img>
+                </a>
+            </div>
+        </div>
+    </template>
+
+    <template if:true={isDdfw}>
+        <div class="dd-footer-choice">
+            <div class="dd-footer-choice-title">
+                {label.DdCommunity_Footer_NotDdWorkClient}
+            </div>
+            <div class="dd-footer-choice-button-wrap">
+                <a class="dd-footer-choice-button dd-footer-choice-customers" style="margin-right: 2%;" target="_blank" href={label.DdCommunity_Footer_ImaCustomer_Link} alt="I'm a Customer" >
+                    <img class="ddhs-select-icon" src={image.Image_Customer} alt="I'm a Customer"/>
+                    {label.DdCommunity_Footer_ImaCustomer}
+                    <img class="ddhs-select-arrow-svg" src={image.Image_Arrow}></img>
+                </a>
+                <a class="dd-footer-choice-button dd-footer-choice-dashers" style="margin-right: 2%;" target="_blank" href={label.DdCommunity_Footer_ImaDasher_link}  alt="I'm a Dasher">
+                    <img class="ddhs-select-icon" src={image.Image_Dasher} alt="I'm a Dasher"/>
+                    {label.DdCommunity_Footer_ImaDasher}
+                    <img class="ddhs-select-arrow-svg" src={image.Image_Arrow}></img>
+                </a>
+                <a class="dd-footer-choice-button dd-footer-choice-merchants" target="_blank" href={label.DdCommunity_Footer_ImaMerchant_Link} alt="I'm a Merchant">
+                    <img class="ddhs-select-icon" src={image.Image_Merchant} alt="I'm a Merchant"/>
+                    {label.DdCommunity_Footer_ImaMerchant}
+                    <img class="ddhs-select-arrow-svg" src={image.Image_Arrow}></img>
+                </a>
+            </div>
+        </div>
+    </template>
+
+    <template if:true={isSupport}>
+        <div class="dd-footer-choice">
+            <div class="dd-footer-choice-title">
+                {label.DdCommunity_Footer_NotDdMerchant}
+            </div>
+            <div class="dd-footer-choice-button-wrap">
+                <a class="dd-footer-choice-button dd-footer-choice-customers" style="margin-right: 2%;" target="_blank" href={label.DdCommunity_Footer_ImaCustomer_Link} alt="I'm a Customer" >
+                    <img class="ddhs-select-icon" src={image.Image_Customer} alt="I'm a Customer"/>
+                    {label.DdCommunity_Footer_ImaCustomer}
+                    <img class="ddhs-select-arrow-svg" src={image.Image_Arrow}></img>
+                </a>
+                <a class="dd-footer-choice-button dd-footer-choice-dashers" style="margin-right: 2%;" target="_blank" href={label.DdCommunity_Footer_ImaDasher_link}  alt="I'm a Dasher">
+                    <img class="ddhs-select-icon" src={image.Image_Dasher} alt="I'm a Dasher"/>
+                    {label.DdCommunity_Footer_ImaDasher}
+                    <img class="ddhs-select-arrow-svg" src={image.Image_Arrow}></img>
+                </a>
+                <a class="dd-footer-choice-button dd-footer-choice-merchants" target="_blank" href={label.DdCommunity_Footer_ImaMerchant_Link} alt="I'm a Merchant">
+                    <img class="ddhs-select-icon" src={image.Image_Merchant} alt="I'm a Merchant">
+                    {label.DdCommunity_Footer_ImaMerchant}
+                    <img class="ddhs-select-arrow-svg" src={image.Image_Arrow}></img>
+                </a>
+            </div>
+        </div>
+    </template>
+    <div class="dd-footer-global">
+        <div class="footer-wrap">
+            <div class="footer-columns-wrap">
+                <div class="footer-column footer-column-links">
+                    <div class="footer-column-title">
+                        {label.DdCommunity_Footer_Col1_Title}
+                    </div>
+                    <div class="footer-column-links">
+                        <a href={label.DdCommunity_Footer_Col1_Link1} target="_blank">
+                            {label.DdCommunity_Footer_Col1_Label1}
+                        </a>
+                        <a href={label.DdCommunity_Footer_Col1_Link2} target="_blank">
+                            {label.DdCommunity_Footer_Col1_Label2}
+                        </a>
+                        <a href={label.DdCommunity_Footer_Col1_Link3} target="_blank">
+                            {label.DdCommunity_Footer_Col1_Label3}
+                        </a>
+                        <a href={label.DdCommunity_Footer_Col1_Link4} target="_blank">
+                            {label.DdCommunity_Footer_Col1_Label4}
+                        </a>
+                        <a href={label.DdCommunity_Footer_Col1_Link5} target="_blank">
+                            {label.DdCommunity_Footer_Col1_Label5}
+                        </a>
+                        <a href={label.DdCommunity_Footer_Col1_Link6} target="_blank">
+                            {label.DdCommunity_Footer_Col1_Label6}
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-column footer-column-links">
+                    <div class="footer-column-title">
+                        {label.DdCommunity_Footer_Col2_Title}
+                    </div>
+                    <div class="footer-column-links">
+                        <a href={label.DdCommunity_Footer_Col2_Link1} target="_blank">
+                            {label.DdCommunity_Footer_Col2_Label1}
+                        </a>
+                        <a href={label.DdCommunity_Footer_Col2_Link2} target="_blank">
+                            {label.DdCommunity_Footer_Col2_Label2}
+                        </a>
+                        <a href={label.DdCommunity_Footer_Col2_Link3} target="_blank">
+                            {label.DdCommunity_Footer_Col2_Label3}
+                        </a>
+                        <a href={label.DdCommunity_Footer_Col2_Link4} target="_blank">
+                            {label.DdCommunity_Footer_Col2_Label4}
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-column footer-column-links">
+                    <div class="footer-column-title">
+                        {label.DdCommunity_Footer_Col3_Title}
+                    </div>
+                    <div class="footer-column-links">
+                        <a href={label.DdCommunity_Footer_Col3_Link1} target="_blank">
+                            {label.DdCommunity_Footer_Col3_Label1}
+                        </a>
+                        <a href={label.DdCommunity_Footer_Col3_Link2} target="_blank">
+                            {label.DdCommunity_Footer_Col3_Label2}
+                        </a>
+                        <a href={label.DdCommunity_Footer_Col3_Link3} target="_blank">
+                            {label.DdCommunity_Footer_Col3_Label3}
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-column footer-column-apps">
+                    <a href={label.DdCommunity_Footer_Google} target="_blank">
+                        <img class="ddhs-select-apps" src={image.Image_GooglePlay}/>
+                    </a>
+                    <a href={label.DdCommunity_Footer_iTunes} target="_blank">
+                        <img class="ddhs-select-apps" src={image.Image_AppleAppstore}/>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-bottom-left">
+                    <a>
+                        <img class="ddhs-select-logo" src={image.Image_DD_Icon}/>
+                    </a>
+                    <template if:true={isMerchants}>
+                        <a href={label.DdCommunity_Footer_Merchants_TermsOfService_Link} target="_blank">
+                            {label.DdCommunity_Footer_TermsOfService}
+                        </a>
+                    </template>
+                    <template if:true={isDashers}>
+                        <a href={label.DdCommunity_Footer_TermsOfService_Link} target="_blank">
+                            {label.DdCommunity_Footer_TermsOfService}
+                        </a>
+                    </template>
+                    <template if:true={isConsumers}>
+                        <a href={label.DdCommunity_Footer_TermsOfService_Link} target="_blank">
+                            {label.DdCommunity_Footer_TermsOfService}
+                        </a>
+                    </template>
+                    <a href={label.DdCommunity_Footer_Privacy_Link} target="_blank">
+                        {label.DdCommunity_Footer_Privacy}
+                    </a>
+                    <a href={label.DdCommunity_Footer_DeliveryLocations_Link} target="_blank">
+                        {label.DdCommunity_Footer_DeliveryLocations}
+                    </a>
+                    <a href={label.DdCommunity_Footer_Copyright_Link}>
+                        © {label.DdCommunity_Footer_Copyright}
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom-right">
+                <a href={label.DdCommunity_Footer_Facebook_Link} target="_blank">
+                    <img class="ddhs-select-social" src={image.Image_Facebook}/>
+                </a>
+                <a href={label.DdCommunity_Footer_Twitter_Link} target="_blank">
+                    <img class="ddhs-select-social" src={image.Image_Twitter}/>
+                </a>
+                <a href={label.DdCommunity_Footer_Instagram_Link} target="_blank">
+                    <img class="ddhs-select-social" src={image.Image_Instagram}/>
+                </a>
+                <a href={label.DdCommunity_Footer_Glassdoor_Link} target="_blank">
+                    <img class="ddhs-select-social" src={image.Image_Glassdoor}/>
+                </a>
+            </div>
+        </div>
+    </div>
+</template>

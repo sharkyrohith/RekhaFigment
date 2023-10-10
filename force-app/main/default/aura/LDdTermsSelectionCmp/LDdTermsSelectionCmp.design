@@ -1,0 +1,13 @@
+<design:component label="Terms Dropdown">
+    
+    
+    <design:attribute name="CommunityName" label="Community Name" datasource="consumers,dashers,merchants" default="consumers"/>
+    <design:attribute name="AgreementType" label="Agreement Type" datasource="terms-and-conditions,privacy-policy,ica,deactivation-policy,terms-of-service" default="terms-and-conditions"/>
+    <design:attribute name="LocationDefault" label="Default Location" datasource="us,ca,au" default="us"/>
+    <design:attribute name="LocationCount" label="Additional Locations" datasource="One,Two" default="One" />
+    <design:attribute name="LocationOneLabel" label="Button 1 Label" datasource="us,ca,au" default="ca"/>
+    <design:attribute name="LocationOneLink" label="Button 1 Link"/>
+    <design:attribute name="LocationTwoLabel" label="Button 2 Label" datasource="us,ca,au" default="au"/>
+    <design:attribute name="LocationTwoLink" label="Button 2 Link"/>
+    
+</design:component>

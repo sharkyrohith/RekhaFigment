@@ -1,0 +1,48 @@
+<apex:page standardController="Case" showHeader="false" sidebar="true" docType="html-5.0">
+    <script src="../../soap/ajax/45.0/connection.js" type="text/javascript"></script>
+    <apex:includeScript value="/support/console/45.0/integration.js"/>
+    <apex:sectionHeader title="{!Case.CaseNumber}" subtitle="{!Case.Subject}" />
+    <apex:includeLightning /> 
+    <div id="DispatchCallout" />
+
+    <script>
+        $Lightning.use("c:LDdCreatePersonAccountApp", function() {
+          $Lightning.createComponent("c:LDdCreatePersonAccountCmp",
+              { recordId : "{!Case.Id}" },
+              "DispatchCallout",
+              function(cmp) {
+                  $A.eventService.addHandler({
+                        event: 'force:navigateToSObject',
+                        handler: function(event) {
+                            if (sforce && sforce.one) {
+                                sforce.one.navigateToSObject("{!Case.Id}", "detail");
+                                sforce.console.getFocusedPrimaryTabId(function (primaryTab){
+                                    sforce.console.getSubtabIds(primaryTab.id, function (subtabs){
+                                    var caseTabId, subTabId;
+                                    subtabs.ids.forEach(function (tabId){
+                                            sforce.console.getPageInfo(tabId, function (subTabInfo){
+                                                var pageInfo = JSON.parse(subTabInfo.pageInfo);
+                                                if (pageInfo.objectId == null && pageInfo.objectName == "Case"){
+                                                	subTabId = tabId;                           
+                                                } else if (pageInfo.objectId == "{!Case.Id}"){
+                                                	caseTabId = tabId;
+                                                }
+                                                
+                                                if (caseTabId && subTabId){
+                                                	sforce.console.refreshSubtabById(caseTabId, false);
+                                                	sforce.console.closeTab(subTabId);  
+                                                }
+                                            });
+                                      });    
+                                    });
+                                });
+                            } else {
+                                window.location = "/{!Case.Id}";
+                            }
+                        }
+                    });
+              }
+          );
+        });
+    </script>
+</apex:page>

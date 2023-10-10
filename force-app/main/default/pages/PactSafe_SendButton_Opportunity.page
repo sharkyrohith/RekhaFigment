@@ -1,0 +1,465 @@
+<apex:page standardController="Opportunity" sidebar="false" >
+
+    <apex:outputPanel id="errorPanel" rendered="{!IF(Opportunity.RecordTypeId='0121a000000QpnMAAS', IF(Opportunity.StageName='Ready for Signature', false, true), IF(Opportunity.RecordTypeId='0121a0000006UJJAA2', IF(Opportunity.StageName='Ready for Signature', false, true), false))}">
+        <div style="text-align:center;margin-top:50px;">
+        <apex:outputText style="text-center;font-size:30px;" value="The Opportunity Stage must be Ready for Signature to Send Contract"/>
+        </div>
+    </apex:outputPanel>
+
+
+    <apex:canvasApp namespacePrefix="pactsafe1" developerName="PactSafe_Canvas"
+                    width="100%" scrolling="yes" rendered="{!IF(Opportunity.RecordTypeId='0121a000000QpnMAAS', IF(Opportunity.StageName='Ready for Signature', true, false), IF(Opportunity.RecordTypeId='0121a0000006UJJAA2', IF(Opportunity.StageName='Ready for Signature', true, false), true))}"
+                    parameters="{
+                                version: 2.0,
+                                Opportunity__c: '{! Opportunity.Id }',
+                                Account__c: '{! Opportunity.AccountId }',
+                                objectPermissions: {
+                                  PactSafeRequest__c: {! $ObjectType.pactsafe1__PactSafeRequest__c.accessible },
+                                  Opportunity: {! $ObjectType.Opportunity.accessible },
+                                  Account: {! $ObjectType.Account.accessible },
+                                  Contact: {! $ObjectType.Contact.accessible }
+                                },
+                                delete: {! NOT( ISBLANK( $CurrentPage.parameters.delID ) ) },
+                                recordType: 'pactsafe1__PactSafeRequest__c',
+                                requestData: {
+                                  contracts: [
+                                      {!CASE(Opportunity.RecordTypeId, '0121a0000006UJJAA2', IF(Opportunity.PactSafe_Contract_Type__c='English AUS Post Sale Addendum', '{id: 62463}',
+                                        IF(Opportunity.PactSafe_Contract_Type__c='English AUS Post Sale Paper Addendum', '{id: 50716}',
+                                        IF(Opportunity.PactSafe_Contract_Type__c='English CAN Post Sale Addendum', '{id: 68000}',
+                                        IF(Opportunity.PactSafe_Contract_Type__c='Online Ordering Addendum', '{id: 86670}',
+                                        IF(Opportunity.PactSafe_Contract_Type__c='English CAN Post Sale Paper Addendum', '{id: 73967}',
+                                        IF(Opportunity.PactSafe_Contract_Type__c='Post Sale Paper Addendum', '{id: 73968}',
+                                        IF(Opportunity.PactSafe_Contract_Type__c='Universal English Post Sale Addendum', '{id: 91342}',
+                                        IF(Opportunity.PactSafe_Contract_Type__c='French CAN Post Sale Addendum', '{id: 95153}',
+                                        IF(Opportunity.PactSafe_Contract_Type__c='English Alcohol Addendum', '{id: 96188}',
+                                        IF(Opportunity.PactSafe_Contract_Type__c='Spanish US Post Sale Addendum', '{id: 93236}',
+                                        IF(Opportunity.PactSafe_Contract_Type__c='English US MSA', '{id: 49466}','{id: 45981}'))))))))))),
+                                        '0122L000000AXswQAG', CASE(Opportunity.PactSafe_Contract_Type__c, 'Marketing Promotions Addendum', '{id: 70376}',
+                                                'Marketing Promotions Addendum - Auto-Enrolling Franchisees', '{id: 70654}',
+                                                'AUS English MSA Paper Agreement', '{id: 68111}',
+                                                'US English MSA Paper Agreement', '{id: 68109}',
+                                                'CAN English MSA Paper Agreement', '{id: 68110}', ''),
+                                        '0121a0000006R62AAE', CASE(Opportunity.PactSafe_Contract_Type__c, 'English Drive Fulfillment Addendum', '{id: 58774}',
+                                                'English Universal Supplemental Agreement', '{id: 70845}',
+                                                'English Drive Addendum', '{id: 58774}',
+                                                'English Drive Amendment', '{id: 104734}',
+                                                'Drive Promotions Addendum', '{id: 86209}',
+                                                'English US Drive Supplemental Agreement', '{id: 70845}', '{id: 51978}'),
+                                        '0122L000000sc4kQAA', CASE(Opportunity.PactSafe_Contract_Type__c, 'Franchisee Opt-Out Addendum', '{id: 74638}',
+                                                'Franchisee Opt-In Addendum', '{id: 74639}', ''),
+                                        '0121a0000006UJEAA2', CASE(Opportunity.PactSafe_Contract_Type__c, 'English Work Agreement', '{id: 105372}',
+                                                'English Work Addendum', '{id: 105371}', ''),
+                                        '0121a0000006UJEAA2', IF(Opportunity.PactSafe_Contract_Type__c='Email Confirmation', '{id: 72733}', ''),
+                                        '0121a000000QpnMAAS', CASE(Opportunity.PactSafe_Contract_Type__c, 'Order Protocol', '{id: 53040}',
+                                                'English US MSA', '{id: 49466}',
+                                                'English Canada MSA', '{id: 49557}',
+                                                'English Universal Sign Up Sheet', '{id: 100050}',
+                                                'Spanish Sign Up Sheet', '{id: 52971}',
+                                                'Spanish MSA', '{id: 53742}',
+                                                'English Canada Sign Up Sheet', '{id: 50658}',
+                                                'French MSA', '{id: 49559}',
+                                                'French Sign Up Sheet', '{id: 49519}',
+                                                'English AUS Sign Up Sheet', '{id: 50167}',
+                                                'US Paper Agreement', '{id: 50934}',
+                                                'Canada Paper Agreement', '{id: 50714}',
+                                                'Australia Paper Agreement', '{id: 50716}',
+                                                'English MSA Exhibit B', '{id: 56341}',
+                                                'French MSA Exhibit B', '{id: 56363}',
+                                                'French Paper Agreement', '{id: 50715}',
+                                                'English AUS Post Sale Addendum', '{id: 62463}',
+                                                'Virtual Mx Services Paper Agreement', '{id: 64013}',
+                                                'US English MSA Paper Agreement', '{id: 68109}',
+                                                'CAN English MSA Paper Agreement', '{id: 68110}',
+                                                'AUS English MSA Paper Agreement', '{id: 68111}',
+                                                'English US Mx Sign Up Sheet', '{id: 72700}',
+                                                'Caviar Migration ToS', '{id: 76860}',
+                                                'English Universal Supplemental Agreement', '{id: 70845}',
+                                                'Demand Gen Agreement', '{id: 56611}','{id: 45962}' ),
+                                          '0121a000000eTFNAA2', IF(Opportunity.PactSafe_Contract_Type__c=='US English MSA Paper Agreement', '{id: 68109}',
+                                            IF(Opportunity.PactSafe_Contract_Type__c=='Universal English MSA', '{id: 77307}',
+                                              IF(Opportunity.PactSafe_Contract_Type__c=='AUS English MSA Paper Agreement', '{id: 68111}',
+                                                IF(Opportunity.PactSafe_Contract_Type__c=='CAN English MSA Paper Agreement', '{id: 68110}',
+                                                  IF(Opportunity.PactSafe_Contract_Type__c=='French MSA', '{id: 80805}',
+                                                    IF(Opportunity.PactSafe_Contract_Type__c=='Spanish MSA', '{id: 80996}',
+                                                      IF(BEGINS(Opportunity.Account.Name, 'Burger'), '{id: 54238}',
+                                                        IF(BEGINS(Opportunity.Account.Name, 'Popeye'), '{id: 54239}',
+                                                          IF(BEGINS(Opportunity.Account.Name, 'Chick-fil-A'), '{id: 54240}',
+                                                            IF(BEGINS(Opportunity.Account.Name, 'Charle'), '{id: 54241}',
+                                                              IF(BEGINS(Opportunity.Account.Name, 'Subway'), '{id: 53575}',
+                                                                IF(BEGINS(Opportunity.Account.Name, 'Dairy'), '{id: 54243}',
+                                                                  IF(BEGINS(Opportunity.Account.Name, 'Five'), '{id: 54244}',
+                                                                    IF(BEGINS(Opportunity.Account.Name, 'Papa Jo'), '{id: 54245}',
+                                                                      IF(BEGINS(Opportunity.Account.Name, 'Cold'), '{id: 54255}',
+                                                                        IF(BEGINS(Opportunity.Account.Name, 'Baja'), '{id: 54256}',
+                                                                          IF(BEGINS(Opportunity.Account.Name, 'Qdoba'), '{id: 54347}',
+                                                                            IF(BEGINS(Opportunity.Account.Name, 'QDOBA'), '{id: 54347}',
+                                                                              IF(BEGINS(Opportunity.Account.Name, 'Applebee'), '{id: 54259}',
+                                                                                IF(BEGINS(Opportunity.Account.Name, 'IHOP'), '{id: 54259}',
+                                                                                  IF(BEGINS(Opportunity.Account.Name, 'McAlister'), '{id: 54255}',
+                                                                                    IF(BEGINS(Opportunity.Account.Name, 'Auntie'), '{id: 54255}',
+                                                                                      IF(BEGINS(Opportunity.Account.Name, 'Cinnabon'), '{id: 54255}',
+                                                                                        IF(BEGINS(Opportunity.Account.Name, 'Schlotzsky'), '{id: 54255}',
+                                                                                          IF(BEGINS(Opportunity.Account.Name, 'Carl'), '{id: 54260}',
+                                                                                            IF(BEGINS(Opportunity.Account.Name, 'Hardee'), '{id: 54260}',
+                                                                                              IF(BEGINS(Opportunity.Account.Name, 'Chili'), '{id: 55761}',
+                                                                                                IF(BEGINS(Opportunity.Account.Name, 'Maggiano'), '{id: 55761}',
+                                                                                                  IF(BEGINS(Opportunity.Account.Name, 'Arby'), '{id: 54246}',
+                                                                                                    IF(BEGINS(Opportunity.Account.Name, 'Buffalo'), '{id: 54247}',
+                                                                                                      IF(BEGINS(Opportunity.Account.Name, 'Denny'), '{id: 54325}',
+                                                                                                        IF(BEGINS(Opportunity.Account.Name, 'MOD'), '{id: 54326}',
+                                                                                                          IF(BEGINS(Opportunity.Account.Name, 'Papa Murphy'), '{id: 54327}',
+                                                                                                            IF(BEGINS(Opportunity.Account.Name, 'Perkins'), '{id: 72771}',
+                                                                                                              IF(BEGINS(Opportunity.Account.Name, 'Sonic'), '{id: 54248}',
+                                                                                                                IF(BEGINS(Opportunity.Account.Name, 'Blaze'), '{id: 54330}',
+                                                                                                                  IF(BEGINS(Opportunity.Account.Name, 'Jamba'), '{id: 54255}',
+                                                                                                                    IF(BEGINS(Opportunity.Account.Name, 'Moe'), '{id: 54255}',
+                                                                                                                      IF(BEGINS(Opportunity.Account.Name, 'El'), '{id: 54333}',
+                                                                                                                        IF(BEGINS(Opportunity.Account.Name, 'Checker'), '{id: 54262}',
+                                                                                                                          IF(BEGINS(Opportunity.Account.Name, 'Rally'), '{id: 54262}',
+                                                                                                                            IF(BEGINS(Opportunity.Account.Name, 'Church'), '{id: 54343}',
+                                                                                                                              IF(BEGINS(Opportunity.Account.Name, 'Golden'), '{id: 54334}',
+                                                                                                                                IF(BEGINS(Opportunity.Account.Name, 'Jersey'), '{id: 54335}',
+                                                                                                                                  IF(BEGINS(Opportunity.Account.Name, 'Potbelly'), '{id: 54336}',
+                                                                                                                                    IF(BEGINS(Opportunity.Account.Name, 'Togo'), '{id: 55446}',
+                                                                                                                                      IF(BEGINS(Opportunity.Account.Name, 'Tropical Smoothie'), '{id: 55537}',
+                                                                                                                                        IF(BEGINS(Opportunity.Account.Name, 'Smash'), '{id: 54337}',
+                                                                                                                                          IF(BEGINS(Opportunity.Account.Name, 'Rita'), '{id: 58175}',
+                                                                                                                                            IF(BEGINS(Opportunity.Account.Name, 'Luby'), '{id: 58256}',
+                                                                                                                                              IF(BEGINS(Opportunity.Account.Name, 'Port of'), '{id: 58253}',
+                                                                                                                                                IF(BEGINS(Opportunity.Account.Name, 'Fazoli'), '{id: 61210}',
+                                                                                                                                                  IF(BEGINS(Opportunity.Account.Name, 'Newk'), '{id: 61214}',
+                                                                                                                                                    IF(BEGINS(Opportunity.Account.Name, 'Corner'), '{id: 61215}',
+                                                                                                                                                      IF(BEGINS(Opportunity.Account.Name, 'Yogurt'), '{id: 61221}',
+                                                                                                                                                        IF(BEGINS(Opportunity.Account.Name, 'Black Bear Diner'), '{id: 61233}',
+                                                                                                                                                          IF(BEGINS(Opportunity.Account.Name, 'Global Franchise Group'), '{id: 61236}',
+                                                                                                                                                            IF(BEGINS(Opportunity.Account.Name, 'Jason'), '{id: 63479}',
+                                                                                                                                                              IF(BEGINS(Opportunity.Account.Name, 'Mountain Mike'), '{id: 63478}',
+                                                                                                                                                                IF(BEGINS(Opportunity.Account.Name, 'Pizza Inn'), '{id: 64349}',
+                                                                                                                                                                  IF(BEGINS(Opportunity.Account.Name, 'Taco John'), '{id: 64016}',
+                                                                                                                                                                    IF(BEGINS(Opportunity.Account.Name, 'Honey Baked'), '{id: 64017}',
+                                                                                                                                                                      IF(BEGINS(Opportunity.Account.Name, 'Sweet Frog'), '{id: 64018}',
+                                                                                                                                                                        IF(BEGINS(Opportunity.Account.Name, 'Chester'), '{id: 64355}',
+                                                                                                                                                                          IF(BEGINS(Opportunity.Account.Name, 'Slim Chicken'), '{id: 64356}',
+                                                                                                                                                                            IF(BEGINS(Opportunity.Account.Name, 'Pie Five'), '{id: 64357}',
+                                                                                                                                                                              IF(BEGINS(Opportunity.Account.Name, 'Bar Louie'), '{id: 64358}',
+                                                                                                                                                                                IF(BEGINS(Opportunity.Account.Name, 'La Madeliene'), '{id: 64359}',
+                                                                                                                                                                                  IF(BEGINS(Opportunity.Account.Name, 'Cici'), '{id: 64962}',
+                                                                                                                                                                                    IF(BEGINS(Opportunity.Account.Name, 'Quizno'), '{id: 64961}',
+                                                                                                                                                                                      IF(BEGINS(Opportunity.Account.Name, 'Dickey'), '{id: 64958}',
+                                                                                                                                                                                        IF(BEGINS(Opportunity.Account.Name, 'Mr. Hero'), '{id: 65482}',
+                                                                                                                                                                                          IF(BEGINS(Opportunity.Account.Name, 'Nekter MSA'), '{id: 65946}',
+                                                                                                                                                                                            IF(BEGINS(Opportunity.Account.Name, 'Menchie'), '{id: 70025}',
+                                                                                                                                                                                              IF(BEGINS(Opportunity.Account.Name, 'Chicken Express'), '{id: 70020}',
+                                                                                                                                                                                                IF(BEGINS(Opportunity.Account.Name, 'Pizza Guy'), '{id: 70696}',
+                                                                                                                                                                                                  IF(BEGINS(Opportunity.Account.Name, 'Northland'), '{id: 73961}',
+                                                                                                                                                                                                    IF(BEGINS(Opportunity.Account.Name, 'Long John'), '{id: 56853}','{id: 54432}'
+                                                )))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))), '')}
+                                          ],
+                                  name: '{!IF(ISBLANK(Opportunity.Legal_Business_Name__c), JSENCODE(Opportunity.Account.Name), JSENCODE(Opportunity.Legal_Business_Name__c))}',
+                                  signing_order: {!IF(CONTAINS(Opportunity.PactSafe_Contract_Type__c, "Paper"), false, true)},
+                                  signers: [
+                                  {
+                                      signer_id: '{!IF(Opportunity.PactSafe_Contract_Type__c="English Universal Supplemental Agreement", "ddpactsafe@arcgate.com", Opportunity.Decision_Maker__r.Email)}',
+                                      personas: [ {!IF(Opportunity.PactSafe_Contract_Type__c="English Universal Supplemental Agreement", "", "'Merchant'")} ],
+                                      supporting_files_access: true,
+                                      signer: {
+                                          company_name: '{!IF(Opportunity.PactSafe_Contract_Type__c="English Universal Supplemental Agreement", "", JSENCODE(Opportunity.Account.Name))}',
+                                          title: '{!IF(Opportunity.PactSafe_Contract_Type__c="English Universal Supplemental Agreement", "", JSENCODE(Opportunity.Decision_Maker__r.Title))}',
+                                          additional_attributes: {
+                                              first_name: '{!IF(Opportunity.PactSafe_Contract_Type__c="English Universal Supplemental Agreement", "", JSENCODE(Opportunity.Decision_Maker__r.FirstName))}',
+                                              last_name: '{!IF(Opportunity.PactSafe_Contract_Type__c="English Universal Supplemental Agreement", "", JSENCODE(Opportunity.Decision_Maker__r.LastName))}',
+                                              mobile_number: '{!IF(Opportunity.PactSafe_Contract_Type__c="English Universal Supplemental Agreement", "", Opportunity.Decision_Maker__r.MobilePhone)}'
+                                          }
+                                      },
+                                      send_to: {
+                                          mobile_number: {!IF(contains(Opportunity.PactSafe_Contract_Type__c, "Paper"), false, true)},
+                                          email: {!IF(CONTAINS(Opportunity.PactSafe_Contract_Type__c, "Paper"), false, true)}
+                                          }
+                                    },
+                                    {
+                                      signer_id: '{!CASE(Opportunity.PactSafe_Contract_Type__c, "English Universal Supplemental Agreement", Opportunity.Decision_Maker__r.Email, "Marketing Promotions Addendum", IF(Opportunity.RecordTypeId="0122L000000AXswQAG", Opportunity.Manager__r.Email, Opportunity.Owner.Email), Opportunity.Owner.Email)}',
+                                      personas: [ {!IF(Opportunity.PactSafe_Contract_Type__c="English Universal Supplemental Agreement", "'Merchant'", "'DoorDash'")} ],
+                                      supporting_files_access: true,
+                                      signer: {
+                                          company_name: '{!CASE(Opportunity.PactSafe_Contract_Type__c, "English Universal Supplemental Agreement", JSENCODE(Opportunity.Account.Name), "Marketing Promotions Addendum", IF(Opportunity.RecordTypeId="0122L000000AXswQAG", JSENCODE(Opportunity.Manager__r.CompanyName), JSENCODE(Opportunity.Owner.CompanyName)), JSENCODE(Opportunity.Owner.CompanyName))}',
+                                          title: '{!IF(Opportunity.PactSafe_Contract_Type__c="English Universal Supplemental Agreement", JSENCODE(Opportunity.Decision_Maker__r.Title), IF(Opportunity.RecordTypeId="0122L000000AXswQAG", IF(Opportunity.PactSafe_Contract_Type__c="English Universal Supplemental Agreement", JSENCODE(Opportunity.Manager__r.Title), JSENCODE(Opportunity.Owner.Title)), JSENCODE(Opportunity.Owner.Title)))}',
+                                          additional_attributes: {
+                                              first_name: '{!CASE(Opportunity.PactSafe_Contract_Type__c, "English Universal Supplemental Agreement", JSENCODE(Opportunity.Decision_Maker__r.FirstName), "Marketing Promotions Addendum", IF(Opportunity.RecordTypeId="0122L000000AXswQAG", JSENCODE(Opportunity.Manager__r.FirstName), JSENCODE(Opportunity.Owner.FirstName)), JSENCODE(Opportunity.Owner.FirstName))}',
+                                              last_name: '{!CASE(Opportunity.PactSafe_Contract_Type__c, "English Universal Supplemental Agreement", JSENCODE(Opportunity.Decision_Maker__r.LastName), "Marketing Promotions Addendum", IF(Opportunity.RecordTypeId="0122L000000AXswQAG", JSENCODE(Opportunity.Manager__r.LastName), JSENCODE(Opportunity.Owner.LastName)), JSENCODE(Opportunity.Owner.LastName))}',
+                                              mobile_number: '{!CASE(Opportunity.PactSafe_Contract_Type__c, "English Universal Supplemental Agreement", Opportunity.Decision_Maker__r.MobilePhone, "Marketing Promotions Addendum", IF(Opportunity.RecordTypeId="0122L000000AXswQAG", Opportunity.Manager__r.DID_Phone_Number__c, Opportunity.Owner.DID_Phone_Number__c), Opportunity.Owner.DID_Phone_Number__c)}'
+                                          }
+                                      },
+                                      send_to: {
+                                          mobile_number: {!IF(contains(Opportunity.PactSafe_Contract_Type__c, "Paper"), false, true)},
+                                          email: {!IF(CONTAINS(Opportunity.PactSafe_Contract_Type__c, "Paper"), false, true)}
+                                      }
+                                    },
+                                    {
+                                      signer_id: '{!IF(Opportunity.PactSafe_Contract_Type__c="English Universal Supplemental Agreement", Opportunity.Owner.Email, IF(CONTAINS(Opportunity.PactSafe_Contract_Type__c, "Paper"), "ddpactsafe@arcgate.com", ""))}',
+                                      personas: [ {!IF(Opportunity.PactSafe_Contract_Type__c="English Universal Supplemental Agreement", "'DoorDash'", IF(CONTAINS(Opportunity.PactSafe_Contract_Type__c, "Paper"), "", ""))} ],
+                                      supporting_files_access: true,
+                                      signer: {
+                                          company_name: '{!IF(Opportunity.PactSafe_Contract_Type__c="English Universal Supplemental Agreement", JSENCODE(Opportunity.Owner.CompanyName), IF(CONTAINS(Opportunity.PactSafe_Contract_Type__c, "Paper"), "", ""))}',
+                                          title: '{!IF(Opportunity.PactSafe_Contract_Type__c="English Universal Supplemental Agreement", JSENCODE(Opportunity.Owner.Title), IF(CONTAINS(Opportunity.PactSafe_Contract_Type__c, "Paper"), "", ""))}',
+                                          additional_attributes: {
+                                              first_name: '{!IF(Opportunity.PactSafe_Contract_Type__c="English Universal Supplemental Agreement", Opportunity.Owner.FirstName, IF(CONTAINS(Opportunity.PactSafe_Contract_Type__c, "Paper"), "", ""))}',
+                                              last_name: '{!IF(Opportunity.PactSafe_Contract_Type__c="English Universal Supplemental Agreement", Opportunity.Owner.LastName, IF(CONTAINS(Opportunity.PactSafe_Contract_Type__c, "Paper"), "", ""))}',
+                                              mobile_number: '{!IF(Opportunity.PactSafe_Contract_Type__c="English Universal Supplemental Agreement", Opportunity.Owner.DID_Phone_Number__c, IF(CONTAINS(Opportunity.PactSafe_Contract_Type__c, "Paper"), "", ""))}'
+                                          }
+                                      } {!IF(Opportunity.PactSafe_Contract_Type__c="English Universal Supplemental Agreement", ', send_to: { mobile_number: true, email: true}', '')}
+                                    }
+                                    ],
+                                  fields: [
+                                    {
+                                      name: 'company_name',
+                                      {!IF(ISNULL(Opportunity.Account.Name), "default_value: ", "completed_value: ")} '{! JSENCODE(Opportunity.Account.Name) }',
+                                      assigned_to: '{! Opportunity.Decision_Maker__r.Email }'
+                                    },
+                                    {
+                                      name: 'street',
+                                      {!IF(ISNULL(Opportunity.Account.BillingStreet), "default_value: ", "completed_value: ")} '{!JSENCODE(Opportunity.Account.BillingStreet)}',
+                                      assigned_to: '{! Opportunity.Decision_Maker__r.Email }'
+                                    },
+                                    {
+                                      name: 'city',
+                                      {!IF(ISNULL(Opportunity.Account.BillingCity), "default_value: ", "completed_value: ")} '{!JSENCODE(Opportunity.Account.BillingCity)}',
+                                      assigned_to: '{! Opportunity.Decision_Maker__r.Email }'
+                                    },
+                                    {
+                                      name: 'state',
+                                      {!IF(ISNULL(Opportunity.Account.BillingState), "default_value: ", "completed_value: ")} '{!Opportunity.Account.BillingState}',
+                                      assigned_to: '{! Opportunity.Decision_Maker__r.Email }'
+                                    },
+                                    {
+                                      name: 'zip',
+                                      {!IF(ISNULL(Opportunity.Account.BillingPostalCode), "default_value: ", "completed_value: ")} '{!Opportunity.Account.BillingPostalCode}',
+                                      assigned_to: '{! Opportunity.Decision_Maker__r.Email }'
+                                    },
+                                    {
+                                      name: 'contact_email',
+                                      {!IF(ISNULL(Opportunity.DM_Email__c), "default_value: ", "completed_value: ")} '{!Opportunity.DM_Email__c}',
+                                      assigned_to: '{! Opportunity.Decision_Maker__r.Email }'
+                                    },
+                                    {
+                                      name: 'contact_phone',
+                                      {!IF(ISNULL(Opportunity.DM_Phone_Number__c), "default_value: ", "completed_value: ")} '{!JSENCODE(Opportunity.DM_Phone_Number__c)}',
+                                      assigned_to: '{! Opportunity.Decision_Maker__r.Email }'
+                                    },
+                                    {
+                                      name: 'ein_no',
+                                      {!IF(ISNULL(Opportunity.Account.EIN_Encrypted__c), "default_value: ", "completed_value: ")} '{!Opportunity.Account.EIN_Encrypted__c}',
+                                      assigned_to: '{! Opportunity.Decision_Maker__r.Email }'
+                                    },
+                                    {
+                                      name: 'routing_no',
+                                      {!IF(ISNULL(Opportunity.Account.Bank_Routing_Number_Encrypted__c), "default_value: ", "completed_value: ")} '{!Opportunity.Account.Bank_Routing_Number_Encrypted__c}',
+                                      assigned_to: '{! Opportunity.Decision_Maker__r.Email }'
+                                    },
+                                    {
+                                      name: 'abn_number',
+                                      {!IF(ISNULL(Opportunity.Account.EIN_Encrypted__c), "default_value: ", "completed_value: ")} '{!Opportunity.Account.EIN_Encrypted__c}',
+                                      assigned_to: '{! Opportunity.Decision_Maker__r.Email }'
+                                    },
+                                    {
+                                      name: 'bsb_number',
+                                      {!IF(ISNULL(Opportunity.Account.Bank_Routing_Number_Encrypted__c), "default_value: ", "completed_value: ")} '{!Opportunity.Account.Bank_Routing_Number_Encrypted__c}',
+                                      assigned_to: '{! Opportunity.Decision_Maker__r.Email }'
+                                    },
+                                    {
+                                      name: 'account_number',
+                                      {!IF(ISNULL(Opportunity.Account.Bank_Account_Number_Encrypted__c), "default_value: ", "completed_value: ")} '{!Opportunity.Account.Bank_Account_Number_Encrypted__c}',
+                                      assigned_to: '{! Opportunity.Decision_Maker__r.Email }'
+                                    },
+                                    {
+                                      name: 'account_no',
+                                      {!IF(ISNULL(Opportunity.Account.Bank_Account_Number_Encrypted__c), "default_value: ", "completed_value: ")} '{!Opportunity.Account.Bank_Account_Number_Encrypted__c}',
+                                      assigned_to: '{! Opportunity.Decision_Maker__r.Email }'
+                                    },
+                                    {
+                                      name: 'order_protocol',
+                                      {!IF(ISNULL(Opportunity.Order_Protocol__c), "default_value: ", "completed_value: ")} '{!Opportunity.Order_Protocol__c}',
+                                      assigned_to: '{! Opportunity.Decision_Maker__r.Email }'
+                                    },
+                                    {
+                                      name: 'order_protocol_email',
+                                      {!IF(ISNULL(Opportunity.Order_Protocol_Email__c), "default_value: ", "completed_value: ")} '{!Opportunity.Order_Protocol_Email__c}',
+                                      assigned_to: '{! Opportunity.Decision_Maker__r.Email }'
+                                    },
+                                    {
+                                      name: 'weekly_tablet_fee',
+                                      {!IF(ISNULL(Opportunity.Weekly_Tablet_Subscription_Fee__c), "default_value: ", "completed_value: ")} '{!Opportunity.Weekly_Tablet_Subscription_Fee__c}',
+                                      assigned_to: '{! Opportunity.Decision_Maker__r.Email }'
+                                    },
+                                    {
+                                      name: 'order_protocol_fax',
+                                      {!IF(ISNULL(Opportunity.Order_Protocol_Fax__c), "default_value: ", "completed_value: ")} '{!Opportunity.Order_Protocol_Fax__c}',
+                                      assigned_to: '{! Opportunity.Decision_Maker__r.Email }'
+                                    },
+                                    {
+                                      name: 'webmaster_email',
+                                      {!IF(ISNULL(Opportunity.Webmaster_Email__c), "default_value: ", "completed_value: ")} '{!Opportunity.Webmaster_Email__c}',
+                                      assigned_to: '{! Opportunity.Decision_Maker__r.Email }'
+                                    },
+                                    {
+                                      name: 'webmaster_phone',
+                                      {!IF(ISNULL(Opportunity.Webmaster_Phone__c), "default_value: ", "completed_value: ")} '{!Opportunity.Webmaster_Phone__c}',
+                                      assigned_to: '{! Opportunity.Decision_Maker__r.Email }'
+                                    },
+                                    {
+                                      name: 'secondary_contact_name',
+                                      {!IF(ISNULL(Opportunity.Store_Manager__r.FirstName), "default_value: ", "completed_value: ")} '{! JSENCODE(Opportunity.Store_Manager__r.FirstName) } {! JSENCODE(Opportunity.Store_Manager__r.LastName) }',
+                                      assigned_to: '{! Opportunity.Decision_Maker__r.Email }'
+                                    },
+                                    {
+                                      name: 'secondary_contact_email',
+                                      {!IF(ISNULL(Opportunity.Store_Manager__r.Email), "default_value: ", "completed_value: ")} '{! JSENCODE(Opportunity.Store_Manager__r.Email) }',
+                                      assigned_to: '{! Opportunity.Decision_Maker__r.Email }'
+                                    },
+                                    {
+                                      name: 'secondary_contact_phone',
+                                      {!IF(ISNULL(Opportunity.Store_Manager__r.MobilePhone), "default_value: ", "completed_value: ")} '{! JSENCODE(Opportunity.Store_Manager__r.MobilePhone) }',
+                                      assigned_to: '{! Opportunity.Decision_Maker__r.Email }'
+                                    },
+                                    {
+                                      name: 'contact_name',
+                                      {!IF(ISNULL(Opportunity.Decision_Maker__r.FirstName), "default_value: ", "completed_value: ")} '{! JSENCODE(Opportunity.Decision_Maker__r.FirstName) } {! JSENCODE(Opportunity.Decision_Maker__r.LastName) }',
+                                      assigned_to: '{! Opportunity.Decision_Maker__r.Email }'
+                                    },
+                                    {
+                                      name: 'menu_url',
+                                      {!IF(ISNULL(Opportunity.Menu_URL__c), "default_value: ", "completed_value: ")} '{!JSENCODE(Opportunity.Menu_URL__c)}',
+                                      assigned_to: '{! Opportunity.Decision_Maker__r.Email }'
+                                    },
+                                    {
+                                      name: 'stripe_connected_account_representative_name',
+                                      {!IF(ISNULL(Opportunity.Stripe_Account_Owner__r.Name), "default_value: ", "completed_value: ")} '{!JSENCODE(Opportunity.Stripe_Account_Owner__r.Name)}',
+                                      assigned_to: '{! Opportunity.Decision_Maker__r.Email }'
+                                    },
+                                    {
+                                      name: 'stripe_connected_account_representative_first_name',
+                                      {!IF(ISNULL(Opportunity.Stripe_Account_Owner__r.FirstName), "default_value: ", "completed_value: " )} '{!JSENCODE(Opportunity.Stripe_Account_Owner__r.FirstName)}',
+                                      assigned_to: '{! Opportunity.Decision_Maker__r.Email }'
+                                    },
+                                    {
+                                      name: 'stripe_connected_account_representative_last_name',
+                                      {!IF(ISNULL(Opportunity.Stripe_Account_Owner__r.LastName), "default_value: ", "completed_value: " )} '{!JSENCODE(Opportunity.Stripe_Account_Owner__r.LastName)}',
+                                      assigned_to: '{! Opportunity.Decision_Maker__r.Email }'
+                                    },
+                                    {
+                                      name: 'stripe_connected_account_representative_dob',
+                                      {!IF(ISNULL(Opportunity.Stripe_Account_Owner__r.Birthdate), "default_value: ", "completed_value: ")} '{!Opportunity.Stripe_Account_Owner__r.Birthdate}',
+                                      assigned_to: '{! Opportunity.Decision_Maker__r.Email }'
+                                    },
+                                    {
+                                      name: 'hours_of_operation',
+                                      {!IF(ISNULL(Opportunity.Hours_of_Operation__c), "default_value: ", "completed_value: ")} '{! JSENCODE(Opportunity.Hours_of_Operation__c) }',
+                                      assigned_to: '{! Opportunity.Decision_Maker__r.Email }'
+                                    },
+                                    {
+                                      name: 'merchant_full_name',
+                                      {!IF(ISNULL(Opportunity.Decision_Maker__r.FirstName), "default_value: ", "completed_value: ")} '{! JSENCODE(Opportunity.Decision_Maker__r.FirstName) } {! JSENCODE(Opportunity.Decision_Maker__r.LastName) }',
+                                      assigned_to: '{! Opportunity.Decision_Maker__r.Email }'
+                                    },
+                                    {
+                                      name: 'merchant_title',
+                                      {!IF(ISNULL(Opportunity.Decision_Maker__r.Title), "default_value: ", "completed_value: ")} '{! JSENCODE(Opportunity.Decision_Maker__r.Title) }',
+                                      assigned_to: '{! Opportunity.Decision_Maker__r.Email }'
+                                    },
+                                    {
+                                      name: 'doordash_full_name',
+                                      {!IF(ISNULL(Opportunity.Owner.FirstName), "default_value: ", "completed_value: ")} '{! JSENCODE(Opportunity.Owner.FirstName) } {! JSENCODE(Opportunity.Owner.LastName) }',
+                                      assigned_to: '{! Opportunity.Owner.Email}'
+                                    },
+                                    {
+                                      name: 'doordash_title',
+                                      {!IF(ISNULL(Opportunity.Owner.Title), "default_value: ", "completed_value: ")} '{! JSENCODE(Opportunity.Owner.Title) }',
+                                      assigned_to: '{! Opportunity.Owner.Email}'
+                                    },
+                                    {
+                                      name: 'zero_dollar_delivery_fee',
+                                      completed_value: '{! Opportunity.Maketing_Fee__c }',
+                                      assigned_to: '{! Opportunity.Decision_Maker__r.Email }'
+                                    },
+                                    {
+                                      name: 'weblink_commission_rate',
+                                      completed_value: '{! Opportunity.Referred_Delivery_Commission__c }',
+                                      assigned_to: '{! Opportunity.Decision_Maker__r.Email }'
+                                    },
+                                    {
+                                      name: 'pickup_commission',
+                                      completed_value: '{! Opportunity.In_App_Pickup_Commission__c }',
+                                      assigned_to: '{! Opportunity.Decision_Maker__r.Email }'
+                                    },
+                                    {
+                                      name: 'dashpass_commission',
+                                      completed_value: '{! Opportunity.DashPass_Only_Commission__c }',
+                                      assigned_to: '{! Opportunity.Decision_Maker__r.Email }'
+                                    },
+                                    {
+                                      name: 'exclusivity_end_date',
+                                      completed_value: '{! Opportunity.Exclusivity_End_Date__c }',
+                                      assigned_to: '{! Opportunity.Decision_Maker__r.Email }'
+                                    }
+                                  ],
+                                  custom_data: { 
+                                    legal_business_name: '{! JSENCODE(Opportunity.Account.Legal_Business_Name__c)}',
+                                    company_name: '{! JSENCODE(Opportunity.Account.Name)}',
+                                    street: '{!JSENCODE(Opportunity.Account.BillingStreet)}',
+                                    city: '{!JSENCODE(Opportunity.Account.BillingCity)}',
+                                    state: '{!Opportunity.Account.BillingState}',
+                                    zip: '{!JSENCODE(Opportunity.Account.BillingPostalCode)}',
+                                    contact_email: '{!Opportunity.DM_Email__c}',
+                                    contact_phone: '{!Opportunity.DM_Phone_Number__c}',
+                                    ein_no: '{!Opportunity.Account.EIN_Encrypted__c}',
+                                    routing_no: '{!Opportunity.Account.Bank_Routing_Number_Encrypted__c}',
+                                    account_no: '{!Opportunity.Account.Bank_Account_Number_Encrypted__c}',
+                                    order_protocol: '{!Opportunity.Order_Protocol__c}',
+                                    order_protocol_email: '{!Opportunity.Order_Protocol_Email__c}',
+                                    weekly_tablet_fee: '{!Opportunity.Weekly_Tablet_Subscription_Fee__c}',
+                                    order_protocol_fax: '{!Opportunity.Order_Protocol_Fax__c}',
+                                    webmaster_email: '{!Opportunity.Webmaster_Email__c}',
+                                    webmaster_phone: '{!Opportunity.Webmaster_Phone__c}',
+                                    contact_name: '{! JSENCODE(Opportunity.Decision_Maker__r.FirstName) } {! JSENCODE(Opportunity.Decision_Maker__r.LastName) }',
+                                    menu_url: '{!JSENCODE(Opportunity.Menu_URL__c)}',
+                                    stripe_connected_account_representative_name: '{!JSENCODE(Opportunity.Stripe_Account_Owner__r.Name)}',
+                                    stripe_connected_account_representative_dob: '{!Opportunity.Stripe_Account_Owner__r.Birthdate}',
+                                    hours_of_operation: '{! JSENCODE(Opportunity.Hours_of_Operation__c) }',
+                                    merchant_full_name: '{! JSENCODE(Opportunity.Decision_Maker__r.FirstName) } {! JSENCODE(Opportunity.Decision_Maker__r.LastName) }',
+                                    merchant_title: '{! JSENCODE(Opportunity.Decision_Maker__r.Title) }',
+                                    doordash_full_name: '{! JSENCODE(Opportunity.Owner.FirstName) } {! JSENCODE(Opportunity.Owner.LastName) }',
+                                    doordash_title: '{! JSENCODE(Opportunity.Owner.Title) }',
+                                    promotion_fee: '{! Opportunity.Commission__c }',
+                                    activation_fee: '{! Opportunity.Activation_Fee__c }',
+                                    zero_dollar_delivery_fee: '{! Opportunity.Maketing_Fee__c }',
+                                    weblink_commission_rate: '{! Opportunity.Referred_Delivery_Commission__c }',
+                                    pickup_commission: '{! Opportunity.In_App_Pickup_Commission__c }',
+                                    dashpass_commission: '{! Opportunity.DashPass_Only_Commission__c }',
+                                    exclusivity_end_date: '{! Opportunity.Exclusivity_End_Date__c }',
+                                    pactsafe_locations_attached_by__c: '{! Opportunity.PactSafe_Locations_Attached_By__c }',
+                                    promotion_fee: '{! Opportunity.Commission__c}',
+                                    activation_fee: '{! Opportunity.Activation_Fee__c}'
+                                  }
+                                  }
+                                }"
+                    entityFields="*" />
+
+    <!-- Include SDK necessary for JavaScript events between canvas app and this page. -->
+    <apex:includeScript value="/canvas/sdk/js/30.0/controller.js" />
+    
+    <!-- Define the communicating functions between Pactsafe Canvas App & Salesforce -->
+    <script>
+    /*
+    @description Listens for a pactsafe indicating to redirect the client to the desired url. 
+                 (Mostly used to redirect to related Object.)
+    */
+    Sfdc.canvas.controller.subscribe({
+        name: 'pactsafe.navigateToURL',
+        onData: function ( payload ) {
+            if ( payload && payload.url ) {
+                window.location.href = payload.url;
+            }
+        }
+    });
+    </script>
+
+</apex:page>

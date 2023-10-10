@@ -1,0 +1,24 @@
+<template>
+    <lightning-card variant="narrow">
+        <template if:false={hideSpinner}>
+            <lightning-spinner alternative-text="Loading" size="large"></lightning-spinner>
+        </template>
+            <div class="slds-m-around_medium slds-m-vertical_medium slds-text-heading_large slds-text-align_center">
+                <template if:true={showError}>
+                    {errorMsg}
+                </template>
+                <template if:false={showError}>
+                    <template if:true={isAccountImpacted}>
+                        <div class="slds-text-color_destructive">
+                            Impacted: Yes
+                        </div>
+                    </template>
+                    <template if:false={isAccountImpacted}>
+                        <div class="slds-text-color_success">
+                            Impacted: No
+                        </div>
+                    </template>
+                </template>
+            </div>
+    </lightning-card>
+</template>

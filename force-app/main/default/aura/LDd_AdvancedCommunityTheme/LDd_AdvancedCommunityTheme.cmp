@@ -1,0 +1,230 @@
+<aura:component implements="forceCommunity:themeLayout" access="global" description="DoorDash Advanced Community Theme">
+    <aura:attribute name="customHeader" type="Aura.Component[]" required="false" />
+    <aura:attribute name="languageBar" type="Aura.Component[]" required="false" />
+    <aura:attribute name="globalHeader" type="Aura.Component[]" required="false" />
+    <aura:attribute name="search" type="Aura.Component[]" required="false" />
+    <aura:attribute name="navBar" type="Aura.Component[]" required="false" />
+    <aura:attribute name="customRegion" type="Aura.Component[]" required="false" />
+    <aura:attribute name="profileMenu" type="Aura.Component[]" required="false" />
+    <aura:attribute name="themeFooter" type="Aura.Component[]" required="false" />
+    <aura:attribute name="pageTheme" type="String" default="Home" />
+    <aura:attribute name="DCCsubheader" type="Aura.Component[]" />
+    <aura:attribute name="communityName" type="String" default="Consumer" />
+    <aura:attribute name="pageTitle" type="String" default="" />
+    <aura:attribute name="lang" type="String" default="{!$Locale.langLocale}" />
+    <aura:attribute name="isDashPassPage" type="Boolean" default="false" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <ltng:require styles="{!$Resource.SRDdCommunityStyleSheet}" />
+    <!--  <ltng:require styles="{!$Resource.SRDdCommunityFont + '/stylesheet.css'}" />
+        <ltng:require styles="{!$Resource.SRDdCommunityLanguageStyles}" />
+    <ltng:require styles="{!$Resource.aos + '/aos.css'}" />
+
+    <ltng:require scripts="{!$Resource.aos + '/aos.js'}" /> -->
+    <div class="{!v.communityName}">
+        <section class="{!'ddst-header ' + v.pageTheme}">
+            <div class="grid-wrapper ddst-header-wrap">
+                <div class="ddst-alertBar">
+                    <c:LCDdCommunityAlerts_V3 />
+                </div>
+                <!--
+                <div class="slds-p-horizontal_small ddst-languageBar">
+                    {!v.languageBar}
+                </div>
+                -->
+                <div class="ddst-header-fixed">
+                    <div class="slds-grid slds-wrap slds-grid_pull-padded ddst-header-top-wrap">
+                        <div
+                            class="ddst-languageBar slds-p-horizontal_small slds-x-small-size_1-of-1 slds-small-size_1-of-1 slds-medium-size_12-of-12 slds-large-size_12-of-12 slds-order_1 slds-large-order_1 slds-medium-order_1 slds-small-order_3 slds-x-small-order_3">
+                            {!v.languageBar}
+                        </div>
+
+                        <div
+                            class="ddst-logo slds-p-horizontal_small slds-x-small-size_5-of-12 slds-small-size_5-of-12 slds-medium-size_3-of-12 slds-large-size_3-of-12 slds-order_2 slds-large-order_2 slds-medium-order_2 slds-small-order_2 slds-x-small-order_2">
+                            <aura:if isTrue="{!v.communityName == 'Consumer'}">
+                                <a href="{!$Label.c.DdCommunity_Theme_Cx_URL}"><img class="ddst-logo-red"
+                                        src="{!$Resource.SRDdHelpSelectAssets + '/Logo/DoorDash_logo_RGB-01.svg'}"
+                                        alt="Consumer Help Home" /></a>
+                            </aura:if>
+
+                            <aura:if isTrue="{!v.communityName == 'Dasher'}">
+                                <a href="{!$Label.c.DdCommunity_Theme_Dx_URL}"><img class="ddst-logo-red"
+                                        src="{!$Resource.SRDdHelpSelectAssets + '/Logo/DoorDash_logo_RGB-01.svg'}"
+                                        alt="Dasher Help Home" /></a>
+                            </aura:if>
+
+                            <aura:if isTrue="{!v.communityName == 'Merchant'}">
+                                <a href="{!$Label.c.DdCommunity_Theme_Mx_URL}"><img class="ddst-logo-red"
+                                        src="{!$Resource.SRDdHelpSelectAssets + '/Logo/DoorDash_logo_RGB-01.svg'}"
+                                        alt="Merchant Help Home" /></a>
+                            </aura:if>
+
+                            <aura:if isTrue="{!v.communityName == 'Work'}">
+                                <a href="https://help.doordash.com/work/s/"><img
+                                        class="ddst-logo-red ddst-logo-red-full"
+                                        src="{!$Resource.SRDdHelpSelectAssets + '/Work/ddfw-logo-stacked-new-01.svg'}"
+                                        alt="Work Help Home" /><span class="ddst-logo-id">Support</span></a>
+                            </aura:if>
+                        </div>
+
+                        <aura:if isTrue="{!v.pageTheme != 'HomeUpdated'}">
+                            <div
+                                class="navigation ddst-navBar slds-p-horizontal_small slds-x-small-size_3-of-12 slds-small-size_3-of-12 slds-medium-size_9-of-12 slds-large-size_9-of-12 slds-order_3 slds-large-order_3 slds-medium-order_3 slds-small-order_1 slds-x-small-order_1">
+                                {!v.navBar}
+                                <!-- <c:LDd_AdvancedCommunityNavigation></c:LDd_AdvancedCommunityNavigation> -->
+                            </div>
+                        </aura:if>
+                    </div>
+                </div>
+            </div>
+
+            <aura:if isTrue="{!v.pageTheme != 'LegalDocs'}">
+                <aura:if isTrue="{!v.pageTheme != 'HomeUpdated'}">
+                    <div class="ddst-hero-banner-wrap">
+                        <!--div
+                        class="{!and(v.isDashPassPage, v.lang == 'en_US') ?'ddst-hero-banner-wrap ddst-hero-banner-wrap-dashPass':'ddst-hero-banner-wrap'}"-->
+                        <div class="ddst-hero-banner">
+                            <div class="ddst-hero-banner-content">
+                                <aura:if isTrue="{!v.pageTheme == 'Home'}">
+                                    <div class="ddst-hero-small-title">
+                                        <aura:if isTrue="{!v.communityName == 'Consumer'}">
+                                            {!$Label.c.DdCommunity_Theme_Cx_Greeting}
+                                        </aura:if>
+
+                                        <aura:if isTrue="{!v.communityName == 'Dasher'}">
+                                            {!$Label.c.DdCommunity_Theme_Dx_Greeting}
+                                        </aura:if>
+
+                                        <aura:if isTrue="{!v.communityName == 'Merchant'}">
+                                            {!$Label.c.DdCommunity_Theme_Mx_Greeting}
+                                        </aura:if>
+
+                                        <aura:if isTrue="{!v.communityName == 'Work'}">
+                                            DoorDash for Work Clients,
+                                        </aura:if>
+                                    </div>
+
+                                    <div class="ddst-hero-title">
+                                        <aura:if isTrue="{!v.communityName == 'Consumer'}">
+                                            {!$Label.c.DdCommunity_Theme_Help_Header}
+                                        </aura:if>
+
+                                        <aura:if isTrue="{!v.communityName == 'Dasher'}">
+                                            {!$Label.c.DdCommunity_Theme_Help_Header}
+                                        </aura:if>
+
+                                        <aura:if isTrue="{!v.communityName == 'Merchant'}">
+                                            {!$Label.c.DdCommunity_Theme_Help_Header}
+                                        </aura:if>
+
+                                        <aura:if isTrue="{!v.communityName == 'Work'}">
+                                            {!$Label.c.DdCommunity_Theme_Help_Header}
+                                        </aura:if>
+                                    </div>
+                                </aura:if>
+                                <aura:if isTrue="{!or(v.pageTheme == 'Inner', v.pageTheme == 'ArticleDetail')}">
+                                    <aura:if isTrue="{!v.communityName == 'Consumer'}">
+                                        <div class="ddst-hero-inner-title">
+                                            {!$Label.c.DdCommunity_Theme_Cx_Support}
+                                        </div>
+                                    </aura:if>
+
+                                    <aura:if isTrue="{!v.communityName == 'Dasher'}">
+                                        <div class="ddst-hero-inner-title">
+                                            {!$Label.c.DdCommunity_Theme_Dx_Support}
+                                        </div>
+                                    </aura:if>
+
+                                    <aura:if isTrue="{!v.communityName == 'Merchant'}">
+                                        <div class="ddst-hero-inner-title">
+                                            {!$Label.c.DdCommunity_Theme_Mx_Support}
+                                        </div>
+                                    </aura:if>
+
+                                    <aura:if isTrue="{!v.communityName == 'Work'}">
+                                        <div class="ddst-hero-inner-title">
+                                            DoorDash for Work Clients,
+                                        </div>
+                                    </aura:if>
+                                </aura:if>
+
+                                <aura:if isTrue="{!v.pageTheme == 'DCC'}">
+                                    <div class="ddst-hero-dcc-title">
+                                        <div class="slds-wrap slds-grid slds-grid_vertical-align-center">
+                                            <div
+                                                class="slds-p-horizontal_large slds-large-size_1-of-2 slds-medium-size_1-of-2 slds-small-size_1-of-1 illustration">
+                                                <img src="{!$Resource.DCCImages + '/DCC-Group-Large.svg'}" />
+                                            </div>
+                                            <div
+                                                class="slds-p-horizontal_large slds-large-size_1-of-2 slds-medium-size_1-of-2 slds-small-size_1-of-1">
+                                                <h2>{!$Label.c.DdCommunity_Theme_Dx_DCC}</h2>
+                                                <h4>{!v.DCCsubheader}</h4>
+                                                <div class="downArrow">
+                                                    <lightning:icon iconName="utility:arrowdown" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </aura:if>
+
+                                <aura:if isTrue="{!v.pageTheme == 'DCCInterior'}">
+                                    <h1 class="DCCInterior-Title">
+                                        {!v.pageTitle}
+                                    </h1>
+                                </aura:if>
+
+
+
+                                <!--  <aura:if isTrue="{!or(v.pageTheme != 'DCC', v.pageTheme != 'VDC')}"> -->
+
+                                <aura:if isTrue="{!v.pageTheme != 'DCC'}">
+                                    <aura:if isTrue="{!v.pageTheme != 'DCCInterior'}">
+                                        <aura:if isTrue="{!v.pageTheme != 'HomeUpdated'}">
+                                            <aura:if isTrue="{!v.pageTheme != 'VDC'}">
+                                                <div class="ddst-search-wrap">
+                                                    <div class="ddst-searchBox">{!v.search}</div>
+                                                </div>
+                                            </aura:if>
+                                        </aura:if>
+                                    </aura:if>
+                                </aura:if>
+                            </div>
+                        </div>
+                    </div>
+                </aura:if>
+            </aura:if>
+        </section>
+        <!--  <section class="ddst-customRegion-wrap">
+            <div class="interiorFrame">
+                {!v.customRegion}
+            </div>
+        </section>
+		-->
+        <aura:if isTrue="{!and(v.pageTheme != 'DCC', v.pageTheme != 'DCCInterior')}">
+            <section class="{!'ddst-body-wrap ' + v.pageTheme}">
+                <div class="interiorFrame">{!v.body}</div>
+            </section>
+
+            <aura:set attribute="else">
+                <section class="{!'ddst-body-wrap ' + v.pageTheme}">
+                    {!v.body}
+                </section>
+            </aura:set>
+        </aura:if>
+
+        <aura:if isTrue="{!v.pageTheme != 'HomeUpdated'}">
+            <section class="ddst-footer-wrap">
+                <div class="ddst-footer">
+                    {!v.themeFooter}
+                    <!-- <c:LCDdCommunityFooter CommunityName="{!v.communityName}"/> -->
+                </div>
+            </section>
+            <aura:set attribute="else">
+                <div>
+                    {!v.themeFooter}
+                </div>
+            </aura:set>
+        </aura:if>
+
+    </div>
+</aura:component>

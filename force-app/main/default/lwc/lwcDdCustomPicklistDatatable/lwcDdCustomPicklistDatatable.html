@@ -1,0 +1,48 @@
+<template>
+    <template if:false={showTable}>
+        <lightning-spinner alternative-text="Loading" size="large"></lightning-spinner>
+    </template>
+    <lightning-layout vertical-align="end">
+        <lightning-layout-item flexibility="auto" class="slds-p-left_small slds-p-right_small">
+            <lightning-input type="search" name="accountname" placeholder="Enter Account Name..."
+                onchange={handleKeyChange} value={accountnameSearchKey}>
+            </lightning-input>
+        </lightning-layout-item>
+    </lightning-layout>
+    <lightning-layout horizontal-align="center">
+        <lightning-layout-item padding="around-small">
+            <lightning-button label="Search" variant="brand" onclick={handleSearch}></lightning-button>
+        </lightning-layout-item>
+    </lightning-layout>
+    <lightning-layout horizontal-align="spread" vertical-align="center">
+        <lightning-layout-item flexibility="auto">
+            <b> {firstIndex} - {lastIndex} of {totalNumberOfRecords} results </b>
+        </lightning-layout-item>
+        <lightning-layout-item flexibility="auto">
+            <lightning-button icon-name="utility:back" onclick={handlePrevious} disabled={disablePreviousButton}>
+            </lightning-button>
+            <template for:each={totalPage} for:item="pageNumber">
+                <lightning-button label={pageNumber} data-page-number={pageNumber} class="slds-p-around_xx-small"
+                    key={pageNumber} onclick={handleNavigation}>
+                </lightning-button>
+            </template>
+            <lightning-button icon-name="utility:forward" onclick={handleNext} disabled={disableNextButton}>
+            </lightning-button>
+        </lightning-layout-item>
+        <lightning-layout-item flexibility="auto">
+            <div class="slds-grid">
+                <div class="slds-col slds-align_absolute-center slds-p-right_medium"><b>Items per page</b></div>
+                <div class="slds-col slds-align_absolute-center">
+                    <lightning-combobox name="items" variant="label-hidden" value={pageSize} options={options}
+                        style="width:62px" onchange={handleItemPerPageChange}>
+                    </lightning-combobox>
+                </div>
+            </div>
+        </lightning-layout-item>
+    </lightning-layout>
+    <template if:true={showTable}>
+        <c-lwc-dd-picklist-datatable key-field="Id" data={records} columns={columns} onpicklistchanged={picklistChanged}
+            draft-values={draftValues} suppress-bottom-bar hide-checkbox-column>
+        </c-lwc-dd-picklist-datatable>
+    </template>
+</template>

@@ -1,0 +1,6 @@
+<design:component label="Formstack Prefill">
+    <design:attribute name="communityURL" label="Community URL" />
+    <design:attribute name="formstackURL" label="Formstack URL" />
+    <design:attribute name="formID" label="Formstack Form ID" />
+    <design:attribute name="viewKey" label="Formstack View Key" />
+</design:component>

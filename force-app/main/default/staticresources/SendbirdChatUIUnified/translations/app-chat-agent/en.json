@@ -1,0 +1,15 @@
+{
+    "agent_ui_end_chat_dismiss": "Dismiss",
+    "agent_ui_end_chat_subtitle": "There was an error while trying to end the chat session.",
+    "agent_ui_end_chat_title": "Unable to end chat",
+    "agent_ui_transer_chat_confirmation_message": "Chat Transfer to Queue {{queueName}}.",
+    "agent_ui_transer_chat_confirmation_close_message": "This case tab will automatically close.",
+    "agent_ui_transfer_chat_modal_subtitle": "You are about to transfer this chat to",
+    "agent_ui_transfer_chat_modal_title": "Transfer Chat",
+    "agent_ui_transfer_chat_modal_primary_text": "Transfer",
+    "agent_ui_transfer_chat_error_text": "Cancel this request and retry after fixing error(s)",
+    "agent_ui_transfer_chat_modal_secondary_text": "Cancel",
+    "agent_ui_transfer_chat_modal_failure_message": "The Transfer Failed. Please try again.",
+    "agent_ui_cannot_connect_msg": "This chat is no longer active. Please check the transcript to see the previous conversation."
+    }
+

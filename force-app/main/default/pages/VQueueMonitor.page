@@ -1,0 +1,70 @@
+<apex:page controller="VQueueMonitorController" showHeader="false" sidebar="false">
+    <apex:includeScript value="/support/console/39.0/integration.js"/>
+
+    <script type="text/javascript">
+        var QueueMonitorPage = {
+            currentQueues: null,
+            queueChange: false,
+            checkQueues: function(cb) {
+                Visualforce.remoting.Manager.invokeAction(
+                    "{!$RemoteAction.VQueueMonitorController.getCurrentQueueMembership}",
+                    function(result, event) {
+                        if(event.status) {
+                            sforce.console.chat.getEngagedChats(function(chatResult) {
+                                if(chatResult.success) {
+                                    var oldQueues = QueueMonitorPage.currentQueues;
+                                    QueueMonitorPage.currentQueues = result;
+
+                                    if(oldQueues !== null) {
+                                        if(QueueMonitorPage.currentQueues.length != oldQueues.length 
+                                            || QueueMonitorPage.queueChange 
+                                            || QueueMonitorPage.isChanged(oldQueues)) {
+
+                                            if(chatResult.chatKey.length == 0) {
+                                                QueueMonitorPage.queueChange = false;
+                                                QueueMonitorPage.cyclePresenceStatus();
+                                            } else {
+                                                QueueMonitorPage.queueChange = true;
+                                            }
+                                        }
+                                    }
+                                }
+
+                                if(cb) {
+                                    cb();
+                                }
+                            });
+                        }
+                    }
+                );
+            },
+            cyclePresenceStatus: function() {
+                sforce.console.presence.logout(function() {
+                    sforce.console.presence.login('{!JSENCODE(availablePresenceStatusId)}');
+                });
+            },
+            isChanged: function(oldQueues) {
+                var res = false;
+
+                for(var i = 0; i < oldQueues.length; i++) {
+                    var v1 = QueueMonitorPage.currentQueues[i];
+                    var v2 = oldQueues[i];
+
+                    if(v1 != v2) {
+                        res = true;
+                        break;
+                    }
+                }
+
+                return res;
+            }
+        }
+
+        if("{!isLiveAgentUser}" == "true") {
+            QueueMonitorPage.checkQueues(function() {
+                debugger;
+                setInterval(QueueMonitorPage.checkQueues, {!$Label.QM_Interval_Time});
+            });
+        }
+    </script>
+</apex:page>

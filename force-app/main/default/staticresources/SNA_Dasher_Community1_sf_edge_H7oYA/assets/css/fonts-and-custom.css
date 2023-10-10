@@ -1,0 +1,112 @@
+@font-face {
+    font-family: 'DDTTNorms1';
+    src: url('sfsites/c/resource/DDTTNorms1/TTNorms-Regular.woff') format('woff');
+}
+@font-face {
+    font-family: DDTTNorms1-medium;
+    font-weight: 500;
+    src: url('/sfsites/c/resource/DDTTNorms1/TTNorms-Medium.woff') format('woff');
+}
+
+@font-face {
+    font-family: DDTTNorms1-bold;
+    font-weight: 700;
+    src: url('/sfsites/c/resource/DDTTNorms1/TTNorms-Bold.woff') format('woff');
+}
+
+* { 
+font-family: DDTTNorms1;
+}
+
+b, strong, dfn {
+    font-family: 'DDTTNorms1-bold', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.ui-widget .forceCommunityTopArticleListForTopic .topicHeaderLink {
+	font-size:20px;
+}
+
+.ui-widget .comm-topic-trending-articles h2 {
+	font-size: 20px;
+}
+
+body img[width="1"][height="1"] {
+    display: none !important;
+}
+body img[width="1"] {
+    display: none !important;
+}
+body img[src="https://sp.analytics.yahoo.com/spp.pl?a=10000&.yp=10085216&ec=all pages"] {
+    display: none !important;
+}
+
+body img[src="https://staging-pt.ispot.tv/v2/TC-3597-1.gif?app=web&type=visit"] {
+    display: none !important;
+}
+
+/*  Anchor Tag spacing   */
+.forceOutputRichText span b a[rel="noopener"] {
+    top: 0px;
+    display: inline; 
+}
+
+.forceOutputRichText span[style="font-size: 14px;"] b a[rel="noopener"] {
+    top: 0px;
+    display: inline; 
+}
+
+/*-- Recaptcha update 04/28/2021 --*/
+.grecaptcha-badge {
+    display :none;
+}
+
+/*-- styles for incident banner --
+html[lang="en-US"] body.comm-page-article .footer lightning-combobox.forceCommunityLanguageSelector43 {
+    position: absolute;
+}
+
+html[lang="en-US"] body.comm-page-home .siteforceThemeLayoutStarter.isHeaderPinned-true >.header {
+       	top: 50px;
+    }
+        
+html[lang="en-US"] body.comm-page-home .footer lightning-combobox.forceCommunityLanguageSelector43 {
+    top: 45px;
+	}
+    
+html[lang="en-US"] body.comm-page-home {
+    margin-top: 50px;
+    }
+*/
+/*-- Hides Spanish from dropdown - START --
+lightning-base-combobox-item span[title="Spanish)"] {
+    display: none !important;
+}
+
+.forceCommunityLanguageSelector43 lightning-base-combobox-item[data-value="es"] {
+    display: none !important;
+}
+*/
+/*-- Hides Spanish from dropdown - END --*/
+
+/*-- Hides English (Australian) (AU) from dropdown START --
+lightning-base-combobox-item span[title="English (Australian) (AU)"] {
+    display: none !important;
+}
+
+.forceCommunityLanguageSelector43 lightning-base-combobox-item[data-value="en_AU"] {
+    display: none !important;
+}
+*/
+/*-- Hides English (Australian) (AU) from dropdown END --*/
+
+
+/*-- Update 02/10/2020 --*/
+
+img[src="https://staging-pt.ispot.tv/v2/TC-3597-1.gif?app=web&type=visit"] {
+    display: none !important;
+}
+
+.cLDd_DCCinAction img.content-image {
+    width:100%;
+}
+:root { --dxp-c-section-columns-max-width: 1170px; }

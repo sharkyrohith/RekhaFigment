@@ -1,0 +1,24 @@
+<!--
+* Created by Jeremy S. Johnson, Perficient Inc., on 6/13/2020.
+*
+* Implements: BZAP-6766 Tablet Request Case Grid
+*
+* Display related tablet cases in a grid that can be used by Classic and Lightning
+-->
+<apex:page standardController="Case" tabStyle="Case">
+    <apex:includeLightning />
+    <apex:slds />
+    <div id='container'>
+    </div>
+    <script>
+        $Lightning.use("c:LDdTabletRequests", function()
+        {
+            $Lightning.createComponent(
+                "c:LCDdTabletRequestsCmp", {
+                    "recordId" : "{!$CurrentPage.parameters.id}"
+                },
+                "container",
+                function(cmp) {});
+        });
+    </script>
+</apex:page>

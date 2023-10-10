@@ -1,0 +1,11 @@
+<design:component label="Legal Location Select">
+    <design:attribute name="BaseURL" label="Base URL" />
+    <design:attribute name="CommunityName" label="Community Name" datasource="consumers,dashers,merchants,helphub" default="consumers"/>
+    <design:attribute name="AgreementType" label="Agreement Type" datasource="terms-and-conditions,privacy-policy,ica,deactivation-policy,terms-of-service,faq-privacy-terms,data-security-and-privacy-policy,storefront-services-terms-of-service,partner-code-of-conduct" default="terms-and-conditions"/>
+    <design:attribute name="LocationDefault" label="Default Location" datasource="us,ca,au,mx,jp,de,nz" default="us"/>
+    <design:attribute name="countries" label="Countries" default="us,ca,au,mx,jp,de.nz" />
+    <design:attribute name="LocationCount" label="Deprecated" datasource="None,One,Two,Three" default="One" />
+    <design:attribute name="LocationOneLabel" label="Deprecated" datasource="us,ca,au,mx" default="ca"/>
+    <design:attribute name="LocationTwoLabel" label="Deprecated" datasource="us,ca,au,mx" default="au"/>
+    <design:attribute name="LocationThreeLabel" label="Deprecated" datasource="us,ca,au,mx" default="mx"/>
+</design:component>

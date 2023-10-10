@@ -1,0 +1,11 @@
+[
+    {
+        "id": "739822",
+        "http_status_code": 400,
+        "status": "HTTP POST on resource 'http://api-doorcrawl.us-west-2.aws.ddnw.net:80/v1/stores/739822/' failed: bad request (400)."
+    },
+    {
+        "id": 739866,
+        "status": "Successful"
+    }
+]

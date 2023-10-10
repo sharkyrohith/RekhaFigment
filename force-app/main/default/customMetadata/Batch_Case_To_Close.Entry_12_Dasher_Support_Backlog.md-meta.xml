@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Entry 12 Dasher Support Backlog</label>
+    <protected>false</protected>
+    <values>
+        <field>Active__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>Criteria__c</field>
+        <value xsi:type="xsd:string">(LastModifiedDate &lt; :hours) AND ((Case_Owner_Queue_Name__c = &apos;SF - Dasher&apos;) OR (Case_Owner_Queue_Name__c = &apos;BGC Escalations&apos;)) AND (Customer_Type__c = &apos;Dasher&apos;)</value>
+    </values>
+    <values>
+        <field>Hours__c</field>
+        <value xsi:type="xsd:double">120.0</value>
+    </values>
+    <values>
+        <field>Logic__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>OmitProfileCheck__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>Order__c</field>
+        <value xsi:type="xsd:double">11.0</value>
+    </values>
+    <values>
+        <field>Record_Type__c</field>
+        <value xsi:type="xsd:string">Support</value>
+    </values>
+    <values>
+        <field>SkipOnWrap__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>Status_Criteria__c</field>
+        <value xsi:type="xsd:string">((Status = &apos;Open&apos;) OR (Status = &apos;Reopened&apos;))</value>
+    </values>
+    <values>
+        <field>Where_Clause__c</field>
+        <value xsi:type="xsd:string">(LastModifiedDate &lt; :hours) AND ((Case_Owner_Queue_Name__c = &apos;SF - Dasher&apos;) OR (Case_Owner_Queue_Name__c = &apos;BGC Escalations&apos;)) AND (Customer_Type__c = &apos;Dasher&apos;)</value>
+    </values>
+</CustomMetadata>

@@ -1,0 +1,15 @@
+<aura:component access="global" controller="CDdContactSupportButtonController" implements="forceCommunity:availableForAllPageTypes,force:hasRecordId">
+    <aura:attribute default="https://help.doordash.com/consumers/s/contactsupport" name="ContactLink" type="String" />
+    <aura:attribute default="false" name="spinner" type="Boolean" />
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}" />
+    <aura:if isTrue="{!v.spinner}">
+            <lightning:spinner variant="brand" size="large"/>
+        </aura:if>
+    <div>    
+        <div class="dd-contact-button-wrap">      
+            <a href="{!v.ContactLink}" class="dd-contact-support" title="{!$Label.c.DdCommunity_ContactSupport_Link}">
+                {!$Label.c.DdCommunity_ContactSupport_Link}
+            </a>
+        </div>
+    </div>
+</aura:component>

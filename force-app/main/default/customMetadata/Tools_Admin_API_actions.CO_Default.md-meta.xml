@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>CO_Default</label>
+    <protected>false</protected>
+    <values>
+        <field>Email_Template_Name__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Fields_To_Update__c</field>
+        <value xsi:type="xsd:string">Status =&gt;Open ; OwnerId =&gt;00G1a000001RCAJEA4;</value>
+    </values>
+    <values>
+        <field>Response_Message_key__c</field>
+        <value xsi:type="xsd:string">Unknown response</value>
+    </values>
+    <values>
+        <field>Response_Status_Code__c</field>
+        <value xsi:type="xsd:double">400.0</value>
+    </values>
+    <values>
+        <field>Tools_Admin_API__c</field>
+        <value xsi:type="xsd:string">ChargeBackSubmission_CO_Refund</value>
+    </values>
+</CustomMetadata>

@@ -1,0 +1,49 @@
+.THIS {
+	/* max-width: 1160px; */
+	margin: 0px auto 0px auto;
+    position: relative;
+}
+
+.THIS .ddhs-select-logo-wrap {
+    top: 5px;
+    display: inline-block;
+    width: 100%;
+}
+
+.THIS .ddhs-select-logo-left{
+    text-align: left;
+}
+
+.THIS .ddhs-select-logo-center{
+    text-align: center;
+}
+
+.THIS .ddhs-select-logo {
+    max-width: 180px;
+}
+
+.THIS .ddhs-select-icon {
+    max-width: 32px;
+    display: inline-block;
+}
+
+.THIS .ddhs-select-Support-Text  {
+    display: block;
+    position: relative;
+    top: 10px;
+    text-align: center;
+
+}
+
+.THIS .ddhs-select-Support-Text span{
+    font-family: DDTTNorms1 !important;
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 40px;
+    letter-spacing: -0.04ch;
+    text-transform: none;
+    color: rgb(25, 25, 25);
+    display: block;
+    font-variant-ligatures: no-common-ligatures;
+
+}

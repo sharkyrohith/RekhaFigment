@@ -1,0 +1,34 @@
+.THIS {
+}
+
+
+.THIS  .topicHeader {
+    margin-bottom: 7px;
+}
+.THIS .dd-view-all-link {
+    margin-top: 7px;
+    display: block;
+    white-space: normal;
+    line-height: 1.875rem;
+}
+
+.THIS .forceCommunityTopArticleListForTopic {
+    width:100%;
+}
+
+.THIS .forceCommunityTopArticleItem {
+    width: 100%;
+    display: inline-block;
+}
+
+.THIS .forceCommunityTopArticleItem .article-title-link {
+    color: rgba(0, 0, 0, 0.8);
+    font-weight: 300;
+    text-decoration: none;
+    display: block;
+    padding: 8px 0;
+}
+
+.THIS .forceCommunityTopArticleItem .article-title-link:hover {
+    color: rgb(255, 48, 8);
+}

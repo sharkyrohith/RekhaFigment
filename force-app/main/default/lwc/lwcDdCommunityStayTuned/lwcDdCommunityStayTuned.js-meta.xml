@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>54.0</apiVersion>
+    <isExposed>true</isExposed>
+    <description>LWC Community Stay Tuned Page</description>
+    <masterLabel>LWC Community Stay Tuned Page</masterLabel>
+    <targets>
+        <target>lightningCommunity__Page</target>
+        <target>lightningCommunity__Default</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightningCommunity__Default">
+            <property label="Community Name" name="communityName" type="String" datasource="help,dashers,consumers,merchants,work,support,legal" default="help" />
+            <property label="Show DoorDash Logo" name="showDoordashLogo" type="Boolean" default="false" />
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

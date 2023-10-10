@@ -1,0 +1,28 @@
+<svg id="platter" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: none;
+        stroke: #ff3008;
+        stroke-linecap: round;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-1 {
+        stroke-width: 16px;
+      }
+
+      .cls-2 {
+        stroke-width: 18px;
+        stroke-dasharray: 30 40;
+      }
+    </style>
+  </defs>
+  <title>DD_Community_Alert_Icon</title>
+  <g>
+    <path class="cls-1" d="M40.5,345c0-116,94-210,210-210s210,94,210,210"/>
+    <rect class="cls-1" x="15.22" y="369.91" width="470.5" height="52" rx="26"/>
+    <circle class="cls-1" cx="250.47" cy="105.65" r="28.74"/>
+    <path class="cls-2" d="M169.11,329.91c0-86.71,72.85-157,162.72-157"/>
+  </g>
+</svg>

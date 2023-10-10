@@ -1,0 +1,6 @@
+<apex:page lightningStylesheets="true" standardController="Opportunity" extensions="CDdCreateQuoteFromOppCtrl" action="{!createQuote}">
+    <apex:pageMessages id="errors"> </apex:pageMessages>
+    <apex:form >
+    <apex:commandButton rendered="{!error == true}" value="Return" action="{!returnToOpp}"></apex:commandButton>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,36 @@
+<template>
+    <template if:false={action.disabled}>
+        <a href="#" onclick={handleSelect}>
+            <div class="slds-tile slds-box slds-media slds-media_center slds-theme_shade">
+                <div class="slds-media__figure">
+                    <lightning-icon 
+                        size="medium"
+                        icon-name={action.iconName} 
+                        alternative-text={action.alternativeText}>
+                    </lightning-icon>                      
+                </div>
+                <div class="slds-media__body">
+                    <div class="slds-tile__title" title={action.title}>
+                        {action.label}
+                    </div>
+                </div>
+            </div>
+        </a>
+    </template>
+    <template if:true={action.disabled}>
+        <div class="slds-tile slds-box slds-media slds-media_center slds-theme_shade">
+            <div class="slds-media__figure">
+                <lightning-icon 
+                    size="medium"
+                    icon-name={action.iconName} 
+                    alternative-text={action.alternativeText}>
+                </lightning-icon>                      
+            </div>
+            <div class="slds-media__body">
+                <div class="slds-tile__title" title={action.title}>
+                    {action.label}
+                </div>
+            </div>
+        </div>
+    </template>    
+</template>

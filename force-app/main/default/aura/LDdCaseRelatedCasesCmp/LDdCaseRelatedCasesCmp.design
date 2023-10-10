@@ -1,0 +1,8 @@
+<design:component label="Related Case List">
+    <design:attribute name="title" label="Title"/>
+    <design:attribute name="relatedField" label="Case related Field" datasource="Delivery__c,AccountId"/>
+    <design:attribute name="fields" label="Fields List"/>
+    <design:attribute name="RecordPerPage" label="Records Per Page"/>
+    <design:attribute name="MergeButton" label="Merge"/>
+    <design:attribute name="additionalFilter" label="Additional Filter"/>
+</design:component>

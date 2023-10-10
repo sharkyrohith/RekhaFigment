@@ -1,0 +1,380 @@
+<aura:component access="global" implements="forceCommunity:availableForAllPageTypes">
+    
+    <style>
+        
+        .forceCommunityTopicCatalog ul.topicHierarchy-childrenList {
+        display: inline;
+        }
+        
+        .forceCommunityTopicCatalog .topicHierarchy-childrenList li {
+        padding: 0px 12px;
+        display: inline-block;
+        position: relative;
+        float: left;
+        }
+        
+        .forceCommunityTopicCatalog .topicHierarchy-top span.uiOutputText {
+        color: rgb(255, 48, 8);
+        font-size: 20px;
+        }
+        
+        .forceCommunityTopicCatalog a.topicHierarchy-top, .forceCommunityTopicCatalog .topicHierarchy-top span.uiOutputText:hover {
+        text-transform: none;
+        text-decoration: none;
+        color: #D42200;
+        }
+        
+        .forceCommunityTopicCatalog .topicHierarchy-topBox {
+        padding-top: 20px;
+        border-top: solid;
+        border-top-color: rgba(210, 210, 210, 0.62);
+        margin-bottom: 14px;
+        border-width: 1px;
+        display: inline-flex;
+        width: 100%;
+        }
+        
+        .forceCommunityTopicCatalog .topicHierarchy-childrenList .topicHierarchy-child  {
+        border: #ccc solid 1px;
+        border-radius: 5px;
+        display: flex;
+        width: 260px;
+        min-height: 100px;
+        margin: 20px 0px 0px 0px;
+        padding: 15px 20px 0px 80px;
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/Dasher_App.svg'}");
+        background-repeat: no-repeat;
+        background-position: 14px 15px;
+        background-size: 60px;
+        transition: color 2s;
+        position: relative;
+        }
+        
+        .forceCommunityTopicCatalog .topicHierarchy-childrenList .topicHierarchy-child:hover {
+        background-color: #FAE4E1;
+        text-transform: none;
+        text-decoration: none;
+        color: rgb(255, 48, 8);
+        transition: color 2s;
+        
+        }
+        
+        .forceCommunityTopicCatalog .topicHierarchy-childrenList .topicHierarchy-child  .uiOutputText{
+        text-align: left;
+        position: absolute;
+        font-size: 19px;
+        font-weight: bold;
+        top: 50%;
+        margin: 0;
+        transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        color: #000;
+        }
+        
+        .forceCommunityTopicCatalog .topicHierarchy-childrenList .topicHierarchy-child:hover  .uiOutputText{
+        color: #000;
+        }       
+        .forceCommunityTopicCatalog .topicHierarchy-childrenList .topicHierarchy-child  .uiOutputText:hover {
+        text-transform: none;
+        text-decoration: none;
+        }
+        .forceCommunityTopicCatalog .topicHierarchy-childrenList li {
+        padding: 0px 20px 0px 0px;
+        }
+        .forceCommunityTopicCatalog .topicHierarchy-topBox {
+        margin-top: 20px;
+        }
+        
+        .forceCommunityTopicCatalog .topicHierarchy-topBox H1 a.topicHierarchy-top {
+        padding-left: 45px;
+        background-position: left;
+        background-repeat: no-repeat;
+        background-size: 40px;
+        display: flex;
+        line-height: 35px;
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/Dasher_App.svg'}");
+        
+        }
+        
+        /*-------DASHERS-------*/
+        
+        /*-- Dasher Categories --*/
+        
+        .forceCommunityTopicCatalog .topicHierarchy-topBox H1 .topicHierarchy-top[data-topic-id="0TO1a0000007fAVGAY"] {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/Dashing_Requirements.svg'}");
+        }
+        
+        .forceCommunityTopicCatalog .topicHierarchy-topBox H1 .topicHierarchy-top[data-topic-id="0TO1a0000007fAWGAY"] {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/Receiving_Fullfilling_Orders.svg'}");
+        }
+        
+        .forceCommunityTopicCatalog .topicHierarchy-topBox H1 .topicHierarchy-top[data-topic-id="0TO1a0000007fAXGAY"] {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/Delivery_Info.svg'}");
+        }
+        
+        .forceCommunityTopicCatalog .topicHierarchy-topBox H1 .topicHierarchy-top[data-topic-id="0TO1a0000007fAYGAY"] {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/Intro_to_Dashing.svg'}");
+        }
+        
+        .forceCommunityTopicCatalog .topicHierarchy-topBox H1 .topicHierarchy-top[data-topic-id="0TO1a0000007fAZGAY"] {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/DD_Drive.svg'}");
+        }
+        
+        .forceCommunityTopicCatalog .topicHierarchy-topBox H1 .topicHierarchy-top[data-topic-id="0TO1a0000007fAaGAI"] {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/Project_Dash.svg'}");
+        }
+        
+        .forceCommunityTopicCatalog .topicHierarchy-topBox H1 .topicHierarchy-top[data-topic-id="0TO2L000000fyUCWAY"] {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/At_the_Pickup.svg'}");
+        }
+        
+        /*-- Dasher - Get Started With DoorDash  --*/
+        
+        .forceCommunityTopicCatalog .topicHierarchy-childrenList .topicHierarchy-child[data-topic-id="0TO1a0000007fAfGAI"]  {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/Intro_to_Dashing.svg'}");
+        }
+        
+        .forceCommunityTopicCatalog .topicHierarchy-childrenList .topicHierarchy-child[data-topic-id="0TO1a0000007fAgGAI"]  {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/Sign_Up_Questions.svg'}");
+        }
+        
+        .forceCommunityTopicCatalog .topicHierarchy-childrenList .topicHierarchy-child[data-topic-id="0TO1a0000007fAhGAI"]  {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/Dashing_Requirements.svg'}");
+        }
+        
+        .forceCommunityTopicCatalog .topicHierarchy-childrenList .topicHierarchy-child[data-topic-id="0TO1a0000007fAiGAI"]  {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/Insurance.svg'}");
+        }
+        
+        /*-- Dasher App --*/
+        
+        .forceCommunityTopicCatalog .topicHierarchy-childrenList .topicHierarchy-child[data-topic-id="0TO1a0000007fAkGAI"]  {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/Dasher_App.svg'}");
+        }
+        
+        .forceCommunityTopicCatalog .topicHierarchy-childrenList .topicHierarchy-child[data-topic-id="0TO1a0000007fAlGAI"]  {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/App_Troubleshooting.svg'}");
+        }
+        
+        /*-- Dasher - Managing Your Dasher Account --*/
+        
+        .forceCommunityTopicCatalog .topicHierarchy-childrenList .topicHierarchy-child[data-topic-id="0TO1a0000007fApGAI"]  {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/Account_Management.svg'}");
+        }
+        
+        .forceCommunityTopicCatalog .topicHierarchy-childrenList .topicHierarchy-child[data-topic-id="0TO1a0000007fAqGAI"]  {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/Dasher_Stats.svg'}");
+        }
+        
+        .forceCommunityTopicCatalog .topicHierarchy-childrenList .topicHierarchy-child[data-topic-id="0TO1a0000007fArGAI"]  {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/Account_Security.svg'}");
+        }
+        
+        .forceCommunityTopicCatalog .topicHierarchy-childrenList .topicHierarchy-child[data-topic-id="0TO1a0000007fAsGAI"]  {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/Payment.svg'}");
+        }
+        
+        
+        /*-- Dasher - Deliveries --*/
+        
+        .forceCommunityTopicCatalog .topicHierarchy-childrenList .topicHierarchy-child[data-topic-id="0TO1a0000007fAuGAI"]  {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/Dasher_Red_Card.svg'}");
+        }
+        
+        .forceCommunityTopicCatalog .topicHierarchy-childrenList .topicHierarchy-child[data-topic-id="0TO1a0000007fAvGAI"]  {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/Before_a_Delivery.svg'}");
+        }
+        
+        .forceCommunityTopicCatalog .topicHierarchy-childrenList .topicHierarchy-child[data-topic-id="0TO1a0000007fAwGAI"]  {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/At_the_Pickup.svg'}");
+        }
+        
+        .forceCommunityTopicCatalog .topicHierarchy-childrenList .topicHierarchy-child[data-topic-id="0TO1a0000007fAxGAI"]  {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/On_Your_Way.svg'}");
+        }
+        
+        .forceCommunityTopicCatalog .topicHierarchy-childrenList .topicHierarchy-child[data-topic-id="0TO1a0000007fAyGAI"]  {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/Other_Questions.svg'}");
+        }
+        
+        .forceCommunityTopicCatalog .topicHierarchy-childrenList .topicHierarchy-child[data-topic-id="0TO1a0000007fAzGAI"]  {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/Alcohol_Delivery.svg'}");
+        }
+        
+        
+        /*-- Dasher - Offices And Orientation Info --*/
+        
+        .forceCommunityTopicCatalog .topicHierarchy-childrenList .topicHierarchy-child[data-topic-id="0TO2L000000fyUHWAY"]  {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/US_Dasher_Office.svg'}");
+        }
+        
+        .forceCommunityTopicCatalog .topicHierarchy-childrenList .topicHierarchy-child[data-topic-id="0TO2L000000fyUIWAY"]  {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/Canada_Dasher_Office.svg'}");
+        }
+        
+        /*-------MERCHANT-------*/
+        
+        /*-- Merchant Categories --*/
+        
+        .forceCommunityTopicCatalog .topicHierarchy-topBox H1 .topicHierarchy-top[data-topic-id="0TO1a0000007eFFGAY"] {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/Partnering_with_DD.svg'}");
+        }
+        
+        .forceCommunityTopicCatalog .topicHierarchy-topBox H1 .topicHierarchy-top[data-topic-id="0TO1a0000007eFGGAY"] {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/Account_Payment.svg'}");
+        }
+        
+        .forceCommunityTopicCatalog .topicHierarchy-topBox H1 .topicHierarchy-top[data-topic-id="0TO1a0000007eFPGAY"] {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/At_the_Pickup.svg'}");
+        }
+        
+        .forceCommunityTopicCatalog .topicHierarchy-topBox H1 .topicHierarchy-top[data-topic-id="0TO1a0000007eFQGAY"] {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/Delivery_Info.svg'}");
+        }
+        
+        .forceCommunityTopicCatalog .topicHierarchy-topBox H1 .topicHierarchy-top[data-topic-id="0TO1a0000007daoGAA"] {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/DD_Drive.svg'}");
+        }
+        
+        .forceCommunityTopicCatalog .topicHierarchy-topBox H1 .topicHierarchy-top[data-topic-id="0TO1a0000007dapGAA"] {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/Project_Dash.svg'}");
+        }
+        
+        /*-- Merchant - Account And Payments --*/
+        
+        .forceCommunityTopicCatalog .topicHierarchy-childrenList .topicHierarchy-child[data-topic-id="0TO1a0000007eFUGAY"]  {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/Intro_to_Dashing.svg'}");
+        }
+        
+        .forceCommunityTopicCatalog .topicHierarchy-childrenList .topicHierarchy-child[data-topic-id="0TO1a0000007eFVGAY"]  {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/Account_Management.svg'}");
+        }
+        
+        /*-- Merchant - Managing Your Business --*/
+        
+        .forceCommunityTopicCatalog .topicHierarchy-childrenList .topicHierarchy-child[data-topic-id="00TO1a0000007eFZGAY"]  {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/Marketing.svg'}");
+        }
+        
+        .forceCommunityTopicCatalog .topicHierarchy-childrenList .topicHierarchy-child[data-topic-id="0TO1a0000007eFaGAI"]  {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/Receiving_Orders.svg'}");
+        }
+        
+        .forceCommunityTopicCatalog .topicHierarchy-childrenList .topicHierarchy-child[data-topic-id="0TO1a0000007eFbGAI"]  {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/Other_Questions.svg'}");
+        }
+        
+        .forceCommunityTopicCatalog .topicHierarchy-childrenList .topicHierarchy-child[data-topic-id="0TO1a0000007eFcGAI"]  {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/App_Troubleshooting.svg'}");
+        }        
+        
+        .forceCommunityTopicCatalog .topicHierarchy-childrenList .topicHierarchy-child[data-topic-id="0TO1a0000007eFdGAI"]  {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/Mx_Portal.svg'}");
+        }  
+
+        .forceCommunityTopicCatalog .topicHierarchy-childrenList .topicHierarchy-child[data-topic-id="0TO2L000000TrWuWAK"]  {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/App_Troubleshooting.svg'}");
+        }
+        
+        
+        /*-- Merchant - Deliveries --*/
+        
+        .forceCommunityTopicCatalog .topicHierarchy-childrenList .topicHierarchy-child[data-topic-id="0TO1a0000007eFeGAI"]  {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/Delivery_Info.svg'}");
+        }
+        
+        .forceCommunityTopicCatalog .topicHierarchy-childrenList .topicHierarchy-child[data-topic-id="0TO1a0000007eFfGAI"]  {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/Receiving_Fullfilling_Orders.svg'}");
+        } 
+        
+        .forceCommunityTopicCatalog .topicHierarchy-childrenList .topicHierarchy-child[data-topic-id="0TO1a0000007eFgGAI"]  {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/At_the_Pickup.svg'}");
+        } 
+        
+        /*-------CONSUMER-------*/
+        
+        /*-- Consumer Categories --*/
+        
+        .forceCommunityTopicCatalog .topicHierarchy-topBox H1 .topicHierarchy-top[data-topic-id="0TO1a0000007fB4GAI"] {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/Receiving_Orders.svg'}");
+        }
+        
+        .forceCommunityTopicCatalog .topicHierarchy-topBox H1 .topicHierarchy-top[data-topic-id="0TO1a0000007fB5GAI"] {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/Other_Questions.svg'}");
+        }
+        
+        .forceCommunityTopicCatalog .topicHierarchy-topBox H1 .topicHierarchy-top[data-topic-id="0TO1a0000007fB6GAI"] {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/Payment.svg'}");
+        }
+        
+        .forceCommunityTopicCatalog .topicHierarchy-topBox H1 .topicHierarchy-top[data-topic-id="0TO1a0000007fB7GAI"] {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/Receiving_Fullfilling_Orders.svg'}");
+        }
+        
+        .forceCommunityTopicCatalog .topicHierarchy-topBox H1 .topicHierarchy-top[data-topic-id="0TO1a0000007fB8GAI"] {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/App_Troubleshooting.svg'}");
+        }
+        
+        .forceCommunityTopicCatalog .topicHierarchy-topBox H1 .topicHierarchy-top[data-topic-id="0TO1a0000007fB9GAI"] {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/Alcohol_Delivery.svg'}");
+        }
+        
+        .forceCommunityTopicCatalog .topicHierarchy-topBox H1 .topicHierarchy-top[data-topic-id="0TO1a0000007fBAGAY"] {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/Project_Dash.svg'}");
+        }
+        
+        /*-- New 09/02/2020 --*/
+        .forceCommunityTopicCatalog .topicHierarchy-topBox H1 .topicHierarchy-top[data-topic-id="0TO2L0000001G6XWAU"] {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/Marketing.svg'}");
+        }
+        .forceCommunityTopicCatalog .topicHierarchy-topBox H1 .topicHierarchy-top[data-topic-id="0TO2L000000Xq0hWAC"] {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/Dasher_Red_Card.svg'}");
+        }
+        
+        .forceCommunityTopicCatalog .topicHierarchy-topBox H1 .topicHierarchy-top[data-topic-id="0TO2L000000k9egWAA"] {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/Account_Management.svg'}");
+        }
+        
+		/*-- Work --*/
+        .forceCommunityTopicCatalog .topicHierarchy-topBox H1 .topicHierarchy-top[data-topic-id="0TO2L0000001GHGWA2"] {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/Payment.svg'}");
+        }
+        
+        .forceCommunityTopicCatalog .topicHierarchy-topBox H1 .topicHierarchy-top[data-topic-id="0TO2L0000001GHLWA2"] {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/Receiving_Fullfilling_Orders.svg'}");
+        }
+        
+        .forceCommunityTopicCatalog .topicHierarchy-topBox H1 .topicHierarchy-top[data-topic-id="0TO2L0000001GHQWA2"] {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/Account_Payment.svg'}");
+        }
+        
+        
+
+                .forceCommunityTopicCatalog .topicHierarchy-topBox H2 .topicHierarchy-child[data-topic-id="0TO2L0000001GHkWAM"] {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/Dashing_Requirements.svg'}");
+        }
+                .forceCommunityTopicCatalog .topicHierarchy-topBox H2 .topicHierarchy-child[data-topic-id="0TO2L0000001GHpWAM"] {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/Delivery_Info.svg'}");
+        }
+                .forceCommunityTopicCatalog .topicHierarchy-topBox H2 .topicHierarchy-child[data-topic-id="0TO2L0000001GHuWAM"] {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/Other_Questions.svg'}");
+        }
+        
+        
+
+        .forceCommunityTopicCatalog .topicHierarchy-topBox H1 .topicHierarchy-top[data-topic-id="0TO2L0000001GHVWA2"] {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/Account_Management.svg'}");
+        }
+
+        .forceCommunityTopicCatalog .topicHierarchy-topBox H1 .topicHierarchy-top[data-topic-id="0TO2L0000001GHaWAM"] {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/Dasher_Red_Card.svg'}");
+        }
+        
+        
+    </style>
+    
+    <div>
+        
+    </div>
+    
+</aura:component>

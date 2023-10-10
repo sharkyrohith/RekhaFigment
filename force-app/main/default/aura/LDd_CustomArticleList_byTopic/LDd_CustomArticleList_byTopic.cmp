@@ -1,0 +1,50 @@
+<aura:component access="global" implements="forceCommunity:availableForAllPageTypes">
+    
+    <aura:attribute default="Topic" name="TopicName" type="String" />
+    <aura:attribute default="0TO1a0000007fB6GAI/payments" name="TopicLink" type="String" />
+    <aura:attribute default="Article Title" name="ArticleTitle_1" type="String" />
+    <aura:attribute default="#" name="ArticleLink_1" type="String" />
+    <aura:attribute default="Article Title" name="ArticleTitle_2" type="String" />
+    <aura:attribute default="#" name="ArticleLink_2" type="String" />
+    <aura:attribute default="Article Title" name="ArticleTitle_3" type="String" />
+    <aura:attribute default="#" name="ArticleLink_3" type="String" />
+    <aura:attribute default="Article Title" name="ArticleTitle_4" type="String" />
+    <aura:attribute default="#" name="ArticleLink_4" type="String" />   
+    <aura:attribute default="Article Title" name="ArticleTitle_5" type="String" />
+    <aura:attribute default="#" name="ArticleLink_5" type="String" />
+    <div>
+        
+        <div class="uiAbstractList">
+            <div class="listContent">
+                <ul>
+                    <li class="forceCommunityTopArticleListForTopic" data-aura-class="forceCommunityTopArticleListForTopic">
+                        <h1 class="topicHeader slds-truncate">
+                            <a class="topicHeaderLink" href="{!'/consumers/s/topic/' + v.TopicLink}" title="Get Started With DoorDash">{!v.TopicName}</a></h1>
+                        <ul class="topicArticleList">
+                            <li class="top-article-item forceCommunityTopArticleItem" data-aura-class="forceCommunityTopArticleItem">
+                                <a class="article-title-link" href="{!'/consumers/s/article/' + v.ArticleLink_1}">
+                                    <span class="article-title slds-truncate uiOutputText" data-aura-class="uiOutputText">{!v.ArticleTitle_1}</span>
+                                </a>
+                                <a class="article-title-link" href="{!'/consumers/s/article/' + v.ArticleLink_2}">
+                                    <span class="article-title slds-truncate uiOutputText" data-aura-class="uiOutputText">{!v.ArticleTitle_2}</span>
+                                </a>
+                                <a class="article-title-link" href="{!'/consumers/s/article/' + v.ArticleLink_3}">
+                                    <span class="article-title slds-truncate uiOutputText" data-aura-class="uiOutputText">{!v.ArticleTitle_3}</span>
+                                </a>
+                                <a class="article-title-link" href="{!'/consumers/s/article/' + v.ArticleLink_4}">
+                                    <span class="article-title slds-truncate uiOutputText" data-aura-class="uiOutputText">{!v.ArticleTitle_4}</span>
+                                </a>
+                                <a class="article-title-link" href="{!'/consumers/s/article/' + v.ArticleLink_5}">
+                                    <span class="article-title slds-truncate uiOutputText" data-aura-class="uiOutputText">{!v.ArticleTitle_5}</span>
+                                </a>
+                            </li>
+                        </ul>
+                        
+                        <a href="{!'/consumers/s/topic/' + v.TopicLink}" class="dd-view-all-link">View All</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+</aura:component>

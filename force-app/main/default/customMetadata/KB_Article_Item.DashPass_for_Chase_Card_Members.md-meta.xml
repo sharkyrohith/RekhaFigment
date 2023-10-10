@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>DashPass for Chase Card Members</label>
+    <protected>false</protected>
+    <values>
+        <field>Active__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>Article_Label__c</field>
+        <value xsi:type="xsd:string">DashPass for Chase Card Members</value>
+    </values>
+    <values>
+        <field>Article_URL__c</field>
+        <value xsi:type="xsd:string">https://help.doordash.com/consumers/s/article/Chase-Partnership</value>
+    </values>
+    <values>
+        <field>KB_Article_Category__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>KB_Article_Subcategory__c</field>
+        <value xsi:type="xsd:string">Chase_FAQs</value>
+    </values>
+    <values>
+        <field>Language__c</field>
+        <value xsi:type="xsd:string">en_US</value>
+    </values>
+    <values>
+        <field>Topic_Id__c</field>
+        <value xsi:type="xsd:string">0TO2L000000Xq0hWAC</value>
+    </values>
+</CustomMetadata>

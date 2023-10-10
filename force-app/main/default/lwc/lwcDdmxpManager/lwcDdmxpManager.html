@@ -1,0 +1,280 @@
+<template>
+    <template if:true={getUserParm.data}>
+        <div>
+            <lightning-card>
+                <div class="slds-align_absolute-center" style="height:5rem">
+                    <lightning-button label="Manage MXP" title="Manage MXP" onclick={openModal}
+                        class="slds-m-left_x-small">
+                    </lightning-button>
+                </div>
+            </lightning-card>
+        </div>
+        <template if:true={showModal}>
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+                aria-describedby="modal-content-id-1" class="slds-modal slds-modal_large slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <header class="slds-modal__header">
+                        <lightning-button-icon icon-name="utility:close" variant="inverse" alternative-text="Close"
+                            onclick={closeModal} class="slds-modal__close" title="Close">
+                        </lightning-button-icon>
+                        <h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate">MXP Manager</h2>
+                    </header>
+                    <div class="slds-modal__content slds-p-around_medium dd-modal-height">
+                        <div if:true={showSpinner}>
+                            <lightning-spinner alternative-text="Loading...">
+                            </lightning-spinner>
+                        </div>
+                        <div class="">
+                            <lightning-tabset variant="scoped">
+                                <lightning-tab label="Manage Staff" value="Manage Staff"
+                                    onactive={handleTabChangeActive}>
+                                    <div class={pageNo1}>
+                                        <div class="slds-align_absolute-center dd-headerupdate">Update User's Out Of
+                                            Office</div>
+                                        <template if:true={resetManulaStaff}>
+                                            <c-lwc-ddsearchdatatable data-id="userSelectionDatatable2Id"
+                                                object-api-name="User" columns={columns} order-by="Name">
+                                            </c-lwc-ddsearchdatatable>
+                                        </template>
+                                    </div>
+                                    <div class={pageNo2}>
+                                        <div class="slds-align_absolute-center dd-headerupdate">Confirm</div>
+                                        <lightning-datatable key-field="id" columns={addRemoveUserColumns}
+                                            data={confirmUserRecords}
+                                            sorted-direction={sortDirection} sorted-by={sortedBy}
+                                            draft-values={draftValues} onsave={handleSave}
+                                            oncellchange={handleCellchange} hide-checkbox-column suppress-bottom-bar
+                                            onsort={onConfirmUserRecordsSort}>
+                                        </lightning-datatable>
+                                    </div>
+                                    <div class={pageNo3}>
+                                        <div class="slds-align_absolute-center dd-headerupdate">Saved User Record</div>
+                                        <lightning-datatable key-field="id" columns={addRemoveUserColumns}
+                                            data={savedUserRecords}
+                                            sorted-direction={sortDirection} sorted-by={sortedBy}
+                                            draft-values={draftValues} onsave={handleSave}
+                                            oncellchange={handleCellchange} hide-checkbox-column suppress-bottom-bar
+                                            onsort={onSavedUserRecordsSort}>
+                                        </lightning-datatable>
+                                    </div>
+                                </lightning-tab>
+                                <lightning-tab label="Manage MXP Assignments" value="Manage MXP Assignments"
+                                    onactive={handleTabChangeActive}>
+                                    <lightning-tabset variant="scoped">
+                                        <lightning-tab label="Bulk" value="Bulk" onactive={handleManualBulkTabChange}>
+                                            <div class={pageNo1}>
+                                                <template if:true={resetUploadCSV}>
+                                                    <c-lwc-dd-upload-c-s-v bulktabchange={operationTypeValue}
+                                                        data-id="uploadcsv"></c-lwc-dd-upload-c-s-v>
+                                                </template>
+                                            </div>
+                                            <div class={pageNo2}>
+                                                <lightning-datatable key-field="id" columns={resultbulkATMColumns}
+                                                    data={resultBulkAccountTeamMembers}
+                                                    sorted-direction={sortDirection} sorted-by={sortedBy}
+                                                    suppress-bottom-bar hide-checkbox-column
+                                                    onsort={onresultBulkATMSort}>
+                                                </lightning-datatable>
+                                            </div>
+                                        </lightning-tab>
+                                        <lightning-tab label="Manual" value="Manual"
+                                            onactive={handleManualBulkTabChange}>
+                                            <lightning-tabset variant="scoped">
+                                                <lightning-tab label="Add Assignments" value="Add Assignments"
+                                                    onactive={handleAddRemoveTabChange}>
+                                                    <div class={pageNo1}>
+                                                        <template if:true={displayManualAddAssignment}>
+                                                            <div class="slds-align_absolute-center dd-heading">Select
+                                                                Users</div>
+                                                            <div class="slds-m-vertical_large">
+                                                                <c-lwc-ddsearchdatatable
+                                                                    data-id="userSelectionDatatableId"
+                                                                    object-api-name="User" show-checkbox="true"
+                                                                    columns={addRemoveUserColumnsTable} order-by="Name">
+                                                                </c-lwc-ddsearchdatatable>
+                                                            </div>
+                                                            <div class="slds-align_absolute-center dd-heading">Select
+                                                                Accounts</div>
+                                                            <div class="slds-m-vertical_large">
+                                                                <c-lwc-ddsearchdatatable
+                                                                    data-id="accountSelectionDatatableId"
+                                                                    object-api-name="Account" show-checkbox="true"
+                                                                    columns={accountColumns} order-by="Name">
+                                                                </c-lwc-ddsearchdatatable>
+                                                            </div>
+                                                        </template>
+                                                    </div>
+                                                    <div class={pageNo2}>
+                                                        <div class="slds-align_absolute-center dd-heading">Confirm
+                                                            Selection</div>
+                                                        <template if:true={duplicateRecords}>
+                                                            <div class="slds-notify slds-notify_alert slds-alert_warning"
+                                                                role="alert">
+                                                                <span class="slds-assistive-text">warning</span>
+                                                                <span
+                                                                    class="slds-icon_container slds-icon-utility-warning slds-m-right_x-small"
+                                                                    title="Description of icon when needed">
+                                                                    <svg class="slds-icon slds-icon_x-small"
+                                                                        aria-hidden="true">
+                                                                        <use
+                                                                            xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#warning">
+                                                                        </use>
+                                                                    </svg>
+                                                                </span>
+                                                                <h2>Duplicate records will not be added
+                                                                </h2>
+                                                                <div class="slds-notify__close">
+                                                                    <button
+                                                                        class="slds-button slds-button_icon slds-button_icon-small"
+                                                                        title="Close">
+                                                                        <svg class="slds-button__icon"
+                                                                            aria-hidden="true">
+                                                                            <use
+                                                                                xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close">
+                                                                            </use>
+                                                                        </svg>
+                                                                        <span class="slds-assistive-text">Close</span>
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </template>
+                                                        <template if:true={displaySelectedAccountUserDatatable}>
+                                                            <div class="slds-p-vertical_medium">
+                                                                <lightning-datatable key-field="id"
+                                                                    columns={accountUserColumns}
+                                                                    data={selectedAccountUserRows}
+                                                                    sorted-direction={accountTeamSortDirection}
+                                                                    sorted-by={accountTeamSortedBy} suppress-bottom-bar
+                                                                    hide-checkbox-column
+                                                                    onsort={onAccountTeamHandleSort}>
+                                                                </lightning-datatable>
+                                                            </div>
+                                                        </template>
+                                                    </div>
+                                                    <div class={pageNo3}>
+                                                        <div class="slds-align_absolute-center dd-heading">Results</div>
+                                                        <template if:true={displayResultAccountUserDatatable}>
+                                                            <div class="slds-p-vertical_medium">
+                                                                <lightning-datatable key-field="id"
+                                                                    columns={resultAtmColumn} data={resultAtmRecords}
+                                                                    sorted-direction={sortDirection}
+                                                                    sorted-by={sortedBy} suppress-bottom-bar
+                                                                    hide-checkbox-column
+                                                                    onsort={onresultAtmRecordsSort}>
+                                                                </lightning-datatable>
+                                                            </div>
+                                                        </template>
+                                                    </div>
+                                                </lightning-tab>
+                                                <lightning-tab label="Remove Assignments" value="Remove Assignments"
+                                                    onactive={handleAddRemoveTabChange}>
+                                                    <div class={pageNo1}>
+                                                        <template if:true={displayManualRemoveDatatable}>
+                                                            <div class="slds-align_absolute-center dd-heading">Select
+                                                                Account Teams</div>
+                                                            <div class="slds-m-vertical_large">
+                                                                <c-lwc-ddsearchdatatable
+                                                                    data-id="accountTeamSelectionDatatableId"
+                                                                    object-api-name="AccountTeamMember"
+                                                                    show-checkbox="true" columns={accountTeamColumns}
+                                                                    order-by="Account.Name">
+                                                                </c-lwc-ddsearchdatatable>
+                                                            </div>
+                                                        </template>
+                                                    </div>
+                                                    <div class={pageNo2}>
+                                                        <div class="slds-align_absolute-center dd-heading">Confirm
+                                                            Selection</div>
+                                                        <div class="slds-p-vertical_medium">
+                                                            <lightning-datatable key-field="id"
+                                                                columns={atmConfirmColumns}
+                                                                data={selectedTeamAccountRows}
+                                                                sorted-direction={accountTeamSortDirection}
+                                                                sorted-by={accountTeamSortedBy} suppress-bottom-bar
+                                                                hide-checkbox-column onsort={onAccountTeamHandleSort}>
+                                                            </lightning-datatable>
+                                                        </div>
+                                                    </div>
+                                                    <div class={pageNo3}>
+                                                        <div class="slds-align_absolute-center dd-heading">Results</div>
+                                                        <div class="slds-p-vertical_medium">
+                                                            <lightning-datatable key-field="id"
+                                                                columns={accountTeamResultColumns}
+                                                                data={resultremovedATMData}
+                                                                sorted-direction={accountTeamSortDirection}
+                                                                sorted-by={accountTeamSortedBy} suppress-bottom-bar
+                                                                hide-checkbox-column onsort={onAccountTeamHandleSort}>
+                                                            </lightning-datatable>
+                                                        </div>
+                                                    </div>
+                                                </lightning-tab>
+                                            </lightning-tabset>
+                                        </lightning-tab>
+                                    </lightning-tabset>
+                                </lightning-tab>
+                                <lightning-tab label="Manage MXP Accounts" value="Manage MXP Accounts"
+                                    onactive={handleTabChangeActive}>
+                                    <lightning-tabset variant="scoped">
+                                        <lightning-tab label="Bulk" value="Account Bulk"
+                                            onactive={handleAccountTabChange}>
+                                            <div class={pageNo1}>
+                                                <template if:true={resetAccountCsv}>
+                                                    <c-lwc-dd-upload-c-s-v data-id="uploadAccountcsv">
+                                                    </c-lwc-dd-upload-c-s-v>
+                                                </template>
+                                            </div>
+                                            <div class={pageNo2}>
+                                                <lightning-datatable key-field="id" columns={resultAccountColumns}
+                                                    data={resultBulkAccounts}
+                                                    sorted-direction={sortDirection} sorted-by={sortedBy}
+                                                    suppress-bottom-bar hide-checkbox-column
+                                                    onsort={onresultBulkATMSort}>
+                                                </lightning-datatable>
+                                            </div>
+                                        </lightning-tab>
+                                        <lightning-tab label="Manual" value="Account Manual"
+                                            onactive={handleAccountTabChange}>
+                                            <div class={pageNo1}>
+                                                <template if:true={resetEditAccountCsv}>
+                                                    <c-lwc-dd-custom-picklist-datatable data-id="accountEditDatatableId"
+                                                        object-api-name="Account" order-by="Name">
+                                                    </c-lwc-dd-custom-picklist-datatable>
+                                                </template>
+                                            </div>
+                                            <div class={pageNo2}>
+                                                <div class="slds-align_absolute-center dd-headerupdate">Confirm
+                                                    Selection</div>
+                                                <div class="slds-p-vertical_medium">
+                                                    <lightning-datatable key-field="id" columns={accountManualCols}
+                                                        data={selectedEditAccountRows} suppress-bottom-bar
+                                                        hide-checkbox-column>
+                                                    </lightning-datatable>
+                                                </div>
+                                            </div>
+                                            <div class={pageNo3}>
+                                                <div class="slds-align_absolute-center dd-headerupdate">Results</div>
+                                                <div class="slds-p-vertical_medium">
+                                                    <lightning-datatable key-field="id" columns={accountManualCols}
+                                                        data={savedEditAccountRows} suppress-bottom-bar
+                                                        hide-checkbox-column>
+                                                    </lightning-datatable>
+                                                </div>
+                                            </div>
+                                        </lightning-tab>
+                                    </lightning-tabset>
+                                </lightning-tab>
+                            </lightning-tabset>
+                        </div>
+                    </div>
+                    <footer class="slds-modal__footer">
+                        <button class={secondaryButtonVisibility} disabled={backButtonDisablity}
+                            onclick={secondaryBtnClick}>{secondaryButtonLabel}</button>
+                        <button class="slds-button slds-button_brand" disabled={primaryButtonDisablity}
+                            onclick={continueClick}>{primaryButtonLabel}</button>
+                    </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </template>
+    </template>
+</template>

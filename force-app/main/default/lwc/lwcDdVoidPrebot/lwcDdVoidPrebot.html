@@ -1,0 +1,27 @@
+<template>
+    <lightning-card title="">
+        <div class="slds-align_absolute-center slds-text-title_bold slds-var-p-around_x-large">
+            <lightning-layout multiple-rows>
+                <lightning-layout-item size="10">
+                    <lightning-layout multiple-rows>
+                        <lightning-layout-item size="12">
+                            <p>
+                                {messageToDisplay}
+                            </p>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="12" if:true={showTimer}>
+                            <p class="slds-align_absolute-center slds-var-p-around_medium">{timer} {prebotTimerMessage}</p>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                </lightning-layout-item>
+                <lightning-layout-item size="2" class="slds-align_absolute-center">
+                    <template if:true={isLoading}>
+                        <div class="spinnerClass">
+                            <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+                        </div>
+                    </template>
+                </lightning-layout-item>
+            </lightning-layout>
+        </div>
+    </lightning-card>
+</template>

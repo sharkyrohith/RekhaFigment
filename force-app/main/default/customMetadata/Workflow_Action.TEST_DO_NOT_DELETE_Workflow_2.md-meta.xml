@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>[TEST-DO NOT DELETE] Workflow-2</label>
+    <protected>false</protected>
+    <values>
+        <field>Boolean_Value__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>Date_Time_Value__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Date_Value__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Decimal_Value__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Email_Alert_Name__c</field>
+        <value xsi:type="xsd:string">Backlog_Email_Alert</value>
+    </values>
+    <values>
+        <field>Field_API_Name__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Field_Update_Type__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Function__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Is_Active__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>Note_Body__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Note_Parent__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Object_API_Name__c</field>
+        <value xsi:type="xsd:string">Case</value>
+    </values>
+    <values>
+        <field>Re_evaluate_After_Field_Update__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>String_Value__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Task_Comments__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Task_Due_Date__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Task_Owner__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Task_Priority__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Task_Status__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Task_Subject__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Type__c</field>
+        <value xsi:type="xsd:string">Email Alert</value>
+    </values>
+    <values>
+        <field>Workflow_Configuration__c</field>
+        <value xsi:type="xsd:string">TEST_DO_NOT_DELETE_Workflow</value>
+    </values>
+</CustomMetadata>

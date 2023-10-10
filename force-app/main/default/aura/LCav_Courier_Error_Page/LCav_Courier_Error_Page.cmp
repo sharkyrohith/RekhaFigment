@@ -1,0 +1,15 @@
+<aura:component implements="forceCommunity:themeLayout" access="global" description="Caviar Courier Error Theme">
+	<ltng:require styles="{!$Resource.SrCav_Community_Fonts + '/stylesheet.css'}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+	<div>
+		<div class="err-caviar-logo"><img src="{!$Resource.SrCav_Community_Assets + '/logo/Caviar_Logotype_NEW_rgb.svg'}"/></div> 
+        
+        <div class="err-caviar-body">
+            <span class="err-caviar-title">The Courier Help Center no longer exists. Check out the DoorDash Dasher Help Center.</span>
+            <a href="https://help.doordash.com/dashers/s/" target="_blank" class="err-caviar-cta">Dasher Help Center</a>
+            <span class="err-caviar-404"><img src="{!$Resource.SrCav_Community_Assets + '/error/404_Animation_Compressed.gif'}"/></span>
+            
+        </div>
+    </div>
+	
+</aura:component>

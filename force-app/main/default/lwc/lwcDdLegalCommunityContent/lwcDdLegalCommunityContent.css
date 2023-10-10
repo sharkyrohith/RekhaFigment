@@ -1,0 +1,9 @@
+:host {
+	font-family: DDTTNorms1, "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+}
+.header_background{
+    background:rgb(230, 230, 230);
+}
+.bannerLink{
+    color:rgb(222, 36, 0) !important;
+}

@@ -1,0 +1,468 @@
+<aura:component implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes" controller="CDdCommunityWebCaseController" access="global">
+    <aura:attribute name="webCaseObj" type="Object" />
+    <aura:attribute name="subcatOptions" type="List" />
+    <aura:attribute name="disableSubcategory" type="Boolean" default="true"/>
+    <aura:attribute name="page" type="String" default="contactsupport"/>
+    <aura:attribute name="community" type="String" />
+    <aura:attribute name="language" type="String" />
+    <aura:attribute name="recaptchaResponse" type="String" />
+    <aura:attribute name="recaptchaVerified" type="Boolean" default="false" />
+    <aura:attribute name="errorMessages" type="List" />
+    <aura:attribute name="saved" type="Boolean" default="false"/>
+    <aura:attribute name="saveError" type="Boolean" default="false"/>
+    <aura:attribute name="spinner" type="Boolean" default="false"/>
+    <aura:attribute name="suppress" type="Boolean" default="false"/>
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}" />
+
+    <div>
+        <h1 class="slds-page-header__title" data-aura-rendered-by="26:2;a">
+            {!$Label.c.DdCommunity_CaseFormTitle}
+        </h1>
+        
+        <span class="subtitle" data-aura-rendered-by="29:2;a">
+            {!$Label.c.DdCommunity_CaseFormSubTitle}
+        </span>
+        
+        <div class="relative slds-section">        
+
+            <aura:if isTrue="{!v.spinner}">
+                <lightning:spinner variant="brand" size="large"/>
+            </aura:if>
+            <aura:renderIf isTrue="{!not(empty(v.errorMessages))}">
+                <div id="error">
+                    <aura:iteration items="{!v.errorMessages}" var="err">
+                        <ui:outputRichText value="{!err}" />
+                    </aura:iteration>
+                </div>
+            </aura:renderIf>
+            <aura:if isTrue="{!v.saveError}">
+                <div id="error">
+                    {!$Label.c.DdCommunity_SaveError}
+                </div>
+            </aura:if>
+
+            <aura:if isTrue="{!!v.saved}">
+                <!-- contact support page-->
+                <aura:if isTrue="{!v.page == 'contactsupport'}">
+                    <aura:if isTrue="{!v.community == 'consumers'}">
+                        <div class="row">
+                            <lightning:input    type="text" 
+                                                label="{!v.webCaseObj.nameLabel}" 
+                                                value="{!v.webCaseObj.name}" 
+                                                required="true"/>
+                        </div>
+                        <div class="row">
+                            <lightning:input    type="email" 
+                                                label="{!v.webCaseObj.emailLabel}" 
+                                                value="{!v.webCaseObj.email}" 
+                                                required="true" />
+                        </div>
+                        <div class="row">
+                            <lightning:input    type="phone" 
+                                                label="{!v.webCaseObj.phoneLabel}" 
+                                                value="{!v.webCaseObj.phone}"  
+                                                required="true"/>
+                        </div>
+                        <div class="row">
+                            <lightning:select   label="{!v.webCaseObj.categoryLabel}" 
+                                                value="{!v.webCaseObj.category}" 
+                                                required="true" 
+                                                onchange="{!c.handleCategoryChange}">
+                                <aura:iteration items="{!v.webCaseObj.catOptions}" var="catOpt">
+                                    <option text="{!catOpt.label}" value="{!catOpt.value}" />
+                                </aura:iteration>
+                            </lightning:select>
+                        </div>
+                        <div class="row">
+                            <lightning:select   label="{!v.webCaseObj.subcategoryLabel}" 
+                                                value="{!v.webCaseObj.subcategory}" 
+                                                required="true" 
+                                                disabled="{!v.disableSubcategory}">
+                                <aura:iteration items="{!v.subcatOptions}" var="subCatOpt">
+                                    <option text="{!subCatOpt.label}" value="{!subCatOpt.value}" />
+                                </aura:iteration>
+                            </lightning:select>
+                        </div>
+                    </aura:if>
+                    <aura:if isTrue="{!v.community == 'dashers'}">
+                        <div class="row">
+                            <lightning:input    type="text" 
+                                                label="{!v.webCaseObj.nameLabel}" 
+                                                value="{!v.webCaseObj.name}" 
+                                                required="true"/>
+                        </div>
+                        <div class="row">
+                            <lightning:input    type="email" 
+                                                label="{!v.webCaseObj.emailLabel}" 
+                                                value="{!v.webCaseObj.email}" 
+                                                required="true" />
+                        </div>
+                        <div class="row">
+                            <lightning:input    type="phone" 
+                                                label="{!v.webCaseObj.phoneLabel}" 
+                                                value="{!v.webCaseObj.phone}"  
+                                                required="true"/>
+                        </div>
+                        <div class="row">
+                            <lightning:select   label="{!v.webCaseObj.categoryLabel}" 
+                                                value="{!v.webCaseObj.category}" 
+                                                required="true" 
+                                                onchange="{!c.handleCategoryChange}">
+                                <aura:iteration items="{!v.webCaseObj.catOptions}" var="catOpt">
+                                    <option text="{!catOpt.label}" value="{!catOpt.value}" />
+                                </aura:iteration>
+                            </lightning:select>
+                        </div>
+                        <div class="row">
+                            <lightning:select   label="{!v.webCaseObj.subcategoryLabel}" 
+                                                value="{!v.webCaseObj.subcategory}" 
+                                                required="true" 
+                                                disabled="{!v.disableSubcategory}">
+                                <aura:iteration items="{!v.subcatOptions}" var="subCatOpt">
+                                    <option text="{!subCatOpt.label}" value="{!subCatOpt.value}" />
+                                </aura:iteration>
+                            </lightning:select>
+                        </div>
+                        <aura:if isTrue="{!and(and(v.community == 'dashers', v.suppress == false), v.webCaseObj.isDasherW == true)}">
+                            <div class="row">
+                                <lightning:select   label="{!v.webCaseObj.isCaliforniaDasherLabel}"
+                                                    value="{!v.webCaseObj.isCaliforniaDasher}" 
+                                                    required="true">
+                                    <aura:iteration items="{!v.webCaseObj.isCaliforniaDasherOptions}" var="icdOpt">
+                                        <option text="{!icdOpt.label}" value="{!icdOpt.value}" />
+                                    </aura:iteration>
+                                </lightning:select>
+                            </div>
+                            <div class="row">
+                                <lightning:select   label="{!v.webCaseObj.isOnDashLabel}" 
+                                                    value="{!v.webCaseObj.isOnDash}" 
+                                                    required="true">
+                                    <aura:iteration items="{!v.webCaseObj.isOnDashOptions}" var="iodOpt">
+                                        <option text="{!iodOpt.label}" value="{!iodOpt.value}" />
+                                    </aura:iteration>
+                                </lightning:select>
+                            </div>
+                        </aura:if>
+                    </aura:if>
+                    <aura:if isTrue="{!v.community == 'merchants' || v.community == 'restaurants'}">
+                        <div class="row">
+                            <lightning:input    type="text" 
+                                                label="{!v.webCaseObj.restaurantNameLabel}" 
+                                                value="{!v.webCaseObj.restaurantName}" 
+                                                required="true"/>
+                        </div>
+                        <div class="row">
+                            <label class="slds-form-element__label">
+                                <abbr class="slds-required" title="required">*</abbr> 
+                                {!v.webCaseObj.storeIdLabel}
+                            </label>
+                            <c:LDdToolTipCmp tooltipBody="{!$Label.c.DdCommunity_StoreIdHelpText}"/>
+                            <lightning:input    type="text"
+                                                label="{!v.webCaseObj.storeIdLabel}"
+                                                value="{!v.webCaseObj.storeId}" 
+                                                required="true"
+                                                variant="label-hidden"/>
+                        </div>
+                        <div class="row">
+                            <lightning:textarea label="{!v.webCaseObj.restaurantAddressLabel}" 
+                                                value="{!v.webCaseObj.restaurantAddress}" />
+                        </div>
+                        <div class="row">
+                            <lightning:input    type="text" 
+                                                label="{!v.webCaseObj.nameLabel}" 
+                                                value="{!v.webCaseObj.name}" 
+                                                required="true"/>
+                        </div>
+                        <div class="row">
+                            <lightning:input    type="email" 
+                                                label="{!v.webCaseObj.emailLabel}" 
+                                                value="{!v.webCaseObj.email}" 
+                                                required="true" />
+                        </div>
+                        <div class="row">
+                            <lightning:input    type="phone" 
+                                                label="{!v.webCaseObj.phoneLabel}" 
+                                                value="{!v.webCaseObj.phone}"  
+                                                required="true"/>
+                        </div>
+                        <div class="row">
+                            <lightning:select   label="{!v.webCaseObj.categoryLabel}" 
+                                                value="{!v.webCaseObj.category}" 
+                                                required="true" 
+                                                onchange="{!c.handleCategoryChange}">
+                                <aura:iteration items="{!v.webCaseObj.catOptions}" var="catOpt">
+                                    <option text="{!catOpt.label}" value="{!catOpt.value}" />
+                                </aura:iteration>
+                            </lightning:select>
+                        </div>
+                        <div class="row">
+                            <lightning:select   label="{!v.webCaseObj.subcategoryLabel}" 
+                                                value="{!v.webCaseObj.subcategory}" 
+                                                required="true" 
+                                                disabled="{!v.disableSubcategory}">
+                                <aura:iteration items="{!v.subcatOptions}" var="subCatOpt">
+                                    <option text="{!subCatOpt.label}" value="{!subCatOpt.value}" />
+                                </aura:iteration>
+                            </lightning:select>
+                        </div>
+                        <div class="row">
+                            <aura:if isTrue="{!v.webCaseObj.category == 'Menu Change'}">
+                                <lightning:select   label="{!v.webCaseObj.caviarServiceRegionLabel}" 
+                                    value="{!v.webCaseObj.caviarServiceRegion}" 
+                                    required="true">
+                                    <aura:iteration items="{!v.webCaseObj.csrOptions}" var="csrOpt">
+                                        <option text="{!csrOpt.label}" value="{!csrOpt.value}" />
+                                    </aura:iteration>
+                                </lightning:select>
+                            </aura:if>
+                        </div>
+                    </aura:if>
+                    <aura:if isTrue="{!v.community == 'diners'}">
+                        <div class="row">
+                            <lightning:input    type="text" 
+                                                label="{!v.webCaseObj.nameLabel}" 
+                                                value="{!v.webCaseObj.name}" 
+                                                required="true"/>
+                        </div>
+                        <div class="row">
+                            <lightning:input    type="email" 
+                                                label="{!v.webCaseObj.emailLabel}" 
+                                                value="{!v.webCaseObj.email}" 
+                                                required="true" />
+                        </div>
+                        <div class="row">
+                            <lightning:input    type="phone" 
+                                                label="{!v.webCaseObj.phoneLabel}" 
+                                                value="{!v.webCaseObj.phone}"  
+                                                required="true"/>
+                        </div>
+                        <div class="row">
+                            <lightning:select   label="{!v.webCaseObj.categoryLabel}" 
+                                                value="{!v.webCaseObj.category}" 
+                                                required="true" 
+                                                onchange="{!c.handleCategoryChange}">
+                                <aura:iteration items="{!v.webCaseObj.catOptions}" var="catOpt">
+                                    <option text="{!catOpt.label}" value="{!catOpt.value}" />
+                                </aura:iteration>
+                            </lightning:select>
+                        </div>
+                        <div class="row">
+                            <lightning:select   label="{!v.webCaseObj.subcategoryLabel}" 
+                                                value="{!v.webCaseObj.subcategory}" 
+                                                required="true" 
+                                                disabled="{!v.disableSubcategory}">
+                                <aura:iteration items="{!v.subcatOptions}" var="subCatOpt">
+                                    <option text="{!subCatOpt.label}" value="{!subCatOpt.value}" />
+                                </aura:iteration>
+                            </lightning:select>
+                        </div>
+                    </aura:if>
+                    <aura:if isTrue="{!v.community == 'couriers'}">
+                        <div class="row">
+                            <lightning:input    type="text" 
+                                                label="{!v.webCaseObj.nameLabel}" 
+                                                value="{!v.webCaseObj.name}" 
+                                                required="true"/>
+                        </div>
+                        <div class="row">
+                            <lightning:input    type="email" 
+                                                label="{!v.webCaseObj.emailLabel}" 
+                                                value="{!v.webCaseObj.email}" 
+                                                required="true" />
+                        </div>
+                        <div class="row">
+                            <lightning:select   label="{!v.webCaseObj.caviarServiceRegionLabel}" 
+                                                value="{!v.webCaseObj.caviarServiceRegion}" 
+                                                required="true">
+                                <aura:iteration items="{!v.webCaseObj.csrOptions}" var="csrOpt">
+                                    <option text="{!csrOpt.label}" value="{!csrOpt.value}" />
+                                </aura:iteration>
+                            </lightning:select>
+                        </div>
+                        <div class="row">
+                            <lightning:select   label="{!v.webCaseObj.issueTopicLabel}" 
+                                                value="{!v.webCaseObj.issueTopic}" 
+                                                required="true" >
+                                <aura:iteration items="{!v.webCaseObj.itOptions}" var="itOpt">
+                                    <option text="{!itOpt.label}" value="{!itOpt.value}" />
+                                </aura:iteration>
+                            </lightning:select>
+                        </div>
+                    </aura:if>
+                    <aura:if isTrue="{!v.community == 'work'}">
+                        <div class="row">
+                            <lightning:input    type="text" 
+                                                label="{!v.webCaseObj.nameLabel}" 
+                                                value="{!v.webCaseObj.name}" 
+                                                required="true"/>
+                        </div>
+                        <div class="row">
+                            <lightning:input    type="email" 
+                                                label="{!v.webCaseObj.emailLabel}" 
+                                                value="{!v.webCaseObj.email}" 
+                                                required="true" />
+                        </div>
+                        <div class="row">
+                            <lightning:input    type="text" 
+                                                label="{!v.webCaseObj.companyLabel}" 
+                                                value="{!v.webCaseObj.company}"  
+                                                required="true"/>
+                        </div>
+                        <div class="row">
+                            <lightning:input    type="phone" 
+                                                label="{!v.webCaseObj.phoneLabel}" 
+                                                value="{!v.webCaseObj.phone}"  
+                                                required="true"/>
+                        </div>
+                        <div class="row">
+                            <lightning:select   label="{!v.webCaseObj.issueCategoryLabel}" 
+                                                value="{!v.webCaseObj.issueCategory}" 
+                                                required="true" >
+                                <aura:iteration items="{!v.webCaseObj.icOptions}" var="icOpt">
+                                    <option text="{!icOpt.label}" value="{!icOpt.value}" />
+                                </aura:iteration>
+                            </lightning:select>
+                        </div>
+                    </aura:if>
+                </aura:if>
+                <!-- health and safety page -->
+                <aura:if isTrue="{!v.page == 'healthandsafety'}">
+                    <div class="row">
+                        <lightning:input    type="text" 
+                                            label="{!v.webCaseObj.nameLabel}" 
+                                            value="{!v.webCaseObj.name}" 
+                                            required="true"/>
+                    </div>
+                    <div class="row">
+                        <lightning:input    type="email" 
+                                            label="{!v.webCaseObj.emailLabel}" 
+                                            value="{!v.webCaseObj.email}" 
+                                            required="true" />
+                    </div>
+                    <div class="row">
+                        <lightning:input    type="phone" 
+                                            label="{!v.webCaseObj.phoneLabel}" 
+                                            value="{!v.webCaseObj.phone}"  
+                                            required="true"/>
+                    </div>
+                    <div class="row">
+                        <lightning:select   label="{!v.webCaseObj.typeOfIncidentLabel}" 
+                                            value="{!v.webCaseObj.typeOfIncident}" 
+                                            required="true" >
+                            <aura:iteration items="{!v.webCaseObj.toiOptions}" var="toiOpt">
+                                <option text="{!toiOpt.label}" value="{!toiOpt.value}" />
+                            </aura:iteration>
+                        </lightning:select>
+                    </div>
+                </aura:if>
+                <!-- Contact CFC Restaurant Success Support page -->
+                <aura:if isTrue="{!v.page == 'emailcfcsupport'}">
+                    <div class="row">
+                        <lightning:input    type="text" 
+                                            label="{!v.webCaseObj.nameLabel}" 
+                                            value="{!v.webCaseObj.name}" 
+                                            required="true"/>
+                    </div>
+                    <div class="row">
+                        <lightning:input    type="email" 
+                                            label="{!v.webCaseObj.emailLabel}" 
+                                            value="{!v.webCaseObj.email}" 
+                                            required="true" />
+                    </div>
+                    <div class="row">
+                        <lightning:input    type="phone" 
+                                            label="{!v.webCaseObj.phoneLabel}" 
+                                            value="{!v.webCaseObj.phone}"  
+                                            required="true"/>
+                    </div>
+                    <div class="row">
+                        <lightning:input    type="text" 
+                                            label="{!v.webCaseObj.restaurantNameLabel}" 
+                                            value="{!v.webCaseObj.restaurantName}" 
+                                            required="true"/>
+                    </div>
+                    <div class="row">
+                        <lightning:textarea label="{!v.webCaseObj.restaurantAddressLabel}" 
+                                            value="{!v.webCaseObj.restaurantAddress}" 
+                                            required="true"/>
+                    </div>
+                    <div class="row">
+                        <lightning:select   label="{!v.webCaseObj.caviarServiceRegionLabel}" 
+                                            value="{!v.webCaseObj.caviarServiceRegion}" 
+                                            required="true">
+                            <aura:iteration items="{!v.webCaseObj.csrOptions}" var="csrOpt">
+                                <option text="{!csrOpt.label}" value="{!csrOpt.value}" />
+                            </aura:iteration>
+                        </lightning:select>
+                    </div>
+                    <div class="row">
+                        <lightning:select   label="{!v.webCaseObj.issueCategoryLabel}" 
+                                            value="{!v.webCaseObj.issueCategory}" 
+                                            required="true" >
+                            <aura:iteration items="{!v.webCaseObj.icOptions}" var="icOpt">
+                                <option text="{!icOpt.label}" value="{!icOpt.value}" />
+                            </aura:iteration>
+                        </lightning:select>
+                    </div>
+                </aura:if>
+                <aura:if isTrue="{!v.page == 'emailliveopssupport'}">
+                    <div class="row">
+                        <lightning:input    type="text" 
+                                            label="{!v.webCaseObj.nameLabel}" 
+                                            value="{!v.webCaseObj.name}" 
+                                            required="true"/>
+                    </div>
+                    <div class="row">
+                        <lightning:input    type="email" 
+                                            label="{!v.webCaseObj.emailLabel}" 
+                                            value="{!v.webCaseObj.email}" 
+                                            required="true" />
+                    </div>
+                    <div class="row">
+                        <lightning:input    type="phone" 
+                                            label="{!v.webCaseObj.phoneLabel}" 
+                                            value="{!v.webCaseObj.phone}"  
+                                            required="true"/>
+                    </div>
+                    <div class="row">
+                        <lightning:select   label="{!v.webCaseObj.caviarServiceRegionLabel}" 
+                                            value="{!v.webCaseObj.caviarServiceRegion}" 
+                                            required="true">
+                            <aura:iteration items="{!v.webCaseObj.csrOptions}" var="csrOpt">
+                                <option text="{!csrOpt.label}" value="{!csrOpt.value}" />
+                            </aura:iteration>
+                        </lightning:select>
+                    </div>
+                    <div class="row">
+                        <lightning:select   label="{!v.webCaseObj.issueCategoryLabel}" 
+                                            value="{!v.webCaseObj.issueCategory}" 
+                                            required="true" >
+                            <aura:iteration items="{!v.webCaseObj.icOptions}" var="icOpt">
+                                <option text="{!icOpt.label}" value="{!icOpt.value}" />
+                            </aura:iteration>
+                        </lightning:select>
+                    </div>
+                </aura:if>
+                <div class="row">
+                    <lightning:textarea label="{!v.webCaseObj.descriptionLabel}" 
+                                        value="{!v.webCaseObj.description}"
+                                        required="true"/>
+                </div>
+                <div class="row">
+                    <lightning:button   aura:id="submitButton"
+                                        variant="success" 
+                                        label="{!$Label.c.DdCommunity_Submit}" 
+                                        onclick="{!c.submitCase}"/>
+                </div>
+            </aura:if>
+            <aura:if isTrue="{!v.saved}">
+                <div class="row">
+                    <b>{!$Label.c.DdCommunity_CaseCreated}</b>
+                </div>
+                <div class="row">
+                    <b>{!$Label.c.DdCommunity_GetBackSoon}</b>
+                </div>
+            </aura:if>
+        </div>
+    </div> 
+</aura:component>

@@ -1,0 +1,67 @@
+<!-- sldsValidatorIgnore -->
+<template>
+    <template if:true={isMxOrderStatusPermissionEnabled}>
+        <template if:true={showSpinner}>
+            <div class="spinnerHolder">
+                <lightning-spinner alternative-text="Loading" size="small" variant="brand">
+                </lightning-spinner>
+            </div>
+        </template>
+        <template if:true={mxOrder}>
+            <lightning-progress-indicator data-id="progressIndicator" current-step={currentStep} has-error={hasError} type="path" variant="base">
+                <lightning-progress-step label="Ready to Process" value="Ready to Process">
+                </lightning-progress-step>
+                <lightning-progress-step label="Verify" value="Verify">
+                </lightning-progress-step>
+                <lightning-progress-step label="Queued" value="Queued">
+                </lightning-progress-step>
+                <lightning-progress-step label="In Progress" value="In Progress">
+                </lightning-progress-step>
+                <lightning-progress-step label="Shipped" value="Shipped">
+                </lightning-progress-step>
+                <lightning-progress-step label="Delivered" value="Delivered">
+                </lightning-progress-step>            
+            </lightning-progress-indicator>
+            <div class="c-container">
+                <lightning-layout>
+                    <lightning-layout-item padding="around-small">
+                        <div class="header-column">
+                            <p class="field-title" title="Order Id">Order Id</p>
+                            <p>{mxOrder.orderId}</p>
+                        </div>
+                    </lightning-layout-item>
+                    <template if:true={isMxOrderVendorPermissionEnabled}>
+                        <lightning-layout-item padding="around-small">
+                            <div class="header-column">
+                                <p class="field-title" title="Order Id">Vendor</p>
+                                <p>{mxOrder.vendor}</p>
+                            </div>
+                        </lightning-layout-item>
+                    </template> 
+                    <lightning-layout-item padding="around-small">
+                        <div class="header-column">
+                            <p class="field-title" title="Order Id">Order Last Updated</p>
+                            <p>
+                                <lightning-formatted-date-time 
+                                    value={mxOrder.orderStatusLastModifiedDate} 
+                                    time-zone="UTC"
+                                    year="numeric"
+                                    day="2-digit"
+                                    month="long"
+                                    hour="2-digit"
+                                    minute="2-digit">
+                                </lightning-formatted-date-time>
+                            </p>
+                        </div>
+                    </lightning-layout-item>
+                    <lightning-layout-item padding="around-small">
+                        <div class="header-column">
+                            <p class="field-title" title="Order Id">Order Status Description</p>
+                            <p>{mxOrder.orderStatusDescription}</p>
+                        </div>
+                    </lightning-layout-item>                                
+                </lightning-layout>
+            </div>
+        </template>
+    </template> 
+</template>

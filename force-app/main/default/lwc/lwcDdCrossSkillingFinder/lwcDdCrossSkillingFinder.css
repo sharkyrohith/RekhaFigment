@@ -1,0 +1,56 @@
+.dt {
+    padding-top: 50px;
+    height : 450px;
+    overflow: hidden;
+}
+.error {
+    text-align: center;
+    color: rgb(194, 57, 52);
+    background: rgb(194, 57, 52, .1);
+    border: rgb(194, 57, 52) solid 1px;
+    padding: 13px;
+}
+.success {
+    text-align: center;
+    color: rgb(42, 190, 67);
+    background: rgba(57, 180, 109, 0.1);
+    border: rgb(42, 190, 67) solid 1px;
+    padding: 13px;
+}
+
+.warning{
+    font-weight: normal;
+    color: black;
+}
+
+.columnFlex{
+    display: flex;
+    flex-direction: column;
+}
+.rowFlex{
+    display: flex;
+    flex-direction: row;
+}
+
+table {
+    border: 1px solid #ddd;
+    width: 100%;
+    table-layout:fixed;
+}
+
+table td {
+    width:30%;
+}
+
+table thead { background: lightblue; }
+
+
+.header{
+    font-weight: bold;
+    font-size: small;
+    color:brown;
+}
+
+.tableDiv{
+    padding: 10px;
+}

@@ -1,0 +1,130 @@
+<aura:component implements="lightning:recordHomeTemplate" description="3 column template with collapsible left sidebar">
+    <aura:attribute name="isLivePage" type="Boolean" description="Internal - detects if App Builder view is being displayed." default="{!true}"/>
+
+    <aura:attribute name="header" type="Aura.Component[]" description="Header region" />
+    <aura:attribute name="main" type="Aura.Component[]" description="Main region" />
+    <aura:attribute name="sidebarLeft" type="Aura.Component[]" description="sidebar left region" />
+    <aura:attribute name="sidebarRight" type="Aura.Component[]" description="sidebar right region" />
+    <aura:attribute name="quickpanel" type="Aura.Component[]" description="quickpanel region" />
+    <aura:attribute name="isLeftSidebarCollapsed" type="Boolean" access="PRIVATE" default="false" />
+    <aura:attribute name="isQuickviewCollapsed" type="Boolean" default="{!true}" />
+    <aura:attribute name="rootClass" type="String" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+    <ltng:require styles="{!$Resource.DdLightningResource + '/css/DD_CSS_RemoveDefaultPadding.css'}" />
+
+    <aura:handler name="handleVisibilityEvent" event="c:LDdHandleVisibilityEvt" action="{!c.handleVisibility}" includeFacets="true"/>
+
+    <aura:if isTrue="{!v.isLivePage}">
+        <div>
+            <div class="slds-grid slds-wrap viewport">
+                <div class="slds-col slds-size_1-of-1 slds-region slds-region__pinned-top">
+                    <lightning:layout aura:id="casePageHeader" multipleRows="false">
+                        <lightning:layoutItem size="12">
+                            {!v.header}
+                        </lightning:layoutItem>
+                    </lightning:layout>
+                </div>
+                <div class="main-template-region slds-grid slds-has-pinned-regions">
+                    <div class="{!(v.isLeftSidebarCollapsed ? 'left-collapsed ' : 'slds-col slds-size_3-of-12 ') + 'slds-region slds-region__pinned-left left-pinned scrollable-column slds-border_top'}">
+                        <div class="left-sidebar-inner-container">
+                            <div class="{!v.isLeftSidebarCollapsed ? 'slds-hide' : 'left-sidebar_content'}">
+                                {!v.sidebarLeft}
+                            </div>
+                            <div class="sidebar_button slds-border_left"
+                                    onclick="{!c.toggleLeftSidebar}"
+                                    title="{!(v.isLeftSidebarCollapsed ? 'Open Panel' : 'Close Panel')}">
+                                <div>
+                                    {!v.isLeftSidebarCollapsed ? '▶' : '◀'}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="{!(v.isLeftSidebarCollapsed ? 'main-container-expanded ' : 'slds-col slds-size_9-of-12 ') + 'main-container-wrapper'}">
+                        <div class="slds-grid template-workspace-contents">
+                            <div class="slds-col slds-size_8-of-12 slds-var-p-left_small slds-var-p-top_small scrollable-column ">
+                                {!v.main}
+                            </div>
+                            <div class="slds-col slds-size_4-of-12 slds-var-p-around_small scrollable-column ">
+                                {!v.sidebarRight}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="{!v.isQuickviewCollapsed ? 'quickview-panel_showbutton' : 'slds-hide'}">
+                <lightning:button label="Open Quick View Panel"
+                    iconName="utility:arrow_left"
+                    iconPosition="left"
+                    variant="inverse"
+                    onclick="{!c.toggleQuickViewPanel}"/>
+            </div>
+            <div class="{!v.isQuickviewCollapsed ? 'slds-hide' : 'quickview-panel'}">
+                <div class="quickview-panel_header">
+                    <span style="justify-content: start;" class="slds-align_absolute-center slds-truncate">
+                        Quick View Panel
+                    </span>
+                    <span class="slds-var-m-left_small">
+                        <lightning:buttonIcon variant="border-inverse" iconName="utility:close" size="medium"
+                            alternativeText="Close Quick View Panel" onclick="{!c.toggleQuickViewPanel}">
+                        </lightning:buttonIcon>
+                    </span>
+                </div>
+                <div class="quickview-panel_body slds-scrollable slds-var-p-around_medium">
+                    {!v.quickpanel}
+                </div>
+            </div>
+        </div>
+        <aura:set attribute="else">
+            <div>
+                <div role="banner">
+                    <lightning:layout aura:id="casePageHeader" multipleRows="false">
+                        <lightning:layoutItem size="12">
+                            {!v.header}
+                        </lightning:layoutItem>
+                    </lightning:layout>
+                </div>
+                <div class="slds-var-m-around_large quickview-panel_header">
+                    <span style="justify-content: start;" class="slds-align_absolute-center">
+                        Note: The Panel display on AppBuilder below is different than the Panel display on the actual page due to limitations of being able to display the scrollable panel and quick view panel display logic.<br/>
+                        The Actual page has collapsible left panel, button driven quick view panel and each section has its individual scrolls.
+                    </span>
+                </div>
+                <lightning:layout class="slds-var-m-top_medium">
+                    <lightning:layoutItem size="2" class="slds-var-m-top_medium slds-var-p-right_medium">
+                        <div class="quickview-panel_header">
+                            <span style="justify-content: start;" class="slds-align_absolute-center slds-truncate">
+                                Left Panel
+                            </span>
+                        </div>
+                        {!v.sidebarLeft}
+                    </lightning:layoutItem>
+                    <lightning:layoutItem size="5" class="slds-var-m-top_medium slds-var-p-right_medium">
+                        <div class="quickview-panel_header">
+                            <span style="justify-content: start;" class="slds-align_absolute-center slds-truncate">
+                                Center Panel
+                            </span>
+                        </div>
+                        {!v.main}
+                    </lightning:layoutItem>
+                    <lightning:layoutItem size="2" class="slds-var-m-top_medium slds-var-p-right_medium">
+                        <div class="quickview-panel_header">
+                            <span style="justify-content: start;" class="slds-align_absolute-center slds-truncate">
+                                Right Panel
+                            </span>
+                        </div>
+                        {!v.sidebarRight}
+                    </lightning:layoutItem>
+                    <lightning:layoutItem size="3" class="slds-var-m-top_medium">
+                        <div class="quickview-panel_header">
+                            <span style="justify-content: start;" class="slds-align_absolute-center slds-truncate">
+                                Quick View Panel
+                            </span>
+                        </div>
+                        {!v.quickpanel}
+                    </lightning:layoutItem>
+                </lightning:layout>
+            </div>
+        </aura:set>
+    </aura:if>
+</aura:component>

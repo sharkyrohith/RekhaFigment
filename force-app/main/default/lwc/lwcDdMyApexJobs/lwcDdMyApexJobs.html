@@ -1,0 +1,29 @@
+<template>
+    <c-lwc-dd-modal modal-size="large" onclosemodal={handleCloseMyApexJobs}>
+        <div slot="modalContent" class="modalContent slds-modal__content slds-p-around_medium">
+            <lightning-card variant="narrow" icon-name="utility:automate"> 
+                <div slot="title">{label.jobs}</div>
+                <lightning-button label={label.refresh} slot="actions" onclick={handleRefresh}></lightning-button>
+                <p class="slds-p-horizontal_small">
+                    <template if:true={loading}>
+                        <lightning-spinner data-id="spinner" variant="brand" size="large" alternative-text="Waiting for response from server."></lightning-spinner>
+                    </template>
+                    <template if:false={loading}>            
+                        <template if:true={apexJobs}>
+                            <div style="height: 640px;">              
+                                <lightning-datatable key-field="Id"
+                                                    data={apexJobs}
+                                                    columns={columns}
+                                                    hide-default-actions=false>
+                                </lightning-datatable>
+                            </div>
+                        </template>
+                        <template if:true={error}>
+                            <p>{error}</p>
+                        </template> 
+                    </template>
+                </p>
+            </lightning-card>
+        </div>
+    </c-lwc-dd-modal>    
+</template>

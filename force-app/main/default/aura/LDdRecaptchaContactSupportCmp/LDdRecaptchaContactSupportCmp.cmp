@@ -1,0 +1,15 @@
+<aura:component controller="CDdRecaptchaContactSupportController" implements="forceCommunity:availableForAllPageTypes" access="global" >
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}" />
+    <aura:handler name="render" value="{!this}" action="{!c.onRender}" />
+    <aura:attribute name="recaptchaResponse" type="String" />
+    <aura:attribute name="spinner" type="Boolean" default="false" />
+    <aura:attribute name="verified" type="Boolean" default="false" />
+    <aura:attribute name="communityDomain" type="String" default="DoorDash" />
+    <aura:if isTrue="{!v.spinner}">
+        <lightning:spinner variant="brand" size="large"/>
+    </aura:if>
+    <aura:if isTrue="{!!v.verified}">
+        <div id="recaptchaCheckbox"></div>
+    </aura:if>
+    
+</aura:component>

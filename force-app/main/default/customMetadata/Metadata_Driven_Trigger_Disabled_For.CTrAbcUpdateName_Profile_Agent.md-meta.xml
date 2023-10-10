@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>CTrAbcUpdateName_Profile_Agent</label>
+    <protected>false</protected>
+    <values>
+        <field>Description__c</field>
+        <value xsi:type="xsd:string">Do not run this Update Name method if profile is &apos;Agent&apos;</value>
+    </values>
+    <values>
+        <field>Detail__c</field>
+        <value xsi:type="xsd:string">00e1a000000N8i3</value>
+    </values>
+    <values>
+        <field>Metadata_Driven_Trigger__c</field>
+        <value xsi:type="xsd:string">CTrAbcUpdateName</value>
+    </values>
+    <values>
+        <field>Type__c</field>
+        <value xsi:type="xsd:string">User ProfileId</value>
+    </values>
+    <values>
+        <field>isActive__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+</CustomMetadata>

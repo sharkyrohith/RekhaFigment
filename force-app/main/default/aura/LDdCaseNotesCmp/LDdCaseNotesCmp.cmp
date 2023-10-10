@@ -1,0 +1,59 @@
+<aura:component  controller="CDdCaseNotesCtrl" implements="force:hasRecordId,force:lightningQuickAction" access="global">
+    <aura:attribute name="ntVal" type="string" default=""/>
+    <aura:attribute name="ntBody" type="string" default=""/>
+    <aura:attribute name="noteTemplateList" type="List" default="[]"/>
+    <aura:attribute name="noteTemplateFilteredList" type="List" default="[]"/>
+    <aura:attribute name="noteTemplate" type="Object" default=""/>
+    <aura:attribute access="global" type="List" name="errors" default="[]" description="An array of error messages to display on conditions set by the consumer component, e.g [ {'message': 'Error!' } ]" />
+    <aura:attribute access="global" type="Integer" name="scrollAfterNItems" default="5" description="A null or integer value used to force overflow scroll on the result listbox after N number of items. Valid values are null, 5, 7, or 10. Use null to disable overflow scrolling." />
+    <aura:attribute access="private" type="Boolean" name="hasFocus" default="false" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <lightning:spinner aura:id="pageSpinner" alternativeText="Loading..." variant="brand" size="large"/>
+    <div>
+        <div class="intro">
+            {!$Label.c.Case_Notes_Intro}
+        </div>
+
+        <div class="slds-form-element">
+            <label class="slds-form-element__label" >Template</label>
+            <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon_right">
+                <input type="text" class="{! 'slds-input slds-combobox__input slds-combobox__input-value has-custom-height ' + (!empty(v.errors) ? 'has-custom-error' : '') + (!empty(v.ntVal) ? ' has-custom-border' : '') }"
+                    aria-autocomplete="list" autocomplete="off"
+                    role="textbox" id="#notes_combobox" aura:id="searchInput" 
+                    value="{! empty(v.ntVal) ? '' : v.ntVal}"                 
+                    onblur="{!c.onBlur}" oninput="{!c.getTemplates}" />
+                <div aura:id="spinner" role="presentation" class="slds-hide slds-input__icon slds-input__icon_right slds-is-relative">
+                    <div role="status" class="slds-spinner slds-spinner_xx-small slds-spinner_delayed">
+                        <span class="slds-assistive-text">Loading</span>
+                        <div class="slds-spinner__dot-a"></div>
+                        <div class="slds-spinner__dot-b"></div>
+                    </div>
+                </div>
+                <lightning:buttonIcon aura:id="search-icon" iconName="utility:search" size="x-small" alternativeText="Search icon"
+                    class="{! 'slds-input__icon slds-input__icon_right '+ (empty(v.ntVal) ? '' : 'slds-hide') }" onclick="{!c.getTemplates}" />
+        
+                <lightning:buttonIcon iconName="utility:close" variant="bare" alternativeText="Remove"
+                    onclick="{!c.clearSearch}" class="{! 'slds-input__icon slds-input__icon_right '+ (empty(v.ntVal) ? 'slds-hide' : '') }" />
+            </div>
+        </div>
+
+        <aura:if isTrue="{!v.noteTemplateFilteredList.length > 0}">		 
+            <ul class="slds-listbox slds-listbox_vertical slds-dropdown slds-dropdown_fluid slds-dropdown--length-5">
+                <aura:iteration items="{!v.noteTemplateFilteredList}" var="noteTemp">
+                    <li class="slds-listbox__item">
+                        <span id="{!noteTemp.Id}" class="slds-media slds-listbox__option slds-listbox__option_entity" onclick="{!c.selectTemplate}">
+                            <span class="slds-media__body">
+                                <span class="slds-listbox__option-text slds-listbox__option-text_entity">{!noteTemp.Name}</span>
+                            </span>
+                        </span>
+                    </li>
+                </aura:iteration>
+            </ul> 	 
+        </aura:if>
+        <br/>
+        <lightning:inputRichText value="{!v.ntBody}" label="Body" />
+        <br/>
+        <lightning:button variant="brand" label="Post" title="Post Notes" onclick="{!c.postNotes}" class="slds-m-left_x-small" />
+    </div>
+
+</aura:component>

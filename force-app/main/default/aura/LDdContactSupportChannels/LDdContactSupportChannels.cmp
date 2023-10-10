@@ -1,0 +1,63 @@
+<aura:component access="global" implements="forceCommunity:availableForAllPageTypes" controller="CDdContactSupportChannelsController">
+    <aura:attribute name="currentFive9WaitTime" type="String" default=""/>
+    <aura:attribute name="currentLiveAgentWaitTime" type="String" default=""/>
+    <aura:attribute name="community" type="String" default="dasher"/>
+    <aura:attribute name="showChat" type="Boolean" default="false"/>
+    <aura:attribute name="showPhone" type="Boolean" default="false"/>
+    <aura:attribute name="webForm" type="Boolean" default="false"/>
+    <aura:attribute name="supportPhone" type="String" default="855-973-1040"/>
+    <aura:attribute name="showSelfHelp" type="boolean" default="false"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <div>
+        <div class="ddcs-container">
+            
+            <aura:if isTrue="{!v.showSelfHelp}">
+                <a href="https://www.doordash.com/orders/help/" class="ddcs-tile ddcs-selfhelp"> 
+                    <span class="ddcs-title">{!$Label.c.DdCommunity_Support_SelfHelp}</span>
+                    <span class="ddcs-sub-title">{!$Label.c.DdCommunity_Support_SelfHelp_Subtitle}</span>
+                </a>
+            </aura:if>
+            
+            <aura:if isTrue="{!v.showChat}">
+                <a id="ddChat" class="ddcs-tile ddcs-chat"> 
+                    <span class="ddcs-title">{!$Label.c.DdCommunity_Support_Chat}</span>
+                    <span class="ddcs-sub-title">{!v.currentLiveAgentWaitTime}&nbsp;{!$Label.c.DdCommunity_Support_Min_Wait}</span> 
+                    <!--A live agent will be with you as soon as possible -->
+                </a>
+            </aura:if>
+            
+            <aura:if isTrue="{!and(v.supportPhone != '', v.showPhone)}"> 
+               	<aura:if isTrue="{!v.community != 'work'}">
+                   <a href="{!'tel:' + $Label.c.DdCommunity_ContactSupportBanner_Phone_Link}" class="ddcs-tile ddcs-call"> 
+                       <span class="ddcs-title">{!$Label.c.DdCommunity_Support_Call_Us}</span>
+                       <span class="ddcs-sub-title">{!$Label.c.DdCommunity_ContactSupportBanner_Phone}</span>
+                   </a> 
+				</aura:if>       
+               	<aura:if isTrue="{!v.community == 'work'}">
+					<a href="tel:855-830-5429" class="ddcs-tile ddcs-call"> 
+						<span class="ddcs-title">855-830-5429</span>
+                    	<span class="ddcs-sub-title">Call us for live order support</span>
+                	</a> 
+				</aura:if> 
+			</aura:if>
+            
+            <aura:if isTrue="{!v.webForm}">
+                <a href="contactsupport" class="ddcs-tile ddcs-email"> 
+                    <span class="ddcs-title">{!$Label.c.DdCommunity_Support_Email_Us}</span>
+                    <span class="ddcs-sub-title">{!$Label.c.DdCommunity_Support_Back_24}</span>
+                </a>
+            </aura:if>
+
+            <!-- for C-19
+            <a  href="https://twitter.com/messages/compose?recipient_id=3281817403" target="_blank" class="ddcs-tile ddcs-twitter"  data-screen-name="@DoorDash_Help"> 
+                <span class="ddcs-title">{!$Label.c.DdCommunity_Support_Tweet_Us}</span>
+             <span class="ddcs-sub-title">{!$Label.c.DdCommunity_Support_Back_24}</span>
+
+            </a>
+			-->  
+            <!--
+				<a href="https://twitter.com/messages/compose?recipient_id=3281817403" class="twitter-dm-button" data-screen-name="@DoorDash_Help"> Message @DoorDash_Help</a 
+			-->            
+        </div>
+    </div>
+</aura:component>

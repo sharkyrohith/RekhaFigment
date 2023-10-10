@@ -1,0 +1,204 @@
+<template>
+    <lightning-quick-action-panel header="Merchant Feedback">
+        <div class={flexipageRegionWidth}>
+
+            <template if:true={error}>
+                <lightning-layout vertical-align="center" horizontal-align="center">
+                    <lightning-layout-item>
+                        <span style="color: red;"> {error}</span>
+                        <div style="height: 30px"></div>
+                    </lightning-layout-item>
+                </lightning-layout>
+
+            </template>
+
+            <template if:true={step1}>
+                <lightning-layout vertical-align="start">
+                    <lightning-layout-item size="6" >
+                        <lightning-layout multiple-rows="true" vertical-align="start">
+                            <lightning-layout-item size="12" >
+                                <lightning-combobox required variant="label-inline" label="Touchpoint" options={touchpointOptions} value={touchpoint} onchange={touchpointChange}></lightning-combobox>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="12">
+                                <lightning-input required type="date" name="dateOfTouchPoint" label="Date of Touchpoint" variant="label-inline" value={touchpointDate} onchange={touchpointDateChange}></lightning-input>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="12" >
+                                <lightning-combobox variant="label-inline" label="Touchpoint Interaction" options={touchpointInteractionOptions} value={touchpointInteraction} onchange={touchpointInteractionChange}></lightning-combobox>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="12" >
+                               <lightning-textarea variant="label-inline" label="Deck Link" value={touchpointNotes} onchange={touchpointNotesChange}></lightning-textarea>
+                            </lightning-layout-item>
+                        </lightning-layout>
+                    </lightning-layout-item>
+
+                    <lightning-layout-item size="6">
+                        <lightning-layout vertical-align="start">
+                            <lightning-layout-item size="12">
+                                <table>
+                                    <tr>
+                                        <td width="30px">&nbsp;&nbsp;</td>
+                                        <td>
+                                            <lightning-dual-listbox name="Categories"
+                                                source-label="Available"
+                                                selected-label="Selected"
+                                                options={categories}
+                                                onchange={handleChange}
+                                                label="Category"
+                                                variant="label-stacked"
+                                                size="5" required>
+                                            </lightning-dual-listbox>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </lightning-layout-item>
+                        </lightning-layout>
+                    </lightning-layout-item>
+                </lightning-layout>
+
+                <lightning-layout>
+                    <lightning-layout-item size="5" >
+                        <span> &nbsp;</span>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="3" >
+                        <div style="height: 40px"></div>
+                        <span>
+                            <lightning-button variant="brand" label="Next" class="slds-m-right_x-small slds-grid_align-end" onclick={getCategoryReason}></lightning-button>
+                        </span>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="4" >
+                        <span> &nbsp;</span>
+                    </lightning-layout-item>
+                </lightning-layout>
+
+            </template>
+
+        <template if:true={step2}>
+
+            <lightning-layout multiple-rows vertical-align="start">
+                <template for:each={uiWrappers} for:item="wrapper" for:index="index">
+                    <lightning-layout-item key={wrapper.keyValue} size="5">
+                        <span style="font-weight: bold;">Category: {wrapper.category}</span>
+                        <div style="height: 20px;">
+                        </div>
+                    </lightning-layout-item>
+                    <lightning-layout-item key={wrapper.keyValue} size="7">
+                        &nbsp;
+                    </lightning-layout-item>
+
+
+
+                    <lightning-layout-item key={wrapper.keyValue} size="7">
+                        <lightning-combobox  variant="label-inline" label="Status" data-index={index} required
+                                            options={statusOptions}
+                                            value={wrapper.status}
+                                            onchange={statusChange}>
+                                        </lightning-combobox>
+
+                    </lightning-layout-item>
+                    <lightning-layout-item key={wrapper.keyValue} size="5">
+                        <lightning-dual-listbox variant="label-inline"  label="Competitor" name="Competitor" data-index={index}
+                                            source-label="Available"
+                                            selected-label="Selected"
+                                            options={competitorsOptions}
+                                            value={wrapper.competitorSelected}
+                                            onchange={competitorsChange}
+                                            size="4">
+                                        </lightning-dual-listbox>
+                    </lightning-layout-item>
+
+                    <lightning-layout-item key={wrapper.keyValue} size="7">
+                        <lightning-combobox variant="label-inline" label="Merchant Sentiment" data-index={index} required
+                                            options={sentimentOptions}
+                                            value={wrapper.sentiment}
+                                            onchange={sentimentChange}>
+                                        </lightning-combobox>
+                    </lightning-layout-item>
+                    <lightning-layout-item key={wrapper.keyValue} size="5">
+                        <lightning-textarea  variant="label-inline" label="Notes" value={wrapper.notes} data-index={index} max-length="2000" onchange={notesChange}></lightning-textarea>
+                    </lightning-layout-item>
+
+                    <lightning-layout-item key={wrapper.keyValue} size="7">
+                        <lightning-combobox variant="label-inline" label="Outcome" data-index={index}   required
+                                            options={outcomeOptions}
+                                            value={wrapper.outcome}
+                                            onchange={outcomeChange}>
+                                        </lightning-combobox>
+
+                    </lightning-layout-item>
+                    <lightning-layout-item key={wrapper.keyValue} size="5">
+                        <lightning-textarea  variant="label-inline" label="Next Steps" value={wrapper.nextsteps} data-index={index} max-length="2000" onchange={nextstepsChange}></lightning-textarea>
+                    </lightning-layout-item>
+
+                    <lightning-layout-item key={wrapper.keyValue} size="7">
+                        <lightning-combobox variant="label-inline" label="Reason" name={wrapper.keyValue} data-index={index} required
+                                            options={wrapper.reasons}
+                                            value={wrapper.selectedReason}
+                                            onchange={reasonChange}>
+                                        </lightning-combobox>
+
+                    </lightning-layout-item>
+                    <lightning-layout-item key={wrapper.keyValue} size="5">
+                        <lightning-combobox variant="label-inline" label="Opportunity" name={wrapper.keyValue} data-index={index}
+                                            options={wrapper.opportunities}
+                                            value={wrapper.selectedOppty}
+                                            onchange={opportunityChange}>
+                                        </lightning-combobox>
+                        </lightning-layout-item>
+
+                    <lightning-layout-item key={wrapper.keyValue} size="12">
+                        &nbsp;
+                    </lightning-layout-item>
+                </template>
+            </lightning-layout>
+
+            <lightning-layout horizontal-align="center" vertical-align="end">
+                <lightning-layout-item size="2" >
+                    <!--
+                    <lightning-button variant="brand" label="Go Back" class="slds-m-right_x-small slds-grid_align-start" onclick={gotoStep1}></lightning-button>
+                   -->
+                    <lightning-button variant="brand" label="Next" class="slds-m-left_x-small" onclick={showTable}></lightning-button>
+                </lightning-layout-item>
+            </lightning-layout>
+        </template>
+
+        <template if:true={step3}>
+
+            <div class="slds-grid slds-grid_align-center">
+                <div class="slds-col slds-size_12-of-12">
+                    <span>
+                        <lightning-datatable data={uiWrappers}
+                                            columns={tableColumns}
+                                            hide-checkbox-column
+                                            key-field="keyValue">
+                        </lightning-datatable>
+                    </span>
+                </div>
+            </div>
+            <div style="height: 200px"> &nbsp;</div>
+            <div class="slds-grid slds-grid_vertical-align-end slds-grid_align-center">
+                <div class="slds-col">
+                    <span>
+                        <lightning-button variant="brand" label="Go Back" class="slds-m-right_x-small slds-grid_align-center" onclick={gotoStep2}></lightning-button>
+                    </span>
+                </div>
+                <div class="slds-col">
+                    <span>
+                        <lightning-button variant="brand" label="Confirmed" class="slds-m-right_x-small slds-grid_align-center" onclick={confirm}></lightning-button>
+                    </span>
+                </div>
+            </div>
+        </template>
+
+        <template if:true={step4}>
+            <div class="slds-grid slds-grid_vertical-align-center slds-grid_align-center">
+                <div class="slds-col">
+                    <span> Your merchant feedback records have been created!</span>
+                </div>
+            </div>
+        </template>
+
+
+    </div>
+    </lightning-quick-action-panel>
+
+</template>

@@ -1,0 +1,19 @@
+<aura:component access="global" implements="forceCommunity:availableForAllPageTypes">
+    
+    <style>
+        
+        /*-- Displays Spanish from dropdown - START --*/
+        lightning-base-combobox-item span[title="Spanish)"] {
+            display: flex !important;
+        }
+        
+        .forceCommunityLanguageSelector43 lightning-base-combobox-item[data-value="es"] {
+            display: flex !important;
+        }
+        /*-- Displays Spanish from dropdown - END --*/
+        
+    </style>
+    
+    <div></div>
+    
+</aura:component>

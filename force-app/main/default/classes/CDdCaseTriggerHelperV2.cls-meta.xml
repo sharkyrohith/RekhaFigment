@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ApexClass xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>52.0</apiVersion>
+    <packageVersions>
+        <majorNumber>1</majorNumber>
+        <minorNumber>94</minorNumber>
+        <namespace>ELTON</namespace>
+    </packageVersions>
+    <packageVersions>
+        <majorNumber>10</majorNumber>
+        <minorNumber>2</minorNumber>
+        <namespace>RealZip</namespace>
+    </packageVersions>
+    <packageVersions>
+        <majorNumber>4</majorNumber>
+        <minorNumber>56</minorNumber>
+        <namespace>zkfedex</namespace>
+    </packageVersions>
+    <packageVersions>
+        <majorNumber>1</majorNumber>
+        <minorNumber>108</minorNumber>
+        <namespace>zkmulti</namespace>
+    </packageVersions>
+    <packageVersions>
+        <majorNumber>3</majorNumber>
+        <minorNumber>63</minorNumber>
+        <namespace>zkusps</namespace>
+    </packageVersions>
+    <status>Active</status>
+</ApexClass>

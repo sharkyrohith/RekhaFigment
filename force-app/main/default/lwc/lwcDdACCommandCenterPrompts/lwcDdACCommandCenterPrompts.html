@@ -1,0 +1,71 @@
+<!--
+  @description       : Prompts view for Command Center
+  @author            : Jose Vega
+  @last modified on  : 07-20-2023
+  @last modified by  : Jose Vega
+-->
+<template>
+    <template if:true={hasAccess}>
+        <template if:true={loading}>
+            <div class="spinner-container">
+                <lightning-spinner alternative-text="Loading"></lightning-spinner>
+            </div>
+        </template>
+
+        <lightning-card>
+            <div class="pagination-row">
+                <lightning-input label="Search" value={searchTerm} onchange={handleSearchTermChange}
+                    class="pagination-search"></lightning-input>
+            </div>
+
+            <lightning-datatable key-field="Id" data={data} columns={columns} onrowaction={handleRowAction}
+                onsort={handleSort} sorted-by={sortedBy} sorted-direction={sortedDirection}
+                hide-checkbox-column></lightning-datatable>
+            <div class="pagination-row">
+                <div class="pagination-controls">
+                    <lightning-button-icon icon-name="utility:left" onclick={handlePagePrevious}
+                        disabled={isPagePreviousDisabled}></lightning-button-icon>
+                    <div class="pagination-indicator">
+                        Page {currentPage} of {totalPages}
+                    </div>
+                    <lightning-button-icon icon-name="utility:right" onclick={handlePageNext}
+                        disabled={isPageNextDisabled}></lightning-button-icon>
+                </div>
+
+                <lightning-combobox label="Page Size" value={pageSize} options={pageSizeOptions}
+                    onchange={handlePageSizeChange} class="pagination-size"></lightning-combobox>
+            </div>
+        </lightning-card>
+        <template if:true={showModal}>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+                aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <header class="slds-modal__header">
+                        <h2 id="modal-heading-01" class="slds-text-heading_medium">Edit Script</h2>
+                    </header>
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                        <!-- <lightning-input label="Script" value={editValue}></lightning-input> -->
+                        <lightning-textarea class="modal-textarea" value={editValue} onchange={handleTextareaChange}
+                            label="Script"></lightning-textarea>
+                    </div>
+                    <footer class="slds-modal__footer">
+                        <button class="slds-button slds-button_neutral" onclick={handleModalClose}>Cancel</button>
+                        <button class="slds-button slds-button_brand" onclick={handleUpdateClick}>Update</button>
+                    </footer>
+                </div>
+            </section>
+        </template>
+    </template>
+    <template if:false={hasAccess}>
+        <div class="slds-notify_container slds-is-relative">
+            <div class="slds-notify slds-notify_toast slds-theme_info" role="status">
+                <span class="slds-assistive-text">info</span>
+                <div class="slds-notify__content">
+                    <h2 class="slds-text-heading_small">{accessErrorMessage}</h2>
+                </div>
+            </div>
+        </div>
+    </template>
+
+</template>

@@ -1,0 +1,6 @@
+{
+  "error": {
+    "message": "Only live keys can access this method.",
+    "type": "invalid_request_error"
+  }
+}

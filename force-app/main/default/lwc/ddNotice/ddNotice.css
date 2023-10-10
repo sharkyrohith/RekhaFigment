@@ -1,0 +1,11 @@
+.dd-notify {
+    min-width: calc(100% - 16px);
+}
+
+.dd-notify-content {
+    flex: 1;
+}
+
+.dd-notify-message {
+    text-align: center;
+}

@@ -1,0 +1,119 @@
+<template>
+    <lightning-card title="Workforce Task Tracking" if:true={displayCreateScreen}>
+        <div class="slds-m-around_medium">
+            <div style="visibility: hidden; height: 0px">
+                <p class="slds-m-bottom_xx-small">{currCaseRecordTypeId}</p>
+            </div> 
+            <div id="waiting" if:false={ready}>Loading...</div>
+            <div id="display" if:true={ready}>
+                <lightning-combobox
+                    name="teamTemplate"
+                    label="Team Name"
+                    value={teamValue}
+                    placeholder="Select Team"
+                    options={teamItems}
+                    onchange={handleTeamTemplateChange} 
+                    disabled={disableTeamSelector}></lightning-combobox>
+                <br/>
+                <lightning-combobox
+                    name="taskTemplate"
+                    label="Task Name"
+                    value={value}
+                    placeholder="Select Task"
+                    options={items}
+                    onchange={handleTaskTemplateChange} ></lightning-combobox>
+
+            </div>
+            <div id = "creatteButtons" class="wtt-button-group">
+                <lightning-button class="slds-m-top_small"
+                            variant="brand"
+                            name="save"
+                            label="Start New Task"
+                            onclick={startNewTask}  
+                            disabled={disableCreateTaskButton}>
+                </lightning-button>
+            </div>
+        </div>
+    </lightning-card>
+    <lightning-card title="Workforce Task Tracking" if:false={displayCreateScreen}>
+        <div class="slds-m-around_medium">
+            <div style="visibility: hidden; height: 0px">
+                <p class="slds-m-bottom_xx-small">{currCaseRecordTypeId}</p>
+            </div> 
+            <div id="InProgressWaiting" if:false={ready}>Loading...</div>
+            <div id="InProgressDisplay" if:true={ready}>
+                <!-- Replace the record ID with your own -->
+                <lightning-record-view-form
+                        record-id={taskId}
+                        object-api-name="Service_Task__c">
+                
+                    <div class="slds-box slds-theme_default">
+                        <div class="slds-m-left_xx-small slds-form-element__label">Team Name</div><br/><div class="slds-m-left_xx-small slds-m-bottom_x-small slds-form-element__control">{selectedTeam}</div>
+                        <lightning-output-field field-name="Name">
+                        </lightning-output-field>
+                        <lightning-output-field field-name="Status__c">
+                        </lightning-output-field>
+                        <lightning-output-field field-name="Start_Date_Time__c">
+                        </lightning-output-field>
+                        <lightning-combobox
+                            name="nextTaskInProgressScreen"
+                            label="Next Task"
+                            value={inProgressNextTaskValue}
+                            placeholder="Select Next Task"
+                            options={nextTaskOptions}
+                            onchange={handleInProgressNextTaskChange} >
+                        </lightning-combobox>
+                        <lightning-textarea label="Notes" label-visible = "true" value={newNotes} onchange={handleNotesChange}>
+                        </lightning-textarea>
+                    </div>
+                </lightning-record-view-form>
+                
+                <div></div>
+                <div id = "buttons" class="wtt-button-group">
+                    <!-- <div id="pauseTaskDiv" if:true={taskPaused}> -->
+                    <button class="slds-button button-pause-resume"
+                                name="pauseTask"
+                                onclick={pauseTask} if:true={taskPaused}>
+                        Pause Task
+                    </button>
+                    <button class="slds-button button-pause-resume"
+                                name="resumeTask"
+                                onclick={resumeTask} if:false={taskPaused}>
+                        Resume Task
+                    </button>
+                    <button class="slds-button slds-button_success"
+                            name="completeTask"
+                            onclick={completeTask}>
+                            Complete Task
+                    </button>
+                    <button class="slds-button slds-button_destructive"
+                                name="cancelTask"
+                                onclick={cancelTask}>
+                                Cancel Task
+                    </button>
+                </div>
+            </div>
+        </div>
+    </lightning-card>
+    <template if:true={popUpCancellationConfirmation}>
+        <div class="demo-only" style="height: 640px;">
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <header class="slds-modal__header">
+                        <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeModal}>
+                            <lightning-icon icon-name="utility:close" size="medium">
+                            </lightning-icon>
+                            <span class="slds-assistive-text">Close</span>
+                        </button>
+                        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Are you sure you want to Cancel this task?</h2>
+                    </header>
+                    <footer class="slds-modal__footer">
+                        <lightning-button  label="Cancel" variant="neutral" onclick={closeModal}></lightning-button>
+                        <button class="slds-button slds-button_destructive" onclick={saveMethod}>Yes</button>
+                    </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </div>
+    </template>
+</template>

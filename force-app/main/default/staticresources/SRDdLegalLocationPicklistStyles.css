@@ -1,0 +1,44 @@
+/*-- Article Overrides --*/
+
+.forceCommunityRichText b, .forceCommunityRichText strong, .forceCommunityRichText dfn {
+    font-weight: bold !important;
+}
+.forceCommunityRichText h1 {
+    padding: 14px 0px !important;
+}
+.forceCommunityRichText .uiOutputRichText p, .forceCommunityRichText .uiOutputRichText span {
+    padding: 8px 0px !important;
+}
+.forceCommunityRichText ol, .forceCommunityRichText ul {
+    padding: 1.5em 0em 1.5em 1.5em !important;
+}
+.forceCommunityRichText ol li, .forceCommunityRichText ul li {
+    padding: 0em 0em 1em 1.5em !important;
+}    
+.forceCommunityRichText .uiOutputRichText a, .forceCommunityRichText .uiOutputRichText a span {
+    color: blue !important;
+    text-decoration: none !important;
+}
+.forceCommunityRichText b, .forceCommunityRichText strong, .forceCommunityRichText dfn {
+    font-weight: bold !important;
+    color: #000 !important;
+    text-shadow: 0px 0px 0 #000, 0px 0px 0 #000, 0px 0px 0 #000, 0px 0px 0 #000;
+}
+
+/*-- Salesforce CMS Overrides --*/
+
+.forceCommunityTileLayout .slds-rich-text-editor__textarea b, .forceCommunityTileLayout .slds-rich-text-editor__output b{
+    font-weight: bold !important;
+    color: #000 !important;
+    text-shadow: 0px 0px 0 #000, 0px 0px 0 #000, 0px 0px 0 #000, 0px 0px 0 #000;
+}
+
+.forceCommunityTileLayout .slds-rich-text-editor__textarea p, .forceCommunityTileLayout .slds-rich-text-editor__output span {
+    line-height: 24px;
+    font-size: .875rem !important;
+}
+
+.forceCommunityTileLayout .slds-container_center {
+    padding: 0px;
+}
+

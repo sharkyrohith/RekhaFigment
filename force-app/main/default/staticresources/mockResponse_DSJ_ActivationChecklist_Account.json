@@ -1,0 +1,73 @@
+{
+  "stripe_account_id": "acct_1BIgDGAIacn5I1Hl",
+  "stripe_account_type": "stripe_managed_account",
+  "id": 766918,
+  "stripe_account": {
+    "managed": true,
+    "object": "account",
+    "external_account": {
+      "routing_number": "322271627",
+      "bank_name": "JPMORGAN CHASE",
+      "last4": "1089",
+      "country": "US",
+      "account_holder_name": null,
+      "currency": "usd",
+      "status": "new",
+      "fingerprint": "4fSqjqcqezv6Ika7"
+    },
+    "charges_enabled": true,
+    "legal_entity": {
+      "personal_id_number_provided": true,
+      "first_name": "Luis",
+      "last_name": "Garibay",
+      "dob": {
+        "month": 1,
+        "day": 18,
+        "year": 1991
+      },
+      "directors_provided": false,
+      "ssn_last_4_provided": true,
+      "owners_provided": false,
+      "business_tax_id_provided": false,
+      "verification": {
+        "status": "verified",
+        "additional_document_back": null,
+        "document_back": null,
+        "additional_document": null,
+        "document": "file_Bg2GbNwkRsTjll",
+        "details_code": null,
+        "details": null
+      },
+      "address": {
+        "city": "Berkeley",
+        "country": "US",
+        "line2": null,
+        "line1": "1521-D Ashby Avenue",
+        "state": "CA",
+        "postal_code": "94703"
+      },
+      "business_name": null,
+      "executives_provided": false,
+      "additional_owners": [],
+      "type": "individual",
+      "personal_address": {
+        "city": "Berkeley",
+        "country": "US",
+        "line2": null,
+        "line1": "1521-D Ashby Avenue",
+        "state": "CA",
+        "postal_code": "94703"
+      }
+    },
+    "transfers_enabled": true,
+    "verification": {
+      "due_by": null,
+      "fields_needed": [],
+      "errors": [],
+      "disabled_reason": null,
+      "pending_verification": []
+    },
+    "id": "acct_1BIgDGAIacn5I1Hl",
+    "default_currency": "usd"
+  }
+}

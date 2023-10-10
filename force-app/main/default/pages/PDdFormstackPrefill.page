@@ -1,0 +1,34 @@
+<apex:page showHeader="false" sidebar="false">
+    <script type="text/javascript">
+        
+        // build the url
+        var formstackURL = "{!$CurrentPage.parameters.formstackURL}";
+        var url = formstackURL + "/forms/js.php";
+
+        var params = location.search;
+        var vars = params.split('&');
+        var urlParams = '';
+	    for (var i = 0; i < vars.length; i++) {
+            if (!vars[i].startsWith("formstackURL")
+                && !vars[i].startsWith("language")){
+                if (i !== 0){
+                    urlParams += '&' + vars[i];
+                } else {
+                    urlParams += vars[i];
+                }
+            }
+        }
+        url += urlParams;
+        
+        // create the script element.
+        var s = document.createElement('script');
+        s.setAttribute('type','text/javascript');
+        s.setAttribute('src', url);
+        
+        // get the script’s ‘outer html’ and add it to the document.
+        var t = document.createElement('div');
+        t.appendChild(s);
+        document.write(t.innerHTML);
+        
+    </script>
+</apex:page>

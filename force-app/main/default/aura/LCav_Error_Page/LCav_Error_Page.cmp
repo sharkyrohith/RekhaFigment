@@ -1,0 +1,17 @@
+<aura:component access="global" implements="forceCommunity:availableForAllPageTypes" >
+    
+    <div>
+        
+       <div class="err-caviar-logo"><img src="{!$Resource.SrCav_Community_Assets + '/logo/Caviar_Logotype_NEW_rgb.svg'}"/></div> 
+        
+        <div class="err-caviar-body">
+            <span class="err-caviar-title">Oops, we donut know which<br /> page you’re looking for.</span>
+            <a href="http://www.trycaviar.com" target="_blank" class="err-caviar-cta">Go Home</a>
+            <span class="err-caviar-404"><img src="{!$Resource.SrCav_Community_Assets + '/error/404_Animation_Compressed.gif'}"/></span>
+            
+        </div>
+        
+    </div>
+    
+    
+</aura:component>

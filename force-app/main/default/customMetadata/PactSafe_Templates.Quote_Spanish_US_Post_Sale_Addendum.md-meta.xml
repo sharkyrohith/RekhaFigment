@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Quote Spanish US Post Sale Addendum</label>
+    <protected>false</protected>
+    <values>
+        <field>Sandbox_Template_ID__c</field>
+        <value xsi:type="xsd:string">138585</value>
+    </values>
+    <values>
+        <field>Template_ID__c</field>
+        <value xsi:type="xsd:string">137871</value>
+    </values>
+</CustomMetadata>

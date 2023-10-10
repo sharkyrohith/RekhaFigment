@@ -1,0 +1,4 @@
+<design:component label="Help Hub DD Logo">
+		    <design:attribute name="logoAlignment" label="Logo Alignment" default="left" datasource="left,center"/>
+
+</design:component>

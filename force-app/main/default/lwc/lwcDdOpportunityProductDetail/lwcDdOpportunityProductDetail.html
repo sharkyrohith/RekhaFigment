@@ -1,0 +1,239 @@
+<template>
+    <article class="slds-card">
+        <div class="slds-card__header slds-grid">
+            <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                <div class="slds-media__figure">
+                    <lightning-icon icon-name="action:description" size="small" alternative-text="Product Details" title="Product Details"></lightning-icon>
+                </div>
+                <div class="slds-media__body">
+                    <h2 class="slds-card__header-title">
+                        <span>Product Details</span>
+                    </h2>
+                    
+                    <div class="slds-text-heading_small small-subheading"><em>Mandatory for Storefront</em></div>
+                </div>
+            </header>
+        </div>
+
+        <!-- Loading Spinner -->
+        <lightning-spinner 
+            alternative-text="Loading" 
+            size="medium" 
+            variant="brand"
+            if:true={showSpinner}
+        ></lightning-spinner>
+        
+        <div class="slds-border_bottom slds-p-around_small error-pane" if:true={showMainComponentError}>
+            {componentErrorMsg}
+        </div>
+        
+        <!-- Record Details section -->
+        <div class="slds-card__body slds-card__body_inner" if:true={dataLoaded}>
+            <lightning-spinner 
+                alternative-text="Loading" 
+                size="medium" 
+                variant="brand"
+                if:true={saving}
+            ></lightning-spinner> 
+
+            <lightning-layout>
+                <lightning-layout-item size="12" large-device-size="12" medium-device-size="12" small-device-size="12" padding="horizontal-small">
+                    <div class={implementationTypeClass}>
+                        <c-lwc-dd-picklist-for-record-type 
+                            object-api-name="Product_Detail__c" 
+                            field-api-name="Implementation_Type__c" 
+                            value={productDetailsRecord.Implementation_Type__c}
+                            is-field-required="true"
+                            field-padding="none"
+                            record-type-id={recordType.Id}
+                            onchange={changeType}>
+                        </c-lwc-dd-picklist-for-record-type>
+                        <div class="slds-form-element__help"  if:true={showImplementationTypeErrorMsg}>{implementationTypeErrorMsg}</div>
+                    </div>
+                </lightning-layout-item>
+            </lightning-layout>
+
+            <!-- Implementation Owner row -->
+            <lightning-layout multiple-rows>
+                <lightning-layout-item size="12" large-device-size="5" medium-device-size="12" small-device-size="12" padding="horizontal-small">
+                    <div class={implementationOwnerClass}>
+                        <c-lwc-dd-picklist-for-record-type 
+                            object-api-name="Product_Detail__c" 
+                            field-api-name="Implementation_Owner__c"
+                            value={productDetailsRecord.Implementation_Owner__c}
+                            is-field-required="true"
+                            record-type-id={recordType.Id}
+                            field-padding="xx-small"
+                            onchange={evaluateOwner}>
+                        </c-lwc-dd-picklist-for-record-type>
+                        <div class="slds-form-element__help"  if:true={showImplementationOwnerErrorMsg}>{implementationOwnerErrorMsg}</div>
+                    </div>
+                </lightning-layout-item>
+
+                <lightning-layout-item size="12" large-device-size="7" medium-device-size="12" small-device-size="12" padding="horizontal-small">
+                    <div class={implementationSubOwnerClass}>
+                        <c-lwc-dd-picklist-for-record-type 
+                            if:true={implementationOwnedByDoorDash}
+                            object-api-name="Product_Detail__c" 
+                            field-api-name="DoorDash_Implementation_Owner__c"
+                            value={productDetailsRecord.DoorDash_Implementation_Owner__c}
+                            is-field-required={implementationOwnedByDoorDash}
+                            field-padding="xx-small"
+                            record-type-id={recordType.Id}
+                            onchange={changeSubOwner}>
+                        </c-lwc-dd-picklist-for-record-type>
+                        <div class="slds-form-element__help"  if:true={showImplementationSubOwnerErrorMsg}>{implementationSubOwnerErrorMsg}</div>
+                    </div>
+                </lightning-layout-item>
+            </lightning-layout>
+
+            <!-- Partnership Type -->
+            <lightning-layout>
+                <lightning-layout-item size="12" large-device-size="12" medium-device-size="12" small-device-size="12" padding="horizontal-small">
+                    <div class={partnershipTypeClass}>
+                        <c-lwc-dd-picklist-for-record-type 
+                            object-api-name="Product_Detail__c" 
+                            field-api-name="Partnership_Type__c" 
+                            value={productDetailsRecord.Partnership_Type__c}
+                            is-field-required="true"
+                            field-padding="none"
+                            record-type-id={recordType.Id}
+                            onchange={changePartnershipType}>
+                        </c-lwc-dd-picklist-for-record-type>
+                        <div class="slds-form-element__help" if:true={showPartnershipTypeErrorMsg}>{partnershipTypeErrorMsg}</div>
+                    </div>
+                </lightning-layout-item>
+            </lightning-layout>
+
+            <!-- Storefront Proposed Date of Activation / Deck Rank -->
+            <lightning-layout class="slds-p-top_medium" multiple-rows>
+                <lightning-layout-item size="12" large-device-size="7" medium-device-size="12" small-device-size="12" padding="horizontal-small">
+                    <div class={proposedActivationDateClass}>
+                        <lightning-input
+                            type="date"
+                            name="proposedDateOfActivation"
+                            label="Storefront Proposed Date of Activation"
+                            onchange={changeProposedActivationDate}
+                            value={productDetailsRecord.Storefront_Proposed_Date_of_Activation__c}>
+                        </lightning-input>
+                        <div class="slds-form-element__help" if:true={showProposedActivationDateErrorMsg}>{proposedActivationDateErrorMsg}</div>
+                    </div>
+                </lightning-layout-item>
+
+                <lightning-layout-item size="12" large-device-size="5" medium-device-size="12" small-device-size="12" padding="horizontal-small">
+                    <lightning-input
+                        type="text"
+                        label="Deck Rank"
+                        field-level-help="Deck Rank from the Opportunity."
+                        value={deckRank}
+                        autocomplete="off"
+                        disabled="true">
+                    </lightning-input>
+                </lightning-layout-item>
+            </lightning-layout>
+
+            <!-- Storefront Sales Segment / Billing Country -->
+            <lightning-layout class="slds-p-top_medium" multiple-rows>
+                <lightning-layout-item size="12" large-device-size="7" medium-device-size="12" small-device-size="12" padding="horizontal-small">
+                    <div class={salesSegmentClass}>
+                        <c-lwc-dd-picklist-for-record-type 
+                            object-api-name="Product_Detail__c" 
+                            field-api-name="Storefront_Sales_Segment__c" 
+                            value={productDetailsRecord.Storefront_Sales_Segment__c}
+                            is-field-required="true"
+                            field-padding="none"
+                            record-type-id={recordType.Id}
+                            onchange={changeSalesSegment}>
+                        </c-lwc-dd-picklist-for-record-type>
+                        <div class="slds-form-element__help" if:true={showSalesSegmentErrorMsg}>{salesSegmentErrorMsg}</div>
+                    </div>
+                </lightning-layout-item>
+
+                <lightning-layout-item size="12" large-device-size="5" medium-device-size="12" small-device-size="12" padding="horizontal-small">
+                    <div class={countryClass}>
+                        <lightning-combobox
+                            name="Country"
+                            label="Country"
+                            value={productDetailsRecord.Billing_Country__c}
+                            placeholder="-- Select --"
+                            required="true"
+                            options={countries}
+                            onchange={changeCountry}>
+                        </lightning-combobox>
+                        <div class="slds-form-element__help" if:true={showCountryErrorMsg}>{countryErrorMsg}</div>
+                    </div>
+                </lightning-layout-item>              
+            </lightning-layout>
+
+            <!-- Website Details (Creation Needed / Web Provider) -->
+            <lightning-layout multiple-rows>
+                <lightning-layout-item size="12" large-device-size="5" medium-device-size="12" small-device-size="12" padding="horizontal-small">
+                    <div class="slds-form-element">
+                        <br /><br />
+                        <label class="slds-checkbox_toggle slds-grid">
+                            <div class="slds-form-element__label slds-m-bottom_none">Website Creation Needed?</div>
+                            <lightning-input
+                                type="toggle"
+                                name="websiteCreationNeeded"
+                                message-toggle-active="Yes"
+                                message-toggle-inactive="No"
+                                checked={productDetailsRecord.Website_Creation_Needed__c}
+                                onchange={changeWebsiteCreationNeeded}>
+                            </lightning-input>
+                          </label>
+                    </div>
+                </lightning-layout-item>
+
+                <lightning-layout-item size="12" large-device-size="7" medium-device-size="12" small-device-size="12" padding="horizontal-small">
+                    <c-lwc-dd-picklist-for-record-type
+                        object-api-name="Product_Detail__c"
+                        field-api-name="Web_Provider__c"
+                        value={productDetailsRecord.Web_Provider__c}
+                        record-type-id={recordType.Id}
+                        onchange={changeWebProvider}>
+                    </c-lwc-dd-picklist-for-record-type>
+                </lightning-layout-item>
+            </lightning-layout>
+
+            <!-- Mx Website Link -->
+            <lightning-layout>
+                <lightning-layout-item size="12" large-device-size="12" medium-device-size="12" small-device-size="12" padding="horizontal-small">
+                    <label class="slds-checkbox_toggle slds-grid">
+                        <div class="slds-form-element__label slds-m-bottom_none">Mx Website Link</div>
+                    </label>
+                    <div class="read-url" if:true={showClickableUrl}>
+                        <lightning-formatted-url value={productDetailsRecord.Mx_Website_Link__c} tooltip="Website Link for Mx" target="_blank"></lightning-formatted-url>
+
+                        <lightning-icon
+                            icon-name="utility:edit"
+                            size="xx-small"
+                            alternative-text="Edit"
+                            title="Edit"
+                            class="slds-p-left_medium pointer"
+                            onclick={editWebsiteLink}>
+                        </lightning-icon>
+                    </div>
+
+                    <div class="edit-url" if:false={showClickableUrl}>
+                        <lightning-input
+                            type="text"
+                            name="mxWebsiteLink"
+                            onchange={changeWebsiteLink}
+                            value={productDetailsRecord.Mx_Website_Link__c}>
+                        </lightning-input>
+                    </div>
+                </lightning-layout-item>
+            </lightning-layout>
+        </div>
+        
+        <!-- Footer with Save button -->
+        <footer class="slds-card__footer">
+            <div class="slds-clearfix">
+                <div class="slds-float_right">
+                    <button class="slds-button slds-button_neutral" type="button" onclick={cancelEdits}>Cancel</button>
+                    <button class="slds-button slds-button_brand" type="button" onclick={saveProductDetails}>Save</button>
+                </div>
+            </div>
+        </footer>
+    </article>
+</template>

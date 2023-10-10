@@ -1,0 +1,6 @@
+<aura:documentation>
+	<aura:description>Documentation</aura:description>
+	<aura:example name="ChildRejectedReasonScreen" ref="ChildRejectedReason" label="Child Rejected Reason Screen">
+		This is a child component to capture rejected reason for rejected users in the UI
+	</aura:example>
+</aura:documentation>

@@ -1,0 +1,7 @@
+.pointer{
+    cursor: pointer;
+}
+
+.layout-item {
+    padding-right: var(--lwc-varSpacingHorizontalMedium,1rem);
+}

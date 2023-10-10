@@ -1,0 +1,14 @@
+{
+  "agent_ui_end_chat_dismiss": "Descartar",
+  "agent_ui_end_chat_subtitle": "Ocurrió un error al intentar finalizar la sesión de chat.",
+  "agent_ui_end_chat_title": "No se puede finalizar el chat",
+  "agent_ui_transer_chat_confirmation_message": "Transferencia del chat a la fila {{queueName}}.",
+  "agent_ui_transer_chat_confirmation_close_message": "Esta pestaña de caso se cerrará automáticamente.",
+  "agent_ui_transfer_chat_modal_subtitle": "Estás a punto de transferir este chat a",
+  "agent_ui_transfer_chat_modal_title": "Transferir chat",
+  "agent_ui_transfer_chat_modal_primary_text": "Transferir",
+  "agent_ui_transfer_chat_error_text": "Cancela esta solicitud y reintenta después de corregir los errores.",
+  "agent_ui_transfer_chat_modal_secondary_text": "Cancelar",
+  "agent_ui_transfer_chat_modal_failure_message": "Ocurrió un error en la transferencia. Vuelve a intentarlo.",
+  "agent_ui_cannot_connect_msg": "Este chat ya no está activo. Revisa la transcripción para ver la conversación previa."
+}

@@ -1,0 +1,104 @@
+<aura:component implements="lightningsnapin:prechatUI" controller="CDdCommunityPrechatController">
+    <aura:attribute name="firstNameLabel" type="String" default=""/>
+    <aura:attribute name="firstName" type="String" />
+    <aura:attribute name="lastNameLabel" type="String" default=""/>
+    <aura:attribute name="lastName" type="String" />
+    <aura:attribute name="emailLabel" type="String" default=""/>
+    <aura:attribute name="email" type="String" />
+    <aura:attribute name="phoneLabel" type="String" default=""/>
+    <aura:attribute name="phone" type="String" />
+    <aura:attribute name="allCatOptions" type="Object" />
+    <aura:attribute name="categoryLabel" type="String" default="" />
+    <aura:attribute name="categoryFieldName" type="String" default="" />
+    <aura:attribute name="category" type="String" />
+    <aura:attribute name="catOptions" type="List" />
+    <aura:attribute name="subcategoryLabel" type="String" default="" />
+    <aura:attribute name="subcategoryFieldName" type="String" default="" />
+    <aura:attribute name="subcategory" type="String" />
+    <aura:attribute name="subcatOptions" type="List" />
+    <aura:attribute name="disableSubcategory" type="Boolean" default="true"/>
+    <aura:attribute name="storeIDLabel" type="String" default="" />
+    <aura:attribute name="storeID" type="String" default="" />
+    <aura:attribute name="chatIssueDetailsLabel" type="String" default="" />
+    <aura:attribute name="showDasherW2" type="Boolean" default="false"/>
+    <aura:attribute name="californiaDasher" type="String" default=""/>
+    <aura:attribute name="onADash" type="String" default=""/>
+    <aura:attribute name="dashOpts" type="List" />
+    <aura:attribute name="community" type="String" />
+    <aura:attribute name="state" type="String" />
+    <aura:attribute name="errorMessages" type="List" />
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}" />
+    <lightningsnapin:prechatAPI aura:id="prechatAPI"/>
+
+    <div>
+
+    <!-- div class="dd-prechat-alert">
+        {!$Label.c.DdCommunity_Prechat_COVID_Warning}
+    </div -->
+
+        <aura:renderIf isTrue="{!not(empty(v.errorMessages))}">
+            <div id="error">
+                <aura:iteration items="{!v.errorMessages}" var="err">
+                    <ui:outputRichText value="{!err}" />
+                </aura:iteration>
+            </div>
+        </aura:renderIf>
+        
+        <div class="row">
+            <lightning:input type="text" label="{!v.firstNameLabel}" value="{!v.firstName}" required="true"/>
+            <lightning:input type="text" label="{!v.lastNameLabel}" value="{!v.lastName}" required="true" />
+        </div>
+        <div class="row">
+            <lightning:input type="email" label="{!v.emailLabel}" value="{!v.email}" required="true" />
+        </div>
+        <div class="row">
+            <lightning:input type="phone" label="{!v.phoneLabel}" value="{!v.phone}"  required="true"/>
+        </div>
+        <div class="row">
+            <lightning:select label="{!v.categoryLabel}" value="{!v.category}" required="true" onchange="{!c.handleCategoryChange}">
+                <aura:iteration items="{!v.catOptions}" var="catOpt">
+                    <option text="{!catOpt.label}" value="{!catOpt.value}" />
+                </aura:iteration>
+            </lightning:select>
+        </div>
+        <div class="row">
+            <lightning:select label="{!v.subcategoryLabel}" value="{!v.subcategory}" required="true" disabled="{!v.disableSubcategory}">
+                <aura:iteration items="{!v.subcatOptions}" var="subCatOpt">
+                    <option text="{!subCatOpt.label}" value="{!subCatOpt.value}" />
+                </aura:iteration>
+            </lightning:select>
+        </div>
+        <aura:if isTrue="{!v.community == 'merchant'}">
+            <div class="row">
+                <lightning:input type="text" label="{!v.storeIDLabel}" value="{!v.storeID}" maxlength="20" />
+            </div>
+        </aura:if>
+        <aura:if isTrue="{!and(and(v.community == 'dasher', v.state == 'ca'), v.showDasherW2 == true)}">
+            <div class="row">
+                <lightning:select name="californiaDasher"
+                          label="{!$Label.c.DdCommunity_Dasher_Q_California}"
+                          value="{!v.californiaDasher}">
+                    <aura:iteration items="{!v.dashOpts}" var="dashOpt">
+                        <option text="{!dashOpt.label}" value="{!dashOpt.value}" />
+                    </aura:iteration>
+                </lightning:select>
+            </div>
+            <div class="row">
+                <lightning:select name="onaDash"
+                        label="{!$Label.c.DdCommunity_Dasher_Q_Dash}"
+                        value="{!v.onADash}">
+                    <aura:iteration items="{!v.dashOpts}" var="dashOpt">
+                        <option text="{!dashOpt.label}" value="{!dashOpt.value}" />
+                    </aura:iteration>
+                </lightning:select>
+            </div>
+        </aura:if>
+        <div class="row">
+            <lightning:button variant="success" aura:id="startButton"
+                label="{!$Label.LiveAgentPrechat.StartChat}" 
+                onclick="{!c.handleStartButtonClick}"/>
+        </div>
+    </div>
+        
+
+</aura:component>

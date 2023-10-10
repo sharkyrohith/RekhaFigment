@@ -1,0 +1,91 @@
+<aura:component access="global" implements="forceCommunity:availableForAllPageTypes">
+    <aura:attribute name="currentFive9WaitTime" type="String" default=""/>
+    <aura:attribute name="currentLiveAgentWaitTime" type="String" default=""/>
+    <aura:attribute name="community" type="String" default="Diner"/>
+    <aura:attribute name="showPhone" type="Boolean" default="true"/>
+    <aura:attribute name="showChat" type="Boolean" default="true"/>
+    <aura:attribute name="showEmail" type="Boolean" default="true"/>
+    <aura:attribute name="showTwitter" type="Boolean" default="false"/>
+    <aura:attribute name="showFacebook" type="Boolean" default="false"/>
+    <aura:attribute name="showSelfHelp" type="Boolean" default="false"/>
+    <aura:attribute name="supportPhone" type="String" default="855-836-0490"/>
+    
+    <div>    
+        <div class="cavcs-head">
+            <h1>{!$Label.c.CavCommunity_Support_Title} </h1>
+            <h2>{!$Label.c.CavCommunity_Support_Subtitle}</h2>
+        </div>
+        
+        <div class="cavcs-container">
+            <aura:if isTrue="{!v.showPhone}">
+                <aura:if isTrue="{!v.supportPhone != ''}">
+                    <div  class="cavcs-tile cavcs-call"> 
+                        <span class="cavcs-title">{!$Label.c.CavCommunity_Support_Phone}</span>
+                        <span class="cavcs-sub-title">{!$Label.c.CavCommunity_Support_Phone_Desc}&nbsp;{!v.supportPhone}.</span>
+                        <!-- <span class="cavcs-sub-title">{!v.supportPhone} <br />{!v.currentFive9WaitTime}&nbsp;{!$Label.c.DdCommunity_Support_Min_Wait} </span> -->
+                        <a href="{!'tel:1-' + v.supportPhone}" class="cavcs-select-link" display="block">{!$Label.c.CavCommunity_Support_Phone_CTA}</a>
+                    </div>   
+                </aura:if>    
+            </aura:if>            
+            
+            <aura:if isTrue="{!v.showChat}">
+                <div class="cavcs-tile cavcs-chat"> 
+                    <span class="cavcs-title">{!$Label.c.CavCommunity_Support_Chat}</span>
+                    <span class="cavcs-sub-title">{!$Label.c.CavCommunity_Support_Chat_Desc}</span>
+                    <!--<span class="cavcs-sub-title">{!v.currentLiveAgentWaitTime}&nbsp;{!$Label.c.DdCommunity_Support_Min_Wait}</span> -->
+                    <!--A live agent will be with you as soon as possible -->
+                    <a id="ddChat" class="cavcs-select-link" display="block">{!$Label.c.CavCommunity_Support_Chat_CTA}</a> 
+                </div>
+            </aura:if>
+            
+            <aura:if isTrue="{!v.showEmail}">
+                <div class="cavcs-tile cavcs-email"> 
+                    <span class="cavcs-title">{!$Label.c.CavCommunity_Support_Email}</span>
+                    <span class="cavcs-sub-title">{!$Label.c.CavCommunity_Support_Email_Desc}</span>
+                    <a href="{!$Label.c.CavCommunity_Support_Email_Link}" class="cavcs-select-link" display="block">{!$Label.c.CavCommunity_Support_Email_CTA}</a>
+                    
+                </div>
+            </aura:if>
+            
+            <aura:if isTrue="{!v.showTwitter}">
+                <div class="cavcs-tile cavcs-twitter" > 
+                    <span class="cavcs-title">{!$Label.c.CavCommunity_Support_Twitter}</span>
+                    <span class="cavcs-sub-title">{!$Label.c.CavCommunity_Support_Twitter_Desc}</span>
+                    <a href="{!$Label.c.CavCommunity_Support_Twitter_Link}" target="_blank"  data-screen-name="@Caviar_Help"  class="cavcs-select-link" display="block">{!$Label.c.CavCommunity_Support_Twitter_CTA}</a>
+                    
+                </div>
+            </aura:if>
+            
+            <aura:if isTrue="{!v.showFacebook}">
+                <div class="cavcs-tile cavcs-facebook" > 
+                    <span class="cavcs-title">{!$Label.c.CavCommunity_Support_Facebook}</span>
+                    <span class="cavcs-sub-title">{!$Label.c.CavCommunity_Support_Facebook_Desc}</span>
+                    <a href="{!$Label.c.CavCommunity_Support_Facebook_Link}" class="cavcs-select-link" display="block">{!$Label.c.CavCommunity_Support_Facebook_CTA}</a>
+                </div>
+            </aura:if>
+            
+            <aura:if isTrue="{!v.showSelfHelp}">
+                <div class="cavcs-tile cavcs-selfhelp" > 
+                    <span class="cavcs-title" style="padding-top: 15px">Automated Help</span>
+                    <span class="cavcs-sub-title">Get fast resolutions with our automated help system.</span>
+                    <a href="https://trycaviar.com/orders/help" class="cavcs-select-link" display="block">Caviar Self-Help</a>
+                </div>
+            </aura:if>
+        </div>
+        
+		<aura:if isTrue="{!v.community != 'Restaurant'}">
+			<div class="cavcs-app-chat">
+                <span class="cavcs-app-chat-col-1">Live Support</span>
+                <span class="cavcs-app-chat-col-2">Need to speak to a support agent? <a id="ddChat">Chat with us.</a></span>
+            </div>           
+        </aura:if>
+        
+		<aura:if isTrue="{!v.community == 'Restaurant'}">
+            <div class="cavcs-app-chat cavcs-company-support">
+                <span class="cavcs-app-chat-col-1">{!$Label.c.CavCommunity_Support_C4C_Title}</span>
+                <span class="cavcs-app-chat-col-2">{!$Label.c.CavCommunity_Support_C4C_Desc}&nbsp;<a href="{!$Label.c.CavCommunity_Support_C4C_Link}" target="_blank">{!$Label.c.CavCommunity_Support_C4C_CTA}</a> </span>
+            </div>
+        </aura:if>
+        
+    </div>
+</aura:component>

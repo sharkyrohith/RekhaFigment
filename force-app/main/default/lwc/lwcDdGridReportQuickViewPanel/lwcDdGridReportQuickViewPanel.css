@@ -1,0 +1,28 @@
+.quickViewPanel {
+    width: 400px;
+    background: rgb(255, 255, 255);
+    box-sizing: border-box;
+    cursor: inherit;
+    pointer-events: auto;
+    opacity: 1;
+    float: right;
+    box-shadow: 0 2px 24px 0 rgba(0,0,0,0.1);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.quickViewPanel-Header {
+    background-color: #444950;
+    font-size: 16px;
+    color: #FFF;
+    padding: 12px;
+    display: flex;
+}
+.closeButton {
+    background-color: #444950;
+    font-size: 16px;
+    color: #FFF;
+    display: flex;
+    /*padding: 8px;*/
+}

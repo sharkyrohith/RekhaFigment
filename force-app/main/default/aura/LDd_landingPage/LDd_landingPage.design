@@ -1,0 +1,5 @@
+<design:component>
+    <design:attribute name="customerURL" label="Customer URL" description="This is the URL for the Customer card" />
+    <design:attribute name="dasherURL" label="Dasher URL" description="This is the URL for the Dasher card" />
+    <design:attribute name="merchantURL" label="Merchant URL" description="This is the URL for the Merchant card" />
+</design:component>

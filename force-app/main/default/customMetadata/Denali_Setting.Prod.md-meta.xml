@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Prod</label>
+    <protected>false</protected>
+    <values>
+        <field>Account_Field_Mapping_V2__c</field>
+        <value xsi:type="xsd:string">{
+   &quot;Return_Shipping_Address_Suite_Apt_etc__c&quot;:&quot;Return_Shipping_Address_Suite_Apt_etc__c&quot;,
+   &quot;Name&quot;:&quot;Account.Name&quot;,
+   &quot;Phone&quot;:&quot;Account.Phone&quot;,
+   &quot;Region_RealZips__c&quot;:&quot;Account.Region_RealZips__c&quot;,
+   &quot;Id&quot;:&quot;Account.Id&quot;,
+   &quot;Restaurant_ID__c&quot;:&quot;Account.Restaurant_ID__c&quot;,
+   &quot;RealZip_Submarket__c&quot;:&quot;Account.RealZip_Submarket__c&quot;,
+   &quot;RealZip_Submarket_ID__c&quot;:&quot;Account.RealZip_Submarket_ID__c&quot;,
+   &quot;BillingCountryCode&quot;:&quot;Account.BillingCountryCode&quot;,
+   &quot;Kanji_Company__c&quot;:&quot;Account.Kanji_Company__c&quot;,
+   &quot;Kanji_Street__c&quot;:&quot;Account.Kanji_Street__c&quot;,
+   &quot;Kanji_Town__c&quot;:&quot;Account.Kanji_Town__c&quot;,
+   &quot;Kanji_City__c&quot;:&quot;Account.Kanji_City__c&quot;,
+   &quot;Kanji_State__c&quot;:&quot;Account.Kanji_State__c&quot;,
+   &quot;Kanji_Zip__c&quot;:&quot;Account.Kanji_Zip__c&quot;,
+   &quot;Kanji_Premise__c&quot;:&quot;Account.Kanji_Premise__c&quot;,
+   &quot;BillingStreet&quot;:&quot;Account.BillingStreet&quot;,
+   &quot;BillingCity&quot;:&quot;Account.BillingCity&quot;,
+   &quot;BillingCountry&quot;:&quot;Account.BillingCountry&quot;,
+   &quot;BillingState&quot;:&quot;Account.BillingState&quot;,
+   &quot;BillingPostalCode&quot;:&quot;Account.BillingPostalCode&quot;,
+   &quot;Billing_Town__c&quot;:&quot;Account.Billing_Town__c&quot;,
+   &quot;Billing_Premise__c&quot;:&quot;Account.Billing_Premise__c&quot;
+}</value>
+    </values>
+    <values>
+        <field>Allowed_Country_Codes_V2__c</field>
+        <value xsi:type="xsd:string">{
+	&quot;United States of America&quot;: &quot;US&quot;,
+	&quot;USA&quot;: &quot;US&quot;,
+	&quot;United States&quot;: &quot;US&quot;,
+	&quot;JPN&quot;: &quot;JP&quot;,
+	&quot;Japan&quot;: &quot;JP&quot;,
+	&quot;Canada&quot;: &quot;CA&quot;,
+	&quot;Australia&quot;: &quot;AU&quot;,
+	&quot;AU&quot;: &quot;AU&quot;,
+	&quot;US&quot;: &quot;US&quot;,
+	&quot;JP&quot;: &quot;JP&quot;,
+	&quot;CA&quot;: &quot;CA&quot;,
+    &quot;DE&quot;:&quot;DE&quot;,
+    &quot;Puerto Rico&quot; : &quot;PR&quot;,
+    &quot;Mexico&quot; : &quot;MX&quot;,
+    &quot;日本&quot;:&quot;JP&quot;,
+    &quot;Germany&quot;:&quot;DE&quot;,
+     &quot;New Zealand&quot;:&quot;NZ&quot;,
+      &quot;NZ&quot;:&quot;NZ&quot;
+}</value>
+    </values>
+    <values>
+        <field>Allowed_State_Codes_V2__c</field>
+        <value xsi:type="xsd:string">AK,AL,AR,AS,AZ,CA,CO,CT,DC,DE,FL,GA,GU,HI,IA,ID,IL,IN,KS,KY,LA,MA,MD,ME,MI,MN,MO,MP,MS,MT,NC,ND,NE,NH,NJ,NM,NV,NY,OH,OK,OR,PA,PR,RI,SC,SD,TN,TX,UM,UT,VA,VI,VT,WA,WI,WV,WY,ACT,NSW,NT,QLD,SA,TAS,VIC,WA,AB,BC,MB,NB,NL,NT,NS,NU,ON,PE,QC,SK,YT,AG,BC,BS,CH,CL,CM,CO,CS,DF,DG,GR,GT,HG,JA,MI,MO,NA,NL,OA,PU,QR,QT,SI,SL,SO,TB,TL,TM,VE,YU,ZA,EM,愛知県,秋田県,青森県,千葉県,愛媛県,福井県,福岡県,福島県,岐阜県,群馬県,広島県,北海道,兵庫県,茨城県,石川県,岩手県,香川県,鹿児島県,神奈川県,高知県,熊本県,京都府,三重県,宮城県,宮崎県,長野県,長崎県,奈良県,新潟県,大分県,岡山県,沖縄県,大阪府,佐賀県,埼玉県,滋賀県,島根県,静岡県,栃木県,徳島県,東京都,鳥取県,富山県,和歌山県,山形県,山口県,山梨県,Aichi,Akita,Aomori,Chiba,Ehime,Fukui,Fukuoka,Fukushima,Gifu,Gunma,Hiroshima,Hokkaidō,Hyōgo,Ibaraki,Ishikawa,Iwate,Kagawa,Kagoshima,Kanagawa,Kōchi,Kumamoto,Kyoto,Mie,Miyagi,Miyazaki,Nagano,Nagasaki,Nara,Niigata,Ōita,Okayama,Okinawa,Osaka,Saga,Saitama,Shiga,Shimane,Shizuoka,Tochigi,Tokushima,Tokyo,Tottori,Toyama,Wakayama,Yamagata,Yamaguchi,Yamanashi,Australian Capital Territory,New South Wales,Northern Territory,Queensland,South Australia,Tasmania,Victoria,Western Australia</value>
+    </values>
+    <values>
+        <field>Allowed_User_Ids_V2__c</field>
+        <value xsi:type="xsd:string">0052L000003ZIaoQAG</value>
+    </values>
+    <values>
+        <field>Case_Field_Mapping_V2__c</field>
+        <value xsi:type="xsd:string">{
+   &quot;CaseNumber&quot;:&quot;CaseNumber&quot;,
+   &quot;Id&quot;:&quot;Id&quot;,
+   &quot;Account_Deck_Rank__c&quot;:&quot;Account_Deck_Rank__c&quot;,
+   &quot;Denali_ConfigItemDisplayName__c&quot;:&quot;Denali_ConfigItemDisplayName__c&quot;,
+   &quot;Region_RealZips__c&quot;:&quot;Region_RealZips__c&quot;,
+   &quot;Tablet_Username2__c&quot;:&quot;Tablet_Username2__c&quot;,
+   &quot;Tablet_Password2__c&quot;:&quot;Tablet_Password2__c&quot;,
+   &quot;Opportunity_Name_New__c&quot;:&quot;Opportunity_Name_New__c&quot;,
+   &quot;Merchant_Supplied_ID__c&quot;:&quot;Merchant_Supplied_ID__c&quot;,
+   &quot;MV_Status__c&quot;:&quot;MV_Status__c&quot;,
+   &quot;Vendor_Escalation_Date__c&quot;:&quot;Vendor_Escalation_Date__c&quot;,
+   &quot;Vendor_Escalation__r.Name&quot;:&quot;Vendor_Escalation__r.Name&quot;,
+   &quot;Language__c&quot;:&quot;Language__c&quot;,
+   &quot;Contact.Name&quot;:&quot;Contact.Name&quot;,
+   &quot;Shipper&quot;:&quot;String.FedEx&quot;,
+   &quot;Shipping_Type__c&quot;:&quot;Shipping_Type__c&quot;,
+   &quot;Request_Type__c&quot;:&quot;Request_Type__c&quot;,
+   &quot;Include_Large_Marketing_Kit__c&quot;:&quot;Include_Large_Marketing_Kit__c&quot;,
+   &quot;Include_Marketing_Kit__c&quot;:&quot;Include_Marketing_Kit__c&quot;,
+   &quot;Return_Shipping_Address_Street__c&quot;:&quot;Return_Shipping_Address_Street__c&quot;,
+   &quot;Return_Shipping_Address_City__c&quot;:&quot;Return_Shipping_Address_City__c&quot;,
+   &quot;Return_Shipping_Address_Suite_Apt_etc__c&quot;:&quot;Return_Shipping_Address_Suite_Apt_etc__c&quot;,
+   &quot;Shipping_Address_Country__c&quot;:&quot;Shipping_Address_Country__c&quot;,
+   &quot;Return_Label_Shipping_Contact_Name__c&quot;:&quot;Return_Label_Shipping_Contact_Name__c&quot;,
+   &quot;Return_Shipping_Address_State__c&quot;:&quot;Return_Shipping_Address_State__c&quot;,
+   &quot;Return_Shipping_Address_Zip__c&quot;:&quot;Return_Shipping_Address_Zip__c&quot;,
+   &quot;National_Store_Number__c&quot;:&quot;National_Store_Number__c&quot;,
+   &quot;SFDC_Project&quot;:&quot;&quot;,
+   &quot;SFDC_Created&quot;:&quot;Created_Date_Time__c&quot;,
+   &quot;SFDC_CredentialsCreated&quot;:&quot;&quot;,
+   &quot;SFDC_Approval&quot;:&quot;Approved_Date__c&quot;,
+   &quot;SFDC_Rejected&quot;:&quot;Date_Time_Rejected__c&quot;,
+   &quot;Denali_Record_ID__c&quot;:&quot;Denali_Record_ID__c&quot;,
+   &quot;Needs_Evening_Delivery__c&quot;:&quot;Needs_Evening_Delivery__c&quot;,
+   &quot;Tablet_Notes__c&quot;:&quot;Tablet_Notes__c&quot;,
+   &quot;Opportunity_Platform__c&quot;:&quot;Opportunity_Platform__c&quot;
+}</value>
+    </values>
+    <values>
+        <field>Client_ID__c</field>
+        <value xsi:type="xsd:string">9cf54c5a-2e8d-4ccf-a909-8ab954fa1f82</value>
+    </values>
+    <values>
+        <field>Contact_Field_Mapping_V2__c</field>
+        <value xsi:type="xsd:string">{
+   &quot;FullName__c&quot;:&quot;Contact.FullName__c&quot;,
+   &quot;Id&quot;:&quot;Contact.Id&quot;,
+   &quot;Email&quot;:&quot;Contact.Email&quot;,
+   &quot;Phone&quot;:&quot;Contact.Phone&quot;,
+   &quot;FirstName&quot;:&quot;Contact.FirstName&quot;,
+   &quot;LastName&quot;:&quot;Contact.LastName&quot;,
+   &quot;Salutation&quot;:&quot;Contact.Salutation&quot;
+}</value>
+    </values>
+    <values>
+        <field>Customer_Contact_Object_ID__c</field>
+        <value xsi:type="xsd:string">93ecc5d105daceeb5fd0654755b9d6ed38bd590b7f</value>
+    </values>
+    <values>
+        <field>Customer_Contact_Template__c</field>
+        <value xsi:type="xsd:string">{&quot;fields&quot;:[{&quot;value&quot;:&quot;&quot;,&quot;type&quot;:null,&quot;required&quot;:null,&quot;name&quot;:&quot;CompanyRecID&quot;,&quot;fieldId&quot;:&quot;93ecc6e3477b9837f4934847a3b001df84b5c8c1dc&quot;,&quot;dirty&quot;:false,&quot;decimalDigits&quot;:null},{&quot;value&quot;:&quot;&quot;,&quot;type&quot;:null,&quot;required&quot;:null,&quot;name&quot;:&quot;CompanyName&quot;,&quot;fieldId&quot;:&quot;93ecc6e30d1594a6c310c1479c863d88a392d95e3c&quot;,&quot;dirty&quot;:false,&quot;decimalDigits&quot;:null},{&quot;value&quot;:&quot;&quot;,&quot;type&quot;:null,&quot;required&quot;:null,&quot;name&quot;:&quot;FullName&quot;,&quot;fieldId&quot;:&quot;9337c2322a087296f7322a481d8858300e3f6e1dbb&quot;,&quot;dirty&quot;:false,&quot;decimalDigits&quot;:null},{&quot;value&quot;:&quot;&quot;,&quot;type&quot;:null,&quot;required&quot;:null,&quot;name&quot;:&quot;ExternalSystemID&quot;,&quot;fieldId&quot;:&quot;94516784bbb93b2585a14446eea9904a7efd0e6472&quot;,&quot;dirty&quot;:false,&quot;decimalDigits&quot;:null},{&quot;value&quot;:&quot;&quot;,&quot;type&quot;:null,&quot;required&quot;:null,&quot;name&quot;:&quot;Email&quot;,&quot;fieldId&quot;:&quot;9337c23403da50548767c24e48aede27e5dd274521&quot;,&quot;dirty&quot;:false,&quot;decimalDigits&quot;:null},{&quot;value&quot;:&quot;&quot;,&quot;type&quot;:null,&quot;required&quot;:null,&quot;name&quot;:&quot;Phone&quot;,&quot;fieldId&quot;:&quot;9337c23376e3ad38cdfa00495c92f33775a61c393b&quot;,&quot;dirty&quot;:false,&quot;decimalDigits&quot;:null},{&quot;value&quot;:&quot;&quot;,&quot;type&quot;:null,&quot;required&quot;:null,&quot;name&quot;:&quot;RecID&quot;,&quot;fieldId&quot;:&quot;9337c2311be1de079984b34edb8aa7129a564327a2&quot;,&quot;dirty&quot;:false,&quot;decimalDigits&quot;:null},{&quot;value&quot;:&quot;&quot;,&quot;type&quot;:null,&quot;required&quot;:null,&quot;name&quot;:&quot;Status&quot;,&quot;fieldId&quot;:&quot;938d8f0b677199409fd202410a80fe8263aea89570&quot;,&quot;dirty&quot;:false,&quot;decimalDigits&quot;:null}],&quot;busObId&quot;:&quot;93ecc5d105daceeb5fd0654755b9d6ed38bd590b7f&quot;}</value>
+    </values>
+    <values>
+        <field>DoorDash_Record_ID__c</field>
+        <value xsi:type="xsd:string">9430f7e186192419da09d64e708f44a53f66385d99</value>
+    </values>
+    <values>
+        <field>GetBusinessObjectFields_URL__c</field>
+        <value xsi:type="xsd:string">/api/V1/getbusinessobjectschema/busobid/</value>
+    </values>
+    <values>
+        <field>GetBusinessObjectId_URL__c</field>
+        <value xsi:type="xsd:string">/api/V1/getbusinessobjectsummary/busobname/</value>
+    </values>
+    <values>
+        <field>GetBusinessObjectTemplate_URL__c</field>
+        <value xsi:type="xsd:string">/api/V1/getbusinessobjecttemplate</value>
+    </values>
+    <values>
+        <field>GetBusinessRelatedObject_URL__c</field>
+        <value xsi:type="xsd:string">/api/V1/getrelatedbusinessobject/parentbusobid/{0}/parentbusobrecid/{1}/relationshipid/{2}</value>
+    </values>
+    <values>
+        <field>Incident_Object_ID__c</field>
+        <value xsi:type="xsd:string">6dd53665c0c24cab86870a21cf6434ae</value>
+    </values>
+    <values>
+        <field>Incident_Specifics_Relationship_ID__c</field>
+        <value xsi:type="xsd:string">933a679f9955f58f203e6d459592f5f19a87a9b622</value>
+    </values>
+    <values>
+        <field>Incident_Specifics_Template__c</field>
+        <value xsi:type="xsd:string">{&quot;fields&quot;:[{&quot;value&quot;:&quot;&quot;,&quot;name&quot;:&quot;LocationID&quot;,&quot;fieldId&quot;:&quot;93ed86b9bcfca47f898b864067a4396364d8a1da6d&quot;,&quot;dirty&quot;:false},{&quot;value&quot;:&quot;&quot;,&quot;name&quot;:&quot;ShipToDestination&quot;,&quot;fieldId&quot;:&quot;93f9236a0bfeb9b4c99b694ee297a6b3ce7ad290db&quot;,&quot;dirty&quot;:false},{&quot;value&quot;:&quot;&quot;,&quot;name&quot;:&quot;ShipToAttentionTo&quot;,&quot;fieldId&quot;:&quot;93fd63842a868ecd1bdef7427fafc899ca6c5a6132&quot;,&quot;dirty&quot;:false},{&quot;value&quot;:&quot;&quot;,&quot;name&quot;:&quot;ShipToCarrirer&quot;,&quot;fieldId&quot;:&quot;93fd2a1b57427b97d0917e4666bab3f1a0237877db&quot;,&quot;dirty&quot;:false},{&quot;value&quot;:&quot;&quot;,&quot;name&quot;:&quot;ExternalSystemShippingService&quot;,&quot;fieldId&quot;:&quot;945263d5ae305f3b4e426c4721adc21652f05ab173&quot;,&quot;dirty&quot;:false},{&quot;value&quot;:&quot;&quot;,&quot;name&quot;:&quot;ExternalSystemKit&quot;,&quot;fieldId&quot;:&quot;9452632364a27d715483cb42d48093b90f8b99999c&quot;,&quot;dirty&quot;:false},{&quot;value&quot;:&quot;&quot;,&quot;name&quot;:&quot;LargeMarket&quot;,&quot;fieldId&quot;:&quot;9452632439fab08d718e1e450dbdad08a9beb4ed96&quot;,&quot;dirty&quot;:false},{&quot;value&quot;:&quot;&quot;,&quot;name&quot;:&quot;SmallMarket&quot;,&quot;fieldId&quot;:&quot;94526323fbc08907da2b874e6d802cda8010847e81&quot;,&quot;dirty&quot;:false},{&quot;value&quot;:&quot;&quot;,&quot;name&quot;:&quot;ConfigurationType&quot;,&quot;fieldId&quot;:&quot;93ed86be821db77b0f74f04ad68a32e4dad9ca25ce&quot;,&quot;dirty&quot;:false},{&quot;value&quot;:&quot;&quot;,&quot;name&quot;:&quot;APIReady&quot;,&quot;fieldId&quot;:&quot;945051d71ab8627dc9e57c44719e56c64f29cb61c4&quot;,&quot;dirty&quot;:false}],&quot;busObId&quot;:&quot;&quot;,&quot;cacheScope&quot;:&quot;Tenant&quot;,&quot;persist&quot;:true}</value>
+    </values>
+    <values>
+        <field>Incident_Template__c</field>
+        <value xsi:type="xsd:string">{&quot;fields&quot;:[{&quot;value&quot;:&quot;&quot;,&quot;type&quot;:null,&quot;required&quot;:null,&quot;name&quot;:&quot;Status&quot;,&quot;fieldId&quot;:&quot;5eb3234ae1344c64a19819eda437f18d&quot;,&quot;dirty&quot;:false,&quot;decimalDigits&quot;:null},{&quot;value&quot;:&quot;&quot;,&quot;type&quot;:null,&quot;required&quot;:null,&quot;name&quot;:&quot;Source&quot;,&quot;fieldId&quot;:&quot;93670bdf8abe2cd1f92b1f490a90c7b7d684222e13&quot;,&quot;dirty&quot;:false,&quot;decimalDigits&quot;:null},{&quot;value&quot;:&quot;&quot;,&quot;type&quot;:null,&quot;required&quot;:null,&quot;name&quot;:&quot;CompanyRecID&quot;,&quot;fieldId&quot;:&quot;93f6858324f89af2088b2c4e8cb65bd5b675845a7f&quot;,&quot;dirty&quot;:false,&quot;decimalDigits&quot;:null},{&quot;value&quot;:&quot;&quot;,&quot;type&quot;:null,&quot;required&quot;:null,&quot;name&quot;:&quot;RequestorID&quot;,&quot;fieldId&quot;:&quot;933bd530833c64efbf66f84114acabb3e90c6d7b8f&quot;,&quot;dirty&quot;:false,&quot;decimalDigits&quot;:null},{&quot;value&quot;:&quot;&quot;,&quot;type&quot;:null,&quot;required&quot;:null,&quot;name&quot;:&quot;RequestedForID&quot;,&quot;fieldId&quot;:&quot;93f69c7bd4922f41b0d21a44248fb7bd473ee76790&quot;,&quot;dirty&quot;:false,&quot;decimalDigits&quot;:null},{&quot;value&quot;:&quot;&quot;,&quot;type&quot;:null,&quot;required&quot;:null,&quot;name&quot;:&quot;Service&quot;,&quot;fieldId&quot;:&quot;936725cd10c735d1dd8c5b4cd4969cb0bd833655f4&quot;,&quot;dirty&quot;:false,&quot;decimalDigits&quot;:null},{&quot;value&quot;:&quot;&quot;,&quot;type&quot;:null,&quot;required&quot;:null,&quot;name&quot;:&quot;Category&quot;,&quot;fieldId&quot;:&quot;9e0b434034e94781ab29598150f388aa&quot;,&quot;dirty&quot;:false,&quot;decimalDigits&quot;:null},{&quot;value&quot;:&quot;&quot;,&quot;type&quot;:null,&quot;required&quot;:null,&quot;name&quot;:&quot;Subcategory&quot;,&quot;fieldId&quot;:&quot;1163fda7e6a44f40bb94d2b47cc58f46&quot;,&quot;dirty&quot;:false,&quot;decimalDigits&quot;:null},{&quot;value&quot;:&quot;&quot;,&quot;type&quot;:null,&quot;required&quot;:null,&quot;name&quot;:&quot;Priority&quot;,&quot;fieldId&quot;:&quot;83c36313e97b4e6b9028aff3b401b71c&quot;,&quot;dirty&quot;:false,&quot;decimalDigits&quot;:null},
+{&quot;value&quot;:&quot;&quot;,&quot;name&quot;:&quot;ExternalSystemPriority&quot;,&quot;fieldId&quot;:&quot;9452642a713bb31ca78a4c45c1a66f55cd102da81e&quot;,&quot;dirty&quot;:false},
+{&quot;value&quot;:&quot;&quot;,&quot;type&quot;:null,&quot;required&quot;:null,&quot;name&quot;:&quot;OwnedByTeam&quot;,&quot;fieldId&quot;:&quot;9339fc404e8d5299b7a7c64de79ab81a1c1ff4306c&quot;,&quot;dirty&quot;:false,&quot;decimalDigits&quot;:null},{&quot;value&quot;:&quot;&quot;,&quot;type&quot;:null,&quot;required&quot;:null,&quot;name&quot;:&quot;CustomerReferenceID&quot;,&quot;fieldId&quot;:&quot;93fc4e380560de13abd0004eb397c94315c138eeb3&quot;,&quot;dirty&quot;:false,&quot;decimalDigits&quot;:null},{&quot;value&quot;:&quot;&quot;,&quot;type&quot;:null,&quot;required&quot;:null,&quot;name&quot;:&quot;ShortDescription&quot;,&quot;fieldId&quot;:&quot;93e8ea93ff67fd95118255419690a50ef2d56f910c&quot;,&quot;dirty&quot;:false,&quot;decimalDigits&quot;:null},{&quot;value&quot;:&quot;&quot;,&quot;type&quot;:null,&quot;required&quot;:null,&quot;name&quot;:&quot;Description&quot;,&quot;fieldId&quot;:&quot;252b836fc72c4149915053ca1131d138&quot;,&quot;dirty&quot;:false,&quot;decimalDigits&quot;:null},{&quot;value&quot;:&quot;&quot;,&quot;type&quot;:null,&quot;required&quot;:null,&quot;name&quot;:&quot;ExternalSystemID&quot;,&quot;fieldId&quot;:&quot;945052086f2e67f827ac9e4f8c86c4c152632a6d51&quot;,&quot;dirty&quot;:false,&quot;decimalDigits&quot;:null},{&quot;value&quot;:&quot;&quot;,&quot;type&quot;:null,&quot;required&quot;:null,&quot;name&quot;:&quot;ConfigItemDisplayName&quot;,&quot;fieldId&quot;:&quot;938b82597abb0a23ebc3ff459db5cdaffb4e4f5f49&quot;,&quot;dirty&quot;:false,&quot;decimalDigits&quot;:null},{&quot;value&quot;:&quot;&quot;,&quot;type&quot;:null,&quot;required&quot;:null,&quot;name&quot;:&quot;RecID&quot;,&quot;fieldId&quot;:&quot;fa03d51b709e4a6eb2d52885b2ef7e04&quot;,&quot;dirty&quot;:false,&quot;decimalDigits&quot;:null},{&quot;value&quot;:&quot;&quot;,&quot;name&quot;:&quot;ExternalSystemRegion&quot;,&quot;fieldId&quot;:&quot;94543d2589c7e5706850104af4947709aeb39af366&quot;,&quot;dirty&quot;:false},
+{&quot;value&quot;:&quot;&quot;,&quot;name&quot;:&quot;ExternalSystemLanguage&quot;,&quot;fieldId&quot;:&quot;945afebf874c3884df2a6f49809979bbfe905d45c5&quot;,&quot;dirty&quot;:false},{&quot;value&quot;:&quot;&quot;,&quot;name&quot;:&quot;ExternalSystemUsername&quot;,&quot;fieldId&quot;:&quot;94543d2630f884753fb9b74f8680bef97b8ef39d72&quot;,&quot;dirty&quot;:false},{&quot;value&quot;:&quot;&quot;,&quot;name&quot;:&quot;ExternalSystemPassword&quot;,&quot;fieldId&quot;:&quot;94543d26df7898cb9e1565452fbb1c6ce94f2e76ff&quot;,&quot;dirty&quot;:false},{&quot;value&quot;:&quot;&quot;,&quot;name&quot;:&quot;ExternalSystemOpportunityName&quot;,&quot;fieldId&quot;:&quot;94543d2736eea7ecc135e9433c8cc23378a6e88d77&quot;,&quot;dirty&quot;:false},
+{&quot;value&quot;:&quot;&quot;,&quot;name&quot;:&quot;ExternalMerchantSuppliedID&quot;,&quot;fieldId&quot;:&quot;9454a9a155c90d020599fe41edab678635c9a16cbd&quot;,&quot;dirty&quot;:false}],&quot;busObId&quot;:&quot;6dd53665c0c24cab86870a21cf6434ae&quot;, &quot;cacheScope&quot;:&quot;Tenant&quot;,&quot;persist&quot;:true}</value>
+    </values>
+    <values>
+        <field>Location_Object_ID__c</field>
+        <value xsi:type="xsd:string">93ed181a08c04af3e80fc34bae917192a66ff66c02</value>
+    </values>
+    <values>
+        <field>Location_Template__c</field>
+        <value xsi:type="xsd:string">{&quot;fields&quot;:[{&quot;value&quot;:&quot;&quot;,&quot;type&quot;:null,&quot;required&quot;:null,&quot;name&quot;:&quot;Address1&quot;,&quot;fieldId&quot;:&quot;93ed181a8e36a60f26d9aa4cbdab215b66638f0fd1&quot;,&quot;dirty&quot;:false,&quot;decimalDigits&quot;:null},
+{&quot;value&quot;:&quot;&quot;,&quot;name&quot;:&quot;Address2&quot;,&quot;fieldId&quot;:&quot;93ed34fee29073e613621a456badc68c010cf248a5&quot;,&quot;dirty&quot;:false},{&quot;value&quot;:&quot;&quot;,&quot;type&quot;:null,&quot;required&quot;:null,&quot;name&quot;:&quot;City&quot;,&quot;fieldId&quot;:&quot;93ed181ae1dc01619b1f0a40508179570af406070d&quot;,&quot;dirty&quot;:false,&quot;decimalDigits&quot;:null},{&quot;value&quot;:&quot;&quot;,&quot;type&quot;:null,&quot;required&quot;:null,&quot;name&quot;:&quot;Country&quot;,&quot;fieldId&quot;:&quot;93f8c65b9ddcc255e2673242d8b092338ff5d56eea&quot;,&quot;dirty&quot;:false,&quot;decimalDigits&quot;:null},{&quot;value&quot;:&quot;&quot;,&quot;type&quot;:null,&quot;required&quot;:null,&quot;name&quot;:&quot;Company&quot;,&quot;fieldId&quot;:&quot;93ed1886ac121815d544674279aa25e0db2982841b&quot;,&quot;dirty&quot;:false,&quot;decimalDigits&quot;:null},{&quot;value&quot;:&quot;&quot;,&quot;type&quot;:null,&quot;required&quot;:null,&quot;name&quot;:&quot;CountryCode&quot;,&quot;fieldId&quot;:&quot;943438dc4382edc826d7b1452993b8ea898094e30c&quot;,&quot;dirty&quot;:false,&quot;decimalDigits&quot;:null},{&quot;value&quot;:&quot;&quot;,&quot;type&quot;:null,&quot;required&quot;:null,&quot;name&quot;:&quot;LocationName&quot;,&quot;fieldId&quot;:&quot;93ed181a08aa3998b3d6704e2997ac06b6924eba9d&quot;,&quot;dirty&quot;:false,&quot;decimalDigits&quot;:null},{&quot;value&quot;:&quot;&quot;,&quot;type&quot;:null,&quot;required&quot;:null,&quot;name&quot;:&quot;PhoneNumber&quot;,&quot;fieldId&quot;:&quot;93ef034214bee560f855c6416ab9dcd784c363bdd2&quot;,&quot;dirty&quot;:false,&quot;decimalDigits&quot;:null},{&quot;value&quot;:&quot;&quot;,&quot;type&quot;:null,&quot;required&quot;:null,&quot;name&quot;:&quot;PrimaryContact&quot;,&quot;fieldId&quot;:&quot;94005279a0c265ee1a107e41e1a5f064f6de31445e&quot;,&quot;dirty&quot;:false,&quot;decimalDigits&quot;:null},{&quot;value&quot;:&quot;&quot;,&quot;type&quot;:null,&quot;required&quot;:null,&quot;name&quot;:&quot;RegionName&quot;,&quot;fieldId&quot;:&quot;9427d8f8a0dd844782f6e14bf5b728842907b82547&quot;,&quot;dirty&quot;:false,&quot;decimalDigits&quot;:null},{&quot;value&quot;:&quot;&quot;,&quot;type&quot;:null,&quot;required&quot;:null,&quot;name&quot;:&quot;State&quot;,&quot;fieldId&quot;:&quot;93ed181b1cb6be79bf4a444e08a4f105606c4381f9&quot;,&quot;dirty&quot;:false,&quot;decimalDigits&quot;:null},{&quot;value&quot;:&quot;&quot;,&quot;type&quot;:null,&quot;required&quot;:null,&quot;name&quot;:&quot;Zip&quot;,&quot;fieldId&quot;:&quot;93ed181ce1ff76ac34329e41d7a2ea226836c6f5d3&quot;,&quot;dirty&quot;:false,&quot;decimalDigits&quot;:null},{&quot;value&quot;:&quot;&quot;,&quot;type&quot;:null,&quot;required&quot;:null,&quot;name&quot;:&quot;ExternalSystemID&quot;,&quot;fieldId&quot;:&quot;9451671112ee7ea3b73b004947a0c343785acb4aec&quot;,&quot;dirty&quot;:false,&quot;decimalDigits&quot;:null},{&quot;value&quot;:&quot;&quot;,&quot;type&quot;:null,&quot;required&quot;:null,&quot;name&quot;:&quot;LocationNumber&quot;,&quot;fieldId&quot;:&quot;9451674912edf4dfbd6a8140f68b2f3bdee77c8d76&quot;,&quot;dirty&quot;:false,&quot;decimalDigits&quot;:null},{&quot;value&quot;:&quot;&quot;,&quot;type&quot;:null,&quot;required&quot;:null,&quot;name&quot;:&quot;SubMarket&quot;,&quot;fieldId&quot;:&quot;94516746a49dfaa60db2c64509bf23a7a4394249d9&quot;,&quot;dirty&quot;:false,&quot;decimalDigits&quot;:null},{&quot;value&quot;:&quot;&quot;,&quot;type&quot;:null,&quot;required&quot;:null,&quot;name&quot;:&quot;SubmarketID&quot;,&quot;fieldId&quot;:&quot;9451674725ea75ddfe1c4d438989ffdc1cc8785c36&quot;,&quot;dirty&quot;:false,&quot;decimalDigits&quot;:null},{&quot;value&quot;:&quot;&quot;,&quot;type&quot;:null,&quot;required&quot;:null,&quot;name&quot;:&quot;NationalStoreNumber&quot;,&quot;fieldId&quot;:&quot;9451674ef361e0f2ed18f84d458f44f4b7f129c8f2&quot;,&quot;dirty&quot;:false,&quot;decimalDigits&quot;:null}],&quot;busObId&quot;:&quot;93ed181a08c04af3e80fc34bae917192a66ff66c02&quot;}</value>
+    </values>
+    <values>
+        <field>Password_V2__c</field>
+        <value xsi:type="xsd:string">nGl5JFOxON3iEtg6</value>
+    </values>
+    <values>
+        <field>Password__c</field>
+        <value xsi:type="xsd:string">T3st!AP1</value>
+    </values>
+    <values>
+        <field>Required_Account_Key_V2__c</field>
+        <value xsi:type="xsd:string">Id,Name,Region_RealZips__c,RealZip_Submarket__c</value>
+    </values>
+    <values>
+        <field>Required_Case_Key_V2__c</field>
+        <value xsi:type="xsd:string">CaseNumber,Return_Shipping_Address_City__c,Shipping_Address_Country__c,Return_Shipping_Address_State__c,Return_Shipping_Address_Zip__c</value>
+    </values>
+    <values>
+        <field>Required_Contact_Key_V2__c</field>
+        <value xsi:type="xsd:string">FullName__c,Id</value>
+    </values>
+    <values>
+        <field>SaveBusinessObject_URL__c</field>
+        <value xsi:type="xsd:string">/api/V1/savebusinessobject</value>
+    </values>
+    <values>
+        <field>SaveRelatedBusinessObject_URL__c</field>
+        <value xsi:type="xsd:string">/api/V1/saverelatedbusinessobject</value>
+    </values>
+    <values>
+        <field>SearchBusinessObject_URL__c</field>
+        <value xsi:type="xsd:string">/api/V1/getquicksearchresults</value>
+    </values>
+    <values>
+        <field>Skip_State_Validation_For_Country_V2__c</field>
+        <value xsi:type="xsd:string">DE,NZ</value>
+    </values>
+    <values>
+        <field>Skip_State_Validation_V2__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>Specifics_Deployment_Object_ID__c</field>
+        <value xsi:type="xsd:string">93fcb3771db50182a9ec504f408a089bae14f6207c</value>
+    </values>
+    <values>
+        <field>Specifics_Exchange_Object_ID__c</field>
+        <value xsi:type="xsd:string">93ff6dc4b3feca220c8fcf41818b8d4b16887486cd</value>
+    </values>
+    <values>
+        <field>URL_V2__c</field>
+        <value xsi:type="xsd:string">https://selfservice.denaliai.com/CherwellAPI/api/Webhooks/DDCreateProductDeployment/</value>
+    </values>
+    <values>
+        <field>URL__c</field>
+        <value xsi:type="xsd:string">https://selfservice.denaliai.com/CherwellAPI</value>
+    </values>
+    <values>
+        <field>Username_V2__c</field>
+        <value xsi:type="xsd:string">DoorDashSF</value>
+    </values>
+    <values>
+        <field>Username__c</field>
+        <value xsi:type="xsd:string">DoorDashSF</value>
+    </values>
+</CustomMetadata>

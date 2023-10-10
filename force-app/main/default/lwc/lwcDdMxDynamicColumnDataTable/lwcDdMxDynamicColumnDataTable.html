@@ -1,0 +1,20 @@
+<template>
+   <lightning-card>
+      <div class="slds-p-horizontal_small"></div>
+
+      <lightning-layout multiple-rows="true" vertical-align="end">
+         <lightning-layout-item size="12" padding="around-small">
+            <div if:true={DataTableResponseWrappper}>
+               <div class="slds-text-heading_small slds-p-around_medium">{tableTitle}</div>
+               <lightning-datatable
+                  data={finalSObjectDataList}
+                  columns={DataTableResponseWrappper}
+                  key-field="Id"
+                  hide-checkbox-column={hideCheckBox}
+                  onrowselection={getSelectedName}
+               ></lightning-datatable>
+            </div>
+         </lightning-layout-item>
+      </lightning-layout>
+   </lightning-card>
+</template>

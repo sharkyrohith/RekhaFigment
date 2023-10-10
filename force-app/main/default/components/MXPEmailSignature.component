@@ -1,0 +1,101 @@
+<apex:component controller="CDdMXPEmailSignatureController" access="global">
+    <apex:attribute name="caseAccountId" description="Id of the Case Account" type="string" assignTo="{!accountId}"/>
+    <apex:attribute name="case" description="Id of the Case Account" type="Case"/>
+    <apex:attribute name="formStackCategory" description="Formstack category on case" type="string"/>
+    <apex:attribute name="formStackSubcategory" description="Formstack Subcategory on case" type="string"/>
+    <html>
+        <body>
+            <div>
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tbody>
+                        <tr>
+                            <td valign="top">
+                                <table cellspacing="0" cellpadding="0" align="center">
+                                    <tbody>
+                                        <tr>
+                                            <td align="center">
+                                                <table width="600" cellspacing="0" cellpadding="0" bgcolor="#ffffff" align="center">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td align="left">
+                                                                <table width="100%" cellspacing="0" cellpadding="0">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td width="560" valign="top" align="center">
+                                                                                <table width="100%" cellspacing="0" cellpadding="0">
+                                                                                    <tbody>
+                                                                                        <tr>
+                                                                                            <td style="font-size: 0px;" align="center"><a target="_blank"><img src="{!$Label.Doordash_Logo_URL}" alt="Logo" style="display: block; font-size: 12px;" title="Logo" height="164"/></a></td>
+                                                                                        </tr>
+                                                                                    </tbody>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <table cellspacing="0" cellpadding="0" align="center">
+                                    <tbody>
+                                        <tr>
+                                            <td align="center">
+                                                <table style="border-left:9px solid transparent;border-right:9px solid transparent;border-top:9px solid transparent;border-bottom:9px solid transparent;background-color: #ffffff;" width="600" cellspacing="0" cellpadding="0" align="center" bgcolor="#ffffff">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td align="left">
+                                                                <table width="100%" cellspacing="0" cellpadding="0">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td width="551" valign="top" align="center">
+                                                                                <table width="100%" cellspacing="0" cellpadding="0">
+                                                                                    <tbody>
+                                                                                        <tr>
+                                                                                            <td align="left" esd-links-underline="underline">
+                                                                                                <p><i>Thank you for contacting DoorDash! My name is <b style="font-size:medium">{!actm.User.FirstName}</b> and I am your dedicated Merchant Experience Partner. I have received your request to help with <b style="font-size:medium">{!formStackCategory} - {!formStackSubcategory}</b>, and wanted to let you know that I’ll be looking into your request and will be in touch within one business day.</i></p>
+                                                                                                <p><i>If this is an urgent request that requires immediate response, please feel free to contact our support via phone, at the appropriate number below or check some FAQ’s </i><a href="https://help.doordash.com/merchants/s/merchant-support?language=en_US" style="text-decoration: underline;"><i><u>here</u></i></a><i>. </i></p>
+                                                                                                <p><i>Please keep in mind that for new requests to integrate your POS system with DoorDash, response time may vary. Brand new integration requests take around 5 days; other POS related questions will receive a response (with resolution or next steps) within 48 hours.</i></p>
+                                                                                                <p><i>In the meantime, check out our help center where we have curated answers to your most commonly asked questions. For reference, your case number is <b style="font-size:medium">{!case.CaseNumber}</b> and your store ID is <b style="font-size:medium">{!case.Store_ID_Acc__c}</b>.</i><br/></p>
+                                                                                                <p><i>
+                                                                                                    <b style="font-size:medium">US:</b> 855-973-1040<br/>
+                                                                                                    <b style="font-size:medium">US (Espanol):</b> 855-834-8733<br/>
+                                                                                                    <b style="font-size:medium">Canada:</b> 647-957-7219<br/>
+                                                                                                    <b style="font-size:medium">Canada:</b> (Français): 855-643-8439<br/>
+                                                                                                    <b style="font-size:medium">Australia:</b> 1800-958-316</i><br/>
+                                                                                                </p>
+                                                                                                
+                                                                                                <apex:outputPanel rendered="{!actm.User.Photo_Document_URL__c == null || actm.User.Signature == null}">
+                                                                                                    <p><apex:outputText value="{!userSignature}" escape="false"/></p>
+                                                                                                </apex:outputPanel>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                    </tbody>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <apex:outputPanel rendered="{!actm.User.Photo_Document_URL__c != null && actm.User.Signature != null}">
+                                    <c:PersonalizedEmailSignature userSignature="{!userSignature}" photoURL="{!actm.User.Photo_Document_URL__c}"/>
+                                </apex:outputPanel>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </body>
+    </html>
+</apex:component>

@@ -1,0 +1,23 @@
+/*-- LWC Helper - Author David Wickland ---*/
+/*-- Author David Wickland ---*/
+/*-- Last Update - 07/30/2020 ---*/
+
+/* button disabled styles --*/
+
+.CaseAgentFlow-body .slds-rich-text-editor__output ol {
+    margin-bottom: 0px;
+}
+
+
+.CaseAgentFlow-body .slds-rich-text-editor__output p {
+    margin-bottom: 0px;
+}
+
+.CaseAgentFlow-body .slds-rich-text-editor__output span{
+    line-height: 8px;
+}
+
+.CaseAgentFlow-body .slds-rich-text-editor__output span p {
+    line-height: 14px;
+    font-size: 11px;
+}

@@ -1,0 +1,15 @@
+<apex:page >
+    <apex:includeLightning />
+    <div id="container" />
+    <script>
+        $Lightning.use("c:LDdKBRecommendationMappingApp", function() {
+            $Lightning.createComponent("c:lwcDdKBRecommendationMapping",
+                {},
+                "container",
+                function(cmp) {
+                    console.log('component created');
+                }
+            );
+        });
+    </script>
+</apex:page>

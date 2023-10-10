@@ -1,0 +1,6 @@
+<design:component label="Caviar Community Footer">
+
+    <design:attribute name="CommunityName" label="Community Name"
+                      datasource="Courier,Diner,Restaurant,Companies,Help" default="Help" />
+	
+</design:component>

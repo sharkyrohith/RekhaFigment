@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Lightning_Support_Agent_Gurugram_Agent</label>
+    <protected>false</protected>
+    <values>
+        <field>Call_Center_Id__c</field>
+        <value xsi:type="xsd:string">04v2L000000Kz7c</value>
+    </values>
+    <values>
+        <field>Description__c</field>
+        <value xsi:type="xsd:string">Lightning Support Agent - Gurugram Agent - AC Lightning Console</value>
+    </values>
+    <values>
+        <field>Profile_Id__c</field>
+        <value xsi:type="xsd:string">00e2L000001A5yIQAS</value>
+    </values>
+    <values>
+        <field>UserRole_Id__c</field>
+        <value xsi:type="xsd:string">00E2L000000QxzUUAS</value>
+    </values>
+</CustomMetadata>

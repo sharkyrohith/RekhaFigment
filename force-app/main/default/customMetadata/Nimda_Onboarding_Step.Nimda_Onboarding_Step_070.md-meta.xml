@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Nimda Onboarding Step 070</label>
+    <protected>false</protected>
+    <values>
+        <field>Active__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>Custom_Permission__c</field>
+        <value xsi:type="xsd:string">Fee_Onboarding</value>
+    </values>
+    <values>
+        <field>Display_Name__c</field>
+        <value xsi:type="xsd:string">Fee Onboarding</value>
+    </values>
+    <values>
+        <field>Display_Name_ja__c</field>
+        <value xsi:type="xsd:string">参加手数料</value>
+    </values>
+    <values>
+        <field>Help_Text__c</field>
+        <value xsi:type="xsd:string">Implement new pricing for merchants on Caviar or Storefront. Fee Onboarding will only create Mx Affiliate Programs, Mx Recurring Programs, and Delivery Fee records for Storefront, as well as Mx Affiliate Programs for Caviar.</value>
+    </values>
+    <values>
+        <field>Is_Bulk__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>Is_Change_of_Ownership__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>Is_Send_To_Nimda__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>Mode__c</field>
+        <value xsi:type="xsd:string">update</value>
+    </values>
+    <values>
+        <field>Sequence__c</field>
+        <value xsi:type="xsd:double">70.0</value>
+    </values>
+    <values>
+        <field>Step__c</field>
+        <value xsi:type="xsd:string">Fee Onboarding</value>
+    </values>
+    <values>
+        <field>Store_Exists_On_Account__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>Version__c</field>
+        <value xsi:type="xsd:double">3.0</value>
+    </values>
+</CustomMetadata>

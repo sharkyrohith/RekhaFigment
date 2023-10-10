@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>SF - Dasher - Escalation Evidence</label>
+    <protected>false</protected>
+    <values>
+        <field>Bypass_Trigger_Case_Insert__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>Criteria_Behavior__c</field>
+        <value xsi:type="xsd:string">Allow transfer only if criteria is met</value>
+    </values>
+    <values>
+        <field>Description__c</field>
+        <value xsi:type="xsd:string">BIZS-1480 - Initial Migration to Project Shield
+
+Earlier implemented via BASD-22817 (Primary Story) within case trigger (validateDasherEscalations method).</value>
+    </values>
+    <values>
+        <field>Error_Message__c</field>
+        <value xsi:type="xsd:string">To escalate this case to the &apos;{Target Queue Name}&apos; queue, please have the case reviewed by a team lead and add a case note with the &apos;Case Notes &gt; Dasher Escalation Inquiry&apos; template.</value>
+    </values>
+    <values>
+        <field>Filter_Logic__c</field>
+        <value xsi:type="xsd:string">1 OR 2 OR 3 OR 4 OR 5</value>
+    </values>
+    <values>
+        <field>Is_Test_Record__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>Sort_Order__c</field>
+        <value xsi:type="xsd:double">200.0</value>
+    </values>
+    <values>
+        <field>Target_Queue_Id__c</field>
+        <value xsi:type="xsd:string">00G1a000001RlGmEAK</value>
+    </values>
+    <values>
+        <field>isActive__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+</CustomMetadata>

@@ -1,0 +1,152 @@
+:host {
+	width: 100%;
+	margin: 0;
+	font-family: DDTTNorms1, "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+	background-size: cover;
+}
+
+.background-404 {
+	width: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+}
+
+.header-fixed-top {
+	background-color: rgba(255, 255, 255, 0.8);
+	padding: 26px;
+	border-bottom: #eee solid 1px;
+	position: fixed;
+	width: 100%;
+}
+
+.navbar-header {
+}
+
+.container {
+	max-width: 1170px;
+	margin: 0px auto;
+	width: 100%;
+}
+
+.logo {
+	width: 174px;
+}
+
+div .navbar-collapse {
+	background-color: transparent !important;
+}
+
+.foreground-404 {
+	width: 100%;
+	background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    padding-top: 56.25%;
+}
+
+.error-message-container {
+    text-align: center;
+    position: absolute;
+    top: 15%;
+    margin-left: 60px;
+    width: calc(100% - 120px);
+    color: #fff;
+    font-family: DDTTNorms1, "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+}
+
+.error-message {
+    width: 60%;
+    margin: 0 auto;
+    max-width: 600px;
+}
+
+.error-message-500 {
+	top: 8%;
+}
+
+.error-message-header {
+	text-transform: uppercase;
+	font-weight: bold;
+	margin: 0;
+	margin-bottom: 20px;
+	color: #fff;
+	font-size: 48px;
+	font-family: DDTTNorms1, "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+}
+
+.error-message-body {
+	color: #fff;
+	text-transform: uppercase;
+	font-weight: bold;
+	letter-spacing: 2px;
+	padding: 0 50px;
+	font-family: DDTTNorms1, "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+	font-size: 30px;
+	margin-top: 20px;
+	margin-bottom: 10px;
+	line-height: 36px;
+}
+
+.error-status-code {
+	font-weight: bold;
+	font-family: DDTTNorms1, "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+	margin: 6px 0px 6px 0px;
+}
+
+.error-message-return-home {
+	font-size: 15px;
+	color: white;
+	text-decoration: underline;
+}
+
+@media (max-width:968px) {
+	.error-message-header {
+		font-size: 32px;
+	}
+	.error-message-return-home {
+		font-size: 22px;
+	}
+    .error-message-body {
+        font-size: 26px;
+    }
+    .error-message-container {
+        top: 10%;
+    }
+    .error-message {
+        width: unset;
+    }
+}
+@media (max-width:768px) {
+    .error-message-header {
+		font-size: 24px;
+	}
+    .error-message-body {
+        font-size: 18px;
+    }
+    .error-message-return-home {
+		font-size: 18px;
+	}
+    .error-message-container {
+        top: 5%;
+    }
+}
+@media (max-width:560px) {
+    .error-message-header {
+		font-size: 18px;
+        margin-bottom: 4px;
+	}
+    .error-message-body {
+        margin-top: 0px;
+        font-size: 12px;
+        line-height: 24px;
+    }
+    .error-message-return-home {
+		font-size: 12px;
+	}
+    .error-message-container {
+        top: 5px;
+    }
+}

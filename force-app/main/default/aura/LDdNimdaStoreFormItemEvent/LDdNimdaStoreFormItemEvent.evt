@@ -1,0 +1,7 @@
+<aura:event type="COMPONENT" access="GLOBAL" description="An event fired by the form item element. Example : Change Value, Change Mode" >
+    <aura:attribute name="name" type="String" access="GLOBAL" />
+    <aura:attribute name="property" type="String" access="GLOBAL" />
+    <aura:attribute name="value" type="String" access="GLOBAL" />
+    <aura:attribute name="type" type="String" access="GLOBAL" />
+    <aura:attribute name="scale" type="String" access="GLOBAL" />
+</aura:event>

@@ -1,0 +1,9 @@
+<aura:component access="global" implements="forceCommunity:availableForAllPageTypes" controller="CDdLegalArticleController">
+    <aura:attribute name="articleURL" type="String" default=""/>
+    <aura:attribute name="articleInfo" type="Object" default=""/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+    <P>{!v.articleInfo.Title}</P>
+    <aura:unescapedHtml value="{!v.articleInfo.Communities_Article_Details__c}" />
+	
+</aura:component>

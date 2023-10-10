@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>55.0</apiVersion>
+    <isExposed>true</isExposed>
+    <targets>
+        <target>lightning__AppPage</target>
+        <target>lightning__RecordPage</target>
+        <target>lightning__HomePage</target>
+        <target>lightning__FlowScreen</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__FlowScreen">
+            <property name="objectApiName" type="String" label="Object API Name" description="The API Name of the Object the picklist is on."/>
+            <property name="fieldApiName" type="String" label="Field API Name" description="Picklist Field API Name"/>
+            <property name="recordTypeId" type="String" label="Record Type ID" description="ID of the Record Type"/>
+            <property name="isFieldRequired" type="Boolean" label="Required" description="Indicates if field should be required." />
+            <property name="userDefinedHelpText" type="String" label="Field Help Text" description="Help text to display adjacent to the field label."/>
+            <property name="fieldPadding" type="String" label="Padding" default="large" 
+                        description="Specifies padding to surround the field. Acceptable values are: xxx-small, xx-small, x-small, small, medium, large, x-large, xx-large, xx-large. Default is large" />
+            
+            <property name="value" type="String" role="outputOnly"/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

@@ -1,0 +1,35 @@
+<apex:page controller="CDdCheckrClientStatusCtrl" sidebar="false" showHeader="true" id="checkrStatus" lightningStyleSheets="true" >
+    <apex:includeScript value="/support/console/42.0/integration.js"/>
+    <apex:slds />
+    <script>
+    function search() {
+        var email = document.getElementById("checkr-email").value;
+        goToResult(email);
+    }
+    </script>
+    <div class="slds-scope">
+        <div class="checkrform" style="display: block">
+            <apex:form >
+                <div class="slds-p-around_small">
+                    <div class="slds-p-bottom_small">
+                        <h1>
+                            Checkr Status
+                        </h1>
+                    </div>
+                    <div class="slds-form-element">
+                        <label class="slds-form-element__label" for="input-unique-id">E-Mail Address:</label>
+                        <div class="slds-form-element__control">
+                            <input type="email" id="checkr-email" class="slds-input" placeholder="example@domain.com" />
+                        </div>
+                        <div class="slds-p-top_x-small">
+                            <button class="slds-button slds-button_brand" onclick="search()">Check Status</button>
+                            <apex:actionFunction name="goToResult" action="{!searchCheckr}" rerender="view">
+                                <apex:param id="email" name="email" value="" />
+                            </apex:actionFunction>
+                        </div>
+                    </div>
+                </div>
+            </apex:form>
+        </div>
+    </div>
+</apex:page>

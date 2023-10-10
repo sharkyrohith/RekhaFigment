@@ -1,0 +1,5 @@
+<aura:component >
+	<aura:dependency resource="c:LDdNimdaSyncEvent" type="EVENT"/>
+    <aura:dependency resource="c:LDdNimdaStoreSearchCmp" type="COMPONENT"/>
+	<aura:dependency resource="c:LDdNimdaProcessCmp" type="COMPONENT"/>
+</aura:component>

@@ -1,0 +1,191 @@
+@isTest
+public class CDdDocusignStatusTriggerHandlerTest {
+    
+    public static void setGDPROff(){
+        //GDPR
+        CDdGDPREmailHelper.ENABLE_CREATE_CONTACT = false;
+        CDdGDPREmailHelper.ENABLE_SUBSCRIPTION = false;
+        CDdGDPREmailHelper.ENABLE_DELIGHTED_TASK = false;
+    }
+    
+    @isTest(seeAllData=true)
+    static void docusignStatus() {
+
+        setGDPROff();
+                
+        Id acctId;
+        List<UserRole> roleIds = [select Id from UserRole where DeveloperName = 'COO']; 
+        List<User> selfServiceUsers = TDdAccountFactory.createUsers(2, null, roleIds[0].id);
+        insert selfServiceUsers;
+        List<PermissionSetAssignment> psas = new List<PermissionSetAssignment>(); 
+        PermissionSetAssignment psa; 
+        for(User selfServiceUser : selfServiceUsers){
+            psa = new PermissionSetAssignment(); 
+            psa.PermissionSetId = '0PS1a0000001bYE' ;
+            psa.AssigneeId = selfServiceUser.id; 
+            psas.add(psa);
+        }
+        insert psas;
+        
+        System.runAs(selfServiceUsers[0]) {
+            
+            CDdContactTriggerHelper.insertCampaign();
+            CDdAccountHelperMethods.testingAccountFormStack = false;  
+            
+            List<Account> accList = CDdTestDataFactory.createSObjectList('Account',1,false);            
+            
+            Campaign campaignToInsert = new Campaign();
+            campaignToInsert.Name = System.label.CampaignNameMxAcqMktg_BOFU;
+            campaignToInsert.Title__c = 'Unmanaged Caviar to DD X-Sell';
+            insert campaignToInsert;  
+            
+            Account acc = accList[0];
+            acc.Name = 'Test Acc';
+            acc.phone = '0256157848';
+            acc.BillingCountryCode = 'US';
+            acc.Market_Area__c = 'Northern California - East Bay';
+            acc.Business_ID__c = 123456;
+            acc.Formstack_Version__c = 'New Store';
+            acc.Is_Marketplace_Partner__c = 'No';
+                                
+            insert acc;
+            
+            Contact con = new Contact();
+    
+            con.firstName = 'moCaseMilestone1';
+            con.LastName = 'Con1'; 
+            con.Email = 'moCaseMilestone1Con1@dd.com';
+            con.accountId=acc.Id;
+            con.Birthdate = Date.newInstance(1991, 9, 29);
+            
+            insert con;            
+            
+            Opportunity opp = TDdOpportunityFactory.createOpportunityByDevRT('Test Opp', acc.Id, con.Id, 'Out for Signature', 'DoorDash_Drive');
+            opp.Tablet_Delivery_Method__c = '';
+            opp.Tablet_Kit_Type__c = '';
+            opp.Notes__c = 'Test Notes';
+            opp.Order_Protocol__c = '';
+            opp.Pricing_Structure__c = 'Other';
+            opp.Planned_Integration_Path__c = 'Drive Form';
+            opp.Payment_Protocol__c = 'Credit Card';
+            opp.Accepts_Tips__c = 'Yes';
+            opp.Decision_Maker__c = con.Id;
+            opp.Catering_setup_exists__c = 'Yes';
+            opp.Current_Delivery_Channels__c = 'None';
+            opp.Type = 'Weblinks';
+            opp.Contact_Manager_Owner_Name__c = 'Test User';
+            opp.Contact_Manager_Owner_Email__c = 'test@test.com';
+            opp.Decision_Maker__c = con.Id;
+            opp.Accounting_Contact__c = con.Id;
+            
+            insert opp;
+            
+            dsfs__DocuSign_Status__c docSign = new dsfs__DocuSign_Status__c();
+            docSign.dsfs__Opportunity__c = opp.Id;
+            docSign.dsfs__Envelope_Status__c = '';
+            insert docSign;     
+                
+            Test.startTest(); 
+                docSign.dsfs__Envelope_Status__c = 'Completed';
+                update docSign;
+            Test.stopTest();
+            
+        }
+        
+    }
+    
+    @isTest(seeAllData=true)
+    static void docusignStatusContracts() {
+
+        setGDPROff();
+                
+        Id acctId;
+        List<UserRole> roleIds = [select Id from UserRole where DeveloperName = 'COO']; 
+        List<User> selfServiceUsers = TDdAccountFactory.createUsers(2, null, roleIds[0].id);
+        insert selfServiceUsers;
+        List<PermissionSetAssignment> psas = new List<PermissionSetAssignment>(); 
+        PermissionSetAssignment psa; 
+        for(User selfServiceUser : selfServiceUsers){
+            psa = new PermissionSetAssignment(); 
+            psa.PermissionSetId = '0PS1a0000001bYE' ;
+            psa.AssigneeId = selfServiceUser.id; 
+            psas.add(psa);
+        }
+        insert psas;
+        
+        System.runAs(selfServiceUsers[0]) {
+            
+            CDdContactTriggerHelper.insertCampaign();
+            CDdAccountHelperMethods.testingAccountFormStack = false;  
+            
+            List<Account> accList = CDdTestDataFactory.createSObjectList('Account',1,false);            
+            
+            Campaign campaignToInsert = new Campaign();
+            campaignToInsert.Name = System.label.CampaignNameMxAcqMktg_BOFU;
+            campaignToInsert.Title__c = 'Unmanaged Caviar to DD X-Sell';
+            insert campaignToInsert;  
+            
+            Account acc = accList[0];
+            acc.Name = 'Test Acc';
+            acc.phone = '0256157848';
+            acc.BillingCountryCode = 'US';
+            acc.Market_Area__c = 'Northern California - East Bay';
+            acc.Business_ID__c = 123456;
+            acc.Formstack_Version__c = 'New Store';
+            acc.Is_Marketplace_Partner__c = 'No';
+                                
+            insert acc;
+            
+            Contact con = new Contact();
+    
+            con.firstName = 'moCaseMilestone1';
+            con.LastName = 'Con1'; 
+            con.Email = 'moCaseMilestone1Con1@dd.com';
+            con.accountId=acc.Id;
+            con.Birthdate = Date.newInstance(1991, 9, 29);
+            
+            insert con;            
+            
+            Opportunity opp = TDdOpportunityFactory.createOpportunityByDevRT('Test Opp', acc.Id, con.Id, 'Out for Signature', 'DoorDash_Drive');
+            opp.Tablet_Delivery_Method__c = '';
+            opp.Tablet_Kit_Type__c = '';
+            opp.Notes__c = 'Test Notes';
+            opp.Order_Protocol__c = '';
+            opp.Pricing_Structure__c = 'Other';
+            opp.Planned_Integration_Path__c = 'Drive Form';
+            opp.Payment_Protocol__c = 'Credit Card';
+            opp.Accepts_Tips__c = 'Yes';
+            opp.Decision_Maker__c = con.Id;
+            opp.Catering_setup_exists__c = 'Yes';
+            opp.Current_Delivery_Channels__c = 'None';
+            opp.Type = 'Weblinks';
+            opp.Contact_Manager_Owner_Name__c = 'Test User';
+            opp.Contact_Manager_Owner_Email__c = 'test@test.com';
+            opp.Decision_Maker__c = con.Id;
+            opp.Accounting_Contact__c = con.Id;
+            
+            insert opp;
+            
+            APXT_Redlining__Contract_Agreement__c agreement = new APXT_Redlining__Contract_Agreement__c();
+            agreement.APXT_Redlining__Account__c = acc.Id;
+            //agreement.APXT_Redlining__Opportunity__c = opp.Id;
+            agreement.APXT_Redlining__Status__c = 'Out for Signature';            
+            insert agreement;  
+            
+            dsfs__DocuSign_Status__c docSign = new dsfs__DocuSign_Status__c();
+            docSign.dsfs__Opportunity__c = opp.Id;
+            docSign.dsfs__Envelope_Status__c = '';
+            insert docSign;    
+                
+            Test.startTest(); 
+
+                docSign.DocuSign_Status__c = agreement.Id;
+                docSign.dsfs__Envelope_Status__c = 'Completed';
+                update docSign;
+            Test.stopTest();
+            
+        }
+        
+    }
+    
+}

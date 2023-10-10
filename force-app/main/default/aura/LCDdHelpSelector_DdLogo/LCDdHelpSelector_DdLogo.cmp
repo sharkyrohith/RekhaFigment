@@ -1,0 +1,17 @@
+<aura:component access="global" implements="forceCommunity:availableForAllPageTypes">
+    <aura:attribute default="False" name="DisplayTitle" type="String" />
+    <aura:attribute default="left" name="logoAlignment" type="String" />
+    <div>
+        <div class="{!'ddhs-select-logo-wrap ' + 'ddhs-select-logo-' + v.logoAlignment}">
+           <img class="ddhs-select-logo" src="{!$Resource.SRDdHelpSelectAssets + '/Logo/DoorDash_logo_RGB-01.svg'}"/>
+        </div>
+
+        <aura:if isTrue="{!v.DisplayTitle == 'True'}">
+
+        <div class="ddhs-select-Support-Text">
+            <span>DoorDash Support, how can we help?</span>
+        </div>
+
+        </aura:if>
+    </div>
+</aura:component>

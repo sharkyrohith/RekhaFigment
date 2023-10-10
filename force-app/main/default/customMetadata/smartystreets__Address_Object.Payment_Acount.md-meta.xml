@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Payment Acount</label>
+    <protected>false</protected>
+    <values>
+        <field>smartystreets__APIName__c</field>
+        <value xsi:type="xsd:string">Payment_Account__c</value>
+    </values>
+    <values>
+        <field>smartystreets__ActiveJobIDField__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>smartystreets__Active_Job_ID_Field__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>smartystreets__Active__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>smartystreets__Check_for_Existing_Addresses__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>smartystreets__CheckforExistingAddresses__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>smartystreets__IsActive__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>smartystreets__IsSkipCompletionCheck__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>smartystreets__LargeDatabase__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>smartystreets__Large_Database__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>smartystreets__RunAddressTriggerVerification__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>smartystreets__RunEmailTriggerVerification__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>smartystreets__RunPhoneTriggerVerification__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>smartystreets__Run_Address_Trigger_Verification__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>smartystreets__Run_Email_Trigger_Verification__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>smartystreets__Run_Phone_Trigger_Verification__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>smartystreets__SkipCompletionCheck__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+</CustomMetadata>

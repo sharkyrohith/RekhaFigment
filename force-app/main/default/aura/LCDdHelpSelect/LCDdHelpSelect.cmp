@@ -1,0 +1,79 @@
+<aura:component access="global" implements="forceCommunity:availableForAllPageTypes">
+    <div>
+        <div class="ddhs-head">
+            <span class="ddhs-headline" display="block">
+                {!$Label.c.DdCommunity_Help_Here2Help}
+            </span>
+        </div>
+        <div class="ddhs-body">
+            <div class="ddhs-select-outer">
+
+                <div class="ddhs-select-inner">
+                    <a href="{!$Label.c.DdCommunity_Footer_ImaCustomer_Link}" target="_blank">
+                        <div class="ddhs-select-tile">
+                            <img class="ddhs-select-icon" src="{!$Resource.SRDdHelpSelectAssets + '/SVGs/Customer.svg'}"/>
+                            <span class="ddhs-select-block" display="block">
+                                <div class="ddhs-select-text" size="16">
+                                    <div>
+                                        {!$Label.c.DdCommunity_Help_ImaCustomer}
+                                    </div>
+                                    <div class="ddhs-select-arrow">
+                                        <img class="ddhs-select-arrow-svg" src="{!$Resource.SRDdHelpSelectAssets + '/SVGs/arrow-2px.svg'}"/>
+                                    </div>
+                                </div>
+                            </span>
+                        </div>
+                    </a>
+                    <span class="ddhs-select-desc" display="block">
+                        {!$Label.c.DdCommunity_Help_GettingStarted}
+                    </span>
+                </div>
+
+                <div class="ddhs-select-inner">
+                    <a href="{!$Label.c.DdCommunity_Footer_ImaDasher_link}" target="_blank">
+                        <div class="ddhs-select-tile">
+                            <img class="ddhs-select-icon" src="{!$Resource.SRDdHelpSelectAssets + '/SVGs/Dasher.svg'}"/>
+                            <span class="ddhs-select-block" display="block">
+                                <div class="ddhs-select-text" size="16">
+                                    <div>
+                                        {!$Label.c.DdCommunity_Help_ImaDasher}
+                                    </div>
+                                    <div class="ddhs-select-arrow">
+                                        <img class="ddhs-select-arrow-svg" src="{!$Resource.SRDdHelpSelectAssets + '/SVGs/arrow-2px.svg'}"/>
+                                    </div>
+                                </div>
+                            </span>
+                        </div>
+                    </a>
+                    <span class="ddhs-select-desc" display="block">
+                        {!$Label.c.DdCommunity_Help_AccountManagement}
+                    </span>
+                </div>
+
+                <div class="ddhs-select-inner">
+                    <a href="{!$Label.c.DdCommunity_Footer_ImaMerchant_Link}" target="_blank">
+                        <div class="ddhs-select-tile">
+                            <img class="ddhs-select-icon" src="{!$Resource.SRDdHelpSelectAssets + '/SVGs/Merchant.svg'}"/>
+                            <span class="ddhs-select-block" display="block">
+                                <div class="ddhs-select-text" size="16">
+                                    <div>
+                                        {!$Label.c.DdCommunity_Help_ImaMerchant}
+                                    </div>
+                                    <div class="ddhs-select-arrow">
+                                        <img class="ddhs-select-arrow-svg" src="{!$Resource.SRDdHelpSelectAssets + '/SVGs/arrow-2px.svg'}"/>
+                                    </div>
+                                </div>
+                            </span>
+                        </div>
+                    </a>
+                    <span class="ddhs-select-desc" display="block">
+                        {!$Label.c.DdCommunity_Help_PartneringWithDD}
+                    </span>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+</aura:component>

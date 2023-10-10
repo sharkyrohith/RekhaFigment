@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Mx Chargeback Submissions	9</label>
+    <protected>false</protected>
+    <values>
+        <field>Compare_Type__c</field>
+        <value xsi:type="xsd:string">Contains</value>
+    </values>
+    <values>
+        <field>Field_API_Name__c</field>
+        <value xsi:type="xsd:string">Store_ID__c</value>
+    </values>
+    <values>
+        <field>Field_Name__c</field>
+        <value xsi:type="xsd:string">Store_ID__c</value>
+    </values>
+    <values>
+        <field>Field_Value__c</field>
+        <value xsi:type="xsd:string">1655783;1655749;1655721;1580535;1534517;29095;33591;2466161;70971;1173863;24674179;2505965;2340276;1210765;1056225;1532475;87680;284787;479761;174409;935277;160576;963294;91744;1655576;1655544;1655412;1655130;1507186;1507938;1507408;2400672;911419;</value>
+    </values>
+    <values>
+        <field>Is_Active__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>Object_API_Name__c</field>
+        <value xsi:type="xsd:string">Case</value>
+    </values>
+    <values>
+        <field>Object__c</field>
+        <value xsi:type="xsd:string">Case</value>
+    </values>
+    <values>
+        <field>Related_Object_Field_API_Name__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Related_Object__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Routing_Configuration__c</field>
+        <value xsi:type="xsd:string">Mx_Chargeback_Submissions</value>
+    </values>
+    <values>
+        <field>Rule_Number__c</field>
+        <value xsi:type="xsd:double">9.0</value>
+    </values>
+    <values>
+        <field>Use_Prior_Value__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+</CustomMetadata>

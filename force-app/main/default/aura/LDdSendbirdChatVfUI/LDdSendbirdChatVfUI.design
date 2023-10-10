@@ -1,0 +1,5 @@
+<design:component>
+	<design:attribute name="positionClass" label="Position CSS" description="Add CSS to adjust position of component" />
+	<design:attribute name="freezeHeader" label="Freeze case page header" description="DEPRECATED" />
+	<design:attribute name="freezeSidebar" label="Freeze Chat side bar" description="DEPRECATED" />
+</design:component>

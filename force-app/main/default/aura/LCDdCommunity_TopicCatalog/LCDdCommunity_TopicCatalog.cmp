@@ -1,0 +1,194 @@
+<aura:component access="global" implements="forceCommunity:availableForAllPageTypes">
+    <aura:attribute default="Intro To Dashing" name="topic_1_label" type="string" />
+    <aura:attribute default="Intro_to_Dashing" name="topic_1_icon" type="string" />
+    <aura:attribute default="Sign-up Questions" name="topic_2_label" type="string" />
+    <aura:attribute default="American" name="topic_2_icon" type="string" />    
+    <aura:attribute default="Dashing Requirements" name="topic_3_label" type="string" />
+    <aura:attribute default="Asian" name="topic_3_icon" type="string" />
+    <aura:attribute default="Insurance" name="topic_4_label" type="string" />
+    <aura:attribute default="BBQ" name="topic_4_icon" type="string" />
+    <aura:attribute default="Using The Dasher App" name="topic_5_label" type="string" />
+    <aura:attribute default="Breakfast" name="topic_5_icon" type="string" />    
+    <aura:attribute default="App Troubleshooting" name="topic_6_label" type="string" />
+    <aura:attribute default="Burger" name="topic_6_icon" type="string" />
+    <aura:attribute default="Account Management" name="topic_7_label" type="string" />
+    <aura:attribute default="Chinese" name="topic_7_icon" type="string" />
+    <aura:attribute default="Dasher Stats" name="topic_8_label" type="string" />
+    <aura:attribute default="Desert" name="topic_8_icon" type="string" />    
+    <aura:attribute default="Account Security" name="topic_9_label" type="string" />
+    <aura:attribute default="Fast_Food" name="topic_9_icon" type="string" />    
+    <aura:attribute default="Payments" name="topic_10_label" type="string" />
+    <aura:attribute default="Comfort_Food" name="topic_10_icon" type="string" />  
+    <aura:attribute default="Dasher Red Card" name="topic_11_label" type="string" />
+    <aura:attribute default="Healthy" name="topic_11_icon" type="string" />
+    <aura:attribute default="Before A Delivery" name="topic_12_label" type="string" />
+    <aura:attribute default="Indian" name="topic_12_icon" type="string" />    
+    <aura:attribute default="At The Pickup" name="topic_13_label" type="string" />
+    <aura:attribute default="Platter" name="topic_13_icon" type="string" />
+    <aura:attribute default="Italian" name="topic_14_label" type="string" />
+    <aura:attribute default="Platter" name="topic_14_icon" type="string" />
+    <aura:attribute default="On Your Way To The Customer Or Restaurant" name="topic_15_label" type="string" />
+    <aura:attribute default="Platter" name="topic_15_icon" type="string" />    
+    <aura:attribute default="Japanese" name="topic_16_label" type="string" />
+    <aura:attribute default="Platter" name="topic_16_icon" type="string" />
+    <aura:attribute default="Other Questions" name="topic_17_label" type="string" />
+    <aura:attribute default="Sushi" name="topic_17_icon" type="string" />
+    <aura:attribute default="Alcohol Delivery" name="topic_18_label" type="string" />
+    <aura:attribute default="Alcohol" name="topic_18_icon" type="string" />    
+    <aura:attribute default="USA Dasher Office Info" name="topic_19_label" type="string" />
+    <aura:attribute default="Mexican" name="topic_19_icon" type="string" />    
+    <aura:attribute default="Canada Dasher Office Info" name="topic_20_label" type="string" />
+    <aura:attribute default="Pizza" name="topic_20_icon" type="string" /> 
+    <style>
+        
+        .forceCommunityTopicCatalog .topicHierarchy-childrenList .topicHierarchy-child[data-topic-name="{!v.topic_1_label}"]  {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/' + v.topic_1_icon + '.svg'}");
+        }
+        .forceCommunityTopicCatalog .topicHierarchy-childrenList .topicHierarchy-child[data-topic-name="{!v.topic_3_label}"]  {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/' + v.topic_2_icon + '_icon_red-_150x150.png'}");
+        }
+        .forceCommunityTopicCatalog .topicHierarchy-childrenList .topicHierarchy-child[data-topic-name="{!v.topic_3_label}"]  {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/' + v.topic_3_icon + '_icon_red-_150x150.png'}");
+        }
+        .forceCommunityTopicCatalog .topicHierarchy-childrenList .topicHierarchy-child[data-topic-name="{!v.topic_4_label}"]  {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/' + v.topic_4_icon + '_icon_red-_150x150.png'}");
+        }
+        .forceCommunityTopicCatalog .topicHierarchy-childrenList .topicHierarchy-child[data-topic-name="{!v.topic_51_label}"]  {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/' + v.topic_5_icon + '_icon_red-_150x150.png'}");
+        }
+        .forceCommunityTopicCatalog .topicHierarchy-childrenList .topicHierarchy-child[data-topic-name="{!v.topic_6_label}"]  {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/' + v.topic_6_icon + '_icon_red-_150x150.png'}");
+        }
+        .forceCommunityTopicCatalog .topicHierarchy-childrenList .topicHierarchy-child[data-topic-name="{!v.topic_7_label}"]  {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/' + v.topic_7_icon + '_icon_red-_150x150.png'}");
+        }
+        .forceCommunityTopicCatalog .topicHierarchy-childrenList .topicHierarchy-child[data-topic-name="{!v.topic_8_label}"]  {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/' + v.topic_8_icon + '_icon_red-_150x150.png'}");
+        }
+        .forceCommunityTopicCatalog .topicHierarchy-childrenList .topicHierarchy-child[data-topic-name="{!v.topic_9_label}"]  {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/' + v.topic_9_icon + '_icon_red-_150x150.png'}");
+        }
+        .forceCommunityTopicCatalog .topicHierarchy-childrenList .topicHierarchy-child[data-topic-name="{!v.topic_10_label}"]  {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/' + v.topic_10_icon + '_icon_red-_150x150.png'}");
+        }
+        .forceCommunityTopicCatalog .topicHierarchy-childrenList .topicHierarchy-child[data-topic-name="{!v.topic_11_label}"]  {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/' + v.topic_11_icon + '_icon_red-_150x150.png'}");
+        }
+        .forceCommunityTopicCatalog .topicHierarchy-childrenList .topicHierarchy-child[data-topic-name="{!v.topic_12_label}"]  {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/' + v.topic_12_icon + '_icon_red-_150x150.png'}");
+        }
+        .forceCommunityTopicCatalog .topicHierarchy-childrenList .topicHierarchy-child[data-topic-name="{!v.topic_13_label}"]  {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/' + v.topic_13_icon + '_icon_red-_150x150.png'}");
+        }
+        .forceCommunityTopicCatalog .topicHierarchy-childrenList .topicHierarchy-child[data-topic-name="{!v.topic_14_label}"]  {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/' + v.topic_14_icon + '_icon_red-_150x150.png'}");
+        }
+        .forceCommunityTopicCatalog .topicHierarchy-childrenList .topicHierarchy-child[data-topic-name="{!v.topic_15_label}"]  {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/' + v.topic_15_icon + '_icon_red-_150x150.png'}");
+        }
+        .forceCommunityTopicCatalog .topicHierarchy-childrenList .topicHierarchy-child[data-topic-name="{!v.topic_16_label}"]  {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/' + v.topic_16_icon + '_icon_red-_150x150.png'}");
+        }
+        .forceCommunityTopicCatalog .topicHierarchy-childrenList .topicHierarchy-child[data-topic-name="{!v.topic_17_label}"]  {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/' + v.topic_17_icon + '_icon_red-_150x150.png'}");
+        }
+        .forceCommunityTopicCatalog .topicHierarchy-childrenList .topicHierarchy-child[data-topic-name="{!v.topic_18_label}"]  {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/' + v.topic_18_icon + '_icon_red-_150x150.png'}");
+        }
+        .forceCommunityTopicCatalog .topicHierarchy-childrenList .topicHierarchy-child[data-topic-name="{!v.topic_19_label}"]  {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/' + v.topic_19_icon + '_icon_red-_150x150.png'}");
+        }
+        .forceCommunityTopicCatalog .topicHierarchy-childrenList .topicHierarchy-child[data-topic-name="{!v.topic_20_label}"]  {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/' + v.topic_20_icon + '_icon_red-_150x150.png'}");
+        }
+        
+        .forceCommunityTopicCatalog ul.topicHierarchy-childrenList {
+        display: inline;
+        }
+        
+        .forceCommunityTopicCatalog .topicHierarchy-childrenList li {
+        padding: 0px 12px;
+        display: inline-block;
+        position: relative;
+        float: left;
+        }
+        
+        .forceCommunityTopicCatalog .topicHierarchy-top span.uiOutputText {
+        color: rgb(255, 48, 8);
+        font-size: 20px;
+        }
+        
+        .forceCommunityTopicCatalog a.topicHierarchy-top, .forceCommunityTopicCatalog .topicHierarchy-top span.uiOutputText:hover {
+        text-transform: none;
+        text-decoration: none;
+        color: #D42200;
+        }
+        
+        .forceCommunityTopicCatalog .topicHierarchy-topBox {
+        padding-top: 20px;
+        border-top: solid;
+        border-top-color: rgba(210, 210, 210, 0.62);
+        margin-bottom: 14px;
+        border-width: 1px;
+        display: inline-flex;
+        width: 100%;
+        }
+        
+        .forceCommunityTopicCatalog .topicHierarchy-childrenList .topicHierarchy-child  {
+        border: #ccc solid 1px;
+        border-radius: 5px;
+        display: flex;
+        width: 260px;
+        min-height: 100px;
+        margin: 20px 0px 0px 0px;
+        padding: 15px 20px 0px 90px;
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/Fork_Knife_icon_red-_150x150.png'}");
+        background-repeat: no-repeat;
+        background-position: 14px 15px;
+        background-size: 60px;
+        transition: color 2s;
+        position: relative;
+        }
+        
+        .forceCommunityTopicCatalog .topicHierarchy-childrenList .topicHierarchy-child:hover {
+        background-color: #FAE4E1;
+        text-transform: none;
+        text-decoration: none;
+        color: rgb(255, 48, 8);
+        transition: color 2s;
+        
+        }
+        
+        .forceCommunityTopicCatalog .topicHierarchy-childrenList .topicHierarchy-child  .uiOutputText{
+        text-align: left;
+        position: absolute;
+        font-size: 19px;
+        font-weight: bold;
+        top: 50%;
+        margin: 0;
+        transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        color: #000;
+        }
+        
+        .forceCommunityTopicCatalog .topicHierarchy-childrenList .topicHierarchy-child:hover  .uiOutputText{
+        color: #000;
+        }       
+        .forceCommunityTopicCatalog .topicHierarchy-childrenList .topicHierarchy-child  .uiOutputText:hover {
+        text-transform: none;
+        text-decoration: none;
+        }
+        .forceCommunityTopicCatalog .topicHierarchy-childrenList li {
+        padding: 0px 20px 0px 0px;
+        }
+        .forceCommunityTopicCatalog .topicHierarchy-topBox {
+        margin-top: 20px;
+        }
+        
+    </style>
+    
+    <div>
+        
+    </div>
+    
+</aura:component>

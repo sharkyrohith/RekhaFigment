@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>SB Chat Cx Payment Escalations 06</label>
+    <protected>false</protected>
+    <values>
+        <field>Compare_Type__c</field>
+        <value xsi:type="xsd:string">Contains</value>
+    </values>
+    <values>
+        <field>Field_API_Name__c</field>
+        <value xsi:type="xsd:string">Chat_Issue_Details__c</value>
+    </values>
+    <values>
+        <field>Field_Name__c</field>
+        <value xsi:type="xsd:string">Chat_Issue_Details__c</value>
+    </values>
+    <values>
+        <field>Field_Value__c</field>
+        <value xsi:type="xsd:string">Questions about DashPass;Payment;Promotion Issues;DashPass Inquiries;Issue Applying Promo/Discount;Issues with a Payment Method;Refund/Credit Inquiry;Manage Account or Suspicious Activity;Report Unauthorized Charges;Reactivate Account;</value>
+    </values>
+    <values>
+        <field>Is_Active__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>Object_API_Name__c</field>
+        <value xsi:type="xsd:string">Case</value>
+    </values>
+    <values>
+        <field>Object__c</field>
+        <value xsi:type="xsd:string">Case</value>
+    </values>
+    <values>
+        <field>Related_Object_Field_API_Name__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Related_Object__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Routing_Configuration__c</field>
+        <value xsi:type="xsd:string">Sendbird_Cx_Specialized_Pod</value>
+    </values>
+    <values>
+        <field>Rule_Number__c</field>
+        <value xsi:type="xsd:double">6.0</value>
+    </values>
+    <values>
+        <field>Use_Prior_Value__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+</CustomMetadata>

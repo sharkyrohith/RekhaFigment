@@ -1,0 +1,90 @@
+.THIS {
+}
+.THIS .dd_home_content, .THIS .dd_home_footer {
+    
+    max-width: 1556px;
+    margin: 0px auto;
+}
+
+.THIS .dd_home_header {
+    padding: 0px !important;
+    margin: 0px !important;
+    
+}
+
+.THIS .forcePageBlockSectionRow .DD-Article-Description {
+    display: none !important;
+}
+
+.THIS .forcePageBlockSectionRow .DD-Article-Alt-Description {
+    position: relative;
+    top: -20px;
+}
+
+.THIS .selfServiceArticleLayout .content {
+    padding-bottom: 20px !important;
+    border-bottom: 1px solid #d4d4d4;
+    margin-bottom: 20px !important;
+}
+
+
+.THIS .selfServiceArticleLayout .content .itemBody {
+    padding-bottom: 0px !important;
+}
+
+.THIS .selfServiceArticleLayout .slds-form-element_readonly {
+    margin-bottom:  0px !important;
+    padding-bottom: 0px !important;
+    border-bottom: transparent !important;
+}
+
+.THIS .selfServiceArticleLayout .forcePageBlockSectionRow.full {
+    padding: 0 !important;
+}
+
+.THIS .selfServiceArticleLayout .forceOutputRichText b, .THIS .selfServiceArticleLayout .forceOutputRichText h2 {
+    font-weight: bold !important;
+    color: #000 !important;
+    text-shadow: 0px 0px 0 #000, 0px 0px 0 #000, 0px 0px 0 #000, 0px 0px 0 #000;
+}
+
+/*-- Table Styles --*/
+
+.THIS .selfServiceArticleLayout .forceOutputRichText .dd-article-matrix {
+    border: 1px #CCC solid;
+}
+
+.THIS .selfServiceArticleLayout .forceOutputRichText .dd-article-matrix tbody tr.dd-article-matrix-th {
+    background-color: rgb(209, 240, 246);
+}
+
+.THIS .selfServiceArticleLayout .forceOutputRichText .dd-article-matrix tbody tr.dd-article-matrix-th td {
+    border-right: 1px #CCC solid;
+    color: #3A646E;
+}
+
+.THIS .selfServiceArticleLayout .forceOutputRichText .dd-article-matrix tbody tr.dd-article-matrix-th p {
+    margin-bottom: 0px;
+}
+
+.THIS .selfServiceArticleLayout .forceOutputRichText .dd-article-matrix tbody tr.dd-article-matrix-body td {
+    vertical-align: top;
+    border-right: 1px #CCC solid;
+    border-top: 1px #CCC solid;
+    
+}
+/*
+.THIS .selfServiceArticleLayout .content .forcePageBlockSectionRow:nth-child(1) {
+    display: none !important;
+}
+*/
+
+/*
+.THIS .selfServiceArticleLayout .forceOutputRichText .dd-article-matrix tbody tr.dd-article-matrix-body:nth-child(even) {
+    background-color: #F8F9FA;
+
+}
+.THIS .selfServiceArticleLayout .forceOutputRichText .dd-article-matrix tbody tr.dd-article-matrix-body:nth-child(odd) {
+    background-color: #ffffff;
+}
+*/

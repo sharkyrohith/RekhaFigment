@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Default</label>
+    <protected>false</protected>
+    <values>
+        <field>Api_Version__c</field>
+        <value xsi:type="xsd:string">v4</value>
+    </values>
+    <values>
+        <field>Batch_Size__c</field>
+        <value xsi:type="xsd:double">100.0</value>
+    </values>
+    <values>
+        <field>Batch_Total_Records__c</field>
+        <value xsi:type="xsd:double">3000.0</value>
+    </values>
+    <values>
+        <field>Email_Verification_Status_Invalid__c</field>
+        <value xsi:type="xsd:string">invalid</value>
+    </values>
+    <values>
+        <field>Emails_Invalid__c</field>
+        <value xsi:type="xsd:string">unknown@unknown.com;</value>
+    </values>
+    <values>
+        <field>Enabled_Single_Check_Verify_Email__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>Lead_Record_Type_IDs__c</field>
+        <value xsi:type="xsd:string">0121a000000eKznAAE;0121a000000NGqgAAG;</value>
+    </values>
+    <values>
+        <field>Named_Credential__c</field>
+        <value xsi:type="xsd:string">Neverbounce</value>
+    </values>
+    <values>
+        <field>Platform_Event_Verify_Email_Size__c</field>
+        <value xsi:type="xsd:double">50.0</value>
+    </values>
+    <values>
+        <field>Token__c</field>
+        <value xsi:type="xsd:string">private_4016ab2d5e26b3872b5363085750aadd</value>
+    </values>
+    <values>
+        <field>URL_Path_Job_Create__c</field>
+        <value xsi:type="xsd:string">jobs/create</value>
+    </values>
+    <values>
+        <field>URL_Path_Job_Download__c</field>
+        <value xsi:type="xsd:string">jobs/download</value>
+    </values>
+    <values>
+        <field>URL_Path_Job_Status__c</field>
+        <value xsi:type="xsd:string">jobs/status</value>
+    </values>
+    <values>
+        <field>URL_Path_Verify_Email__c</field>
+        <value xsi:type="xsd:string">single/check</value>
+    </values>
+    <values>
+        <field>URL__c</field>
+        <value xsi:type="xsd:string">https://api.neverbounce.com/v4</value>
+    </values>
+</CustomMetadata>

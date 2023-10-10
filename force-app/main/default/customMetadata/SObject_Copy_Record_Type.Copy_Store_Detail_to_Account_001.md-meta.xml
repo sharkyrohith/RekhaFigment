@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Copy Store Detail to Account 001</label>
+    <protected>false</protected>
+    <values>
+        <field>Source_Record_Type_Developer_Name__c</field>
+        <value xsi:type="xsd:string">ALL</value>
+    </values>
+    <values>
+        <field>Source_SObject_Key__c</field>
+        <value xsi:type="xsd:string">Account__c</value>
+    </values>
+    <values>
+        <field>Source_SObject_Type__c</field>
+        <value xsi:type="xsd:string">Store_Details__c</value>
+    </values>
+    <values>
+        <field>Target_Record_Type_Developer_Name__c</field>
+        <value xsi:type="xsd:string">ALL</value>
+    </values>
+    <values>
+        <field>Target_SObject_Key__c</field>
+        <value xsi:type="xsd:string">Id</value>
+    </values>
+    <values>
+        <field>Target_SObject_Type__c</field>
+        <value xsi:type="xsd:string">Account</value>
+    </values>
+</CustomMetadata>

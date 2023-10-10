@@ -1,0 +1,9 @@
+<apex:page standardController="Case" extensions="VCaseTakeOwnershipExtension">
+    <apex:form >
+        <apex:actionFunction name="changeOwner" action="{!changeOwnershipToCurrentUser}" />
+    {!errorMessage}
+    </apex:form>
+    <script>
+        changeOwner();
+    </script>
+</apex:page>

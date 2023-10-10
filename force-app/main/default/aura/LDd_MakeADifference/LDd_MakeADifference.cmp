@@ -1,0 +1,59 @@
+<aura:component access="global" implements="forceCommunity:availableForAllPageTypes">
+    <aura:attribute name="applyURL" type="String" />
+    <div>
+        <div class="slds-grid slds-wrap mediaCalloutSection slds-grid_vertical-align-center lightGray">
+            <div class="slds-large-size_1-of-2 slds-medium-size_1-of-2 slds-small-size_1-of-1 mediaCalloutLeft">
+                <img src="{!$Resource.DCCImages + '/Make_a_Difference.jpg'}" />
+            </div>
+
+            <div
+                class="slds-size_1-of-1 slds-large-size_1-of-2 slds-medium-size_1-of-2 slds-small-size_1-of-1 textRight">
+                <h3 class="slds-text-align_center" style="margin-bottom:35px;">Are You Ready to Make a Difference?</h3>
+                <div class="slds-grid slds-wrap slds-text-align:center">
+                    <div class="slds-size_1-of-1 slds-large-size_1-of-4 slds-medium-size_1-of-4 slds-small-size_1-of-1">
+                    </div>
+                    <div
+                        class="slds-size_1-of-1 slds-large-size_1-of-4 slds-medium-size_1-of-4 slds-small-size_1-of-1 slds-text-align_center">
+                        <a href="{!v.applyURL}" class="slds-button slds-button_brand" target="_blank">
+                            Apply Now
+                        </a>
+                    </div>
+                    <div
+                        class="slds-size_1-of-1 slds-large-size_1-of-4 slds-medium-size_1-of-4 slds-small-size_1-of-1 slds-text-align_center">
+                        <a href="/dashers/s/dasher-community-council-in-action" class="slds-button slds-button_neutral">
+                            See the DCC in Action
+                        </a>
+                    </div>
+                    <div class="slds-size_1-of-1 slds-large-size_1-of-4 slds-medium-size_1-of-4 slds-small-size_1-of-1">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- EXAMPLE USAGE OF THE ColorBackgroundCallout SECTION 
+        <div class="colorBackgroundCallout tan">
+            <div class="smallFrame slds-text-align_center">
+                <h3 style="margin-bottom:35px;">Are You Ready to Make a Difference?</h3>
+                <div class="slds-grid slds-wrap slds-text-align:center">
+                    <div class="slds-large-size_1-of-4 slds-medium-size_1-of-4 slds-small-size_1-of-1"></div>
+                    <div
+                        class="slds-large-size_1-of-4 slds-medium-size_1-of-4 slds-small-size_1-of-1 slds-text-align:center">
+                        <a href="" class="slds-button slds-button_brand">
+                            Apply Now
+                        </a>
+                    </div>
+                    <div
+                        class="slds-large-size_1-of-4 slds-medium-size_1-of-4 slds-small-size_1-of-1 slds-text-align:center">
+                        <a href="" class="slds-button slds-button_neutral">
+                            Learn More
+                        </a>
+                    </div>
+                    <div class="slds-large-size_1-of-4 slds-medium-size_1-of-4 slds-small-size_1-of-1"></div>
+                </div>
+            </div>
+        </div>
+        -->
+
+    </div>
+</aura:component>

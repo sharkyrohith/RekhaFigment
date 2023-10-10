@@ -1,0 +1,52 @@
+<apex:component >
+    <apex:attribute name="photoURL" description="URL of profile picture of user" type="string"/>
+    <apex:attribute name="userSignature" description="text that needs to be displayed as signature" type="string"/>
+    <table cellspacing="0" cellpadding="0" align="center">
+        <tbody>
+            <tr>
+                <td align="center">
+                    <table width="600" cellspacing="0" cellpadding="0" bgcolor="#ffffff" align="center">
+                        <tbody>
+                            <tr>
+                                <td align="left">
+                                    <table cellspacing="0" cellpadding="0" align="left">
+                                        <tbody>
+                                            <tr>
+                                                <td width="140" height="30" align="left">
+                                                    <table width="100%" cellspacing="0" cellpadding="0">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td style="font-size: 0px;" align="right"><a target="_blank"><img src="{!photoURL}" alt="mxpimg" style="display: block;" width="200px" height="200px"/></a></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <table cellspacing="0" cellpadding="0" align="right">
+                                        <tbody>
+                                            <tr>
+                                                <td width="400" height="30" align="left">
+                                                    <table width="100%" cellspacing="0" cellpadding="0">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td esd-links-underline="none" align="left">
+                                                                    <h3 style="line-height: 100%; color: #e71611;margin-left:30px"><apex:outputText value="{!userSignature}" escape="false"></apex:outputText></h3>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</apex:component>

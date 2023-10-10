@@ -1,0 +1,106 @@
+<aura:component access="global" implements="forceCommunity:availableForAllPageTypes">
+    <ltng:require styles="{!$Resource.SrCav_Community_Fonts + '/stylesheet.css'}" />
+
+    <div>
+
+        <div class="ddhs-body">
+
+            <div class="ddhs-head">
+            <span class="ddhs-headline" display="block">
+                {!$Label.c.DdCommunity_Help_Here2Help}
+                <span class="ddhs-tagline" display="block">{!$Label.c.CavCommunity_HubChoose}</span>
+            </span>
+            </div>
+
+            <div class="ddhs-select-outer">
+
+                <div class="ddhs-select-inner dhs-select-inner-1">
+                    <a href="{!$Label.c.CavCommunity_URL_Diners}" target="_blank">
+                        <div class="ddhs-select-tile">
+                            <img class="ddhs-select-icon" src="{!$Resource.SrCav_Community_Assets + '/icons/trycaviar_individual.svg'}"/>
+                            <span class="ddhs-select-block" display="block">
+                                <div class="ddhs-select-text" size="16">
+                                    <div>
+                                        {!$Label.c.CavCommunity_Footer_AmDiner}
+                                    </div>
+                                        <span class="ddhs-select-desc" display="block">
+                                        {!$Label.c.CavCommunity_HubDesc_Diner}
+                                        </span>
+                                </div>
+                                <span class="ddhs-select-link" display="block">
+                                    {!$Label.c.CavCommunity_Footer_GetDinerSupport}
+                                        </span>
+                            </span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="ddhs-select-inner dhs-select-inner-2">
+                    <a href="{!$Label.c.CavCommunity_URL_Courier}" target="_blank">
+                        <div class="ddhs-select-tile">
+                            <img class="ddhs-select-icon" src="{!$Resource.SrCav_Community_Assets + '/icons/trycaviar_couriers.svg'}"/>
+                            <span class="ddhs-select-block" display="block">
+                                <div class="ddhs-select-text" size="16">
+                                    <div>
+                                        {!$Label.c.CavCommunity_Footer_AmCourier}
+                                    </div>
+                                        <span class="ddhs-select-desc" display="block">
+                                        {!$Label.c.CavCommunity_HubDesc_Courier}
+                                        </span>
+                                </div>
+                                <span class="ddhs-select-link" display="block">
+                                    {!$Label.c.CavCommunity_Footer_GetCourierSupport}
+                                        </span>
+                            </span>
+                        </div>
+                    </a>
+                </div>
+
+
+                <div class="ddhs-select-inner dhs-select-inner-3">
+                    <a href="{!$Label.c.CavCommunity_URL_Restaurant}" target="_blank">
+                        <div class="ddhs-select-tile">
+                            <img class="ddhs-select-icon" src="{!$Resource.SrCav_Community_Assets + '/icons/trycaviar_restaurants.svg'}"/>
+                            <span class="ddhs-select-block" display="block">
+                                <div class="ddhs-select-text" size="16">
+                                    <div>
+                                        {!$Label.c.CavCommunity_Footer_AmRestaurant}
+                                    </div>
+                                        <span class="ddhs-select-desc" display="block">
+                                        {!$Label.c.CavCommunity_HubDesc_Restaurant}
+                                        </span>
+                                </div>
+                                <span class="ddhs-select-link" display="block">
+                                    {!$Label.c.CavCommunity_Footer_GetRestaurantSupport}
+                                        </span>
+                            </span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- div class="ddhs-select-inner dhs-select-inner-4">
+                    <a href="{!$Label.c.CavCommunity_URL_Companies}" target="_blank">
+                        <div class="ddhs-select-tile">
+                            <img class="ddhs-select-icon" src="{!$Resource.SrCav_Community_Assets + '/icons/trycaviar_customers.svg'}"/>
+                            <span class="ddhs-select-block" display="block">
+                                <div class="ddhs-select-text" size="16">
+                                    <div>
+                                        {!$Label.c.CavCommunity_Footer_AmCompanies}
+                                    </div>
+                                        <span class="ddhs-select-desc" display="block">
+                                        {!$Label.c.CavCommunity_HubDesc_Companies}
+                                        </span>
+                                </div>
+                                <span class="ddhs-select-link" display="block">
+                                    {!$Label.c.CavCommunity_Footer_GetCompaniesSupport}
+                                        </span>
+                            </span>
+                        </div>
+                    </a>
+                </div -->
+
+
+            </div>
+        </div>
+    </div>
+</aura:component>

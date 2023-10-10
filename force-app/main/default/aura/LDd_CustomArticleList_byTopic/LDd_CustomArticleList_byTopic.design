@@ -1,0 +1,21 @@
+<design:component label="Custom Article List-View">
+    
+    <design:attribute name="TopicName" label="Topic Name" default="Topic Name" />
+    <design:attribute name="TopicLink" label="Topic Link" default="0TO1a0000007fB6GAI/payments" />
+    
+    <design:attribute name="ArticleTitle_1" label="Article 1 Name" default="Article Title" />
+    <design:attribute name="ArticleLink_1" label="Article 1 URL" default="Article-URL"  />
+    
+    <design:attribute name="ArticleTitle_2" label="Article 2 Name" default="Article Title" />
+    <design:attribute name="ArticleLink_2" label="Article 2 URL" default="Article-URL"  />
+    
+    <design:attribute name="ArticleTitle_3" label="Article 3 Name" default="Article Title" />
+    <design:attribute name="ArticleLink_3" label="Article 3 URL" default="Article-URL"  />
+    
+    <design:attribute name="ArticleTitle_4" label="Article 4 Name" default="Article Title" />
+    <design:attribute name="ArticleLink_4" label="Article 4 URL" default="Article-URL"  />
+    
+    <design:attribute name="ArticleTitle_5" label="Article 5 Name" default="Article Title" />
+    <design:attribute name="ArticleLink_5" label="Article 5 URL" default="Article-URL"  />
+    
+</design:component>

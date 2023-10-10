@@ -1,0 +1,6 @@
+<aura:documentation>
+	<aura:description>Documentation</aura:description>
+	<aura:example name="RejectedReasonScreen" ref="rejectedReasonScreen" label="Reason for Rejected Users">
+		This component renders the UI for capturing the Approval/Rejection and capture the rejected reason for users that report to the manager
+	</aura:example>
+</aura:documentation>

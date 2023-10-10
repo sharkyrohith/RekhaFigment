@@ -1,0 +1,64 @@
+<template>
+      <lightning-card icon-name="standard:case" title={sectionName}>
+        <div class="slds-card__body_inner">
+          <lightning-record-edit-form
+            record-id={recordId}
+            record-type-id={recordTypeIdVal}
+            object-api-name="Case"
+            onsubmit ={handleSubmit}
+            onsuccess={handleSuccess}
+            onerror={handleError}>
+            <lightning-messages></lightning-messages>
+            <template if:true={isLoading}>
+              <lightning-spinner variant="brand" size="large"> </lightning-spinner>
+            </template>
+            <template if:true={section}>
+              <lightning-layout multiple-rows="true">
+                <lightning-layout-item size="12">
+                      <lightning-layout multiple-rows="true">
+                            <template for:each={section.fields} for:item="field">
+                              <lightning-layout-item key={field.apiName} size={field.columnSpan.size} padding="horizontal-small">
+                                <template if:true={isEdit}>
+                                  <lightning-input-field class="slds-form-element__static"
+                                    field-name={field.apiName}
+                                    required={field.required}
+                                    read-only={field.readOnly}
+                                    disabled={field.readOnly}
+                                    variant={field.columnSpan.variant}>
+                                  </lightning-input-field>
+                                </template>
+                                <template if:false={isEdit}>
+                                  <template if:true={field.isBlank}>
+                                    <div class="slds-col slds-has-flexi-truncate slds-clearfix slds-p-vertical_medium">
+                                      <!-- just a blank column, we set the size using slds padding class  -->
+                                    </div>
+                                  </template>
+                                  <template if:false={field.isBlank}>
+                                    <div class="slds-col slds-has-flexi-truncate slds-clearfix slds-border_bottom">
+                                        <lightning-output-field class="slds-form-element_small slds-form-element_edit slds-hint-parent slds-form-element slds-form-element_horizontal"
+                                          field-name={field.apiName}>
+                                            <template if:false={field.readOnly}>
+                                              <lightning-button-icon class="slds-float_right" icon-name="utility:edit"  variant="bare" alternative-text="Edit" title="Edit" onclick={handleEdit}></lightning-button-icon>
+                                            </template>
+                                        </lightning-output-field>
+                                    </div>
+                                  </template>
+                                </template>
+                              </lightning-layout-item>
+                            </template>
+                      </lightning-layout>
+                </lightning-layout-item>
+              </lightning-layout>
+            </template>
+
+
+            <template if:true={isEdit}>
+              <div class="slds-align_absolute-center">
+                <lightning-button class="slds-p-right_small" label="Cancel" onclick={handleReset} ></lightning-button>
+                <lightning-button variant="brand" type="submit" label="Save"></lightning-button>
+              </div>
+            </template>
+          </lightning-record-edit-form>
+      </div>
+      </lightning-card>
+</template>

@@ -1,0 +1,819 @@
+.THIS {
+    font-family: "SQ_Market_Regular";
+}
+
+.THIS div h1 {
+    font-size: 40px;
+    line-height: 44px;
+    color: #191919;
+    font-family: "SQ_Market_Medium";
+    text-rendering: geometricPrecision;
+}
+
+.THIS div h3 {
+    font-size: 20px;
+    line-height: 24px;
+    color: #2D3C48;
+    font-family: "SQ_Market_Medium";
+    text-rendering: geometricPrecision;
+}
+
+/*-- Header Top --*/
+
+.THIS .forceCommunitySection .cb-section_column:only-child {
+    padding: 0;
+}
+
+.THIS .Inner .cct-header-fixed {
+    display: block;
+    z-index: 1;
+    width: 100%;
+    background: #FFF;
+}
+
+.THIS .cct-header-top-wrap {
+    padding: 20px 0 42px;
+    max-width: 1016px;
+    margin: 0px auto;
+}
+
+.THIS .cct-logo a {
+    float: left;
+}
+
+.THIS .cct-logo img {
+    display: block;
+    height: auto;
+    margin: 0;
+    width: 110px;
+}
+
+.THIS .cct-contact {
+    text-align: right;
+}
+
+.THIS .cct-contact a.cct-contact-support {
+    background-color: #f97242;
+    font-size: 14px;
+    height: 35px;
+    line-height: 35px;
+    padding: 0 15px;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 500;
+    max-width: 100%;
+    outline: none;
+    text-decoration: none;
+    text-align: center;
+    -webkit-transition: background-color 0.15s;
+    transition: background-color 0.15s;
+    white-space: nowrap;
+}
+
+.THIS .cct-contact a.cct-topiccatalog {
+    background-color: #fff;
+    font-size: 14px;
+    height: 35px;
+    line-height: 35px;
+    padding: 0 8px;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    border: none;
+    border-radius: 4px;
+    color: #666;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 500;
+    max-width: 100%;
+    outline: none;
+    text-decoration: none;
+    text-align: center;
+    -webkit-transition: background-color 0.15s;
+    transition: background-color 0.15s;
+    white-space: nowrap;
+    margin-right: 10px;
+    border: #ccc solid 1px;
+    position: relative;
+    top: 1px;
+}
+
+.THIS .cct-contact a.cct-topiccatalog:hover {
+    background-color: #FAE4E1;
+}
+
+/*-- Search V1 --
+.THIS .cct-search-wrap {
+background: #fafafa;
+border-top: 1px solid #e0e0e0;
+border-bottom: 1px solid #e0e0e0;
+padding: 20px 0;
+}
+.THIS .cct-searchBox {
+margin-left: auto;
+margin-right: auto;
+width: 1164px;
+}
+.THIS .cct-searchBox input{
+background: #fff !important;
+}
+.THIS .cct-searchBox .inputWrapper {
+padding-left: 3rem;
+background: #fff;
+}
+*/
+
+/*-- Hero Banner -- */
+
+.THIS .cct-hero-banner-wrap {
+    background-image: url('/caviarcouriers/resource/SrCav_Community_Assets/hero/courier-apply-hero-image.jpg');
+    display: block;
+    background-size: cover;
+    margin: 0px auto;
+    width: 100%;
+    height: 375px;
+    padding: 118px 30px;
+}
+
+.THIS .cct-hero-banner {
+    max-width: 1164px;
+    margin: 0px auto;
+}
+
+.THIS .cct-hero-title {
+    text-align: left;
+    font-size: 36px;
+    font-weight: 500;
+    color: #FFF;
+    margin: 0 auto;
+    position: relative;
+    bottom: 0px;
+    width: 100%;
+}
+
+.THIS .cct-hero-title a {
+    color: #FFF !important;
+    text-decoration: none;
+}
+
+
+.THIS .cct-hero-title a:hover {
+    color: #FFF !important;
+    text-decoration: none;
+}
+
+/*-- Home Hero Banner --*/
+
+.THIS .cct-header.Home .cct-hero-banner-wrap {
+    height: 375px;
+    padding: 118px 30px;
+    background-color: #CCCCCC;
+}
+
+
+.THIS .cct-header.Home .cct-hero-title {
+    padding: 75px 20px 15px 20px;
+}
+
+/*-- Inner Hero Banner --*/
+
+.THIS .cct-header.Inner .cct-hero-banner-wrap {
+    height: 125px;
+    padding: 100px 30px;
+    background-color: #CCCCCC;
+
+}
+
+.THIS .cct-header.Inner .cct-hero-title {
+    padding: 15px 20px 5px 20px;
+}
+
+/*-- Courier Home Hero Banner --*/
+
+.THIS.Courier .cct-header.Home .cct-hero-banner-wrap {
+    background-image: url('/couriers/resource/SrCav_Community_Heros/WebBanner_Couriers.jpg');
+
+}
+
+/*-- Courier Inner Hero Banner --*/
+
+.THIS.Courier .cct-header.Inner .cct-hero-banner-wrap {
+    background-image: url('/couriers/resource/SrCav_Community_Heros/WebBanner_Couriers.jpg');
+
+}
+
+/*-- Diner Home Hero Banner --*/
+
+.THIS.Diner .cct-header.Home .cct-hero-banner-wrap {
+    background-image: url('/diners/resource/SrCav_Community_Heros/WebBanner_Diners.jpg');
+
+}
+
+/*-- Diner Inner Hero Banner --*/
+
+.THIS.Diner .cct-header.Inner .cct-hero-banner-wrap {
+    background-image: url('/diners/resource/SrCav_Community_Heros/WebBanner_Diners.jpg');
+
+}
+
+/*-- Restaurants Home Hero Banner --*/
+
+.THIS.Restaurant .cct-header.Home .cct-hero-banner-wrap {
+    background-image: url('/restaurants/resource/SrCav_Community_Heros/WebBanner_Merchants-dark.jpg');
+    background-position: center;
+}
+
+/*-- Restaurants Inner Hero Banner --*/
+
+.THIS.Restaurant .cct-header.Inner .cct-hero-banner-wrap {
+    background-image: url('/restaurants/resource/SrCav_Community_Heros/WebBanner_Merchants-dark.jpg');
+    background-position: center;
+}
+
+/*-- Companies Home Hero Banner --*/
+
+.THIS.Companies .cct-header.Home .cct-hero-banner-wrap {
+    background-image: url('/caviarforcompanies/resource/SrCav_Community_Heros/WebBanner_Companies.jpg');
+
+}
+
+/*-- Companies Inner Hero Banner --*/
+
+.THIS.Companies .cct-header.Inner .cct-hero-banner-wrap {
+    background-image: url('/caviarforcompanies/resource/SrCav_Community_Heros/WebBanner_Companies.jpg');
+
+}
+
+
+
+
+/* -- new Support Pages Updates 6/14/2021 -- */
+.THIS .supportLinkText {
+    color: #2D3C48;
+    font-size: 18px;
+    display: inline-block;
+    font-family: "SQ_Market_Light";
+}
+
+.THIS .supportLinkCarat svg {
+    fill: #2D3C48;
+    color: #2D3C48;
+    height: 14px;
+}
+
+.THIS .supportLink a:hover,
+.THIS .supportLink a:focus,
+.THIS .supportLink a:hover .supportLinkText,
+.THIS .supportLink a:focus .supportLinkText {
+    text-decoration: none;
+}
+
+.THIS .supportLink {
+    border-bottom: 1px solid #E7E7E7;
+    padding: 0 0 15px;
+    vertical-align: middle;
+}
+
+.THIS .supportLinkCarat {
+    float: right;
+}
+
+
+
+
+/*-- Search V2 -- */
+
+.THIS .cct-search-wrap {
+    padding-left: 20px;
+}
+
+.THIS .contentWrapper {
+    border-radius: 50px !important;
+}
+
+.THIS .cct-searchBox {
+    width: 60%;
+}
+
+.THIS .forceCommunitySearchBox .cct-searchBox input {
+    background: #fff !important;
+
+}
+
+.THIS .forceCommunitySearchBox .search-field {
+    border-radius: 4px;
+}
+
+.THIS .cct-searchBox .inputWrapper {
+    padding-left: 3rem;
+    background: #fff;
+    height: 40px;
+}
+
+.THIS .cct-search-wrap {
+    display: block;
+    width: 100%;
+}
+
+.THIS .forceCommunitySearchBox .search-button {
+    width: 100px;
+    height: 100%;
+    border-radius: 0px 4px 4px 0px;
+}
+
+/*-- Body --*/
+.THIS .cct-body-wrap {
+    display: block;
+    width: 100%;
+
+}
+
+.THIS .interiorFrame {
+    max-width: 1016px;
+    margin: 0 auto 60px auto;
+}
+
+/*-- Inner Search --*/
+
+.THIS .cct-header.Inner .cct-search-wrap {
+    display: inline-block;
+    width: 100%;
+    margin-right: 25px;
+    position: relative;
+    top: 0px;
+    /*   max-width: 330px; */
+}
+
+.THIS .cct-header.Inner .forceCommunitySearchBox .search-field {
+    height: 2rem;
+    border: 1px #CCC solid;
+}
+
+.THIS .cct-header.Inner .cct-searchBox {
+    width: 100%;
+}
+
+.THIS .cct-header.Inner .cct-searchBox .inputWrapper {
+    padding-left: 2.5rem;
+    background: #fff;
+    height: 30px;
+}
+
+/*-- Overwrites --*/
+
+/*- headline -*/
+.THIS .forceCommunityHeadline .headlineTitle {
+    text-align: left;
+    font-size: 28px;
+    font-weight: 500;
+    padding-top: 0px;
+}
+
+/*- article list by topics -*/
+
+.THIS .forceCommunityTopArticleList h2.title {
+    font-size: 18px;
+    line-height: 1.375;
+    font-weight: 100;
+}
+
+.THIS .forceCommunityTopArticleList .listContent .forceCommunityTopArticleListForTopic h2 {
+    font-size: 16px;
+    line-height: 1.375;
+    font-weight: 400;
+}
+
+.THIS .forceCommunityTopArticleList .forceCommunityTopArticleItem a.article-title-link span {
+    color: #f97242;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+/*-- Feature Topics --*/
+.THIS .forceTopicFeaturedTopicItem.topicItem {
+    width: 33.33333333333333%;
+    height: 150px;
+}
+
+.THIS .forceTopicFeaturedTopics .topicContent .topicLabel {
+    text-align: center;
+    font-size: 15px;
+}
+
+.THIS .article-column .content .forcePageBlockSectionRow:nth-child(2) {
+    display: none !important;
+}
+
+.THIS .article-column .content .forcePageBlockSectionRow:nth-child(3) {
+    display: none !important;
+}
+
+/*-- Hero Image --*/
+
+.THIS .slds-grid.cct-hero-banner-wrap {}
+
+.THIS .slds-grid.cct-hero-banner-wrap {
+    /*
+    background-color: #2d3c48;
+    background-color: #fafafa;
+    */
+
+}
+
+/* Hero Banner
+.THIS .slds-grid.cct-hero-banner {
+
+background-image: url('/caviarcouriers/resource/SrCav_Community_Assets/hero/courier-apply-hero-image.jpg');
+display: block;
+height: 200px;
+background-size: cover;
+margin: 0px auto;
+width: 100%;
+}
+.THIS .cct-hero-title {
+
+text-align: left;
+font-size: 30px;
+font-weight: 500;
+color: #FFF;
+max-width: 1164px;
+margin: 0 auto;
+position: relative;
+bottom: 0px;
+top: 65%;
+padding: 20px;
+width: 100%;
+}
+*/
+
+/*-- Article Detail Style Overrides --*/
+
+.THIS article.content .test-id__field-label-container.slds-form-element__label {
+    display: none;
+}
+
+.THIS .selfServiceArticleLayout .slds-rich-text-editor__output.forceOutputRichText {
+    line-height: 1.8;
+}
+
+/* hides article toolip */
+.THIS .selfServiceArticleLayout .tooltipIcon,
+.THIS .selfServiceArticleLayout .tooltipIcon .slds-icon {
+    display: none !important;
+}
+
+
+/* adds padding to bottom of article body */
+
+.THIS .selfServiceArticleLayout .content .itemBody {
+    padding-bottom: 20px !important;
+}
+
+
+/*-- Topic Detail Overrides --*/
+/*- hides tabs from topic layout -*/
+.THIS .interiorFrame .forceCommunityResultsList .uiTabBar[role="tablist"] {
+    display: none;
+}
+
+.THIS .forceTopicSubTopicNavigation .topic-subNavContainer {
+    font-size: 1rem;
+    text-align: left;
+}
+
+/*-- Search Results Overrides --*/
+.THIS .forceCommunitySearch .slds-tile .slds-tile__detail.slds-text-body--small {
+    display: none;
+}
+
+.THIS .forceCommunitySearch .slds-border_right.slds-medium-size_1-of-6 {
+    display: none !important;
+}
+
+.THIS .forceCommunitySearch .slds-tile .itemTitle {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+
+.THIS .forceCommunitySection .cb-section_column:first-child {
+    padding-left: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.THIS .backButtonWrap {
+    margin-bottom: -6px;
+    display: inline-block;
+    margin-left: -10px;
+    padding: 10px 12px;
+    border-radius: 50%;
+    box-shadow: transparent 0 0 0 3px, transparent 0 0 0 1px inset;
+}
+
+.THIS .backButtonWrap:hover {
+    box-shadow: rgb(73, 105, 245) 0 0 0 3px, transparent 0 0 0 1px inset;
+}
+
+@media screen and (max-width: 1024px) {
+
+    .THIS .cct-header,
+    .THIS .cct-body-wrap {
+        padding: 0 24px;
+    }
+
+
+}
+
+/*-- Breakpoint for Tablet --*/
+@media screen and (max-width: 768px) {
+    .THIS .cct-header.Home .cct-hero-banner-wrap {
+        height: 250px;
+        padding: 65px 30px;
+    }
+
+    .THIS .forceCommunitySection .cb-section_column:first-child {
+        padding: 0;
+    }
+
+    .THIS .global-footer_navigation ul li {
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin: 0 0 12px 0;
+    }
+
+    .THIS .cct-header.Home .cct-hero-title {
+        padding: 5px 20px 10px 20px;
+        text-align: center;
+    }
+
+    .THIS .cct-header.Home .cct-searchBox {
+        width: 95%;
+    }
+
+    .THIS .forceCommunitySearchBox .mobile-search-icon {
+        margin: 0 auto;
+        background-color: rgb(249, 114, 66);
+        padding: 2px 8px;
+        border-radius: 4px;
+    }
+
+    .THIS .forceCommunitySearchBox .mobile-search-icon lightning-primitive-icon {
+        color: #fff;
+
+    }
+
+    .THIS .forceCommunitySearchBox.focused .close-button.slds-button {
+        height: 35px;
+        color: #fff;
+        background-color: rgb(249, 114, 66);
+
+
+    }
+
+    .THIS .forceCommunitySearchBox.focused {
+
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 500;
+
+    }
+
+    .THIS .cct-header.Inner .forceCommunitySearchBox .mobile-search-icon {
+        background-color: #fff;
+
+
+    }
+
+    .THIS .cct-header.Inner .forceCommunitySearchBox .mobile-search-icon lightning-primitive-icon {
+        color: rgb(249, 114, 66);
+
+    }
+
+    .THIS div h1 {
+        font-size: 32px;
+        line-height: 40px;
+    }
+
+    .THIS div h3 {
+        font-size: 18px;
+        line-height: 22px;
+    }
+
+}
+
+/*-- Breakpoint for Mobile --*/
+
+@media screen and (max-width: 480px) {
+
+    .THIS .cct-header.Home .cct-hero-banner-wrap {
+        height: 140px;
+        padding: 1px 3px;
+    }
+
+    .THIS .cct-header.Inner .cct-hero-banner-wrap {
+        height: 115px;
+        padding: 85px 30px;
+    }
+
+    .THIS .cct-header.Home .cct-hero-title {
+        padding: 25px 10px 20px 20px;
+        line-height: 28px;
+        font-size: 30px;
+    }
+
+    .THIS .cct-header.Home .cct-searchBox {
+        width: 90%;
+    }
+
+    .THIS .cct-header.Inner .cct-hero-title {
+        padding: 30px 10px 0 10px;
+        line-height: 24px;
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .THIS .cct-header.Inner .cct-searchBox .inputWrapper {
+        height: 32px;
+    }
+
+    .THIS .cct-header.Inner .cct-search-wrap {
+        width: 100%;
+        margin-right: 0px;
+        position: relative;
+        padding-left: 0px;
+        top: 4px;
+    }
+
+    .THIS .cct-contact a.cct-contact-support {
+        font-size: 12px;
+        padding: 0 10px;
+    }
+
+
+
+    .THIS .forceCommunitySearchBox .mobile-search-icon {
+        margin: 0 auto;
+        background-color: rgb(249, 114, 66);
+        padding: 0px 6px;
+        border-radius: 4px;
+        position: relative;
+        top: -3px;
+    }
+
+    .THIS .forceCommunitySearchBox .mobile-search-icon lightning-primitive-icon {
+        color: #fff;
+
+    }
+
+}
+
+/*-- Topic Catalog Styles --*/
+
+.THIS .forceCommunityTopicCatalog ul.topicHierarchy-childrenList {
+    display: inline;
+}
+
+.THIS .forceCommunityTopicCatalog .topicHierarchy-childrenList li {
+    padding: 0px 12px;
+    display: inline-block;
+    position: relative;
+    float: left;
+}
+
+.THIS .forceCommunityTopicCatalog .topicHierarchy-top span.uiOutputText {
+    color: #f97242;
+    font-size: 20px;
+}
+
+.THIS .forceCommunityTopicCatalog a.topicHierarchy-top,
+.THIS .forceCommunityTopicCatalog .topicHierarchy-top span.uiOutputText:hover {
+    text-transform: none;
+    text-decoration: none;
+    color: #f97242;
+}
+
+.THIS .forceCommunityTopicCatalog .topicHierarchy-topBox {
+    padding-top: 20px;
+    border-top: solid;
+    border-top-color: rgba(210, 210, 210, 0.62);
+    margin-bottom: 14px;
+    border-width: 1px;
+    display: inline-flex;
+    width: 100%;
+}
+
+.THIS .forceCommunityTopicCatalog .topicHierarchy-childrenList .topicHierarchy-child {
+    border: #ccc solid 1px;
+    border-radius: 5px;
+    display: flex;
+    width: 260px;
+    min-height: 100px;
+    margin: 20px 0px 0px 0px;
+    padding: 15px 20px 0px 70px;
+    background-image: url('../resource/SrCav_Community_Assets/bug/Caviar_Logo.svg');
+    background-repeat: no-repeat;
+    background-position: 16px 26px;
+    background-size: 40px;
+    transition: color 2s;
+    position: relative;
+}
+
+.THIS .forceCommunityTopicCatalog .topicHierarchy-childrenList .topicHierarchy-child:hover {
+    background-color: #FAE4E1;
+    text-transform: none;
+    text-decoration: none;
+    color: rgb(255, 48, 8);
+    transition: color 2s;
+
+}
+
+.THIS .forceCommunityTopicCatalog .topicHierarchy-childrenList .topicHierarchy-child .uiOutputText {
+    text-align: left;
+    position: absolute;
+    font-size: 19px;
+    font-weight: bold;
+    top: 50%;
+    margin: 0;
+    transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    color: #000;
+}
+
+.THIS .forceCommunityTopicCatalog .topicHierarchy-childrenList .topicHierarchy-child:hover .uiOutputText {
+    color: #000;
+}
+
+.THIS .forceCommunityTopicCatalog .topicHierarchy-childrenList .topicHierarchy-child .uiOutputText:hover {
+    text-transform: none;
+    text-decoration: none;
+}
+
+.THIS .forceCommunityTopicCatalog .topicHierarchy-childrenList li {
+    padding: 0px 20px 0px 0px;
+}
+
+.THIS .forceCommunityTopicCatalog .topicHierarchy-topBox {
+    margin-top: 20px;
+}
+
+/*-- display full subtitle on contact us form --*/
+.THIS.Restaurant .forceCommunityContactSupportForm .slds-truncate {
+    overflow: visible !important;
+    text-overflow: inherit !important;
+    white-space: normal !important;
+}
+
+/*-- reCAPTCHA ---*/
+
+/* button disabled styles --*/
+
+.THIS .forceCommunityContactSupportForm button.contactSupportButton[disabled] {
+    background-color: #CCC !important;
+    border-color: #AAA !important;
+    position: relative;
+    top: 100px;
+}
+
+.THIS .forceCommunityContactSupportForm button.contactSupportButton.contactButton-verified {
+    top: 0px;
+}
+
+
+.THIS div#recaptchaCheckbox {
+    position: relative;
+    top: -70px;
+}
+
+.THIS div#recaptchaCheckbox>div {
+    margin: 0px auto;
+}
+
+
+/*-- Update the Support Form Submission Button --*/
+
+.THIS .cLDdCommunityWebCaseCmp button.slds-button {
+    background-color: #f97242;
+    font-size: 14px;
+    height: 35px;
+    line-height: 35px;
+    padding: 0 15px;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    font-weight: 500;
+    max-width: 100%;
+    outline: none;
+    text-decoration: none;
+    text-align: center;
+    -webkit-transition: background-color 0.15s;
+    transition: background-color 0.15s;
+    white-space: nowrap;
+}

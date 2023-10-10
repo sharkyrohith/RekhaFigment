@@ -1,0 +1,149 @@
+<aura:component controller="CDdLtngNimdaSyncMSCtrl" implements="force:appHostable,force:hasRecordId,c:LDdNimdaSyncConstants,c:LDdNimdaSyncConstantsV4" access="global">
+    <!-- public attributes -->
+    <aura:attribute name="fullOnboardingAction" type="String" access="PUBLIC" />
+    <aura:attribute name="originatingOnboardingStep" type="String" access="PUBLIC" />
+    <!--private attributes-->
+    <aura:attribute name="isLoading" type="Boolean" default="true" access="PRIVATE" />
+    <aura:attribute name="showPaymentV3" type="Boolean" default="false" access="PRIVATE" />
+    <aura:attribute name="polledStep" type="String" access="PRIVATE" default="Initialize" />
+    <aura:attribute name="pollingSteps" type="List" access="PRIVATE" />
+    <aura:attribute name="NIMDA_SYNC_POLLING_TIMEOUT" type="Long" default="{!$Label.c.NimdaSyncPollingTimeout}" access="PRIVATE"/>
+    <!--error related attributes-->
+	<aura:attribute name="errorType" type="String" access="PRIVATE" />
+	<aura:attribute name="errorMessage" type="String" access="PRIVATE" />
+	<aura:attribute name="calloutRequest" type="String" access="PRIVATE" />						
+	<aura:attribute name="calloutResponse" type="String" access="PRIVATE" />
+    <!--polled error related attributes-->
+    <aura:attribute name="polledErrorType" type="String" access="PRIVATE" />
+    <aura:attribute name="polledErrorMessage" type="String" access="PRIVATE" />
+    <aura:attribute name="polledCalloutRequest" type="String" access="PRIVATE" />                     
+    <aura:attribute name="polledCalloutResponse" type="String" access="PRIVATE" />
+    <!--info message attributes-->
+    <aura:attribute name="infoMessage" type="String" access="PRIVATE" />
+    <aura:attribute name="INFO_MESSAGE_INITIALIZING" type="String" access="PRIVATE" default="Initializing"/>
+    <aura:attribute name="INFO_MESSAGE_PROCESSING" type="String" access="PRIVATE" default="{!$Label.c.Nimda_Info_Dialog_Progress_Message}"/>            
+    <!--handlers-->
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    <aura:handler name="LDdNimdaSyncPollingEvent" event="c:LDdNimdaSyncPollingEvent" action="{!c.handleNimdaSyncPollingEvent}"/>
+    <!-- register event-->
+    <aura:registerEvent name="LDdNimdaSyncEvent" type="c:LDdNimdaSyncEvent"/>
+    <!--Include LDdCallout component -->
+    <c:LDdCallout aura:id="calloutCmp" />
+    <c:LDdNimdaSyncPolling aura:id="c:LDdNimdaSyncPolling" recordId="{!v.recordId}" />      
+
+    <aura:if isTrue="{!v.isLoading}">
+        <c:LDdNimdaInfoDialogCmp message="{!v.infoMessage}"/>
+    </aura:if>      
+
+    <div class="c-container">
+        <lightning:layout multipleRows="true">
+            <lightning:layoutItem padding="around-small" size="12">
+                <div aura:id="stnV4Section" class="slds-section slds-m-horizontal_small slds-is-open">
+                    <h3 class="slds-section__title" onclick="{!c.toggleSTNv4Section}">
+                        <button aria-controls="expando-unique-id" aria-expanded="false" class="slds-button slds-section__title-action">
+                            <lightning:icon iconName="utility:switch" size="x-small" class="slds-section__title-action-icon slds-button__icon slds-button__icon_left" aria-hidden="true"/>
+                            <span class="slds-truncate" title="Section Title">{!v.S2N_V45_HEADER_LABEL_SECTION_V4}</span>
+                        </button>
+                    </h3>
+                    <div aria-hidden="false" class="slds-section__content">
+                        <!-- SHOW PROGRESS INDICATOR -->
+                        <aura:if isTrue="{!(v.polledStep ne v.STEP_INITIALIZE)}">
+                            <lightning:progressIndicator currentStep="{!v.polledStep}" type="path" variant="base">
+                                <aura:iteration items="{! v.pollingSteps }" var="step">
+                                    <lightning:progressStep label="{! step.label }" value="{! step.value }"/>
+                                </aura:iteration>
+                            </lightning:progressIndicator>
+                        </aura:if>
+                        <!-- SHOW PROGRESS INDICATOR -->
+                        <!-- SUCCESS MESSAGE -->
+                        <aura:if isTrue="{!(v.polledStep eq v.STEP_COMPLETE)}">
+                            <div class="slds-m-around--large slds-wrap">
+                                <div class="slds-box slds-theme_success">
+                                    <h2>
+                                        <lightning:icon class="slds-icon icon-text-email slds-icon--small slds-m-right--x-small"
+                                                        iconName="utility:success" size="x-small" variant="bare" alternativeText="success"/>
+                                        <span>All steps complete</span>
+                                    </h2>                           
+                                </div>
+                            </div>
+                            <aura:set attribute="else">
+                                <!-- ERROR MESSAGE -->
+                                <aura:if isTrue="{!(!empty(v.errorMessage))}">
+                                    <div class="slds-m-around--large slds-wrap">
+                                        <div class="slds-box slds-theme--error slds-theme--alert-texture">
+                                            <h2>
+                                                <lightning:icon class="slds-icon icon-text-email slds-icon--small slds-m-right--x-small"
+                                                                iconName="utility:error" size="x-small" variant="bare" alternativeText="error"/>
+                                                <span>{!v.fullOnboardingAction}</span>
+                                                <br/>	                                            
+                                                <aura:if isTrue="{!(!empty(v.errorType))}">                                            
+                                                    <span>Request: {!v.errorType}</span>
+                                                </aura:if>                                                
+                                                <br/>								
+                                                <span>Message: {!v.errorMessage}</span>
+                                                <br/>
+                                                <aura:if isTrue="{!(!empty(v.calloutRequest))}">                                            
+                                                    <span>Request: {!v.calloutRequest}</span>
+                                                </aura:if>
+                                                <br/>
+                                                <aura:if isTrue="{!(!empty(v.calloutResponse))}">                                           
+                                                    <span>Response: {!v.calloutResponse}</span>
+                                                </aura:if>	                            	                            
+                                            </h2>
+                                        </div>
+                                    </div>
+                                </aura:if>
+                                <!-- / ERROR MESSAGE -->	            	            
+                                <!-- POLLED ERROR MESSAGE -->
+                                <aura:if isTrue="{!(!empty(v.polledErrorMessage))}">
+                                    <div class="slds-m-around--large slds-wrap">
+                                        <div class="slds-box slds-theme--error slds-theme--alert-texture">
+                                            <h2>
+                                                <lightning:icon class="slds-icon icon-text-email slds-icon--small slds-m-right--x-small"
+                                                                iconName="utility:error" size="x-small" variant="bare" alternativeText="error"/>
+                                                <span>{!v.polledStep}</span>
+                                                <aura:if isTrue="{!(!empty(v.polledErrorType))}">
+                                                    <br/>                                            
+                                                    <span>Type: {!v.polledErrorType}</span>
+                                                </aura:if>                            
+                                                <br/>                                               
+                                                <span>Message: {!v.polledErrorMessage}</span>
+                                                <aura:if isTrue="{!(!empty(v.polledCalloutRequest))}">
+                                                    <br/>                                            
+                                                    <span>Request: {!v.polledCalloutRequest}</span>
+                                                </aura:if>
+                                                <aura:if isTrue="{!(!empty(v.polledCalloutResponse))}">
+                                                    <br/>                                           
+                                                    <span>Response: {!v.polledCalloutResponse}</span>
+                                                </aura:if>                            
+                                            </h2>
+                                        </div>
+                                    </div>
+                                </aura:if>
+                                <!-- / POLLED ERROR MESSAGE -->                        
+                            </aura:set>                 
+                        </aura:if>
+                        <!-- / SUCCESS MESSAGE -->                        
+                    </div>
+                </div>
+            </lightning:layoutItem>
+            <aura:if isTrue="{!v.showPaymentV3}">
+                <lightning:layoutItem padding="around-small" size="12">
+                    <div aura:id="stnV3Section" class="slds-section slds-m-horizontal_small slds-is-open">
+                        <h3 class="slds-section__title" onclick="{!c.toggleSTNv3Section}">
+                            <button aria-controls="expando-unique-id" aria-expanded="false" class="slds-button slds-section__title-action">
+                                <lightning:icon iconName="utility:switch" size="x-small" class="slds-section__title-action-icon slds-button__icon slds-button__icon_left" aria-hidden="true"/>
+                                <span class="slds-truncate" title="Section Title">{!v.S2N_V45_HEADER_LABEL_SECTION_V3}</span>
+                            </button>
+                        </h3>
+                        <div aria-hidden="false" class="slds-section__content">
+                            <c:LDdNimdaPaymentCmpV3 aura:id="paymentCmpV3"
+                            recordId="{!v.recordId}"
+                            v4NimdaStep="{!v.polledStep}"/> 
+                        </div>
+                    </div>
+                </lightning:layoutItem>
+            </aura:if>            
+        </lightning:layout>
+    </div>     
+</aura:component>

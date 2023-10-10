@@ -1,0 +1,3 @@
+<apex:page standardcontroller="Account" >
+<apex:iframe src="https://us-west-2b.online.tableau.com/t/doordash/views/ChildAccountDashboard/InternalDash?iframeSizedToWindow=true&:embed=y&:showAppBanner=false&:display_count=no&:showVizHome=no?:embed=y&:toolbar=no&AccountID={!Account.Id}&:showShareOptions=true&:display_count=no" height="800px" width="100%" scrolling="true"/>
+</apex:page>

@@ -1,0 +1,12 @@
+<template>
+    <lightning-quick-action-panel header="Claim Document Callout">
+        <div style="display: none;">
+            {recordId}
+        </div>
+        <div class="slds-p-around_x-large slds-is-relative">
+            <template if:true={isLoading}>
+                <lightning-spinner variant="brand" size="medium"> </lightning-spinner>
+            </template>
+        </div>
+    </lightning-quick-action-panel>
+</template>

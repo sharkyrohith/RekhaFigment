@@ -1,0 +1,237 @@
+<aura:component access="global" implements="forceCommunity:availableForAllPageTypes"
+    controller="CDdContactSupportChannelsController">
+    <meta http-equiv="refresh" content="0; URL='http://new-website.com'" />
+
+    <aura:attribute name="currentWaitTime" type="String" default="" />
+    <aura:attribute name="community" type="String" default="dasher" />
+    <aura:attribute name="supportPhone" type="String" default="855-973-1040" />
+    <aura:attribute name="showPhone" type="Boolean" default="true" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <ltng:require styles="{!$Resource.SrCav_Community_Fonts + '/stylesheet.css'}" />
+
+    <div>
+        <div class="ddcs-container">
+            <!--
+            <a href="chat-with-us" class="ddcs-tile ddcs-chat"> 
+                <span class="ddcs-title">Chat</span>
+             <span class="ddcs-sub-title">1-2 min wait</span>
+            </a>
+            -->
+
+            <!-- for the C-19 issue
+            
+            <a href="{!'tel:1-' + v.supportPhone}" class="ddcs-tile ddcs-call"> 
+                <span class="ddcs-title">{!$Label.c.DdCommunity_Support_Call_Us}</span>
+                <span class="ddcs-sub-title">{!v.supportPhone} <br />{!v.currentWaitTime}&nbsp;{!$Label.c.DdCommunity_Support_Min_Wait}</span>
+            </a>   
+            
+            <a href="https://twitter.com/messages/compose?recipient_id=3281817403" target="_blank" class="ddcs-tile ddcs-twitter"  data-screen-name="@DoorDash_Help"> 
+                <span class="ddcs-title">{!$Label.c.DdCommunity_Support_Tweet_Us}</span>
+             <span class="ddcs-sub-title">{!$Label.c.DdCommunity_Support_Back_24}</span>
+            </a>
+    
+      -->
+
+            <!--
+            <a href="contactsupport" class="ddcs-tile ddcs-email"> 
+                <span class="ddcs-title">{!$Label.c.DdCommunity_Support_Email_Us}</span>
+             <span class="ddcs-sub-title">{!$Label.c.DdCommunity_Support_Back_24}</span>
+            </a>
+-->
+            <!--
+<a href="https://twitter.com/messages/compose?recipient_id=3281817403"
+  class="twitter-dm-button" data-screen-name="@DoorDash_Help">
+Message @DoorDash_Help</a-->
+        </div>
+        <!--
+                    <div class="dd-footer-choice-title">
+                    {!$Label.c.DdCommunity_ContactSupport_Link}&nbsp;{!$Label.c.DcCommunity_Check_Out_Site_Below} 	
+                </div>    
+
+  -->
+
+        <div class="ddhs-select-outer">
+
+
+
+            <div class="ddhs-select-inner">
+                <div>
+                    <div class="ddhs-select-tile">
+                        <span class="ddhs-select-block" display="block">
+                            <div class="ddhs-select-text" size="16">
+                                <div>
+                                    {!$Label.c.DdCommunity_Help_ImaCustomer}
+                                </div>
+                                <div class="ddhs-select-arrow">
+                                    <img class="ddhs-select-arrow-svg"
+                                        src="{!$Resource.SRDdHelpSelectAssets + '/SVGs/arrow-2px.svg'}" />
+                                </div>
+                            </div>
+                        </span>
+                        <img class="ddhs-select-icon" src="{!$Resource.SRDdHelpSelectAssets + '/SVGs/Customer.svg'}" />
+
+                    </div>
+                </div>
+                <aura:if isTrue="{!v.showPhone}">
+
+                    <!-- Customer Call Link Start href="{!'tel:1-' + $Label.c.DdCommunity_ContactSupportBanner_Phone}"-->
+                    <a class="ddhs-call-bar" href="{!'tel:' + $Label.c.DdCommunity_ContactSupportBanner_Phone_Link}">
+                        <img class="ddhs-call-icon"
+                            src="{!$Resource.SRDdHelpSelectAssets + '/HelpIcons/DD-Icons-DW_phone_white.svg'}" />
+                        <div class="ddhs-chat-cta">
+                            {!$Label.c.DdCommunity_Help_CallCustomerSupport}<br />
+                            {!$Label.c.DdCommunity_ContactSupportBanner_Phone}
+                        </div>
+                    </a>
+                </aura:if>
+
+                <!-- Customer Chat Link Start -->
+                <a class="ddhs-chat-bar" href="https://help.doordash.com/consumers/s/consumer-support?chatonopen=true"
+                    target="_blank">
+                    <img class="ddhs-chat-icon"
+                        src="{!$Resource.SRDdHelpSelectAssets + '/HelpIcons/DD-Icons-DW_chat.svg'}" /><span
+                        class="ddhs-chat-cta">{!$Label.c.DdCommunity_Help_CustomerChat}</span>
+                </a>
+                <!-- Customer Chat Link End -->
+
+
+                <!-- Customer FAQ Link Start -->
+                <a class="ddhs-faq-bar" href="{!$Label.c.DdCommunity_Footer_ImaCustomer_Link}" target="_blank">
+                    <img class="ddhs-faq-icon"
+                        src="{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/Other_Questions.svg'}" /><span
+                        class="ddhs-chat-cta">{!$Label.c.DdCommunity_Help_CustomerFAQs}</span>
+                </a>
+                <!-- Customer FAQ Link End -->
+
+                <span class="ddhs-select-desc" display="block">
+                    {!$Label.c.DdCommunity_Help_GettingStarted}
+                </span>
+            </div>
+
+            <div class="ddhs-select-inner ddhs-select-inner-dasher">
+                <div>
+                    <div class="ddhs-select-tile">
+                        <span class="ddhs-select-block" display="block">
+                            <div class="ddhs-select-text" size="16">
+                                <div>
+                                    {!$Label.c.DdCommunity_Help_ImaDasher}
+                                </div>
+                                <div class="ddhs-select-arrow">
+                                    <img class="ddhs-select-arrow-svg"
+                                        src="{!$Resource.SRDdHelpSelectAssets + '/SVGs/arrow-2px.svg'}" />
+                                </div>
+                            </div>
+                        </span>
+                        <img class="ddhs-select-icon" src="{!$Resource.SRDdHelpSelectAssets + '/SVGs/Dasher.svg'}" />
+                    </div>
+                </div>
+
+                <aura:if isTrue="{!v.showPhone}">
+
+                    <!-- Dasher Call Link Start {!'tel:1-' + $Label.c.DdCommunity_ContactSupportBanner_Phone} -->
+                    <a class="ddhs-call-bar" href="{!'tel:' + $Label.c.DdCommunity_ContactSupportBanner_Phone_Link}">
+                        <img class="ddhs-call-icon"
+                            src="{!$Resource.SRDdHelpSelectAssets + '/HelpIcons/DD-Icons-DW_phone_white.svg'}" />
+                        <div class="ddhs-chat-cta">
+                            {!$Label.c.DdCommunity_Help_CallDasherSupport}<br />
+                            {!$Label.c.DdCommunity_ContactSupportBanner_Phone}
+                        </div>
+                    </a>
+
+                </aura:if>
+
+                <!-- Dasher Chat Link Start -->
+                <a class="ddhs-chat-bar efefef"
+                    href="https://help.doordash.com/dashers/s/dasher-support?chatonopen=true" target="_blank">
+                    <img class="ddhs-chat-icon"
+                        src="{!$Resource.SRDdHelpSelectAssets + '/HelpIcons/DD-Icons-DW_chat.svg'}" /><span
+                        class="ddhs-chat-cta">{!$Label.c.DdCommunity_Help_DasherChat}</span>
+                </a>
+                <!-- Dasher Chat Link End -->
+
+                <!-- Dasher FAQ Link Start -->
+                <a class="ddhs-faq-bar" href="{!$Label.c.DdCommunity_Footer_ImaDasher_link}" target="_blank">
+                    <img class="ddhs-faq-icon"
+                        src="{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/Other_Questions.svg'}" /><span
+                        class="ddhs-chat-cta">{!$Label.c.DdCommunity_Help_DasherFAQs}</span>
+                </a>
+                <!-- Dasher FAQ Link End -->
+
+                <span class="ddhs-select-desc" display="block">
+                    {!$Label.c.DdCommunity_Help_AccountManagement}
+                </span>
+            </div>
+
+            <div class="ddhs-select-inner">
+                <div>
+                    <div class="ddhs-select-tile">
+                        <span class="ddhs-select-block" display="block">
+                            <div class="ddhs-select-text" size="16">
+                                <div>
+                                    {!$Label.c.DdCommunity_Help_ImaMerchant}
+                                </div>
+                                <div class="ddhs-select-arrow">
+                                    <img class="ddhs-select-arrow-svg"
+                                        src="{!$Resource.SRDdHelpSelectAssets + '/SVGs/arrow-2px.svg'}" />
+                                </div>
+                            </div>
+                        </span>
+                        <img class="ddhs-select-icon" src="{!$Resource.SRDdHelpSelectAssets + '/SVGs/Merchant.svg'}" />
+                    </div>
+                </div>
+
+                <aura:if isTrue="{!v.showPhone}">
+
+                    <!-- Merchant Call Link Start href="{!'tel:1-' + $Label.c.DdCommunity_ContactSupportBanner_Phone}" -->
+                    <a class="ddhs-call-bar" href="{!'tel:' + $Label.c.DdCommunity_ContactSupportBanner_Phone_Link}">
+                        <img class="ddhs-call-icon"
+                            src="{!$Resource.SRDdHelpSelectAssets + '/HelpIcons/DD-Icons-DW_phone_white.svg'}" />
+                        <div class="ddhs-chat-cta">
+                            {!$Label.c.DdCommunity_Help_CallMerchantSupport}<br />
+                            {!$Label.c.DdCommunity_ContactSupportBanner_Phone}
+                        </div>
+                    </a>
+
+                </aura:if>
+
+
+                <!-- Merchant Portal Link Start  -->
+                <a class="ddhs-chat-bar" href="https://www.doordash.com/merchant" target="_blank">
+                    <img class="ddhs-chat-icon"
+                        src="{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/Mx_Portal.svg'}" /><span
+                        class="ddhs-chat-cta">{!$Label.c.DdCommunity_Help_MerchantPortal}</span>
+                </a>
+                <!-- Merchant Chat Link End -->
+
+
+
+
+                <!-- Merchant Chat Link Start 
+                       <a class="ddhs-chat-bar" href="https://help.doordash.com/merchants/s/merchant-support?chatonopen=true" target="_blank">
+                            <img class="ddhs-chat-icon" src="{!$Resource.SRDdHelpSelectAssets + '/HelpIcons/DD-Icons-DW_chat.svg'}"/><span class="ddhs-chat-cta">Merchant Chat</span>
+                     </a>-->
+                <!-- Merchant Chat Link End -->
+
+                <!-- Merchant FAQ Link Start  style="padding: 29px 5px;"-->
+                <a class="ddhs-faq-bar" href="{!$Label.c.DdCommunity_Footer_ImaMerchant_Link}" target="_blank">
+                    <img class="ddhs-faq-icon"
+                        src="{!$Resource.SRDdHelpSelectAssets + '/TopicIcons/SVG/Other_Questions.svg'}" /><span
+                        class="ddhs-chat-cta">{!$Label.c.DdCommunity_Help_MerchantFAQs}</span>
+                </a>
+                <!-- Merchant FAQ Link End -->
+
+                <span class="ddhs-select-desc" display="block">
+                    {!$Label.c.DdCommunity_Help_PartneringWithDD}
+                </span>
+            </div>
+
+
+
+        </div>
+
+
+
+    </div>
+
+
+</aura:component>

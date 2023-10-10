@@ -1,0 +1,98 @@
+<template>
+    <template if:true={isLoading}>
+        <lightning-spinner variant="brand" size="large"> </lightning-spinner>
+    </template>
+    <template if:true={isShow}>
+        <lightning-card icon-name={iconName} title={sectionName}>
+            <div slot="Header"> </div>
+            <div slot="actions">
+                <lightning-button variant="brand" label="Edit"  onclick={editFields} ></lightning-button>
+            </div>
+            <div class="slds-card__body_inner">
+                <template if:true={isEdit}>
+                    <div class={recordFormContainerClass}>
+                        <lightning-record-form
+                            record-id={recordId}
+                            object-api-name={objName}
+                            fields={fields}
+                            columns={columns}
+                            mode="edit" oncancel= {handleSuccess} onsuccess={handleSuccess} onerror={handleError} >
+                        </lightning-record-form>
+                    </div>
+                </template>
+                <template if:false={isEdit}>
+                    <div class="slds-form slds-form_stacked">
+                        <template for:each={lstConsentData} for:item="consentRow" for:index="rowIndex">
+                            <div class="slds-grid" key={consentRow}>
+                                <template for:each={consentRow} for:item="mapKey" for:index="columnIndex">
+                                    <div class={mapKey.elemClass} key={mapKey}>
+                                        <div class="slds-form-element slds-form-element_readonly slds-grow">
+                                            <label class="slds-form-element__label">
+                                                {mapKey.fieldLabel}
+                                            </label>
+                                            <div class="slds-form-element__control">
+                                                <template if:true={mapKey.isHidden}>
+                                                    <template if:false={mapKey.maskValue}>
+                                                        &nbsp;
+                                                    </template>
+                                                    <template if:true={mapKey.maskValue}>
+                                                        <div style="display:flex">
+                                                            <div style="flex:1">
+                                                                {mapKey.maskValue}
+                                                                <lightning-icon size="small" class="slds-var-m-left_small pointer" icon-name="utility:preview"
+                                                                    alternative-text={mapKey.revealText} title={mapKey.revealText} data-rowindex={rowIndex} data-columnindex={columnIndex}
+                                                                    onclick={showHideConsent}>
+                                                                </lightning-icon>
+                                                            </div>
+                                                            <lightning-icon size="x-small" class="slds-var-m-left_small pointer" icon-name="utility:copy_to_clipboard"
+                                                                alternative-text={mapKey.copyToClipboardText} title={mapKey.copyToClipboardText} data-rowindex={rowIndex} data-columnindex={columnIndex}
+                                                                onclick={copy}>
+                                                            </lightning-icon>
+                                                        </div>
+                                                    </template>
+                                                </template>
+                                                <template if:false={mapKey.isHidden}>
+                                                    <template if:false={mapKey.actualValue}>
+                                                        &nbsp;
+                                                    </template>
+                                                    <template if:true={mapKey.actualValue}>
+                                                        <div style="display:flex">
+                                                            <div style="flex:1">
+                                                                <template if:true={mapKey.isSpecialType}>
+                                                                    <template if:true={mapKey.isPhone}>
+                                                                        <lightning-click-to-dial value={mapKey.actualValue}></lightning-click-to-dial>
+                                                                    </template>
+                                                                    <template if:true={mapKey.isEmail}>
+                                                                        <lightning-formatted-email value={mapKey.actualValue}></lightning-formatted-email>
+                                                                    </template>
+                                                                    <template if:true={mapKey.isReference}>
+                                                                        <lightning-formatted-url value={mapKey.url} label={mapKey.actualValue}></lightning-formatted-url>
+                                                                    </template>
+                                                                </template>
+                                                                <template if:false={mapKey.isSpecialType}>
+                                                                    {mapKey.actualValue}
+                                                                </template>
+                                                                <lightning-icon size="small" class="slds-var-m-left_small pointer" icon-name="utility:hide"
+                                                                    alternative-text={mapKey.hideText} title={mapKey.hideText} data-rowindex={rowIndex} data-columnindex={columnIndex}
+                                                                    onclick={showHideConsent}>
+                                                                </lightning-icon>
+                                                            </div>
+                                                            <lightning-icon size="x-small" class="slds-var-m-left_small pointer" icon-name="utility:copy_to_clipboard"
+                                                                alternative-text={mapKey.copyToClipboardText} title={mapKey.copyToClipboardText} data-rowindex={rowIndex} data-columnindex={columnIndex}
+                                                                onclick={copy}>
+                                                            </lightning-icon>
+                                                        </div>
+                                                    </template>
+                                                </template>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </template>
+                            </div>
+                        </template>
+                    </div>
+                </template>
+            </div>
+        </lightning-card>
+    </template>
+</template>

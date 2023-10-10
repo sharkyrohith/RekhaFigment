@@ -1,0 +1,6 @@
+<design:component label="Custom Contact Support Button">
+    
+         <design:attribute name="ContactLink" label="Full Contact Support URL" />
+
+	
+</design:component>

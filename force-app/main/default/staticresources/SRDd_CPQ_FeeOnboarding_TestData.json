@@ -1,0 +1,112 @@
+{
+    "MKTPL-0000127":{
+        "productName":"SaaS Fee",
+        "packageName":null,
+        "platform":"DoorDash",
+        "isTrial":false,
+        "quoteLineFieldName":null,
+        "quoteLineFieldValue":null,
+        "orderItemFieldName":null,
+        "orderItemFieldValue":null
+    },
+    "MKTPL-0000135":{
+        "productName":"Caviar Delivery",
+        "packageName":null,
+        "platform":"Caviar",
+        "isTrial":true,
+        "quoteLineFieldName":"Trial_Commission__c",
+        "quoteLineFieldValue":5,
+        "orderItemFieldName":"Trial_Commission__c",
+        "orderItemFieldValue":5
+    },
+    "MKTPL-0000138":{
+        "productName":"Caviar Pickup",
+        "packageName":null,
+        "platform":"Caviar",
+        "isTrial":false,
+        "quoteLineFieldName":null,
+        "quoteLineFieldValue":null,
+        "orderItemFieldName":null,
+        "orderItemFieldValue":null
+    },
+    "MKTPL-0000141":{
+        "productName":"Pickup Fee - Storefront",
+        "packageName":null,
+        "platform":"DoorDash",
+        "isTrial":false,
+        "quoteLineFieldName":"SBQQ__ListPrice__c",
+        "quoteLineFieldValue":50,
+        "orderItemFieldName":"UnitPrice",
+        "orderItemFieldValue":50
+    },
+    "MKTPL-0000142":{
+        "productName":"Payment Processing Fee",
+        "packageName":null,
+        "platform":"DoorDash",
+        "isTrial":false,
+        "quoteLineFieldName":"SBQQ__ListPrice__c",
+        "quoteLineFieldValue":25.50,
+        "orderItemFieldName":"UnitPrice",
+        "orderItemFieldValue":25.50
+    },
+    "MKTPL-0000144":{
+        "productName":"Payment Processing Rate",
+        "packageName":null,
+        "platform":"DoorDash",
+        "isTrial":false,
+        "quoteLineFieldName":"Final_Commission__c",
+        "quoteLineFieldValue":30,
+        "orderItemFieldName":"Final_Commission__c",
+        "orderItemFieldValue":30
+    },
+    "MKTPL-0000145":{
+        "productName":"Service Fee",
+        "packageName":null,
+        "platform":null,
+        "isTrial":false,
+        "quoteLineFieldName":null,
+        "quoteLineFieldValue":null,
+        "orderItemFieldName":null,
+        "orderItemFieldValue":null
+    },
+    "MKTPL-0000151":{
+        "productName":"Cx Delivery Fee - Storefront",
+        "packageName":null,
+        "platform":"DoorDash",
+        "isTrial":false,
+        "quoteLineFieldName":"SBQQ__ListPrice__c",
+        "quoteLineFieldValue":15,
+        "orderItemFieldName":"UnitPrice",
+        "orderItemFieldValue":15
+    },
+    "MKTPL-0000154":{
+        "productName":"Caviar DashPass",
+        "packageName":null,
+        "platform":"Caviar",
+        "isTrial":false,
+        "quoteLineFieldName":null,
+        "quoteLineFieldValue":null,
+        "orderItemFieldName":null,
+        "orderItemFieldValue":null
+    },
+    "MKTPL-0000156":{
+        "productName":"Mx Delivery Fee",
+        "packageName":null,
+        "platform":null,
+        "isTrial":false,
+        "quoteLineFieldName":null,
+        "quoteLineFieldValue":null,
+        "orderItemFieldName":null,
+        "orderItemFieldValue":null
+    },
+    "MKTPKG-0000109":{
+        "productName":"Standard Storefront Package",
+        "packageName":"Storefront",
+        "platform":"DoorDash",
+        "isTrial":false,
+        "quoteLineFieldName":null,
+        "quoteLineFieldValue":null,
+        "orderItemFieldName":null,
+        "orderItemFieldValue":null
+    }
+}

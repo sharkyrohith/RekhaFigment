@@ -1,0 +1,5 @@
+id,name,ownerid,realzip__default_realzip_name__c,realzip__realzip_prefix_length__c,realzip__realzip_record_type__c
+a6t1a000000Gs32AAC,United States,0051a000002VBoJAAW,RZ-US-ALL,5,US
+a6t1a000000Gs33AAC,Canada,0051a000002VBoJAAW,RZ-CA-ALL,3,CA
+a6t2L0000009Aa5QAE,Australia,0051a000002VLgZAAW,RZ-AU-ALL,4,AU
+a6t2L0000009AaAQAU,New Zealand,0051a000002VLgZAAW,RZ-NZ-ALL,4,NZ

@@ -1,0 +1,12 @@
+<apex:page standardController="Account" extensions="CDdCoverageCheckCtrl" action="{!coverageCheckCallout}" lightningStylesheets="true">
+    <apex:slds />
+    <apex:pageMessages escape="false"/>
+    <apex:form >
+        <apex:inputHidden value="{!Account.BillingStreet}"/>
+        <apex:pageBlock >    
+            <apex:pageBlockButtons location="bottom">        
+                <apex:commandButton value="Go Back" action="{!cancel}"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

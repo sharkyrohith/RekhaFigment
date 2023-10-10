@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ApexTestSuite xmlns="http://soap.sforce.com/2006/04/metadata">
+    <testClassName>AQS_AAEnablementHomeControllerTest</testClassName>
+    <testClassName>AQS_ItemsToApproveControllerTest</testClassName>
+    <testClassName>AQS_QuoteExtControllerTests</testClassName>
+    <testClassName>CDdApprovalEmailControllerTest</testClassName>
+    <testClassName>CDdCaseTriggerHelper_CPQTest</testClassName>
+    <testClassName>CDdCloneOppAndQuoteTest</testClassName>
+    <testClassName>CDdCommissionRateTriggerHelperTest</testClassName>
+    <testClassName>CDdCreateQuoteFromOppCtrlTest</testClassName>
+    <testClassName>CDdCustomRelatedListCtrlTest</testClassName>
+    <testClassName>CDdOpportunityTriggerHelper_CPQTest</testClassName>
+    <testClassName>CDdOrderProductTriggerHelperTest</testClassName>
+    <testClassName>CDdOrderTriggerHelperTest</testClassName>
+    <testClassName>CDdQuoteLineTriggerHelperTest</testClassName>
+    <testClassName>CDdQuoteTriggerHelperTest</testClassName>
+    <testClassName>CPQ_ApiDataModelsTest</testClassName>
+    <testClassName>CPQ_ApiHelperTest</testClassName>
+</ApexTestSuite>

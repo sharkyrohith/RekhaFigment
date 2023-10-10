@@ -1,0 +1,9 @@
+<design:component label="Contact Support Banner">
+    
+	    <design:attribute name="BannerVisibility" label="Visible?" />
+    	<design:attribute name="CommunityName" label="Community Name" datasource="consumers,dashers,merchants" default="consumers"/>
+			    <design:attribute name="ClicktoCall" label="Enable Click to Call" />
+
+    
+   
+</design:component>

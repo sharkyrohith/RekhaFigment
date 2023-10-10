@@ -1,0 +1,13 @@
+<apex:component controller="CDdGDPRUnsubscribeLinkCtrl" access="global">
+    <apex:attribute name="email" type="String" description="email of the person" assignTo="{!strEmail}"/>
+    <apex:attribute name="persona" type="String" description="CX,DX,MX" assignTo="{!strPersona}"/>
+    <apex:attribute name="caseId" type="String" description="CaseId" assignTo="{!strCaseId}"/>
+    <apex:attribute name="emailType" type="String" description="Email Type" default="html" assignTo="{!strEmailType}"/>
+    
+    <apex:repeat value="{!htmlTypes}" var="ht">
+        <a href="{!subLink}" target="_NEW">{!$Label.GDPR_Unsubscribe}</a>
+    </apex:repeat>
+    <apex:repeat value="{!textTypes}" var="tt">
+        {!subLink}
+    </apex:repeat>
+</apex:component>

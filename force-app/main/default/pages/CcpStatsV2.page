@@ -1,0 +1,213 @@
+<!--  CCP STATS -->
+<apex:page id="CcpStatsV2" showHeader="false" applyHtmlTag="false" applyBodyTag="false">
+  <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" lang="en">
+  <apex:slds />
+  <apex:includeScript value="{!$Resource.amazonconnect13}" />
+  <apex:includeScript value="{!$Resource.amazonconnectRTC}" />
+  <apex:includeScript value="{!$Resource.statcollector}" />
+  <style>
+    body {
+      background-color: #F2F2F2;
+      border: none;
+    }
+
+    #outercontainer {
+      justify-content: center;
+      text-align: center;
+      vertical-align: middle;
+      align-items: center;
+      margin: 0 auto;
+      border: none;
+      padding: 0;
+    }
+
+    #connectcontainer {
+      width: 1px;
+      height: 1px;
+      justify-content: center;
+      align-items: center;
+      border: none;
+    }
+
+    #statuscontainer {
+      border: 5px outset red;
+      background-color: lightblue;
+      text-align: center;
+    }
+
+    #errorcontainer {
+      border: 5px outset red;
+      background-color: lightblue;
+      text-align: center;
+    }
+  </style>
+
+  <body>
+    <div id="outercontainer">
+      <audio id="remote-audio" autoplay="true"></audio>
+      <div id="connectcontainer"></div>
+      <div id="statuscontainer">STATUS: Not Connected</div>
+      <div id="errorcontainer">LAST-ERROR: None</div>
+    </div>
+  </body>
+
+  <script type="application/javascript">
+
+    var statusMessage = "";
+    var errorMessage = "";
+
+    //var connectURL = "https://wfamzsfdc.awsapps.com/connect/ccp";
+    var connectURL = "{!$Setup.CCPStats__c.Connect_URL__c}";
+    console.log("[StatCollector Init] connectURL=" + connectURL)
+    //var apiEndpoint = `https://axn28o4ma5.execute-api.us-east-1.amazonaws.com/dev/`;  //Change to config value like 'connectURL
+    var apiEndpoint = "{!$Setup.CCPStats__c.API_Endpoint__c}";
+    console.log("[StatCollector Init] apiEndpoint=" + apiEndpoint)
+
+    var container = document.getElementById("connectcontainer");
+
+    // Initialize CCP, create softphone manager as required by connect-rtc.js
+    connect.core.initCCP(connectcontainer, {
+      ccpUrl: connectURL,
+      loginPopup: true,
+      softphone: {
+        allowFramedSoftphone: false,
+      },
+    });
+
+    connect.core.initSoftphoneManager({ allowFramedSoftphone: true });
+    connect.contact(subscribeToContactEvents);
+    connect.agent(subscribeToAgentEvents);
+
+    // Create Stat Collector
+    try {
+      window.statCollector = new StatCollector.StatCollector(apiEndpoint, true);
+      window.statCollector.setStatCollectionInterval({!$Setup.CCPStats__c.Polling_Interval__c});  //{!$Setup.CCPStats__c.Polling_Interval__c} make this configurable ?
+    } catch (e) {
+      console.log("[StatCollector] create stat collector", e);
+    }
+
+    // Contact Events
+    function subscribeToContactEvents(contact) {
+      window.statCollector.contact = contact;
+      console.log("[StatCollector Init] Subscribing to events for contact");
+
+      window.statCollector.contact.onIncoming(handleContactIncoming);
+      window.statCollector.contact.onAccepted(handleContactAccepted);
+      window.statCollector.contact.onConnected(handleContactConnected);
+      window.statCollector.contact.onEnded(handleContactEnded);
+    }
+
+    function handleContactIncoming(contact) {
+      if (window.statCollector.contact) {
+        statusMessage = "[StatCollector.onIncoming] Contact is incoming. Contact state is " + window.statCollector.contact.getStatus().type;
+        document.getElementById('statuscontainer').innerHTML = statusMessage;
+        console.log(statusMessage);
+      } else {
+        statusMessage = "[StatCollector.onIncoming] Contact is incoming. Null contact";
+        document.getElementById('statuscontainer').innerHTML = statusMessage;
+        console.log(statusMessage);
+      }
+    }
+
+    function handleContactAccepted(contact) {
+      if (window.statCollector.contact) {
+        statusMessage = "[StatCollector.onAccepted] Contact accepted by agent. Contact state is " + window.statCollector.contact.getStatus().type;
+        document.getElementById('statuscontainer').innerHTML = statusMessage;
+        console.log(statusMessage);
+      } else {
+        statusMessage = "[StatCollector.onAccepted] Contact accepted by agent. Null contact passed to event handler";
+        document.getElementById('statuscontainer').innerHTML = statusMessage;
+        console.log(statusMessage);
+      }
+    }
+
+    async function handleContactConnected(contact) {
+      if (window.statCollector.contact) {
+        statusMessage = "[StatCollector.onConnected] Contact connected to agent. Contact state is " + window.statCollector.contact.getStatus().type;
+        document.getElementById('statuscontainer').innerHTML = statusMessage;
+        console.log(statusMessage);
+      } else {
+        statusMessage = "[StatCollector.onConnected] Contact connected to agent. Null contact passed to event handler";
+        document.getElementById('statuscontainer').innerHTML = statusMessage;
+        console.log(statusMessage);
+      }
+
+      let connections = window.statCollector.contact.getConnections();
+
+      //Set RTC Session
+      try {
+        window.statCollector.pc = window.connect.core
+          .getSoftphoneManager()
+          .getSession(connections[0].connectionId);
+      } catch (e) {
+        console.log("[StatCollector] set rtc session", e);
+        document.getElementById('errorcontainer').innerHTML = "LAST ERROR: " + e;
+      }
+
+      //Set Interval Function
+      try {
+        statInterval = setInterval(async () => {
+          console.log("[StatCollector] Getting stats...");
+          window.statCollector.pc.getStats().then((result) => {
+            window.statCollector.createRealtimeStats(result);
+          });
+        }, window.statCollector.getStatCollectionInterval());
+      } catch (e) {
+        console.log("[StatCollector] onConnected: setInterval", e);
+        document.getElementById('errorcontainer').innerHTML = "LAST ERROR: " + e;
+      }
+
+      try {
+        // Send RTC Session Report to API Endpoint
+        window.statCollector.pc.onSessionDestroyed = (s, report) => {
+          window.statCollector.createSessionStatsReport(s, report);
+          window.statCollector.clearFeedback();
+        };
+      } catch (e) {
+        console.log("[StatCollector] onConnected: onSessionDestroyed: ", e);
+        document.getElementById('errorcontainer').innerHTML = "LAST ERROR: " + e;
+      }
+    }
+
+    function handleContactEnded(contact) {
+      try {
+        if (statInterval) {
+          clearInterval(statInterval);
+          statInterval = null;
+          console.log("[StatCollector] Interval cleared");
+        }
+      } catch (e) {
+        console.log("[StatCollector] interval cleared", e);
+        document.getElementById('errorcontainer').innerHTML = "LAST ERROR: " + e;
+      }
+      try {
+        if (window.statCollector.contact) {
+          statusMessage = "[StatCollector.onEnded] Contact has ended. Contact state is " + window.statCollector.contact.getStatus().type;
+          document.getElementById('statuscontainer').innerHTML = statusMessage;
+          console.log(statusMessage);
+        } else {
+          statusMessage = "[StatCollector.onEnded] Contact has ended. Null contact passed to event handler";
+          document.getElementById('statuscontainer').innerHTML = statusMessage;
+          console.log(statusMessage);
+        }
+      } catch (e) {
+        console.log("[StatCollector] contact has ended", e);
+        document.getElementById('errorcontainer').innerHTML = "LAST ERROR: " + e;
+      }
+    }
+
+    // Agent Events
+    function subscribeToAgentEvents(agent) {
+      window.statCollector.agent = agent;
+      console.log("[StatCollector Init] Subscribing to events for agent " + agent.getName());
+      window.statCollector.agent.onSoftphoneError(handleAgentSoftphoneError);
+    }
+
+    function handleAgentSoftphoneError(error) {
+      console.log("[StatCollector.onSoftphoneError] Softphone Error ", error);
+      window.statCollector.sendSoftphoneError(error.errorType);
+    }
+  </script>
+
+  </html>
+</apex:page>

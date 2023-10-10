@@ -1,0 +1,54 @@
+<template>
+    <div class="slds-box slds-theme_shade">
+        <lightning-card>
+            <h3 slot="title" class="slds-p-around_medium">
+                <lightning-icon icon-name="utility:rules" size="small" class="slds-p-right_small"></lightning-icon>
+                BULK UPDATE MACROS
+            </h3>
+            <div slot="actions">
+                <lightning-button  class="macrobtn" variant="brand" label="Run" title="Update Macros" onclick={handleRun} icon-name="utility:right">
+                </lightning-button>
+                <template if:true={isLoading}>
+                    <lightning-spinner alternative-text="running"></lightning-spinner>
+                </template>
+            </div>
+            <div class="slds-p-right_large slds-box slds-theme_shade slds-m-around_medium slds-p-around_none">
+                <lightning-accordion  class="accordionStyle" allow-multiple-sections-open >
+                    <lightning-accordion-section name=”read-me” label="READ ME">
+                            <p>
+                                <strong>About:</strong> <br/><br/>
+                                You can use this tool to bulk update macros corresponding to a picklist value update.
+                                For Ex: If a picklist value gets updated from A to B, you can use this to update all macro steps that refer to the old value A. It also
+                                works for parent and child picklist value updates while respecting any dependency. <br/><br/>
+                                <strong>Steps to execute:</strong> <br/><br/>
+                                <strong>#1 </strong> Fill in the below fields<br/>
+                                <strong>#2 </strong> <lightning-button icon-name="utility:download"
+                                label="Click to download CSV template"
+                                title="Download CSV template"
+                                onclick={downloadCSVTemplate} variant="base"></lightning-button><br/>
+                                <strong>#3 </strong> Prepare and upload a CSV of old to new picklist values, If you are updating macros related to a single picklist - you can leave all child picklist
+                                fields and csv columns (last 2) empty.<br/><br/>
+                                <strong>#4 </strong> Click the Run button on the top
+                            </p>
+                    </lightning-accordion-section>
+                </lightning-accordion>
+            </div>
+            <template if:true={batchJobId}>
+                <div class="slds-notify slds-notify_alert alert_success success_banner" role="alert">
+                    <lightning-icon icon-name="utility:success" variant="inverse" alternative-text="Success!" title="Success" size="x-small" class="slds-p-right_x-small"></lightning-icon>
+                    <h2>Batch Job Initiated (JOB ID: {batchJobId}), You can check the status by clicking <a href="/lightning/setup/AsyncApexJobs/home" target="_blank">here</a>.</h2>
+                </div>
+            </template>
+            <template if:true={errorMessage}>
+                <div class="slds-notify slds-notify_alert slds-alert_error" role="alert">
+                    <lightning-icon icon-name="utility:error" variant="inverse" alternative-text="Success!" title="Success" size="x-small" class="slds-p-right_x-small"></lightning-icon>
+                    <h2>{errorMessage}</h2>
+                </div>
+            </template>
+            <lightning-input class="slds-p-top_medium slds-p-right_medium slds-p-left_medium" type="text" label="Enter JIRA ticket number" field-level-help="used to name backup file" placeholder="BIZS-XXXX" data-name="ticketNum" required></lightning-input>
+            <lightning-input class="slds-p-top_medium slds-p-right_medium slds-p-left_medium" type="text" label="Enter Parent Picklist Name" field-level-help="Ex: Case.Issue_Type__c" placeholder="ObjectName.FieldName" data-name="parentPl" required></lightning-input>
+            <lightning-input class="slds-p-top_medium slds-p-right_medium slds-p-left_medium" type="text" label="Enter Child Picklist Name" field-level-help="Ex: Case.Issue__c" placeholder="ObjectName.FieldName" data-name="childPl" ></lightning-input><br/>
+            <c-lwc-dd-csv-to-data-table-component uploadmsg="Upload a csv file with the old to new value mapping" ></c-lwc-dd-csv-to-data-table-component>
+        </lightning-card>
+    </div>
+</template>

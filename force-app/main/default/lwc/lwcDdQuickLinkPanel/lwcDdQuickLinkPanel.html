@@ -1,0 +1,57 @@
+<template>
+    <lightning-card>
+        <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+        <template if:true={merchantQuickLinks}>
+            <div class="slds-box slds-box_x-small">
+                <lightning-card title="Merchant">
+                    <lightning-button-group class="slds-wrap">
+                        <template for:each={merchantQuickLinks} for:item="quickLink">
+                            <lightning-button key={quickLink.id} data-id={quickLink.id}
+                                label={quickLink.label} onclick={openURL}>
+                            </lightning-button>
+                        </template>
+                    </lightning-button-group>
+                </lightning-card>
+            </div>
+        </template>
+        <template if:true={dasherQuickLinks}>
+            <div class="slds-m-top_small slds-box slds-box_x-small">
+                <lightning-card title="Dasher">
+                    <lightning-button-group class="slds-wrap">
+                        <template for:each={dasherQuickLinks} for:item="quickLink">
+                            <lightning-button key={quickLink.id} data-id={quickLink.id}
+                                label={quickLink.label} onclick={openURL}>
+                            </lightning-button>
+                        </template>
+                    </lightning-button-group>
+                </lightning-card>
+            </div>
+        </template>
+        <template if:true={consumerQuickLinks}>
+            <div class="slds-m-top_small slds-box slds-box_x-small">
+                <lightning-card title="Consumer">
+                    <lightning-button-group class="slds-wrap">
+                        <template for:each={consumerQuickLinks} for:item="quickLink">
+                            <lightning-button key={quickLink.id} data-id={quickLink.id}
+                                label={quickLink.label} onclick={openURL}>
+                            </lightning-button>
+                        </template>
+                    </lightning-button-group>
+                </lightning-card>
+            </div>
+        </template>
+        <template if:true={deliveryQuickLinks}>
+            <div class="slds-m-top_small slds-box slds-box_x-small">
+                <lightning-card title="Delivery">
+                    <lightning-button-group class="slds-wrap">
+                        <template for:each={deliveryQuickLinks} for:item="quickLink">
+                            <lightning-button key={quickLink.id} data-id={quickLink.id} label={quickLink.label}
+                                onclick={openURL}>
+                            </lightning-button>
+                        </template>
+                    </lightning-button-group>
+                </lightning-card>
+            </div>
+        </template>
+    </lightning-card>
+</template>

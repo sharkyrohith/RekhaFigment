@@ -1,0 +1,13 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId,force:hasSObjectName,force:lightningQuickActionWithoutHeader" access="global">
+    <aura:html tag="style">
+        .slds-modal__container{
+        width: 60a%;
+        max-width: 50rem;
+        }
+        .modal-body{
+        height : 300px !important;
+        max-height: 350px !important;
+        }
+    </aura:html>
+    <c:lwcDdSSMOQuoteRecall recordId="{!v.recordId}" onclose="{!c.closeComp}"/>
+</aura:component>

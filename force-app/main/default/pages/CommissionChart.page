@@ -1,0 +1,253 @@
+<apex:page standardController="Opportunity" extensions="CommissionChartExtension" showHeader="false" sidebar="false" standardStylesheets="false">
+    <head>
+        <style>
+            table {
+                border-collapse: collapse;
+                width: 100%;
+                border: 1px solid black;
+            }
+            table, th, td {
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+            th, td {
+                padding: 6px;
+                text-align: center;    
+            }
+        </style>
+    </head>
+    <body>
+        	<apex:outputPanel rendered="{!IF(AND(Opportunity.Commission__c < 15, OR( Opportunity.Deck_Rank__c = 'Ace of Spades', Opportunity.Deck_Rank__c = 'Ace')),True,False )}">
+            <table style="width:100%; font-size: 0.8em;">
+                <tr>
+                    <th></th>
+                    <th colspan="21" bgcolor="black" style="color:white; text-align:center;">Commission % and Payout Per Sign</th>
+                </tr>
+                <tr>
+                    <th bgcolor="#ddd">Deck Rank</th>
+                    <th bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 10,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 10,'white','black')}">10%</th>
+                    <th bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 11,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 11,'white','black')}">11%</th>
+                    <th bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 12,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 12,'white','black')}">12%</th>
+                    <th bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 13,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 13,'white','black')}">13%</th>
+                    <th bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 14,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 14,'white','black')}">14%</th>
+                    <th bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 15,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 15,'white','black')}">15%</th>
+                    <th bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 16,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 16,'white','black')}">16%</th>
+                    <th bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 17,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 17,'white','black')}">17%</th>
+                    <th bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 18,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 18,'white','black')}">18%</th>
+                    <th bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 19,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 19,'white','black')}">19%</th>
+                    <th bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 20,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 20,'white','black')}">20%</th>
+                    <th bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 21,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 21,'white','black')}">21%</th>
+                    <th bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 22,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 22,'white','black')}">22%</th>
+                    <th bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 23,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 23,'white','black')}">23%</th>
+                    <th bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 24,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 24,'white','black')}">24%</th>
+                    <th bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 25,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 25,'white','black')}">25%</th>
+                    <th bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 26,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 26,'white','black')}">26%</th>
+                    <th bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 27,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 27,'white','black')}">27%</th>
+                    <th bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 28,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 28,'white','black')}">28%</th>
+                    <th bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 29,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 29,'white','black')}">29%</th>
+                    <th bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 30,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 30,'white','black')}">30%</th>
+                </tr>
+                <!--
+                <tr>
+                    <th rowspan="2">{!Opportunity.Deck_Rank__c}</th>
+                    <td bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 10,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 10,'white','black')}"><apex:outputText value="${0,number,###,##0.00}">
+							<apex:param value="{!cash10}" />
+						</apex:outputText>
+                    </td>
+                    <td bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 11,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 11,'white','black')}"><apex:outputText value="${0,number,###,##0.00}">
+							<apex:param value="{!cash11}" />
+						</apex:outputText>
+                    </td>
+                    <td bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 12,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 12,'white','black')}"><apex:outputText value="${0,number,###,##0.00}">
+							<apex:param value="{!cash12}" />
+						</apex:outputText>
+                    </td>
+                    <td bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 13,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 13,'white','black')}"><apex:outputText value="${0,number,###,##0.00}">
+							<apex:param value="{!cash13}" />
+						</apex:outputText>
+                    </td>
+                    <td bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 14,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 14,'white','black')}"><apex:outputText value="${0,number,###,##0.00}">
+							<apex:param value="{!cash14}" />
+						</apex:outputText>
+                    </td>
+                    <td bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 15,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 15,'white','black')}"><apex:outputText value="${0,number,###,##0.00}">
+							<apex:param value="{!cash15}" />
+						</apex:outputText>
+                    </td>
+                    <td bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 16,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 16,'white','black')}"><apex:outputText value="${0,number,###,##0.00}">
+							<apex:param value="{!cash16}" />
+						</apex:outputText></td>
+                    <td bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 17,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 17,'white','black')}"><apex:outputText value="${0,number,###,##0.00}">
+							<apex:param value="{!cash17}" />
+						</apex:outputText></td>
+                    <td bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 18,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 18,'white','black')}"><apex:outputText value="${0,number,###,##0.00}">
+							<apex:param value="{!cash18}" />
+						</apex:outputText></td>
+                    <td bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 19,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 19,'white','black')}"><apex:outputText value="${0,number,###,##0.00}">
+							<apex:param value="{!cash19}" />
+						</apex:outputText></td>
+                    <td bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 20,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 20,'white','black')}"><apex:outputText value="${0,number,###,##0.00}">
+							<apex:param value="{!cash20}" />
+						</apex:outputText></td>
+                    <td bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 21,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 21,'white','black')}"><apex:outputText value="${0,number,###,##0.00}">
+							<apex:param value="{!cash21}" />
+						</apex:outputText></td>
+                    <td bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 22,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 22,'white','black')}"><apex:outputText value="${0,number,###,##0.00}">
+							<apex:param value="{!cash22}" />
+						</apex:outputText></td>
+                    <td bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 23,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 23,'white','black')}"><apex:outputText value="${0,number,###,##0.00}">
+							<apex:param value="{!cash23}" />
+						</apex:outputText></td>
+                    <td bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 24,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 24,'white','black')}"><apex:outputText value="${0,number,###,##0.00}">
+							<apex:param value="{!cash24}" />
+						</apex:outputText></td>
+                    <td bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 25,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 25,'white','black')}"><apex:outputText value="${0,number,###,##0.00}">
+							<apex:param value="{!cash25}" />
+						</apex:outputText></td>
+                    <td bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 26,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 26,'white','black')}"><apex:outputText value="${0,number,###,##0.00}">
+							<apex:param value="{!cash26}" />
+						</apex:outputText></td>
+                    <td bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 27,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 27,'white','black')}"><apex:outputText value="${0,number,###,##0.00}">
+							<apex:param value="{!cash27}" />
+						</apex:outputText></td>
+                    <td bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 28,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 28,'white','black')}"><apex:outputText value="${0,number,###,##0.00}">
+							<apex:param value="{!cash28}" />
+						</apex:outputText></td>
+                    <td bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 29,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 29,'white','black')}"><apex:outputText value="${0,number,###,##0.00}">
+							<apex:param value="{!cash29}" />
+						</apex:outputText></td>
+                    <td bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 30,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 30,'white','black')}"><apex:outputText value="${0,number,###,##0.00}">
+							<apex:param value="{!cash30}" />
+						</apex:outputText></td>
+                </tr> -->
+                <tr>
+                    <th>{!Opportunity.Deck_Rank__c}</th>
+                    <td bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 10,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 10,'white','black')}">{!pnts10}</td>
+                    <td bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 11,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 11,'white','black')}">{!pnts11}</td>
+                    <td bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 12,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 12,'white','black')}">{!pnts12}</td>
+                    <td bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 13,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 13,'white','black')}">{!pnts13}</td>
+                    <td bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 14,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 14,'white','black')}">{!pnts14}</td>
+                    <td bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 15,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 15,'white','black')}">{!pnts15}</td>
+                    <td bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 16,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 16,'white','black')}">{!pnts16}</td>
+                    <td bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 17,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 17,'white','black')}">{!pnts17}</td>
+                    <td bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 18,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 18,'white','black')}">{!pnts18}</td>
+                    <td bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 19,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 19,'white','black')}">{!pnts19}</td>
+                    <td bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 20,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 20,'white','black')}">{!pnts20}</td>
+                    <td bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 21,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 21,'white','black')}">{!pnts21}</td>
+                    <td bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 22,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 22,'white','black')}">{!pnts22}</td>
+                    <td bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 23,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 23,'white','black')}">{!pnts23}</td>
+                    <td bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 24,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 24,'white','black')}">{!pnts24}</td>
+                    <td bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 25,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 25,'white','black')}">{!pnts25}</td>
+                    <td bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 26,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 26,'white','black')}">{!pnts26}</td>
+                    <td bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 27,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 27,'white','black')}">{!pnts27}</td>
+                    <td bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 28,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 28,'white','black')}">{!pnts28}</td>
+                    <td bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 29,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 29,'white','black')}">{!pnts29}</td>
+                    <td bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 30,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 30,'white','black')}">{!pnts30}</td>
+                </tr>
+            </table>
+            </apex:outputPanel>
+        	<apex:outputPanel rendered="{!IF(OR(Opportunity.Commission__c > 14, AND( Opportunity.Commission__c < 15, Opportunity.Deck_Rank__c != 'Ace', Opportunity.Deck_Rank__c != 'Ace of Spades')),true,false)}">
+                <table style="width:100%;">
+                <tr>
+                    <th></th>
+                    <th colspan="16" bgcolor="black" style="color:white; text-align:center;">Commission % and Payout Per Sign</th>
+                </tr>
+                <tr>
+                    <th bgcolor="#ddd">Deck Rank</th>
+                    <th bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 15,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 15,'white','black')}">15%</th>
+                    <th bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 16,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 16,'white','black')}">16%</th>
+                    <th bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 17,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 17,'white','black')}">17%</th>
+                    <th bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 18,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 18,'white','black')}">18%</th>
+                    <th bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 19,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 19,'white','black')}">19%</th>
+                    <th bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 20,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 20,'white','black')}">20%</th>
+                    <th bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 21,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 21,'white','black')}">21%</th>
+                    <th bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 22,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 22,'white','black')}">22%</th>
+                    <th bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 23,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 23,'white','black')}">23%</th>
+                    <th bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 24,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 24,'white','black')}">24%</th>
+                    <th bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 25,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 25,'white','black')}">25%</th>
+                    <th bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 26,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 26,'white','black')}">26%</th>
+                    <th bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 27,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 27,'white','black')}">27%</th>
+                    <th bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 28,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 28,'white','black')}">28%</th>
+                    <th bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 29,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 29,'white','black')}">29%</th>
+                    <th bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 30,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 30,'white','black')}">30%</th>
+                </tr>
+                    <!--
+                <tr>
+                    <th rowspan="2">{!Opportunity.Deck_Rank__c}</th>
+                    <td bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 15,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 15,'white','black')}"><apex:outputText value="${0,number,###,##0.00}">
+							<apex:param value="{!cash15}" />
+						</apex:outputText>
+                    </td>
+                    <td bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 16,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 16,'white','black')}"><apex:outputText value="${0,number,###,##0.00}">
+							<apex:param value="{!cash16}" />
+						</apex:outputText></td>
+                    <td bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 17,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 17,'white','black')}"><apex:outputText value="${0,number,###,##0.00}">
+							<apex:param value="{!cash17}" />
+						</apex:outputText></td>
+                    <td bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 18,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 18,'white','black')}"><apex:outputText value="${0,number,###,##0.00}">
+							<apex:param value="{!cash18}" />
+						</apex:outputText></td>
+                    <td bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 19,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 19,'white','black')}"><apex:outputText value="${0,number,###,##0.00}">
+							<apex:param value="{!cash19}" />
+						</apex:outputText></td>
+                    <td bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 20,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 20,'white','black')}"><apex:outputText value="${0,number,###,##0.00}">
+							<apex:param value="{!cash20}" />
+						</apex:outputText></td>
+                    <td bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 21,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 21,'white','black')}"><apex:outputText value="${0,number,###,##0.00}">
+							<apex:param value="{!cash21}" />
+						</apex:outputText></td>
+                    <td bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 22,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 22,'white','black')}"><apex:outputText value="${0,number,###,##0.00}">
+							<apex:param value="{!cash22}" />
+						</apex:outputText></td>
+                    <td bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 23,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 23,'white','black')}"><apex:outputText value="${0,number,###,##0.00}">
+							<apex:param value="{!cash23}" />
+						</apex:outputText></td>
+                    <td bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 24,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 24,'white','black')}"><apex:outputText value="${0,number,###,##0.00}">
+							<apex:param value="{!cash24}" />
+						</apex:outputText></td>
+                    <td bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 25,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 25,'white','black')}"><apex:outputText value="${0,number,###,##0.00}">
+							<apex:param value="{!cash25}" />
+						</apex:outputText></td>
+                    <td bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 26,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 26,'white','black')}"><apex:outputText value="${0,number,###,##0.00}">
+							<apex:param value="{!cash26}" />
+						</apex:outputText></td>
+                    <td bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 27,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 27,'white','black')}"><apex:outputText value="${0,number,###,##0.00}">
+							<apex:param value="{!cash27}" />
+						</apex:outputText></td>
+                    <td bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 28,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 28,'white','black')}"><apex:outputText value="${0,number,###,##0.00}">
+							<apex:param value="{!cash28}" />
+						</apex:outputText></td>
+                    <td bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 29,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 29,'white','black')}"><apex:outputText value="${0,number,###,##0.00}">
+							<apex:param value="{!cash29}" />
+						</apex:outputText></td>
+                    <td bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 30,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 30,'white','black')}"><apex:outputText value="${0,number,###,##0.00}">
+							<apex:param value="{!cash30}" />
+						</apex:outputText></td>
+                </tr>
+				-->
+                <tr>
+                    <th>{!Opportunity.Deck_Rank__c}</th>
+                    <td bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 15,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 15,'white','black')}">{!pnts15}</td>
+                    <td bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 16,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 16,'white','black')}">{!pnts16}</td>
+                    <td bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 17,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 17,'white','black')}">{!pnts17}</td>
+                    <td bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 18,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 18,'white','black')}">{!pnts18}</td>
+                    <td bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 19,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 19,'white','black')}">{!pnts19}</td>
+                    <td bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 20,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 20,'white','black')}">{!pnts20}</td>
+                    <td bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 21,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 21,'white','black')}">{!pnts21}</td>
+                    <td bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 22,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 22,'white','black')}">{!pnts22}</td>
+                    <td bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 23,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 23,'white','black')}">{!pnts23}</td>
+                    <td bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 24,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 24,'white','black')}">{!pnts24}</td>
+                    <td bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 25,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 25,'white','black')}">{!pnts25}</td>
+                    <td bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 26,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 26,'white','black')}">{!pnts26}</td>
+                    <td bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 27,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 27,'white','black')}">{!pnts27}</td>
+                    <td bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 28,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 28,'white','black')}">{!pnts28}</td>
+                    <td bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 29,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 29,'white','black')}">{!pnts29}</td>
+                    <td bgcolor="{!IF(FLOOR(Opportunity.Commission__c) = 30,'green','white')}" style="color:{!IF(FLOOR(Opportunity.Commission__c) = 30,'white','black')}">{!pnts30}</td>
+                </tr>
+            </table>
+                <h3>
+                    Amounts for Point values 10%-14% only earned/displayed if Commission is less than 15% and Deck Rank is Ace or Ace of Spades.
+                </h3>
+        	</apex:outputPanel>
+    </body>
+</apex:page>

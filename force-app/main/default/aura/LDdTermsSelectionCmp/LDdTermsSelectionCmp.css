@@ -1,0 +1,71 @@
+.THIS {
+}
+
+.THIS .navbar {
+  overflow: hidden;
+}
+
+.THIS .navbar a {
+  float: left;
+  font-size: 16px;
+  color: #000;
+  text-align: center;
+  padding: 10px 15px 11px 15px;
+  text-decoration: none;
+}
+
+.THIS .dropdown {
+    float: left;
+    overflow: hidden;
+    border: #CCC solid 1px;
+    border-radius: 5px;
+}
+.THIS .dropdown .fa {
+position: relative;
+top: 6px;
+float: right;
+}
+
+.THIS .dropdown .dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: #000 !important;
+  padding: 12px 18px;
+  background-color: #FFF!important;
+  font-family: inherit;
+  margin: 0;
+    min-width: 250px;
+    text-align: left;
+}
+
+.THIS .navbar a:hover, .THIS .dropdown:hover .dropbtn {
+  background-color: none;
+    color: rgb(255, 48, 8) !important;
+}
+
+.THIS .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  min-width: 250px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.THIS .dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.THIS .dropdown-content a:hover {
+  background-color: #eee;
+}
+
+.THIS .dropdown:hover .dropdown-content {
+  display: block;
+}

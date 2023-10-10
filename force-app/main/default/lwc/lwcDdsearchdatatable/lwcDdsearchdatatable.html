@@ -1,0 +1,142 @@
+<template>
+    <template if:true={showLoadingSpinner}>
+        <lightning-spinner alternative-text="Loading" size="large"></lightning-spinner>
+    </template>
+    <template if:true={showMultipleSearchInputs}>
+        <template if:true={showUserORACTFilters}>
+            <lightning-layout vertical-align="end">
+                <lightning-layout-item flexibility="auto" class="slds-p-left_small slds-p-right_small">
+                    <lightning-input type="search" name="username" placeholder="Enter User's name..."
+                        onchange={handleKeyChange} value={usernameSearchKey}>
+                    </lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto" class="slds-p-left_small slds-p-right_small">
+                    <lightning-input type="search" name="email" placeholder="Enter Email..." onchange={handleKeyChange}
+                        value={emailSearchKey}>
+                    </lightning-input>
+                </lightning-layout-item>
+            </lightning-layout>
+            <lightning-layout vertical-align="end">
+                <lightning-layout-item flexibility="auto" class="slds-p-left_small slds-p-right_small">
+                    <lightning-input type="search" name="profile" placeholder="Enter Profile..."
+                        onchange={handleKeyChange} value={profileSearchKey}>
+                    </lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto" class="slds-p-left_small slds-p-right_small">
+                    <lightning-input type="search" name="role" placeholder="Enter Role..." onchange={handleKeyChange}
+                        value={roleSearchKey}>
+                    </lightning-input>
+                </lightning-layout-item>
+            </lightning-layout>
+        </template>
+        <template if:true={showCaseFilters}>
+            <lightning-layout vertical-align="end">
+                <lightning-layout-item flexibility="auto" class="slds-p-left_small slds-p-right_small">
+                    <lightning-input type="search" name="mxpuser" placeholder="Enter MXP Assigned to Account..."
+                        onchange={handleKeyChange} value={mxpUserSearchKey}>
+                    </lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto" class="slds-p-left_small slds-p-right_small">
+                    <lightning-input type="search" name="businessid" placeholder="Enter Business ID..."
+                        onchange={handleKeyChange} value={businessIdSearchKey}>
+                    </lightning-input>
+                </lightning-layout-item>
+            </lightning-layout>
+            <lightning-layout vertical-align="end">
+                <lightning-layout-item size="6" class="slds-p-left_small slds-p-right_small">
+                    <div dir="rtl">
+                    <div class="slds-form-element slds-float_left">
+                        <label class="slds-checkbox_toggle slds-grid">
+                          <span class="slds-form-element__label slds-m-bottom_none slds-p-left_small">Search Only Selected MXP User Owned Cases</span>
+                          <input type="checkbox" name="checkbox-toggle-16" aria-describedby="checkbox-toggle-16" onclick={handleToggleSearch} checked={showSelectedUsers} />
+                          <span id="checkbox-toggle-16" class="slds-checkbox_faux_container" aria-live="assertive">
+                            <span class="slds-checkbox_faux"></span>
+                          </span>
+                        </label>
+                      </div>
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item size="6" class="slds-p-left_small slds-p-right_small">
+                    <lightning-input type="search" name="status" placeholder="Enter Case Status..."
+                        onchange={handleKeyChange} value={statusSearchKey}>
+                    </lightning-input>
+                </lightning-layout-item>
+            </lightning-layout>
+        </template>
+    </template>
+    <template if:false={showMultipleSearchInputs}>
+        <lightning-layout vertical-align="end">
+            <lightning-layout-item flexibility="auto" class="slds-p-left_small slds-p-right_small">
+                <lightning-input type="search" name="accountname" placeholder="Enter Account Name..."
+                    onchange={handleKeyChange} value={accountnameSearchKey}>
+                </lightning-input>
+            </lightning-layout-item>
+        </lightning-layout>
+    </template>
+    <lightning-layout horizontal-align="center">
+        <lightning-layout-item padding="around-small">
+            <lightning-button label="Search" variant="brand" onclick={handleSearch}></lightning-button>
+        </lightning-layout-item>
+    </lightning-layout>
+    <template if:false={isRecordFound}>
+        <div class="slds-notify slds-notify_alert slds-alert_error slds-m-top_xx-small" role="alert">
+            <h2 class="slds-show">
+                No Records Found
+            </h2>
+        </div>
+    </template>
+    <template if:true={isRecordFound}>
+        <lightning-layout horizontal-align="spread" vertical-align="center">
+            <lightning-layout-item flexibility="auto">
+                <b> {firstIndex} - {lastIndex} of {totalNumberOfRecords} results </b>
+            </lightning-layout-item>
+            <lightning-layout-item flexibility="auto">
+                <lightning-button icon-name="utility:back" onclick={handlePrevious} disabled={disablePreviousButton}>
+                </lightning-button>
+                <template for:each={totalPage} for:item="pageNumber">
+                    <lightning-button label={pageNumber} data-page-number={pageNumber} class="slds-p-around_xx-small"
+                        key={pageNumber} onclick={handleNavigation}>
+                    </lightning-button>
+                </template>
+                <lightning-button icon-name="utility:forward" onclick={handleNext} disabled={disableNextButton}>
+                </lightning-button>
+            </lightning-layout-item>
+            <lightning-layout-item flexibility="auto">
+                <div class="slds-grid">
+                    <div class="slds-col slds-align_absolute-center slds-p-right_medium"><b>Items per page</b></div>
+                    <div class="slds-col slds-align_absolute-center">
+                        <lightning-combobox name="items" variant="label-hidden" value={pageSize} options={options}
+                            style="width:62px" onchange={handleItemPerPageChange}>
+                        </lightning-combobox>
+                    </div>
+                </div>
+            </lightning-layout-item>
+        </lightning-layout>
+        <template if:true={showError}>
+            <template for:each={validationError} for:item="error">
+                <div key={error} class="slds-notify slds-notify_alert slds-alert_error slds-m-top_xx-small"
+                    role="alert">
+                    <h2 class="slds-show">
+                        {error}
+                    </h2>
+                </div>
+            </template>
+        </template>
+        <lightning-layout vertical-align="center" class="slds-p-top_medium">
+            <lightning-layout-item flexibility="auto">
+                <template if:true={showCheckbox}>
+                    <lightning-datatable key-field="Id" data-id="userRecords" data={records} columns={columns}
+                        onrowselection={handleRecordSelection} oncellchange={handleCellchange}
+                        selected-rows={selectedRecordIds} suppress-bottom-bar>
+                    </lightning-datatable>
+                </template>
+                <template if:false={showCheckbox}>
+                    <lightning-datatable key-field="Id" data-id="userRecords" data={records} columns={columns}
+                        onrowselection={handleRecordSelection} oncellchange={handleCellchange} suppress-bottom-bar
+                        hide-checkbox-column>
+                    </lightning-datatable>
+                </template>
+            </lightning-layout-item>
+        </lightning-layout>
+    </template>
+</template>

@@ -1,0 +1,68 @@
+/*-- Desktop --*/
+@media (min-width:768px) {
+/*-- styles for incident banner --*/
+html body.comm-page-article .footer lightning-combobox.forceCommunityLanguageSelector43 {
+    position: absolute;
+}
+
+html body .siteforceThemeLayoutStarter .header {
+       	top: 50px !important;
+    }
+
+html body .footer lightning-combobox.forceCommunityLanguageSelector43 {
+    top: 51px !important;
+	}
+
+html body {
+    margin-top: 51px !important
+    }
+
+body .footer lightning-combobox.forceCommunityLanguageSelector43 {
+    top: 51px !important;
+}
+    
+
+}
+
+/*-- Tablet --*/
+@media (max-width:767px) {
+
+/*-- styles for incident banner --*/
+
+html body .siteforceThemeLayoutStarter.isHeaderPinned-true .header {
+       	top: 50px !important
+    }
+
+html body .footer lightning-combobox.forceCommunityLanguageSelector43 {
+    top: 51px !important;
+	}
+
+html body {
+    margin-top: 51px !important
+    }
+
+body .footer lightning-combobox.forceCommunityLanguageSelector43 {
+    top: 48px !important;
+}
+}
+
+/*-- Handheld --*/
+@media screen and (max-width: 480px) {
+
+html body .siteforceThemeLayoutStarter.isHeaderPinned-true >.header {
+       	top: 50px !important
+    }
+
+html body .footer lightning-combobox.forceCommunityLanguageSelector43 {
+    top: 51px!important;
+	}
+
+html body {
+    margin-top: 51px !important
+    }
+
+body .footer lightning-combobox.forceCommunityLanguageSelector43 {
+    top: 51px !important;
+}
+}
+

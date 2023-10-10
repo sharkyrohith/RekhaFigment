@@ -1,0 +1,16 @@
+<apex:page controller="CDdNimdaSyncPollingController">
+    <apex:includeScript value="{!URLFOR($Resource.JSStreamingAPI, 'jquery.js')}"/>
+    <script>
+        var $j = jQuery.noConflict();
+        document.addEventListener("DOMContentLoaded", function(event) {
+            window.parent.postMessage({ type: 'INITIALIZED', randomKey: '{!$Label.NimdaSyncPollingRandomKey}' }, '{!orgDomainURL}');
+        });        
+        function subscribeCallback(message) {
+        	console.log('Entering callback function subscribeCallback');
+            console.log(message);
+            window.parent.postMessage({message: message}, '{!orgDomainURL}');
+            console.log('Exiting callback function subscribeCallback');
+        }                
+    </script>
+    <c:PushTopicEventPolling filter="{!filter}" channel="{!channel}" replayFrom="{!replayFrom}" orgDomainURL="{!orgDomainURL}" />    
+</apex:page>

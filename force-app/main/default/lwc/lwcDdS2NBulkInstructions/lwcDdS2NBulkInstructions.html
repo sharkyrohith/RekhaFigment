@@ -1,0 +1,111 @@
+<template>
+    <c-lwc-dd-modal modal-header={label.titleHeader} onclosemodal={handleCloseBulkInstructions}>
+        <div slot="modalContent" class="modalContent slds-modal__content slds-p-around_medium">
+            <lightning-layout vertical-align="center">
+                <lightning-layout-item class="slds-p-left_medium" size="12">
+                    <div class="slds-form-element slds-form-element_horizontal">
+                        <lightning-accordion active-section-name={activeSections} allow-multiple-sections-open>
+                            <lightning-accordion-section class="slds-container--medium" name="A" label={label.accordionHeader} readonly>
+                                <p class="slds-m-bottom--medium">{label.heading}.</p>
+
+                                <!-- Process -->
+                                <div class="slds-text-heading--medium">{label.process}</div>
+                                <ol class="slds-list_ordered slds-m-around--x-small">
+                                    <li>{label.processStep1}</li>
+                                    <li>{label.processStep2}</li>
+                                    <li>{label.processStep3}</li>
+                                    <li>{label.processStep4}</li>
+                                    <li>{label.processStep5}</li>
+                                    <li>{label.processStep6}</li>
+                                </ol>
+                                <p class="slds-m-bottom--medium">
+                                    {label.processPost1}.
+                                </p>
+                                <p class="slds-m-bottom--medium">{label.processPost2}
+                                </p>
+
+                                <!-- Validations -->
+                                <div class="slds-text-heading--medium">{label.validations}</div>
+                                <p class="slds-m-bottom--medium">{label.validationsPre}</p>
+                                <ol class="slds-list_ordered slds-m-bottom--medium">
+                                    <li>{label.validationsStep1}</li>
+                                    <li>{label.validationsStep2}</li>
+                                    <li>{label.validationsStep3}</li>
+                                    <li>{label.validationsStep4}</li>
+                                    <li>{label.validationsStep5}</li>
+                                    <li>{label.validationsStep6}</li>
+                                </ol>
+                                <p class="slds-m-bottom--medium">
+                                    {label.validationsStep7}
+                                </p>
+
+                                <!-- Import -->
+                                <div class="slds-text-heading--medium">{label.importTitle}</div>
+                                <p class="slds-m-bottom--medium">
+                                    {label.importPre}
+                                </p>
+                                <p class="slds-m-bottom--medium slds-theme_warning">
+                                    {label.importPost}
+                                </p>
+
+                                <!-- Supported Fields -->
+                                <div class="slds-text-heading--medium slds-m-bottom--medium">{label.supportedFields}</div>
+
+                                <lightning-textarea id="supportedFields" style="height:175px" class="slds-scrollable slds-box_border slds-m-bottom--medium" name="helpText" readonly value={helpText}
+                                                    label="" data-id="helpText">{helpText}
+                                </lightning-textarea>
+
+                                <!-- Issues -->
+                                <div class="slds-text-heading--medium slds-m-bottom--medium slds-m-top--medium">{label.commonIssues}</div>
+                                <div class="slds-text-heading--small">{label.commonIssuesException}</div>
+                                <p class="slds-m-around--x-small">
+                                    {label.commonIssuesExceptionDesc}
+                                </p>
+
+                                <div class="slds-text-heading--small">{label.commonIssuesFLS}</div>
+                                <p class="slds-m-around--x-small">
+                                    {label.commonIssuesFLSDesc}
+                                </p>
+
+                                <div class="slds-text-heading--small">{label.commonIssuesFormula}</div>
+                                <p class="slds-m-around--x-small">
+                                    {label.commonIssuesFormulaDesc}
+                                </p>
+
+                                <div class="slds-m-bottom--small slds-text-heading--small">{label.commonIssuesObject}</div>
+                                <p class="slds-m-around--x-small">
+                                    {label.commonIssuesObjectDesc}
+                                </p>
+
+                                <div class="slds-m-bottom--small slds-text-heading--small">{label.commonIssuesInvalidId}</div>
+                                <p class="slds-m-around--x-small">
+                                    {label.commonIssuesInvalidIdDesc}
+                                </p>
+
+                                <div class="slds-m-bottom--small slds-text-heading--small">{label.commonIssuesNotSupported}</div>
+                                <p class="slds-m-around--x-small">
+                                    {label.commonIssuesNotSupportedDesc}
+                                </p>
+
+                                <div class="slds-m-bottom--small slds-text-heading--small">{label.commonIssuesMissingField}</div>
+                                <p class="slds-m-around--x-small">
+                                    {label.commonIssuesMissingFieldDesc}
+                                </p>
+
+                                <div class="slds-text-heading--small">{label.commonIssuesOpportunityWon}</div>
+                                <p class="slds-m-around--x-small">
+                                    {label.commonIssuesOpportunityWonDesc}
+                                </p>
+
+                                <div class="slds-text-heading--small">{label.commonIssuesConvertValue}</div>
+                                <p class="slds-m-around--x-small">
+                                    {label.commonIssuesConvertValueDesc}
+                                </p>
+                            </lightning-accordion-section>
+                        </lightning-accordion>
+                    </div>
+                </lightning-layout-item>
+            </lightning-layout>
+        </div>
+    </c-lwc-dd-modal>
+</template>

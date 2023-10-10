@@ -1,0 +1,25 @@
+<template>
+    <template if:true={showFilterBox} >
+        <div>
+            <lightning-input
+            type="search"
+            label={filterFieldLabel}
+            onchange={filterTableValues}
+            placeholder={filterHolderLabel}></lightning-input>
+        </div>
+    </template>
+    <div style="height:300px">
+        <template if:true={currentRecList} >
+            <lightning-datatable
+                key-field={kFieldName}
+                selected-rows={selectedRecords}
+                data={currentRecList}
+                columns={tableColumns}
+                data-id={uniqueIdentifier}
+                onrowselection={handleRowSelection}
+                hide-checkbox-column={hideCheckBoxColumn}
+                >
+            </lightning-datatable>
+        </template>
+        </div>
+</template>

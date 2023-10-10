@@ -1,0 +1,12 @@
+<aura:component access="global" implements="forceCommunity:availableForAllPageTypes">
+    <ltng:require styles="{!$Resource.SrCav_Community_Fonts + '/stylesheet.css'}" />
+
+    <div>
+        
+        <div class="ddhs-select-logo-wrap">
+            <img class="ddhs-select-logo" src="{!$Resource.SrCav_Community_Assets + '/logo/Caviar_Logotype_NEW_rgb.svg'}"/>
+
+        </div>
+
+    </div>
+</aura:component>

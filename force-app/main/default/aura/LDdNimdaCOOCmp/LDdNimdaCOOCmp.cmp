@@ -1,0 +1,154 @@
+<aura:component controller="CDdLtngNimdaSyncCtrl" implements="force:appHostable,force:hasRecordId,c:LDdNimdaSyncConstants" access="global">
+  <!-- public attributes -->
+  <aura:attribute name="opportunity" type="Opportunity" access="PUBLIC" />
+  <aura:attribute name="version" type="String" access="PUBLIC" />
+  <!-- private attributes -->
+  <aura:attribute name="businessScreen" type="String" default="true" access="PRIVATE" />
+  <aura:attribute name="isLoading" type="Boolean" default="false" access="PRIVATE" />
+  <aura:attribute name="infoMessage" type="String" access="PRIVATE" default="{!$Label.c.DDS2N_COO_Business_Config_Save_Text_Label}"/>
+  <aura:attribute name="businessOptionSelected" type="String" access="PRIVATE" />
+  <aura:attribute name="businessIDOptionSelected" type="String" access="PRIVATE" />
+  <aura:attribute name="businessIDInput" default="" type="String" access="PRIVATE" />
+  <aura:attribute name="businessOptions" type="List" default="[
+    {'label': 'Old Owner', 'value': 'Old Store'},
+    {'label': 'New Owner', 'value': 'New Store'}
+    ]" access="PRIVATE" />
+  <aura:attribute name="businessIDOptions" type="List" default="[
+    {'label': 'Create a new Business ID', 'value': 'New BusinessID'},
+    {'label': 'Specify an existing Business ID', 'value': 'Existing BusinessID'}
+    ]" access="PRIVATE" />
+    <!--error related attributes-->
+  <aura:attribute name="errorType" type="String" access="PRIVATE" />
+  <aura:attribute name="errorMessage" type="String" access="PRIVATE" />
+   <!--aura handler-->
+  <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+  
+  <!-- register event -->
+  <aura:registerEvent name="LDdNimdaSyncEvent" type="c:LDdNimdaSyncEvent" />
+
+  <!-- include LDdCallout component-->
+  <c:LDdCallout aura:id="calloutCmp" />
+
+  <aura:if isTrue="{!v.isLoading}">
+    <c:LDdNimdaInfoDialogCmp message="{!v.infoMessage}" />
+    <aura:set attribute="else">
+      <div class="c-container">
+        <lightning:layout multipleRows="true">
+          <lightning:layoutItem padding="around-small" size="12">
+            <div class="page-section page-header slds-box slds-m-horizontal_small">
+              <lightning:layout>
+                <lightning:layoutItem size="3">
+                  <div class="slds-clearfix">
+                    <div class="slds-float_left">
+                      <lightning:button variant="brand" label="Previous" title="Previous" onclick="{!c.handlePrevious}"/>
+                      <lightning:button variant="neutral" label="Cancel" title="Cancel" onclick="{!c.handleCancel}"/>
+                    </div>
+
+                  </div>
+                </lightning:layoutItem>
+                <lightning:layoutItem size="6">
+                  <div class="slds-text-align_center">
+                    <h2 class="slds-text-heading_medium slds-hyphenate">{!$Label.c.DDS2N_Title}</h2>
+                  </div>
+                </lightning:layoutItem>
+
+                <lightning:layoutItem size="3">
+                  <div class="slds-clearfix">
+                     <div class="slds-float_right">
+                      <aura:if isTrue="{!v.businessScreen == 'Render Business Option Screen'}">
+                        <lightning:button variant="brand" label="Next" title="Next" onclick="{!c.handleNext}" />
+                        <aura:set attribute="else">
+                          <lightning:button variant="brand" label="Confirm" title="Confirm" onclick="{!c.handleConfirm}" />
+                        </aura:set>
+                  </aura:if>
+                        
+                     </div>
+                 </div>
+             </lightning:layoutItem>      
+              </lightning:layout>
+            </div>
+          </lightning:layoutItem>
+          <lightning:layoutItem padding="around-small" size="12">
+            <lightning:layout>
+              <lightning:layoutItem padding="horizontal-xxx_small" size="12">
+                <div class="slds-m-vertical_small">
+                    <aura:if isTrue="{!v.businessScreen == 'Render Business Option Screen'}">
+                            <div>
+                                <h2 class="slds-text-heading_small">Confirm Business Configuration:</h2>
+                            </div>
+                            <div class="slds-m-vertical_small">
+                              Please select an option for how the Business should be managed for this change of ownership.    
+                            </div>
+                    <aura:set attribute="else">
+                            <div>
+                                <h2 class="slds-text-heading_small">Confirm Your Selection:</h2>
+                            </div>
+                            <div class="slds-m-vertical_small">
+                              Are you sure you want to proceed with processing a Change of Ownership for Store [{!v.opportunity.Account.Restaurant_ID__c}] ?  
+                            </div>
+                    </aura:set>
+                  </aura:if>
+                </div>
+              </lightning:layoutItem>
+            </lightning:layout>
+          </lightning:layoutItem>
+          <aura:if isTrue="{!(!empty(v.errorMessage))}">
+            <lightning:layoutItem padding="around-small" size="12">
+              <div class="slds-box slds-theme--error slds-theme--alert-texture slds-m-horizontal_small">
+                <h2>
+                  <lightning:icon class="slds-icon icon-text-email slds-icon--small slds-m-right--x-small"
+                    iconName="utility:error" size="x-small" variant="bare" alternativeText="error" />
+                  <span>{!v.errorMessage}</span>
+                </h2>
+              </div>
+            </lightning:layoutItem>
+          </aura:if>
+            <aura:if isTrue="{!v.businessScreen == 'Render Business Option Screen'}">
+            <lightning:layoutItem padding="around-small" size="12">
+              <div class=" slds-p-left_x-large slds-p-top_xx-small slds-text-body_regular slds-p-bottom_xx-small">
+                <lightning:radioGroup aura:id="mygroup" label="Which Store should move to a new Business?"
+                  options="{!v.businessOptions}" value="{!v.businessOptionSelected}"
+                   required="true" />
+              </div>
+              <div class=" slds-p-left_x-large slds-p-top_xx-small slds-text-body_regular slds-p-bottom_xx-small">
+                <lightning:radioGroup aura:id="mygroupone" label="Would you like to create a new Business or
+                      specify an existing Business" options="{!v.businessIDOptions}" value="{!v.businessIDOptionSelected}"
+                  required="true" />
+              </div>
+              <div class="slds-size_2-of-8 slds-p-left_xx-large  slds-p-bottom_xx-small">
+                <lightning:input type="number" name="number" aura:id="inputField" label=""
+                  placeholder="Enter business id..." value="{!v.businessIDInput}"
+                  onchange="{!c.handleBusinessIdInput}" disabled="{!v.businessIDOptionSelected=='New BusinessID'}"></lightning:input>
+                </div>
+            </lightning:layoutItem>
+            <aura:set attribute="else">
+              <div class=" slds-p-left_x-large slds-p-top_xx-small slds-text-body_regular">
+                <div class="slds-p-top_x-small"> By Clicking "Confirm", Send to Nimda will automatically: </div>
+                <br />
+                <ol class="slds-list_ordered">
+                  <li> <span class="slds-p-left_x-small slds-p-top_xx-small" style="color: red;">Deactivate Store ID
+                      [{!v.opportunity.Account.Restaurant_ID__c}] </span> if not already completed.</li>
+                  <li class="slds-p-left_x-small">Create a new Store for the new Owner and run all 'Full Onboarding'
+                    steps.</li>
+                </ol>
+              </div>
+            </aura:set>
+          </aura:if>
+          <lightning:layoutItem flexibility="auto" padding="around-small" size="12">
+            <div class="page-footer page-section">
+              <div class="slds-text-align_center">
+                <lightning:button variant="neutral" label="Cancel" title="Cancel" onclick="{!c.handleCancel}" />
+                <aura:if isTrue="{!v.businessScreen == 'Render Business Option Screen'}">
+                      <lightning:button variant="brand" label="Next" title="Next" onclick="{!c.handleNext}" />
+                      <aura:set attribute="else">
+                        <lightning:button variant="brand" label="Confirm" title="Confirm" onclick="{!c.handleConfirm}" />
+                      </aura:set>
+                </aura:if>
+              </div>
+            </div>
+          </lightning:layoutItem>
+        </lightning:layout>
+      </div>
+    </aura:set>
+  </aura:if>
+</aura:component>

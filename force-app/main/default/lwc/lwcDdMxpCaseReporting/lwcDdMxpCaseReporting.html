@@ -1,0 +1,12 @@
+<template>
+    <lightning-card>
+        <lightning-tabset>
+            <lightning-tab label="MXP User View">
+                <div class="slds-p-around_medium">
+                    <c-lwc-ddsearchdatatable object-api-name="Case" columns={columns} order-by="CreatedDate" page-size="20" sort-order="DESC">
+                    </c-lwc-ddsearchdatatable>
+                </div>
+            </lightning-tab>
+        </lightning-tabset>
+    </lightning-card>
+</template>

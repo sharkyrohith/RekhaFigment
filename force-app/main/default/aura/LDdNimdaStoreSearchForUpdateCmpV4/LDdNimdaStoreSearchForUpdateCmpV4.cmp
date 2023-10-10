@@ -1,0 +1,140 @@
+<aura:component controller="CDdLtngNimdaSyncMSCtrl" implements="force:appHostable,force:hasRecordId,c:LDdNimdaSyncConstants" access="global">
+    <!-- public attributes -->
+    <aura:attribute name="businessId" type="String" access="PUBLIC" />  
+    <aura:attribute name="accountId" type="String" access="PUBLIC" />
+    <aura:attribute name="opportunity" type="Opportunity" access="PUBLIC" />    
+    <aura:attribute name="account" type="Account" access="PUBLIC" />    
+    <!-- private attributes -->
+    <aura:attribute name="version" type="Integer" default="4" access="PRIVATE" />
+    <aura:attribute name="currentStep" type="String" access="PRIVATE" default="Search Store" />   
+    <aura:attribute name="storeId" type="String" access="PRIVATE" />    
+    <aura:attribute name="storeOptions" type="List" access="PRIVATE" />
+    <aura:attribute name="selectedStore" type="Object" access="PRIVATE" />
+    <aura:attribute name="stores" type="List" access="PRIVATE" />
+    <aura:attribute name="storeFieldDefinitionForCompactLayout" type="Map" access="PRIVATE" />
+    <aura:attribute name="storeFieldsForCompactLayout" type="List" access="PRIVATE" />   
+
+    <aura:attribute name="isSearching" type="Boolean" default="false" access="PRIVATE" />
+    <aura:attribute name="searchNoResultFound" type="Boolean" default="false" access="PRIVATE" />
+    <aura:attribute name="searchNoResultMessage" type="String" access="PRIVATE" default="No matches found"/>
+
+    <!--error related attributes-->
+    <aura:attribute name="errorType" type="String" access="PRIVATE" />
+    <aura:attribute name="errorMessage" type="String" access="PRIVATE" />
+    <aura:attribute name="calloutRequest" type="String" access="PRIVATE" />                     
+    <aura:attribute name="calloutResponse" type="String" access="PRIVATE" />
+    <!--handlers-->
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    <aura:handler name="change" value="{!v.storeId}" action="{!c.handleStoreIdChange}"/>
+
+    <!-- register event-->
+    <aura:registerEvent name="LDdNimdaSyncEvent" type="c:LDdNimdaSyncEvent"/>
+    <!--Include LDdCallout component -->
+    <c:LDdCallout aura:id="calloutCmpSearch" />
+
+    <div class="storeContainer slds-p-around_small">
+        <lightning:layout verticalAlign="center">
+            <lightning:layoutItem padding="around-small" size="8">
+                <div class="slds-text-heading_medium">Select Store by Store ID</div>
+                <br/>
+                <div class="slds-text-title">Please enter the Store ID in order to select the Store for update.</div>
+                <br/>
+            </lightning:layoutItem>
+        </lightning:layout>
+        <lightning:layout verticalAlign="center">
+            <lightning:layoutItem padding="around-small" size="4">
+                <label class="slds-form-element__label" for="input1">
+                    Enter Store Id
+                </label>
+                <c:LDdHelpText content="Please press 'enter' key to search for store"/>  
+                <div onkeyup="{!c.handleStoreSearch}">
+                    <lightning:input
+                                aura:id="enter-search"
+                                name="Store Search"
+                                label="Store Search"
+                                variant="label-hidden"
+                                isLoading="{!v.isSearching}"
+                                type="search"
+                                placeholder="Store Id e.g. 122754"
+                                maxlength="10"
+                            />
+                </div>
+            </lightning:layoutItem>
+        </lightning:layout>                
+    </div>
+
+    <aura:if isTrue="{!(!empty(v.storeOptions))}">
+        <div class="storeOptionsContainer slds-p-around_small">
+            <lightning:layout verticalAlign="center">
+                <lightning:layoutItem padding="around-small" size="12">
+                    <fieldset class="slds-form-element">
+                        <legend class="slds-form-element__legend slds-form-element__label">Select a Store</legend>
+                        <div class="slds-form-element__control">
+                            <aura:iteration items="{!v.storeOptions}" var="storeOption">
+                                <span class="slds-radio">
+                                    <input type="radio" id="{!storeOption.value}" value="{!storeOption.value}" name="storeOption" checked="{!(v.selectedStore eq storeOption.value)}" data-value="{!storeOption.value}"/>
+                                    <label class="slds-radio__label" for="{!storeOption.value}">
+                                        <span class="slds-radio_faux"></span>
+                                        <span class="slds-form-element__label">{!storeOption.label}<aura:if isTrue="{!(storeOption.value ne '-1')}">&nbsp;<lightning:formattedUrl value="{!'https://internal.doordash.com/nimda/merchant/store/' + storeOption.value + '/change/'}" tooltip="{!storeOption.value}" label="View in Nimda" target="_blank" /></aura:if></span>
+                                    </label>
+                                </span>                            
+                            </aura:iteration>
+                        </div>
+                    </fieldset>
+                    <aura:if isTrue="{!(!empty(v.storeFieldsForCompactLayout))}">
+                        <div class="storeDetailContainer slds-p-left_large slds-p-top_small">
+                                    <div class="slds-form">
+                                        <aura:iteration items="{!v.storeFieldsForCompactLayout}" var="storefield">
+                                            <div class="slds-form-element slds-form-element_horizontal slds-is-editing">
+                                                <legend class="slds-form-element__legend slds-form-element__label">{!storefield.label}</legend>
+                                                <div class="slds-form-element__control">
+                                                    {!(!empty(storefield.value)) ? storefield.value : ' - '}
+                                                </div>
+                                            </div>
+                                        </aura:iteration>
+                                    </div>
+                        </div>
+                    </aura:if>    
+                </lightning:layoutItem>
+            </lightning:layout>
+        </div>
+    </aura:if>
+
+    <aura:if isTrue="{!(v.searchNoResultFound eq true)}">
+        <div class="storeOptionsContainer slds-p-around_large">
+            <div class="slds-box slds-theme--warning">
+                <h2>
+                    <lightning:icon class="slds-icon icon-text-email slds-icon--small slds-m-right--x-small"
+                                iconName="utility:warning" size="x-small" variant="bare" alternativeText="warning"/>
+                    <span>{!v.searchNoResultMessage}</span>
+                </h2>
+            </div>
+        </div>
+    </aura:if>    
+
+    <!-- ERROR MESSAGE -->
+    <aura:if isTrue="{!(!empty(v.errorMessage))}">
+        <div class="slds-m-around--large slds-wrap">
+            <div class="slds-box slds-theme--error slds-theme--alert-texture">
+                <h2>
+                    <lightning:icon class="slds-icon icon-text-email slds-icon--small slds-m-right--x-small"
+                                    iconName="utility:error" size="x-small" variant="bare" alternativeText="error"/>
+                    <span>{!v.currentStep}</span>
+                    <br/>                                               
+                    <span>Type: {!v.errorType}</span>
+                    <br/>                               
+                    <span>Message: {!v.errorMessage}</span>
+                    <br/>
+                    <aura:if isTrue="{!(!empty(v.calloutRequest))}">                                            
+                        <span>Request: {!v.calloutRequest}</span>
+                    </aura:if>
+                    <br/>
+                    <aura:if isTrue="{!(!empty(v.calloutResponse))}">                                           
+                        <span>Response: {!v.calloutResponse}</span>
+                    </aura:if>                                                              
+                </h2>
+            </div>
+        </div>
+    </aura:if>
+    <!-- / ERROR MESSAGE -->                        
+</aura:component>

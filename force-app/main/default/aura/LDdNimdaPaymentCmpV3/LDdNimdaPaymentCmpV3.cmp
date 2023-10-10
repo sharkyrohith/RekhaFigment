@@ -1,0 +1,109 @@
+<aura:component controller="CDdLtngNimdaSyncCtrl" implements="force:appHostable,force:hasRecordId,c:LDdNimdaSyncConstants" access="global">
+    <!-- public attributes -->
+    <aura:attribute name="v4NimdaStep" type="String" access="PUBLIC" />
+    <!--private attributes-->
+    <aura:attribute name="isLoading" type="Boolean" default="true" access="PRIVATE" />
+    <aura:attribute name="paymentSteps" 
+                    type="List"
+                    access="PRIVATE"
+                    default="[
+                                { label: 'Payment Account', value: 'Payment Account' },
+                                { label: 'Stripe Bank Token', value: 'Stripe Bank Token' },
+                                { label: 'Stripe Bank Account', value: 'Stripe Bank Account' },
+                                { label: 'Complete', value: 'Complete' }            
+                            ]" />    					        
+    <aura:attribute name="currentStep" type="String" access="PRIVATE" default="Initialize" />
+    <aura:attribute name="comparisonResults" type="List" access="PRIVATE" />
+    <!--private attributes - Salesforce -->
+	<aura:attribute name="accountId" type="String" access="PRIVATE" />
+	<aura:attribute name="opportunity" type="Opportunity" access="PRIVATE" />	
+    <aura:attribute name="account" type="Account" access="PRIVATE" />
+    <!--private attributes - Nimda -->    
+    <aura:attribute name="storeId" type="String" access="PRIVATE" />
+    <aura:attribute name="businessId" type="String" access="PRIVATE" />
+    <aura:attribute name="routingNumber" type="String" access="PRIVATE" />
+    <aura:attribute name="bankName" type="String" access="PRIVATE" />	
+    <aura:attribute name="paymentAcctId" type="String" access="PRIVATE" />
+	<aura:attribute name="stripeAcctId" type="String" access="PRIVATE" />
+	<aura:attribute name="bankTokenId" type="String" access="PRIVATE" />
+	<aura:attribute name="stripeBankAcctId" type="String" access="PRIVATE" />
+	<!--error related attributes-->
+	<aura:attribute name="errorType" type="String" access="PRIVATE" />
+	<aura:attribute name="errorMessage" type="String" access="PRIVATE" />
+	<aura:attribute name="calloutRequest" type="String" access="PRIVATE" />						
+    <aura:attribute name="calloutResponse" type="String" access="PRIVATE" />
+    <!--info message attributes-->
+    <aura:attribute name="INFO_MESSAGE_INITIALIZING" type="String" access="PRIVATE" default="Initializing"/>
+    <aura:attribute name="INFO_MESSAGE_PAYMENT_ACCOUNT" type="String" access="PRIVATE" default="Create Payment Account"/>
+    <aura:attribute name="INFO_MESSAGE_STRIPE_BANK_TOKEN" type="String" access="PRIVATE" default="Get Stripe Bank Token"/>
+    <aura:attribute name="INFO_MESSAGE_STRIPE_BANK_ACCOUNT" type="String" access="PRIVATE" default="Create Stripe Bank Account"/>    
+    <!--handlers-->
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    <aura:handler name="change" value="{!v.currentStep}" action="{!c.handleStepChange}"/>
+    <!-- register event-->
+    <aura:registerEvent name="LDdNimdaSyncEvent" type="c:LDdNimdaSyncEvent"/>
+    <!--Include LDdCallout component -->
+    <c:LDdCallout aura:id="calloutCmp" />
+    <!-- SHOW SPINNER LOADING -->
+    <aura:if isTrue="{!v.isLoading}">
+        <div>
+            <div class="slds-align_absolute-center" style="height:2rem">
+                <div role="status" class="slds-spinner slds-spinner_small slds-spinner_inline">
+                    <span class="slds-assistive-text">Loading</span>
+                    <div class="slds-spinner__dot-a"></div>
+                    <div class="slds-spinner__dot-b"></div>
+                </div>
+            </div>
+        </div>
+    </aura:if>
+	<!-- SHOW PROGRESS INDICATOR -->
+    <lightning:progressIndicator currentStep="{!v.currentStep}" type="path" variant="base">
+        <aura:iteration items="{!v.paymentSteps}" var="step">
+            <lightning:progressStep label="{! step.label }" value="{! step.value }"/>
+        </aura:iteration>
+    </lightning:progressIndicator>
+    <!-- COMPARISON RESULTS -->
+    <aura:if isTrue="{!(!empty(v.comparisonResults))}">
+        <aura:iteration items="{!v.comparisonResults}" var="result">
+            <div class="slds-clearfix slds-m-vertical_x-small">
+                <div class="slds-float_left">
+                    <p>
+                        <aura:if isTrue="{!(result.status eq 'success')}">
+                            <div class="slds-text-color_success"><lightning:icon class="slds-p-right_medium" iconName="utility:success" size="small" variant="success" alternativeText="success" title="success" /><aura:unescapedHtml value="{!result.message}"></aura:unescapedHtml></div>
+                        </aura:if>
+                        <aura:if isTrue="{!(result.status eq 'warning')}">
+                            <div class="slds-text-color_warning"><lightning:icon class="slds-p-right_medium" iconName="utility:warning" size="small" variant="warning" alternativeText="warning" title="warning" /><aura:unescapedHtml value="{!result.message}"></aura:unescapedHtml></div>
+                        </aura:if>                        
+                        <aura:if isTrue="{!(result.status eq 'error')}">                            
+                            <div class="slds-text-color_error"><lightning:icon class="slds-p-right_medium" iconName="utility:error" size="small" variant="error" alternativeText="error" title="error" /><aura:unescapedHtml value="{!result.message}"></aura:unescapedHtml></div>
+                        </aura:if>
+                    </p>
+                </div>
+            </div>
+        </aura:iteration>                    
+    </aura:if>    
+    <!-- ERROR MESSAGE -->
+    <aura:if isTrue="{!(!empty(v.errorMessage))}">
+        <div class="slds-m-around--large slds-wrap">
+            <div class="slds-box slds-theme--error slds-theme--alert-texture">
+                <h2>
+                    <lightning:icon class="slds-icon icon-text-email slds-icon--small slds-m-right--x-small"
+                                    iconName="utility:error" size="x-small" variant="bare" alternativeText="error"/>
+                    <span>{!v.currentStep}</span>
+                    <br/>	                                            
+                    <span>Type: {!v.errorType}</span>
+                    <br/>								
+                    <span>Message: {!v.errorMessage}</span>
+                    <br/>
+                    <aura:if isTrue="{!(!empty(v.calloutRequest))}">                                            
+                        <span>Request: {!v.calloutRequest}</span>
+                    </aura:if>
+                    <br/>
+                    <aura:if isTrue="{!(!empty(v.calloutResponse))}">                                           
+                        <span>Response: {!v.calloutResponse}</span>
+                    </aura:if>	                            	                            
+                </h2>
+            </div>
+        </div>
+    </aura:if>
+</aura:component>

@@ -1,0 +1,74 @@
+.dt {
+    padding-top: 50px;
+    height : 450px;
+    overflow: hidden;
+}
+.error {
+    text-align: center;
+    color: rgb(194, 57, 52);
+    background: rgb(194, 57, 52, .1);
+    border: rgb(194, 57, 52) solid 1px;
+    padding: 13px;
+}
+.success {
+    text-align: center;
+    color: rgb(42, 190, 67);
+    background: rgba(57, 180, 109, 0.1);
+    border: rgb(42, 190, 67) solid 1px;
+    padding: 13px;
+}
+
+.accordionStyle {
+    --sds-c-accordion-heading-font-size:0.8rem;
+    --slds-c-accordion-heading-text-color:#f8f8f4;
+}
+
+.THIS.slds-readonly-path{
+    pointer-events: none;
+}
+
+.step1Flex {
+    padding: 0.1rem;
+    position: relative;
+    display: flex;
+    width: 100%;
+    place-content: center flex-start;
+    align-items: flex-start;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.step2Flex{
+    padding: 0.1rem;
+    position: relative;
+    display: flex;
+    width: 100%;
+    align-items: flex-start;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.step3Flex{
+    padding: 0.1rem;
+    position: relative;
+    display: flex;
+    width: 100%;
+    place-content: center flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.warning{
+    font-weight: normal;
+    color: black;
+}
+
+.columnFlex{
+    display: flex;
+    flex-direction: column;
+}
+.rowFlex{
+    display: flex;
+    flex-direction: row;
+}

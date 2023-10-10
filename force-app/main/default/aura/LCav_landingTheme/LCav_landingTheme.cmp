@@ -1,0 +1,72 @@
+<aura:component implements="forceCommunity:themeLayout" access="global" description="Caviar Landing Theme Updated">
+    <aura:attribute name="alertsBar" type="Aura.Component[]" required="false" />
+    <aura:attribute name="globalHeader" type="Aura.Component[]" required="false" />
+    <aura:attribute name="search" type="Aura.Component[]" required="false" />
+    <aura:attribute name="navBar" type="Aura.Component[]" required="false" />
+    <aura:attribute name="globalFooter" type="Aura.Component[]" required="false" />
+    <aura:attribute name="pageTheme" type="String" default="Home" />
+    <aura:attribute name="communityName" type="String" default="Courier" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <ltng:require styles="{!$Resource.SrCav_Community_Fonts + '/stylesheet.css'}" />
+
+    <div class="{!v.communityName}">
+
+        <section class="{!'cct-header ' + v.pageTheme}">
+            <div class="grid-wrapper cct-header-alert">
+
+                <div class="slds-size_1-of-1 cct-alertBar">
+                    <c:LCDdCommunityAlerts_V3 />
+                </div>
+
+                <div class="cct-header-fixed">
+                    <div class="slds-grid slds-wrap slds-grid_pull-padded cct-header-top-wrap">
+
+                        <div
+                            class="slds-x-small-size_1-of-1 slds-small-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1 cct-logo">
+
+                            <aura:if isTrue="{!v.communityName == 'Courier'}">
+                                <a href="{!$Label.c.CavCommunity_URL_Home}"><img class="cct-logo-orange"
+                                        src="{!$Resource.LCav_assets + '/caviar-logo.svg'}"
+                                        alt="Caviar Support Home" /></a>
+                            </aura:if>
+
+                            <aura:if isTrue="{!v.communityName == 'Diner'}">
+                                <a href="{!$Label.c.CavCommunity_URL_Home}"><img class="cct-logo-orange"
+                                        src="{!$Resource.LCav_assets + '/caviar-logo.svg'}"
+                                        alt="Caviar Support Home" /></a>
+                            </aura:if>
+
+                            <aura:if isTrue="{!v.communityName == 'Restaurant'}">
+                                <a href="{!$Label.c.CavCommunity_URL_Home}"><img class="cct-logo-orange"
+                                        src="{!$Resource.LCav_assets + '/caviar-logo.svg'}"
+                                        alt="Caviar Support Home" /></a>
+                            </aura:if>
+
+                            <aura:if isTrue="{!v.communityName == 'Companies'}">
+                                <a href="{!$Label.c.CavCommunity_URL_Home}"><img class="cct-logo-orange"
+                                        src="{!$Resource.LCav_assets + '/caviar-logo.svg'}"
+                                        alt="Caviar Support Home" /></a>
+                            </aura:if>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+
+        </section>
+        <section class="cct-body-wrap">
+            <div class="interiorFrame">
+                {!v.body}
+            </div>
+        </section>
+        <section class="cct-footer-wrap">
+            <div class="cct-footer">
+                {!v.globalFooter}
+            </div>
+        </section>
+    </div>
+</aura:component>

@@ -1,0 +1,16 @@
+<apex:page standardController="Case">
+    <apex:includeLightning />
+    <div id="container" />
+    <script>
+        var caseId = "{!$CurrentPage.parameters.id}";
+        $Lightning.use("c:LDdCaseAgentFlowApp", function() {
+            $Lightning.createComponent("c:lwcDdCaseAgentFlow",
+                {"Id" : caseId},
+                "container",
+                function(cmp) {
+                    console.log('component created');
+                }
+            );
+        });
+    </script>
+</apex:page>

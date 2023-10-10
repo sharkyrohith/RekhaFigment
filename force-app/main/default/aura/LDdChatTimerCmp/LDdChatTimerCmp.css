@@ -1,0 +1,31 @@
+.THIS {
+}
+
+
+.THIS .dd-service-console-label{
+    color: #000000;
+}
+
+.THIS .dd-service-console-timer {
+	font-size: 24px;
+    color: #00BC22;
+    margin: 0 auto;
+    text-align: left;
+    width: 100%;
+    display: block;
+    position: relative;
+    top: 25px;
+}
+
+.THIS .dd-service-console-timer.dd-service-console-green {
+    color: #00BC22;
+}
+
+.THIS .dd-service-console-timer.dd-service-console-yellow {
+    color: #FFBF27;
+}
+
+.THIS .dd-service-console-timer.dd-service-console-red {
+    color: #ff3014;
+    font-weight: bold;
+}

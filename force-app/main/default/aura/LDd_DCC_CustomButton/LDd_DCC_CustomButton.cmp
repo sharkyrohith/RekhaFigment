@@ -1,0 +1,13 @@
+<aura:component access="global" implements="forceCommunity:availableForAllPageTypes">
+    <aura:attribute default="https://help.doordash.com/dashers/s/dasher-community-council-in-action" name="ButtonLink" type="String" />
+    <aura:attribute default="See the DCC in Action" name="ButtonLabel" type="String" />
+    <aura:attribute default="primary" name="ButtonStyle" type="String" />
+
+    <div>    
+        <div class="dd-dcc-button-wrap">      
+            <a href="{!v.ButtonLink}" class="{!'dd-dcc-button dd-dcc-button-' + v.ButtonStyle}" title="{!v.ButtonLabel}">
+                {!v.ButtonLabel}
+            </a>
+        </div>
+    </div>
+</aura:component>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Teleperformance</label>
+    <protected>false</protected>
+    <values>
+        <field>Company_Name__c</field>
+        <value xsi:type="xsd:string">Teleperformance</value>
+    </values>
+    <values>
+        <field>Email_Domain_Prefixes__c</field>
+        <value xsi:type="xsd:string">teleperformance.co
+teleperformance.com
+teleperformance.sv
+teleperformancedibs.com
+usa.teleperformance.com
+teleperformanceusa.com
+nlsa.teleperformance.com</value>
+    </values>
+</CustomMetadata>

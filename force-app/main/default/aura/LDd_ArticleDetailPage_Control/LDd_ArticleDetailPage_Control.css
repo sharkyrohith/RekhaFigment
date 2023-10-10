@@ -1,0 +1,21 @@
+.THIS {
+}
+.THIS .dd_home_content, .THIS .dd_home_footer {
+    
+    max-width: 1556px;
+    margin: 0px auto;
+}
+
+.THIS .dd_home_header {
+    padding: 0px !important;
+    margin: 0px !important;
+
+}
+
+.THIS .forcePageBlockSectionRow:nth-child(4) {
+    display: none !important;
+}
+
+.THIS .forcePageBlockSectionRow .DD-Article-Alt-Description {
+    display: none !important;
+}

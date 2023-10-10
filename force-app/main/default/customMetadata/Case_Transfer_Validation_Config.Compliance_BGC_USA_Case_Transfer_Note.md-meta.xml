@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Compliance BGC USA Case Transfer Note</label>
+    <protected>false</protected>
+    <values>
+        <field>Bypass_Trigger_Case_Insert__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>Criteria_Behavior__c</field>
+        <value xsi:type="xsd:string">Allow transfer only if criteria is met</value>
+    </values>
+    <values>
+        <field>Description__c</field>
+        <value xsi:type="xsd:string">BASD-32737
+Request: Please implement logic in Salesforce to make the “Case Notes &gt; Assign to Compliance BGC USA” case not required any time an SFDC case is transferred to the Compliance BGC USA queue.</value>
+    </values>
+    <values>
+        <field>Error_Message__c</field>
+        <value xsi:type="xsd:string">To escalate this case to the ‘Compliance BGC USA’ queue, please add a case note with the ‘Case Notes &gt; Assign to Compliance BGC USA’ template. The case note must be fully reviewed and updated to specify the background check issue identified.</value>
+    </values>
+    <values>
+        <field>Filter_Logic__c</field>
+        <value xsi:type="xsd:string">1 OR 2</value>
+    </values>
+    <values>
+        <field>Is_Test_Record__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>Sort_Order__c</field>
+        <value xsi:type="xsd:double">15.0</value>
+    </values>
+    <values>
+        <field>Target_Queue_Id__c</field>
+        <value xsi:type="xsd:string">00G2L000001qNZAUA2</value>
+    </values>
+    <values>
+        <field>isActive__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+</CustomMetadata>

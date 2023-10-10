@@ -1,0 +1,74 @@
+<aura:component access="global" implements="forceCommunity:availableForAllPageTypes">
+    <div class="slds-grid slds-wrap">
+        <div class="slds-col slds-size_1-of-2">
+            <img class="DCC-main-image" src="{!$Resource.SRdDCC_Assets + '/door-dash-icon-rgb.jpg'}"/>
+            <div class="dd-dcc-subtitle">Dasher Community Council</div>
+            <div>Where DoorDash and Dashers come together</div>
+        </div>
+        <div class="slds-col slds-size_1-of-2">
+            <img class="DCC-main-image" src="{!$Resource.SRdDCC_Assets + '/2021/Main/DD180829-235v2web.jpg'}"/>
+        </div>
+
+        <div class="slds-col slds-size_1-of-2">
+            <div class="dd-dcc-subtitle">Our Mission</div>
+            <div>The Dasher Community Council represents a unified voice for Dashers and works to ensure that all Dashers feel valued, included, and appreciated as they strive to provide excellent service for merchants and customers.</div>
+        </div>
+        <div class="slds-col slds-size_1-of-2">
+            <img class="DCC-main-image" src="{!$Resource.SRdDCC_Assets + '/2021/Main/Dasher_Scooter_Moving_1.jpg'}"/>
+        </div>
+
+        <div class="slds-col slds-size_1-of-2">
+            <div class="dd-dcc-subtitle">What We Do</div>
+            <div>The Dasher Community Council (DCC) exists to gather and act on critical feedback from Dashers themselves. First launched in the US in 2019, the DCC has since welcomed members from our global community of Dashers. </div>
+            <a href="/dashers/s/">About the DCC ??</a>
+        </div>
+        <div class="slds-col slds-size_1-of-2">
+            <img class="DCC-main-image" src="{!$Resource.SRdDCC_Assets + '/2021/Main/Bokeh_DoorDash_Final_1web.jpg'}"/>
+        </div>
+
+        <div class="slds-col slds-size_1-of-2">
+            <div class="dd-dcc-subtitle">Are you ready to make a difference</div>
+            <c:LDdCommunityDCCButton ButtonLink="https://doordash.formstack.com/forms/dccapph12021"  ButtonLabel="Apply Now" ButtonStyle="primary"/>
+            <c:LDdCommunityDCCButton ButtonLink="/dashers/s/"  ButtonLabel="Learn More" ButtonStyle="secondary"/>
+        </div>
+        <div class="slds-col slds-size_1-of-2">
+            <img class="DCC-main-image" src="{!$Resource.SRdDCC_Assets + '/2021/Main/ReadyToMakeADifference.png'}"/>
+        </div>
+
+        <div class="slds-col slds-size_1-of-1 dcc-red-background">
+            <div class="dd-dcc-subtitle-white">About the DCC</div>
+            <div class="dd-dcc-white">
+                At DoorDash, we’re always looking for ways to improve the Dasher experience.
+
+                DCC members serve a six-month term as representatives of the broader Dasher community. These Dashers advise DoorDash on key issues, act as a sounding board for ideas, and shape DoorDash’s future by testing new product features. The DCC also strengthens the Dasher community by voicing community concerns and planning community-building events.
+                
+                After their term, members become <a href="/dashers/s/">DCC Ambassadors</a>. 
+                
+                The DCC is different from the <a href="/dashers/s/">VDC (Voices from Dashers of Color Council)</a>, which focuses on creating a safe and inclusive space for Dashers of Color.
+            </div>
+        </div>
+
+        <div class="slds-col slds-size_1-of-1 dcc-red-background">
+            <div class="dd-dcc-subtitle-white">Where We Work</div>
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-size_1-of-3">   
+                    <a href="/dashers/s/"><img class="DCC-main-image" src="{!$Resource.SRdDCC_Assets + '/2021/Main/CAN.png'}"/></a>
+                </div>
+                <div class="slds-col slds-size_1-of-3">  
+                    <a href="/dashers/s/"><img class="DCC-main-image" src="{!$Resource.SRdDCC_Assets + '/2021/Main/USA.png'}"/></a>
+                </div>
+                <div class="slds-col slds-size_1-of-3">  
+                    <a href="/dashers/s/"><img class="DCC-main-image" src="{!$Resource.SRdDCC_Assets + '/2021/Main/AUS.png'}"/></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="slds-col slds-size_1-of-1">
+            <div class="dd-dcc-subtitle">Ready To Join Us?</div>
+            <div>Applications for the January 2021 DCC are closed (as of November 15, 2020 at 11:59pm Pacific time). For more details, see the FAQ page.
+            </div>
+            <c:LDdCommunityDCCButton ButtonLink="/dashers/s/dasher-community-council-faq" ButtonLabel="FAQ" ButtonStyle="secondary"/>
+            <c:LDdCommunityDCCButton ButtonLink="/dashers/s/" ButtonLabel="Apply Now" ButtonStyle="primary"/>
+        </div>
+    </div>
+</aura:component>

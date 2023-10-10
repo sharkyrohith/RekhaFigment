@@ -1,0 +1,6 @@
+<design:component label="Main DoorDash Support">
+	<design:attribute name="community" label="Community Name" />
+    	<design:attribute name="supportPhone" label="Leave Blank" />
+    <design:attribute name="showPhone" label="Show Phone" />
+
+</design:component>

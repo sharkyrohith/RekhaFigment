@@ -1,0 +1,25 @@
+<aura:component controller="CDdNimdaSyncPollingController" implements="force:appHostable,force:hasRecordId,c:LDdNimdaSyncConstants" access="global">
+
+    <aura:attribute name="RANDOM_KEY" type="String" default="{!$Label.c.NimdaSyncPollingRandomKey}" access="PRIVATE"/>
+    <aura:attribute name="nimdaSyncPollingPageURL" type="String" access="PRIVATE"/>
+    <aura:attribute name="origin" type="String" access="PRIVATE"/>
+    <aura:attribute name="isLoading" type="Boolean" default="true" access="PRIVATE" />	
+
+    <!--handlers-->
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    <aura:registerEvent name="LDdNimdaSyncPollingEvent" type="c:LDdNimdaSyncPollingEvent"/>
+    <!--Include LDdCallout component -->
+    <c:LDdCallout aura:id="calloutCmp" />
+
+    <div class="slds">
+        <aura:if isTrue="{!v.isLoading}">
+            <lightning:spinner alternativeText="Loading" size="medium" />
+        </aura:if>  
+        <div>
+            <aura:if isTrue="{! (!empty(v.nimdaSyncPollingPageURL) ) }">
+                <iframe style="width:0;height:0;border:0;display:none;" aura:id="nimdaSyncPollingPageURL-iframe" src="{!v.nimdaSyncPollingPageURL}"/>
+            </aura:if>
+        </div>
+    </div>
+
+</aura:component>

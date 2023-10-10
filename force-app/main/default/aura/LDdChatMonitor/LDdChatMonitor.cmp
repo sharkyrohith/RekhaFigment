@@ -1,0 +1,10 @@
+<aura:component controller="CDdChatMonitorController" 
+    implements="lightning:backgroundUtilityItem,flexipage:availableForAllPageTypes" 
+    access="global" >
+    <lightning:navigation aura:id="navService"/>    
+    <lightning:workspaceAPI aura:id="workspace" />    
+    <lightning:omniToolkitAPI aura:id="omniToolkit" /> 
+    <aura:handler event="lightning:omniChannelWorkAccepted" action="{! c.onWorkAccepted }"/>
+    <aura:handler event="lightning:omniChannelWorkAssigned" action="{! c.onWorkAssigned }"/>
+    <!-- aura:handler event="lightning:tabCreated" action="{! c.onTabCreated }"/ -->
+</aura:component>

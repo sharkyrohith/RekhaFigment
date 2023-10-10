@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Reopen Cases to Previous Queue</label>
+    <protected>false</protected>
+    <values>
+        <field>Business_Hours_Id__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Customer_Type__c</field>
+        <value xsi:type="xsd:string">All</value>
+    </values>
+    <values>
+        <field>Description__c</field>
+        <value xsi:type="xsd:string">BIZS-1667
+Condition used in these WFRs, If Case Status = Reopened and Previous Queue = “XYZ“ then update case owner to the queue “XYZ“
+Links to the workflow rules.
+
+https://figment.my.salesforce.com/01Q2L000000PzulUAC
+https://figment.my.salesforce.com/01Q2L000000g7MvUAI
+https://figment.my.salesforce.com/01Q2L000000DmEBUA0
+https://figment.my.salesforce.com/01Q2L000000Dm6WUAS
+https://figment.my.salesforce.com/01Q2L000000g82IUAQ
+https://figment.my.salesforce.com/01Q2L000000PzoZUAS
+https://figment.my.salesforce.com/01Q2L000000PzcrUAC
+https://figment.my.salesforce.com/01Q2L000000PzcqUAC
+https://figment.my.salesforce.com/01Q2L000000PzcsUAC
+https://figment.my.salesforce.com/01Q2L000000PzctUAC
+https://figment.my.salesforce.com/01Q2L000000PzcuUAC
+https://figment.my.salesforce.com/01Q2L000000Dm6XUAS
+https://figment.my.salesforce.com/01Q2L000000DmHtUAK
+https://figment.my.salesforce.com/01Q2L000000kH8uUAE
+https://figment.my.salesforce.com/01Q2L000000kH8rUAE
+https://figment.my.salesforce.com/01Q2L000000kH8sUAE
+https://figment.my.salesforce.com/01Q2L000000MH6jUAG
+https://figment.my.salesforce.com/01Q2L000000DmECUA0
+https://figment.my.salesforce.com/01Q2L000000PzVCUA0
+https://figment.my.salesforce.com/01Q2L000000DlqYUAS
+https://figment.my.salesforce.com/01Q2L000000DlqZUAS
+https://figment.my.salesforce.com/01Q2L000000DmEDUA0
+https://figment.my.salesforce.com/01Q2L000000g7kxUAA
+https://figment.my.salesforce.com/01Q2L0000009rPlUAI
+https://figment.my.salesforce.com/01Q2L000000Dj0GUAS
+https://figment.my.salesforce.com/01Q2L000000Pz54UAC
+https://figment.my.salesforce.com/01Q2L000000Pz55UAC
+https://figment.my.salesforce.com/01Q2L000000DjErUAK
+https://figment.my.salesforce.com/01Q2L000000Pz3wUAC
+https://figment.my.salesforce.com/01Q2L000000Pz4pUAC
+https://figment.my.salesforce.com/01Q2L000000g7NAUAY
+https://figment.my.salesforce.com/01Q2L000000g7aYUAQ
+https://figment.my.salesforce.com/01Q2L000000PzXXUA0
+https://figment.my.salesforce.com/01Q2L000000Dj4mUAC
+https://figment.my.salesforce.com/01Q2L000000Pz4gUAC
+https://figment.my.salesforce.com/01Q2L000000g7guUAA
+https://figment.my.salesforce.com/01Q2L000000DlqaUAC
+https://figment.my.salesforce.com/01Q2L000000g7gwUAA
+https://figment.my.salesforce.com/01Q2L0000009rPmUAI
+https://figment.my.salesforce.com/01Q2L000000DltDUAS
+https://figment.my.salesforce.com/01Q2L000000Dj9rUAC
+https://figment.my.salesforce.com/01Q2L000000g7NPUAY
+
+Flows:
+https://figment.lightning.force.com/builder_platform_interaction/flowBuilder.app?flowId=3012L000000QawIQAS
+https://figment.my.salesforce.com/01Q2L000000DjFG</value>
+    </values>
+    <values>
+        <field>Do_Vendor_Split__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>Evaluation_Criteria__c</field>
+        <value xsi:type="xsd:string">Updated to Subsequently meet criteria</value>
+    </values>
+    <values>
+        <field>Field_API_Name__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Field_Name__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Field_Value__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Filter_Logic__c</field>
+        <value xsi:type="xsd:string">1 AND 7 AND (2 OR 3 OR 4 OR 5 OR 6 OR 8)</value>
+    </values>
+    <values>
+        <field>Is_Active__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>Is_Test_Record__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>Object_API_Name__c</field>
+        <value xsi:type="xsd:string">Case</value>
+    </values>
+    <values>
+        <field>Object__c</field>
+        <value xsi:type="xsd:string">Case</value>
+    </values>
+    <values>
+        <field>Owner_Queue_Name__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Prioritize_VIP__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>Record_Type_Id__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Routing_Destination_Name__c</field>
+        <value xsi:type="xsd:string">MC-Reopen Cases to Previous Queue</value>
+    </values>
+    <values>
+        <field>Sort_Order__c</field>
+        <value xsi:type="xsd:double">5000.0</value>
+    </values>
+    <values>
+        <field>Vendor_Chat_Button_Id__c</field>
+        <value xsi:nil="true"/>
+    </values>
+</CustomMetadata>

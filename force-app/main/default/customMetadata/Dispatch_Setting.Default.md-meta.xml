@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Default</label>
+    <protected>false</protected>
+    <values>
+        <field>API_Case_Callout_At_Insert__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>Case_API_Record_Type_ID__c</field>
+        <value xsi:type="xsd:string">0121a0000006Qoq</value>
+    </values>
+    <values>
+        <field>Case_Record_Type_ID__c</field>
+        <value xsi:type="xsd:string">0121a0000006Qog</value>
+    </values>
+    <values>
+        <field>Caviar_Case_Record_Type_ID__c</field>
+        <value xsi:type="xsd:string">0122L000000sc46</value>
+    </values>
+    <values>
+        <field>Caviar_Deployment_IDs__c</field>
+        <value xsi:type="xsd:string">5722L000000k9bNQAQ;5726C000000Kz15QAC</value>
+    </values>
+    <values>
+        <field>Caviar_Diner_Chat_Button_ID__c</field>
+        <value xsi:type="xsd:string">5732L000000blJOQAY</value>
+    </values>
+    <values>
+        <field>Caviar_Diner_Web_Chat_Button_ID__c</field>
+        <value xsi:type="xsd:string">5732L000000blJO</value>
+    </values>
+    <values>
+        <field>Disabled__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>Fire_On_Omni_Events__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>Get_From_Dispatch_Retries__c</field>
+        <value xsi:type="xsd:double">1.0</value>
+    </values>
+    <values>
+        <field>Send_To_Dispatch_Retries__c</field>
+        <value xsi:type="xsd:double">1.0</value>
+    </values>
+</CustomMetadata>

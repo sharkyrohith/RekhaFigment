@@ -1,0 +1,36 @@
+<aura:component access="global" implements="forceCommunity:availableForAllPageTypes">
+    <div>
+        <div class="darkGrayBackground aboutTheDCC">
+            <div class="smallFrame">
+                <h2>About The DCC</h2>
+                <div>
+                    The inaugural DCC was founded in the summer of 2019 and had representation from Dashers in the US
+                    and
+                    Canada. In January 2021, we launched distinct councils for the US, Canada, and Australia to hear
+                    from
+                    even more Dashers globally.
+                </div>
+                <br />
+                <div>
+                    DCC members serve a six-month term as representatives of the broader Dasher community. These Dashers
+                    advise DoorDash on key issues, act as a sounding board for ideas, and shape DoorDash’s
+                    future by testing new product features. The DCC also strengthens the Dasher community by voicing
+                    community concerns and planning
+                    community-building events. After their term, members become <a
+                        href="https://help.doordash.com/dashers/s/dcc-ambassadors?language=en_US" target="_blank">DCC
+                        Ambassadors</a>. In appreciation of their efforts, both past and present members of the DCC are
+                    invited to join the
+                    <a href="https://help.doordash.com/dashers/s/article/Dasher-Rewards-Beta-Program?language=en_US#rewards-program"
+                        target="_blank">Top Dasher Program</a>.
+                </div>
+                <br />
+                <div>
+                    The DCC is different from the <a
+                        href="https://help.doordash.com/dashers/s/voices-from-dashers-of-color?language=en_US"
+                        target="_blank">VDC (Voices from Dashers of Color Council)</a>, which focuses on creating a safe
+                    inclusive space for Dashers of Color.
+                </div>
+            </div>
+        </div>
+    </div>
+</aura:component>

@@ -1,0 +1,45 @@
+<aura:component access="global" implements="forceCommunity:availableForAllPageTypes">
+    <aura:attribute default="Help" name="CommunityName" type="String" />
+	<div>
+        <div class="dd-footer-global">
+            <div class="footer-wrap">
+                <div class="footer-columns-wrap"></div>
+                <div class="footer-bottom">
+                    <div class="footer-bottom-left">
+                        <a>
+                            <img class="ddhs-select-logo" src="{!$Resource.SRDdHelpSelectAssets + '/dd-icon.svg'}"/>
+                        </a>
+						<aura:if isTrue="{!v.CommunityName == 'Consumers'}">
+                            <a href="https://help.doordash.com/consumers/s/terms-and-conditions-jp" target="_blank">
+                                利用規約
+                        	</a>
+                            <a href="https://help.doordash.com/consumers/s/privacy-policy-jp" target="_blank">
+                                プライバシーポリシー
+                        	</a>
+                        </aura:if>
+                        <aura:if isTrue="{!v.CommunityName == 'Dashers'}">
+                            <a href="https://help.doordash.com/dashers/s/ica-jp" target="_blank">
+								ダッシャーとの契約
+                        	</a>
+                            <a href="https://help.doordash.com/dashers/s/privacy-policy-jp" target="_blank">
+                                プライバシーポリシー
+                        	</a>
+                            <a href="https://help.doordash.com/dashers/s/deactivation-policy-jp" target="_blank">
+                                無効化ポリシー
+                        	</a>
+                        </aura:if>
+                        <aura:if isTrue="{!v.CommunityName == 'Merchants'}">
+                            <a href="https://help.doordash.com/merchants/s/terms-of-service-jp" target="_blank">
+                                利用規約
+                        	</a>
+                        </aura:if>
+                        <a href="{!$Label.c.DdCommunity_Footer_Copyright_Link}">
+                            © {!$Label.c.DdCommunity_Footer_Copyright}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+	<c:LDdRedirectOnIP/>
+</aura:component>

@@ -1,0 +1,61 @@
+<template>
+    <lightning-card>
+        <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+        <template if:true={merchantAudience}>
+            <div class="slds-box">
+                <lightning-card title="Merchant">
+                    <template for:each={merchantAudience} for:item="merchant">
+                        <div key={merchant} class="slds-form-element slds-form-element_readonly">
+                            <span class="slds-form-element__label">{merchant.label}</span>
+                            <div class="slds-form-element__control">
+                                <div class="slds-form-element__static">{merchant.value}</div>
+                            </div>
+                        </div>
+                    </template>
+                </lightning-card>
+            </div>
+        </template>
+        <template if:true={dasherAudience}>
+            <div class="slds-m-top_small slds-box">
+                <lightning-card title="Dasher">
+                    <template for:each={dasherAudience} for:item="dasher">
+                        <div key={dasher} class="slds-form-element slds-form-element_readonly">
+                            <span class="slds-form-element__label">{dasher.label}</span>
+                            <div class="slds-form-element__control">
+                                <div class="slds-form-element__static">{dasher.value}</div>
+                            </div>
+                        </div>
+                    </template>
+                </lightning-card>
+            </div>
+        </template>
+        <template if:true={consumerAudience}>
+            <div class="slds-m-top_small slds-box">
+                <lightning-card title="Consumer">
+                    <template for:each={consumerAudience} for:item="consumer">
+                        <div key={consumer} class="slds-form-element slds-form-element_readonly">
+                            <span class="slds-form-element__label">{consumer.label}</span>
+                            <div class="slds-form-element__control">
+                                <div class="slds-form-element__static">{consumer.value}</div>
+                            </div>
+                        </div>
+                    </template>
+                </lightning-card>
+            </div>
+        </template>
+        <template if:true={delivery}>
+            <div class="slds-m-top_small slds-box">
+                <lightning-card title="Delivery">
+                    <template for:each={delivery} for:item="deli">
+                        <div key={deli} class="slds-form-element slds-form-element_readonly">
+                            <span class="slds-form-element__label">{deli.label}</span>
+                            <div class="slds-form-element__control">
+                                <div class="slds-form-element__static">{deli.value}</div>
+                            </div>
+                        </div>
+                    </template>
+                </lightning-card>
+            </div>
+        </template>
+    </lightning-card>
+</template>

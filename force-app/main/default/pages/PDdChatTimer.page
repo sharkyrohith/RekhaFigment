@@ -1,0 +1,29 @@
+<apex:page standardController="LiveChatTranscript">
+    <apex:includeScript value="/support/console/48.0/integration.js"/>
+    <apex:includeLightning />
+    <div id="container" />
+    <script>
+        $Lightning.use("c:LDdChatTimerApp", function() {
+            $Lightning.createComponent("c:LDdChatTimerCmp",
+                {
+                    "recordId" : "{!$CurrentPage.parameters.id}"
+                },
+                "container",
+                function(cmp) {
+                    var enclosingTabId = '';
+                    sforce.console.getEnclosingTabId(function(result){
+                        enclosingTabId = result.id;
+                    });
+
+                    sforce.console.addEventListener(sforce.console.ConsoleEvent.CLOSE_TAB, function(evt){
+                        var intId = cmp.get("v.intId");
+                        if (enclosingTabId == evt.Id){
+                            clearInterval(intId);
+                        }
+                    });
+                    console.log('component created');
+                }
+            );
+        });
+    </script>
+</apex:page>

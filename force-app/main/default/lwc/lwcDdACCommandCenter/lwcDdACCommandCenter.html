@@ -1,0 +1,91 @@
+<!--
+  @description       : Amazon Connect QUEUE
+  @author            : Jose Vega
+  @last modified on  : 08-02-2023
+  @last modified by  : Jose Vega
+-->
+<template>
+    <template if:true={hasAccess}>
+
+        <template if:true={loading}>
+            <div class="spinner-container">
+                <lightning-spinner alternative-text="Loading"></lightning-spinner>
+            </div>
+        </template>
+
+        <lightning-card>
+            <div class="pagination-row">
+                <div class="pagination-controls">
+                    <lightning-button label="New Queue" variant="brand" onclick={handleNewQueue}></lightning-button>
+                </div>
+                <lightning-input label="Search" value={searchTerm} onchange={handleSearchTermChange}
+                    class="pagination-search"></lightning-input>
+            </div>
+
+            <lightning-datatable key-field="Id" data={data} columns={columns} onrowaction={handleRowAction}
+                onsort={handleSort} sorted-by={sortedBy} sorted-direction={sortedDirection}
+                hide-checkbox-column></lightning-datatable>
+            <div class="pagination-row">
+                <div class="pagination-controls">
+                    <lightning-button-icon icon-name="utility:left" onclick={handlePagePrevious}
+                        disabled={isPagePreviousDisabled}></lightning-button-icon>
+                    <div class="pagination-indicator">
+                        Page {currentPage} of {totalPages}
+                    </div>
+                    <lightning-button-icon icon-name="utility:right" onclick={handlePageNext}
+                        disabled={isPageNextDisabled}></lightning-button-icon>
+                </div>
+
+                <lightning-combobox label="Page Size" value={pageSize} options={pageSizeOptions}
+                    onchange={handlePageSizeChange} class="pagination-size"></lightning-combobox>
+            </div>
+        </lightning-card>
+
+        <template if:true={showModal}>
+            <div class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <header class="slds-modal__header">
+                        <h2 class="slds-modal__title">New Queue</h2>
+                        <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+                            title="Close" onclick={handleCloseModal}>
+                            <svg class="slds-button__icon slds-button__icon_large" aria-hidden="true">
+                                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+                            </svg>
+                            <span class="slds-assistive-text">Close</span>
+                        </button>
+                    </header>
+                    <div class="slds-modal__content slds-p-around_medium">
+                        <lightning-input label="Name" value={name} name="name" onchange={handleFieldChange}
+                            required></lightning-input>
+                        <lightning-input label="Description" value={description} name="description"
+                            onchange={handleFieldChange} required></lightning-input>
+                        <div class="slds-form-element__help">Description must include ticket associated with new queue
+                            request( BZAP-12345 )</div>
+                        <lightning-combobox label="Business Hours" name="businessHours" options={businessHoursOptions}
+                            value={businessHours} onchange={handleFieldChange} required></lightning-combobox>
+                        <template if:true={hasAllAccess}>
+                            <lightning-combobox label="Vertical" name="vertical" options={verticals} value={vertical}
+                                onchange={handleFieldChange} required></lightning-combobox>
+                        </template>
+                    </div>
+                    <footer class="slds-modal__footer">
+                        <button class="slds-button slds-button_brand" onclick={handleSave}
+                            disabled={isSubmitDisabled}>Save</button>
+                        <button class="slds-button slds-button_neutral" onclick={handleCloseModal}>Cancel</button>
+                    </footer>
+                </div>
+            </div>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </template>
+    </template>
+    <template if:false={hasAccess}>
+        <div class="slds-notify_container slds-is-relative">
+            <div class="slds-notify slds-notify_toast slds-theme_info" role="status">
+                <span class="slds-assistive-text">info</span>
+                <div class="slds-notify__content">
+                    <h2 class="slds-text-heading_small">{accessErrorMessage}</h2>
+                </div>
+            </div>
+        </div>
+    </template>
+</template>

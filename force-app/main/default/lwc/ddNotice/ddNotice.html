@@ -1,0 +1,47 @@
+<template>
+    <template if:true={showNotice}>
+        <div class={mainDivClass} role="status">
+            <span class="slds-assistive-text">{variant}</span>
+            <span class={iconContainerClass}>
+                <lightning-icon icon-name={iconName} size="small" variant="inverse"></lightning-icon>
+            </span>
+            <div class="dd-notify-content slds-notify__content">
+                <div class={contentClass}>
+                    <template if:true={title}>
+                        <div class="slds-align_absolute-center slds-text-heading_medium slds-var-m-bottom_small">{title}</div>
+                    </template>
+                    <template if:true={showMessageList}>
+                        <template for:each={messageList} for:item="item">
+                            <li key={item} class="slds-text-heading_small">
+                                <lightning-formatted-rich-text value={item}>
+                                </lightning-formatted-rich-text>
+                            </li>
+                        </template>
+                    </template>
+                    <template if:false={showMessageList}>
+                        <h2 class="dd-notify-message slds-align_absolute-center slds-text-heading_small">
+                            <lightning-formatted-rich-text value={message}>
+                            </lightning-formatted-rich-text>
+                        </h2>
+                    </template>
+                </div>
+                <div class={customBodyClass}>
+                    <slot name="customBody" onslotchange={handleCustomBodySlotChange}>
+                    </slot>
+                </div>
+            </div>
+            <div class={customButtonClass}>
+                <slot name="customButton" onslotchange={handleCustomButtonSlotChange}></slot>
+            </div>
+            <template if:true={showClose}>
+                <div class="slds-m-right_small slds-align_absolute-center">
+                    <lightning-button-icon icon-name="utility:close"
+                    variant="inverse"
+                    onclick={handleCloseClick}
+                    alternative-text="Close">
+                    </lightning-button-icon>
+                </div>
+            </template>
+        </div>
+    </template>
+</template>

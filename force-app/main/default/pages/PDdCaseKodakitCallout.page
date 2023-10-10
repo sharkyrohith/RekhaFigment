@@ -1,0 +1,4 @@
+<apex:page standardController="Case" extensions="CDdCaseKodakitCalloutCtrl" action="{!makeKodakitCallout}" lightningStylesheets="true">
+    <apex:slds />
+    <apex:pageMessages />
+</apex:page>

@@ -1,0 +1,26 @@
+.THIS {
+}
+
+.THIS .dd-contact-button-wrap {
+    margin: 0px auto;
+	text-align: center;
+}
+
+.THIS .dd-contact-support {
+    color: #fff;
+    background-color: rgb(255, 48, 8);
+    width: 100%;
+    display: inline-block;
+    max-width: 33%;
+    min-width: 250px;
+    font-size: 1.1rem;
+    padding: 10px 0px;
+    transition: all .2s;
+    text-transform: capitalize;
+    text-decoration: none;
+}
+    
+.THIS .dd-contact-support:hover {
+    color: #fff;
+    background-color: #D42200;
+}

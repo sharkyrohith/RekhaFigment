@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>48.0</apiVersion>
+    <description>Provides progress information for bulk lead conversions</description>
+    <isExposed>true</isExposed>
+    <masterLabel>Bulk Lead Convert</masterLabel>
+</LightningComponentBundle>

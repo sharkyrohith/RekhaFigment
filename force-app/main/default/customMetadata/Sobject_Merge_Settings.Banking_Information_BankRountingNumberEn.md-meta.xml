@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Banking Information BankRountingNumberEn</label>
+    <protected>false</protected>
+    <values>
+        <field>EIN_Encrypted__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Field_Name__c</field>
+        <value xsi:type="xsd:string">Bank_Routing_Number_Encrypted__c</value>
+    </values>
+    <values>
+        <field>Fieldset_Name__c</field>
+        <value xsi:type="xsd:string">Banking Information</value>
+    </values>
+    <values>
+        <field>Is_Active__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>Legal_Business_Name__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Provincial_Tax_ID_Encrypted__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Sobject_Name__c</field>
+        <value xsi:type="xsd:string">Account</value>
+    </values>
+</CustomMetadata>

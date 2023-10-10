@@ -1,0 +1,3 @@
+<apex:page standardcontroller="Lead" >
+<apex:iframe src="https://us-west-2b.online.tableau.com/t/doordash/views/LeadDashboard/LeadDash?iframeSizedToWindow=true&:embed=y&:display_count=no&:showAppBanner=false&:showVizHome=no?:embed=y&:toolbar=no&LeadID={!Lead.Id}&:showShareOptions=true&:display_count=no" height="1100px" width="100%" scrolling="true"/>
+</apex:page>

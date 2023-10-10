@@ -1,0 +1,44 @@
+<design:component label="Topic Catalog Styler">
+    
+    	<design:attribute name="topic_1_label" label="Topic 1 Label" description="Label must match topic name in order to map icon correctly."/>
+    	<design:attribute name="topic_1_icon" label="Topic 1 Icon" datasource="Intro_to_Dashing,Alcohol,American,Asian,BBQ,Breakfast,Burger,Chinese,Comfort_Food,Desert,Fast_Food,Fork_Knife,Healthy,Indian,Italian,Japanese,Late_Night,Mexican,Pizza,Platter,Sandwich,Sushi,Thai" />
+    	<design:attribute name="topic_2_label" label="Topic 2 Label" description="Label must match topic name in order to map icon correctly."/>
+    	<design:attribute name="topic_2_icon" label="Topic 2 Icon" datasource="Alcohol,American,Asian,BBQ,Breakfast,Burger,Chinese,Comfort_Food,Desert,Fast_Food,Fork_Knife,Healthy,Indian,Italian,Japanese,Late_Night,Mexican,Pizza,Platter,Sandwich,Sushi,Thai" />
+    	<design:attribute name="topic_3_label" label="Topic 3 Label" description="Label must match topic name in order to map icon correctly."/>
+    	<design:attribute name="topic_3_icon" label="Topic 3 Icon" datasource="Alcohol,American,Asian,BBQ,Breakfast,Burger,Chinese,Comfort_Food,Desert,Fast_Food,Fork_Knife,Healthy,Indian,Italian,Japanese,Late_Night,Mexican,Pizza,Platter,Sandwich,Sushi,Thai" />
+    	<design:attribute name="topic_4_label" label="Topic 4 Label" description="Label must match topic name in order to map icon correctly."/>
+    	<design:attribute name="topic_4_icon" label="Topic 4 Icon" datasource="Alcohol,American,Asian,BBQ,Breakfast,Burger,Chinese,Comfort_Food,Desert,Fast_Food,Fork_Knife,Healthy,Indian,Italian,Japanese,Late_Night,Mexican,Pizza,Platter,Sandwich,Sushi,Thai" />
+    	<design:attribute name="topic_5_label" label="Topic 5 Label" description="Label must match topic name in order to map icon correctly."/>
+    	<design:attribute name="topic_5_icon" label="Topic 5 Icon" datasource="Alcohol,American,Asian,BBQ,Breakfast,Burger,Chinese,Comfort_Food,Desert,Fast_Food,Fork_Knife,Healthy,Indian,Italian,Japanese,Late_Night,Mexican,Pizza,Platter,Sandwich,Sushi,Thai" />
+    	<design:attribute name="topic_6_label" label="Topic 6 Label" description="Label must match topic name in order to map icon correctly."/>
+    	<design:attribute name="topic_6_icon" label="Topic 6 Icon" datasource="Alcohol,American,Asian,BBQ,Breakfast,Burger,Chinese,Comfort_Food,Desert,Fast_Food,Fork_Knife,Healthy,Indian,Italian,Japanese,Late_Night,Mexican,Pizza,Platter,Sandwich,Sushi,Thai" />
+    	<design:attribute name="topic_7_label" label="Topic 7 Label" description="Label must match topic name in order to map icon correctly."/>
+    	<design:attribute name="topic_7_icon" label="Topic 7 Icon" datasource="Alcohol,American,Asian,BBQ,Breakfast,Burger,Chinese,Comfort_Food,Desert,Fast_Food,Fork_Knife,Healthy,Indian,Italian,Japanese,Late_Night,Mexican,Pizza,Platter,Sandwich,Sushi,Thai" />
+    	<design:attribute name="topic_8_label" label="Topic 8 Label" description="Label must match topic name in order to map icon correctly."/>
+    	<design:attribute name="topic_8_icon" label="Topic 8 Icon" datasource="Alcohol,American,Asian,BBQ,Breakfast,Burger,Chinese,Comfort_Food,Desert,Fast_Food,Fork_Knife,Healthy,Indian,Italian,Japanese,Late_Night,Mexican,Pizza,Platter,Sandwich,Sushi,Thai" />
+    	<design:attribute name="topic_9_label" label="Topic 9 Label" description="Label must match topic name in order to map icon correctly."/>
+    	<design:attribute name="topic_9_icon" label="Topic 9 Icon" datasource="Alcohol,American,Asian,BBQ,Breakfast,Burger,Chinese,Comfort_Food,Desert,Fast_Food,Fork_Knife,Healthy,Indian,Italian,Japanese,Late_Night,Mexican,Pizza,Platter,Sandwich,Sushi,Thai" />
+    	<design:attribute name="topic_10_label" label="Topic 10 Label" description="Label must match topic name in order to map icon correctly."/>
+    	<design:attribute name="topic_10_icon" label="Topic 10 Icon" datasource="Alcohol,American,Asian,BBQ,Breakfast,Burger,Chinese,Comfort_Food,Desert,Fast_Food,Fork_Knife,Healthy,Indian,Italian,Japanese,Late_Night,Mexican,Pizza,Platter,Sandwich,Sushi,Thai" />
+    	<design:attribute name="topic_11_label" label="Topic 11 Label" description="Label must match topic name in order to map icon correctly."/>
+    	<design:attribute name="topic_11_icon" label="Topic 11 Icon" datasource="Alcohol,American,Asian,BBQ,Breakfast,Burger,Chinese,Comfort_Food,Desert,Fast_Food,Fork_Knife,Healthy,Indian,Italian,Japanese,Late_Night,Mexican,Pizza,Platter,Sandwich,Sushi,Thai" />
+    	<design:attribute name="topic_12_label" label="Topic 12 Label" description="Label must match topic name in order to map icon correctly."/>
+    	<design:attribute name="topic_12_icon" label="Topic 12 Icon" datasource="Alcohol,American,Asian,BBQ,Breakfast,Burger,Chinese,Comfort_Food,Desert,Fast_Food,Fork_Knife,Healthy,Indian,Italian,Japanese,Late_Night,Mexican,Pizza,Platter,Sandwich,Sushi,Thai" />
+    	<design:attribute name="topic_13_label" label="Topic 13 Label" description="Label must match topic name in order to map icon correctly."/>
+    	<design:attribute name="topic_13_icon" label="Topic 13 Icon" datasource="Alcohol,American,Asian,BBQ,Breakfast,Burger,Chinese,Comfort_Food,Desert,Fast_Food,Fork_Knife,Healthy,Indian,Italian,Japanese,Late_Night,Mexican,Pizza,Platter,Sandwich,Sushi,Thai" />
+    	<design:attribute name="topic_14_label" label="Topic 14 Label" description="Label must match topic name in order to map icon correctly."/>
+    	<design:attribute name="topic_14_icon" label="Topic 14 Icon" datasource="Alcohol,American,Asian,BBQ,Breakfast,Burger,Chinese,Comfort_Food,Desert,Fast_Food,Fork_Knife,Healthy,Indian,Italian,Japanese,Late_Night,Mexican,Pizza,Platter,Sandwich,Sushi,Thai" />
+    	<design:attribute name="topic_15_label" label="Topic 15 Label" description="Label must match topic name in order to map icon correctly."/>
+    	<design:attribute name="topic_15_icon" label="Topic 15 Icon" datasource="Alcohol,American,Asian,BBQ,Breakfast,Burger,Chinese,Comfort_Food,Desert,Fast_Food,Fork_Knife,Healthy,Indian,Italian,Japanese,Late_Night,Mexican,Pizza,Platter,Sandwich,Sushi,Thai" />
+    	<design:attribute name="topic_16_label" label="Topic 16 Label" description="Label must match topic name in order to map icon correctly."/>
+    	<design:attribute name="topic_16_icon" label="Topic 16 Icon" datasource="Alcohol,American,Asian,BBQ,Breakfast,Burger,Chinese,Comfort_Food,Desert,Fast_Food,Fork_Knife,Healthy,Indian,Italian,Japanese,Late_Night,Mexican,Pizza,Platter,Sandwich,Sushi,Thai" />
+    	<design:attribute name="topic_17_label" label="Topic 17 Label" description="Label must match topic name in order to map icon correctly."/>
+    	<design:attribute name="topic_17_icon" label="Topic 17 Icon" datasource="Alcohol,American,Asian,BBQ,Breakfast,Burger,Chinese,Comfort_Food,Desert,Fast_Food,Fork_Knife,Healthy,Indian,Italian,Japanese,Late_Night,Mexican,Pizza,Platter,Sandwich,Sushi,Thai" />
+    	<design:attribute name="topic_18_label" label="Topic 18 Label" description="Label must match topic name in order to map icon correctly."/>
+    	<design:attribute name="topic_18_icon" label="Topic 18 Icon" datasource="Alcohol,American,Asian,BBQ,Breakfast,Burger,Chinese,Comfort_Food,Desert,Fast_Food,Fork_Knife,Healthy,Indian,Italian,Japanese,Late_Night,Mexican,Pizza,Platter,Sandwich,Sushi,Thai" />
+    	<design:attribute name="topic_19_label" label="Topic 19 Label" description="Label must match topic name in order to map icon correctly."/>
+    	<design:attribute name="topic_19_icon" label="Topic 19 Icon" datasource="Alcohol,American,Asian,BBQ,Breakfast,Burger,Chinese,Comfort_Food,Desert,Fast_Food,Fork_Knife,Healthy,Indian,Italian,Japanese,Late_Night,Mexican,Pizza,Platter,Sandwich,Sushi,Thai" />
+    	<design:attribute name="topic_20_label" label="Topic 20 Label" description="Label must match topic name in order to map icon correctly."/>
+    	<design:attribute name="topic_20_icon" label="Topic 20 Icon" datasource="Alcohol,American,Asian,BBQ,Breakfast,Burger,Chinese,Comfort_Food,Desert,Fast_Food,Fork_Knife,Healthy,Indian,Italian,Japanese,Late_Night,Mexican,Pizza,Platter,Sandwich,Sushi,Thai" />
+ 
+</design:component>

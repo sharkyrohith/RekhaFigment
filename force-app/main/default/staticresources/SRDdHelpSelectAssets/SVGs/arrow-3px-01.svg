@@ -1,0 +1,18 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 31.75 19.17">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #ff3008;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 3px;
+      }
+    </style>
+  </defs>
+  <title>arrow-3px</title>
+  <g>
+    <polyline class="cls-1" points="2.13 9.54 29.62 9.54 21.83 2"/>
+    <polyline class="cls-1" points="2.13 9.54 29.62 9.54 21.83 17.08"/>
+  </g>
+</svg>

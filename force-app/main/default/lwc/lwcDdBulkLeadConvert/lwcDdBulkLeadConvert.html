@@ -1,0 +1,36 @@
+<!--
+ - Created by Jeremy S. Johnson, Perficient, Inc. on 3/14/2020.
+ - A window overlay for performing bulk lead conversions from GridBuddy
+ -->
+<template>
+    <lightning-card title="Bulk Lead Conversion">
+        <div class="slds-card__body slds-card__body_inner">
+            <lightning-spinner data-id="spinner" variant="brand" size="large" class="slds-hidden" alternative-text="Waiting for response from server."></lightning-spinner>
+
+            <div data-id="importStatus" class="slds-form-element slds-m-top_medium">
+                <label class="slds-form-element__label slds-m-top_medium" for="importStatusDiv">Submission Status</label>
+                <div id="importStatusDiv" data-id="importStatusDiv">{importStatus}</div>
+
+                <label class="slds-form-element__label slds-m-top_medium" for="progressIndicatorDiv">Conversion Progress</label>
+                <div id="progressIndicatorDiv">
+                    <lightning-progress-indicator data-id="progressIndicator" current-step={currentStep} has-error={hasError} type="path" variant="base">
+                        <lightning-progress-step label="Submitted" value="submitted"></lightning-progress-step>
+                        <lightning-progress-step label="Holding" value="holding"></lightning-progress-step>
+                        <lightning-progress-step label="Queued" value="queued"></lightning-progress-step>
+                        <lightning-progress-step label="Preparing" value="preparing"></lightning-progress-step>
+                        <lightning-progress-step label="Processing" value="processing"></lightning-progress-step>
+                        <lightning-progress-step label="Completed" value="completed"></lightning-progress-step>
+                    </lightning-progress-indicator>
+
+                    <label class="slds-form-element__label slds-m-top_medium" for="progressBarCtrl">Batch Progress</label>
+                    <div class="slds-form-element__control" id="progressBarCtrl">
+                        <lightning-progress-bar id="progressBar" value={progressValue} size="large"></lightning-progress-bar>
+                    </div>
+
+                    <label class="slds-form-element__label slds-m-top_medium" for="importMessages">Conversion Results</label>
+                    <div id="importMessages" data-id="importMessages" class="slds-box">{importMessages}</div>
+                </div>
+            </div>
+        </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,31 @@
+<!-- sldsValidatorIgnore -->
+<template>
+    <template if:true={showError}>
+        <lightning-quick-action-panel header="Error">
+            This version is currently published.
+            <div slot="footer">
+                <lightning-button variant="neutral" label="Close" onclick={handleClose}></lightning-button>
+            </div>
+        </lightning-quick-action-panel>
+    </template>
+    <template if:false={showError}>
+        <template if:true={userHasAccessToPublish}>
+            <lightning-quick-action-panel header="Are you sure?">
+                Publishing will make this version live in the legal community and archive the previously published version immediately. <br/><br/>
+                Content will become readonly, and you would need to create a new draft version to make any update.
+                <div slot="footer">
+                    <lightning-button variant="neutral" label="Cancel" onclick={handleClose}></lightning-button>
+                    <lightning-button variant="brand" label="Publish" class="slds-m-left_x-small" onclick={handlePublish}></lightning-button>
+                </div>
+            </lightning-quick-action-panel>
+        </template>
+        <template if:false={userHasAccessToPublish}>
+            <lightning-quick-action-panel header="Error">
+                You do not have the permissions to publish content versions.
+                <div slot="footer">
+                    <lightning-button variant="neutral" label="Close" onclick={handleClose}></lightning-button>
+                </div>
+            </lightning-quick-action-panel>
+        </template>
+    </template>
+</template>

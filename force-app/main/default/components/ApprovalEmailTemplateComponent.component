@@ -1,0 +1,68 @@
+<!-- /*
+* @author sarah.beccari@atginfo.com
+* Visualforce Component used in Requested Approval email template
+*/ -->
+
+<apex:component controller="ApprovalEmailController" access="global">
+    <apex:attribute name="quoteIdName" description="Quote Id" type="String" assignTo="{!quoteId}"/>
+    
+    <!-- Quote lines table -->
+    <apex:dataTable value="{!emailTemplateQuoteLines}" var="quoteLine" border="1" cellpadding="5px">
+        <apex:column >
+            <apex:facet name="header">Number</apex:facet>
+            <apex:outputText value="{!quoteLine.SBQQ__Number__c}"/>
+        </apex:column>
+
+        <apex:column >
+            <apex:facet name="header">Product Name</apex:facet>
+            <apex:outputText value="{!quoteLine.SBQQ__ProductName__c}"/>
+        </apex:column>
+
+         <apex:column >
+            <apex:facet name="header">Package Trial Period</apex:facet>
+            <apex:outputText value="{!quoteLine.Trial_Period__c}"/>
+        </apex:column>
+
+        <apex:column >
+            <apex:facet name="header">Trial Commission %</apex:facet>
+            <apex:outputText rendered="{!quoteLine.Trial_Commission__c!= null}"  value="{0,number,0.000}%">
+                <apex:param value="{!quoteLine.Trial_Commission__c}" />
+            </apex:outputText>
+        </apex:column>   
+      
+        <apex:column >
+            <apex:facet name="header">Final Commission %</apex:facet>
+            <apex:outputText rendered="{!quoteLine.Final_Commission__c!= null}"  value="{0,number,0.000}%">
+                <apex:param value="{!quoteLine.Final_Commission__c}" />
+            </apex:outputText>
+        </apex:column>
+        
+        <apex:column >
+            <apex:facet name="header">Original Commission %</apex:facet>
+            <apex:outputText rendered="{!quoteLine.Original_Commission__c!= null}"  value="{0,number,0.000}%">
+                <apex:param value="{!quoteLine.Original_Commission__c}" />
+            </apex:outputText>
+        </apex:column>
+        
+        <apex:column >
+            <apex:facet name="header">Final Fee</apex:facet>
+            <apex:outputText rendered="{!quoteLine.Final_Fee__c!= null}"  value="{0,number,0.00}">
+                <apex:param value="{!quoteLine.Final_Fee__c}" />
+            </apex:outputText>
+        </apex:column>
+        
+        <apex:column >
+            <apex:facet name="header">List Fee</apex:facet>
+            <apex:outputText rendered="{!quoteLine.SBQQ__ListPrice__c!= null}"  value="{0,number,0.00}">
+                <apex:param value="{!quoteLine.SBQQ__ListPrice__c}" />
+            </apex:outputText>
+        </apex:column>
+        
+        <apex:column >
+            <apex:facet name="header">Net Unit Price</apex:facet>
+            <apex:outputText rendered="{!quoteLine.SBQQ__NetPrice__c!= null}"  value="${0, number, ###,###,###.00}">
+                <apex:param value="{!quoteLine.SBQQ__NetPrice__c}" />
+            </apex:outputText>
+        </apex:column>
+    </apex:dataTable>
+</apex:component>

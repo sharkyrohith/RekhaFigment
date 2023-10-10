@@ -1,0 +1,29 @@
+<template>
+   <lightning-card title={title} icon-name="standard:contact">
+      <c-lwc-dd-mx-custom-toast-messge auto-close-time="8000"></c-lwc-dd-mx-custom-toast-messge>
+      <div class="slds-text-heading_small slds-text-align_left slds-p-bottom_medium">
+         <div class="slds-p-around_medium">
+            <template if:true={isnew}>
+               <lightning-record-form
+                  object-api-name={objectName}
+                  fields={fields}
+                  onsubmit={handleSubmit}
+                  onsuccess={handleSuccess}
+               >
+               </lightning-record-form>
+            </template>
+         </div>
+      </div>
+      <template if:false={isnew}>
+         <lightning-record-form
+            object-api-name={objectName}
+            fields={fields}
+            mode={mode}
+            record-id={recordId}
+            onsubmit={handleSubmit}
+            onsuccess={handleSuccess}
+         >
+         </lightning-record-form>
+      </template>
+   </lightning-card>
+</template>

@@ -1,0 +1,123 @@
+<apex:page sidebar="true" showHeader="true" docType="html-4.01-strict">
+<div id="tabstrip" style="display:none;"> <ul> 
+<li class="k-state-active">Draft</li>
+<li>External Review</li>
+<li>Security Review</li>
+<li>Legal Review</li>
+<li>Procurement Review</li>
+<li>Security Approval Needed</li>
+<li>Legal Approval Needed</li>
+<li>Document Approved</li>
+<li>Out for Signature </li>
+<li>Fully Executed</li>
+<li>Expired</li>
+<li>Canceled/Void</li>
+</ul>
+<!-- Draft -->
+<div style="overflow:hidden;"> 
+<CRMC_PP:Grid ObjectName="APXT_Redlining__Contract_Agreement__c" DelayLoad="false"  ViewID="a7R2L000000tNVAUA2" 
+ EnableNewButton="true"  EnableNewInline="true"  EnableEdit="true"  EnableActions="true"  EnableFieldChooser="true" 
+ EnableStickyViews="true"  EnableToolbar="true"  EnableViews="true"  EnableFormatting="true"  EnableReadingPane="true" />
+ <CRMC_PP:DrillUp /> 
+ </div>
+
+<!-- External Review -->
+<div style="overflow:hidden;"> 
+<CRMC_PP:Grid ObjectName="APXT_Redlining__Contract_Agreement__c" DelayLoad="true"  ViewID="a7R2L000000tNV4UAM" 
+ EnableNewButton="true"  EnableNewInline="true"  EnableEdit="true"  EnableActions="true"  EnableFieldChooser="true" 
+ EnableStickyViews="true"  EnableToolbar="true"  EnableViews="true"  EnableFormatting="true"  EnableReadingPane="true" />
+ <CRMC_PP:DrillUp /> 
+ </div>
+
+<!-- Security Review -->
+<div style="overflow:hidden;"> 
+<CRMC_PP:Grid ObjectName="APXT_Redlining__Contract_Agreement__c" DelayLoad="true"  ViewID="a7R2L000000tNV5UAM" 
+ EnableNewButton="true"  EnableNewInline="true"  EnableEdit="true"  EnableActions="true"  EnableFieldChooser="true" 
+ EnableStickyViews="true"  EnableToolbar="true"  EnableViews="true"  EnableFormatting="true"  EnableReadingPane="true" />
+ <CRMC_PP:DrillUp /> 
+ </div>
+
+<!-- Legal Review -->
+<div style="overflow:hidden;"> 
+<CRMC_PP:Grid ObjectName="APXT_Redlining__Contract_Agreement__c" DelayLoad="true"  ViewID="a7R2L000000tNVBUA2" 
+ EnableNewButton="true"  EnableNewInline="true"  EnableEdit="true"  EnableActions="true"  EnableFieldChooser="true" 
+ EnableStickyViews="true"  EnableToolbar="true"  EnableViews="true"  EnableFormatting="true"  EnableReadingPane="true" />
+ <CRMC_PP:DrillUp /> 
+ </div>
+ 
+<!-- Procurement Review -->
+<div style="overflow:hidden;"> 
+<CRMC_PP:Grid ObjectName="APXT_Redlining__Contract_Agreement__c" DelayLoad="true"  ViewID="a7R2L000000tNV9UAM" 
+ EnableNewButton="true"  EnableNewInline="true"  EnableEdit="true"  EnableActions="true"  EnableFieldChooser="true" 
+ EnableStickyViews="true"  EnableToolbar="true"  EnableViews="true"  EnableFormatting="true"  EnableReadingPane="true" />
+ <CRMC_PP:DrillUp /> 
+ </div>
+ 
+ <!-- Security Approval Needed -->
+<div style="overflow:hidden;"> 
+<CRMC_PP:Grid ObjectName="APXT_Redlining__Contract_Agreement__c" DelayLoad="true"  ViewID="a7R2L000000tNVFUA2" 
+ EnableNewButton="true"  EnableNewInline="true"  EnableEdit="true"  EnableActions="true"  EnableFieldChooser="true" 
+ EnableStickyViews="true"  EnableToolbar="true"  EnableViews="true"  EnableFormatting="true"  EnableReadingPane="true" />
+ <CRMC_PP:DrillUp /> 
+ </div>
+
+<!-- Legal Approval Needed -->
+<div style="overflow:hidden;"> 
+<CRMC_PP:Grid ObjectName="APXT_Redlining__Contract_Agreement__c" DelayLoad="true"  ViewID="a7R2L000000tNVDUA2" 
+ EnableNewButton="true"  EnableNewInline="true"  EnableEdit="true"  EnableActions="true"  EnableFieldChooser="true" 
+ EnableStickyViews="true"  EnableToolbar="true"  EnableViews="true"  EnableFormatting="true"  EnableReadingPane="true" />
+ <CRMC_PP:DrillUp /> 
+ </div>
+ 
+ <!-- Document Approved  -->
+<div style="overflow:hidden;"> 
+<CRMC_PP:Grid ObjectName="APXT_Redlining__Contract_Agreement__c" DelayLoad="true"  ViewID="a7R2L000000tNVEUA2" 
+ EnableNewButton="true"  EnableNewInline="true"  EnableEdit="true"  EnableActions="true"  EnableFieldChooser="true" 
+ EnableStickyViews="true"  EnableToolbar="true"  EnableViews="true"  EnableFormatting="true"  EnableReadingPane="true" />
+ <CRMC_PP:DrillUp /> 
+ </div>
+
+<!-- Out for Signature  -->
+<div style="overflow:hidden;"> 
+<CRMC_PP:Grid ObjectName="APXT_Redlining__Contract_Agreement__c" DelayLoad="true"  ViewID="a7R2L000000tNV3UAM" 
+ EnableNewButton="true"  EnableNewInline="true"  EnableEdit="true"  EnableActions="true"  EnableFieldChooser="true" 
+ EnableStickyViews="true"  EnableToolbar="true"  EnableViews="true"  EnableFormatting="true"  EnableReadingPane="true" />
+ <CRMC_PP:DrillUp /> 
+ </div>
+
+<!-- Fully Executed -->
+<div style="overflow:hidden;"> 
+<CRMC_PP:Grid ObjectName="APXT_Redlining__Contract_Agreement__c" DelayLoad="true"  ViewID="a7R2L000000tNV7UAM" 
+ EnableNewButton="true"  EnableNewInline="true"  EnableEdit="true"  EnableActions="true"  EnableFieldChooser="true" 
+ EnableStickyViews="true"  EnableToolbar="true"  EnableViews="true"  EnableFormatting="true"  EnableReadingPane="true" />
+ <CRMC_PP:DrillUp /> 
+ </div>
+
+<!-- Expired -->
+<div style="overflow:hidden;"> 
+<CRMC_PP:Grid ObjectName="APXT_Redlining__Contract_Agreement__c" DelayLoad="true"  ViewID="a7R2L000000tNV6UAM" 
+ EnableNewButton="true"  EnableNewInline="true"  EnableEdit="true"  EnableActions="true"  EnableFieldChooser="true" 
+ EnableStickyViews="true"  EnableToolbar="true"  EnableViews="true"  EnableFormatting="true"  EnableReadingPane="true" />
+ <CRMC_PP:DrillUp /> 
+ </div>
+
+<!-- Canceled/Void -->
+<div style="overflow:hidden;"> 
+<CRMC_PP:Grid ObjectName="APXT_Redlining__Contract_Agreement__c" DelayLoad="true"  ViewID="a7R2L000000tNV8UAM" 
+ EnableNewButton="true"  EnableNewInline="true"  EnableEdit="true"  EnableActions="true"  EnableFieldChooser="true" 
+ EnableStickyViews="true"  EnableToolbar="true"  EnableViews="true"  EnableFormatting="true"  EnableReadingPane="true" />
+ <CRMC_PP:DrillUp /> 
+ </div>
+
+</div>
+<script>
+$(document).ready(function() {
+    $("#tabstrip").kendoTabStrip({
+      activate: function(e){
+        setTimeout(function(){          $(window).resize();        });
+      }
+    });
+    $("#tabstrip").css("display", "block");
+});
+ </script>
+</apex:page>

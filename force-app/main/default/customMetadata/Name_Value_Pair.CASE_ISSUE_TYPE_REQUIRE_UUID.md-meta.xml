@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Case Issue Type  Require UUID</label>
+    <protected>false</protected>
+    <values>
+        <field>Boolean_Value__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>Date_Time_Value__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Date_Value__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Description__c</field>
+        <value xsi:type="xsd:string">Case Issue Type  Require UUID</value>
+    </values>
+    <values>
+        <field>Number_Value__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Text_Value__c</field>
+        <value xsi:type="xsd:string">Add Item to Order, Adjust Tip Request (DDD), Cancel/Adjust Order Request, Food Never Delivered, How to Place/Edit an Order (DDD), Merchant Did Not Receive Order (DDD), Merchant Not Ready with Food (DDD), Redelivery Request, Refund Request, Request to Add Tip, Request to Assign Dx, Slow Dasher to Merchant (DDD), Status Update - Dx Late to Cx, Status Update - Dx late to Mx, Status Update Request (DDD), Wrong Dx Picked up Order, SaaS - Redelivery Request, SaaS - Pickup Order Inquiry, Item Unavailable/Merchant Cannot Fulfill Order (DDD), Cancel/Adjust Order Request (DDD)</value>
+    </values>
+    <values>
+        <field>Type__c</field>
+        <value xsi:type="xsd:string">Text</value>
+    </values>
+    <values>
+        <field>Value__c</field>
+        <value xsi:nil="true"/>
+    </values>
+</CustomMetadata>

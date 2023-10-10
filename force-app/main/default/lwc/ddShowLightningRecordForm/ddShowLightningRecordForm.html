@@ -1,0 +1,19 @@
+<template>
+    <template if:true={isShow}>
+        <lightning-card icon-name={iconName} title={sectionName}>
+            <div slot="Header"> </div>
+            <div slot="actions">
+                <lightning-button variant="brand" label="Edit"  onclick={editFields} ></lightning-button>
+            </div>
+            <div class={recordFormContainerClass}>
+                <lightning-record-form
+                    record-id={recordId}
+                    object-api-name={objName}
+                    fields={fields}
+                    columns={columns}
+                    mode={isMode} oncancel={handleSuccess} onsuccess={handleSuccess} onerror={handleError} >
+                </lightning-record-form>
+            </div>
+        </lightning-card>
+    </template>
+</template>

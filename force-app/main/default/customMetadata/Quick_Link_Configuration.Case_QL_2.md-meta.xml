@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Case QL 2</label>
+    <protected>false</protected>
+    <values>
+        <field>Customer_Type__c</field>
+        <value xsi:type="xsd:string">Merchant</value>
+    </values>
+    <values>
+        <field>Is_Active__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>Object__c</field>
+        <value xsi:type="xsd:string">Case</value>
+    </values>
+    <values>
+        <field>Quick_Link_Label__c</field>
+        <value xsi:type="xsd:string">MINT Business</value>
+    </values>
+    <values>
+        <field>Quick_Link_URL__c</field>
+        <value xsi:type="xsd:string">https://admin-gateway.doordash.com/mx-tools/business/{Account.Business_ID_text__c}</value>
+    </values>
+</CustomMetadata>

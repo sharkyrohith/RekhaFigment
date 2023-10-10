@@ -1,0 +1,36 @@
+<apex:page standardcontroller="Opportunity" extensions="PdfGeneratorController" >  
+  <apex:sectionHeader title="PDF Attacher" subtitle="Attach a PDF" 
+    description="Attach PDF to record."/>
+
+  <apex:form >
+      
+    <apex:actionFunction name="genPDF" action="{!savePdf}" />
+      
+    <apex:pageBlock title="PDF Input">
+
+      <apex:pageBlockButtons >
+        <apex:commandButton action="{!savePdf}" value="Save PDF"/>
+      </apex:pageBlockButtons>
+      <apex:pageMessages />
+
+      <apex:pageBlockSection >
+
+        <apex:pageBlockSectionItem >
+            <apex:outputLabel value="File Name" for="Name"/>
+          <apex:inputText value="{!Name}" id="Name"/>
+        </apex:pageBlockSectionItem>
+
+        <apex:pageBlockSectionItem >
+            <apex:outputLabel value="Opportunity ID" for="id"/>
+            <apex:inputText value="{!parentId}" id="id" ></apex:inputText>
+        </apex:pageBlockSectionItem>
+
+      </apex:pageBlockSection>
+
+    </apex:pageBlock>
+  </apex:form>
+  <script>
+      genPDF();
+  </script>
+
+</apex:page>

@@ -1,0 +1,63 @@
+<aura:component access="global">
+    
+    <ltng:require styles="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<aura:attribute default="https://help.doordash.com/" name="BaseURL" type="String" />
+	<aura:attribute default="consumers" name="CommunityName" type="String" />
+    <aura:attribute default="terms-and-conditions" name="AgreementType" type="String" />
+    <aura:attribute default="us" name="LocationDefault" type="String" />
+    <aura:attribute default="One" name="LocationCount" type="String" />
+    <aura:attribute default="ca" name="LocationOneLabel" type="String" />  
+    <aura:attribute default="#" name="LocationOneLink" type="String" />
+    <aura:attribute default="au" name="LocationTwoLabel" type="String" />  
+    <aura:attribute default="#" name="LocationTwoLink" type="String" />
+    <style>
+    
+    </style>
+    <div>
+        
+        <div class="navbar">
+            <div class="dropdown">
+                <button class="dropbtn">
+                    <aura:if isTrue="{!v.LocationDefault == 'us'}">United States</aura:if>
+                    <aura:if isTrue="{!v.LocationDefault == 'ca'}">Canada</aura:if>
+                    <aura:if isTrue="{!v.LocationDefault == 'au'}">Australia</aura:if>
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                
+                
+                <div class="dropdown-content">
+                    
+                <aura:if isTrue="{!or(v.LocationCount == 'One', v.LocationCount == 'Two')}">
+                    
+                    <a href="{!v.BaseURL + v.CommunityName + '/s/' + v.AgreementType + '-' + v.LocationOneLabel}">
+                    <aura:if isTrue="{!v.LocationOneLabel == 'us'}">United States</aura:if>
+                    <aura:if isTrue="{!v.LocationOneLabel == 'ca'}">Canada</aura:if>
+                    <aura:if isTrue="{!v.LocationOneLabel == 'au'}">Australia</aura:if>
+                   	</a>
+     			
+                </aura:if>
+                    
+                <aura:if isTrue="{!v.LocationCount == 'Two'}">
+                         
+                    <a href="{!v.BaseURL + v.CommunityName + '/s/' + v.AgreementType + '-' + v.LocationTwoLabel}">
+                    <aura:if isTrue="{!v.LocationTwoLabel == 'us'}">United States</aura:if>
+                    <aura:if isTrue="{!v.LocationTwoLabel == 'ca'}">Canada</aura:if>
+                    <aura:if isTrue="{!v.LocationTwoLabel == 'au'}">Australia</aura:if>                        
+                    </a>
+                         
+                </aura:if>
+                    
+                </div>
+            </div> 
+        </div>
+        
+                <div class="selection-header">
+                    <h1>
+                    <aura:if isTrue="{!v.LocationDefault == 'us'}">United States</aura:if>
+                    <aura:if isTrue="{!v.LocationDefault == 'ca'}">Canada</aura:if>
+                    <aura:if isTrue="{!v.LocationDefault == 'au'}">Australia</aura:if>
+                    </h1>
+        		</div>    
+    </div>
+    
+</aura:component>

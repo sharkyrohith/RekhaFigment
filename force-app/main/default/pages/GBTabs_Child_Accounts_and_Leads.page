@@ -1,0 +1,32 @@
+<apex:page standardController="Account" showHeader="false" sidebar="false" title="Child Accounts and Leads">
+	<GBLite:TabbedPageComponent pageAPIName="GBTabs_Child_Accounts_and_Leads" customJsIds="" customCssIds="">
+	<GBLite:EmbedComponent baseGridUrl="{!$Page.GBLite__Grid}" />
+		<script>
+			var pageDefinition = {
+	"name": "Child Accounts and Leads",
+	"tabs": [
+		{
+			"name": "Child Accounts",
+			"content": "{!gridPage}gname=Parent Accts w Accounts&amp;sh=0&amp;sfname=default&amp;fpf=Account.Id&amp;fpv={!Account.Id}",
+			"id": 1585202803137
+		},
+		{
+			"name": "Leads",
+			"content": "{!gridPage}gname=Parent Account Leads&amp;sh=0&amp;sfname=default&amp;fpf=Account.Id&amp;fpv={!Account.id}",
+			"id": 1585202828960
+		}
+	],
+	"id": 1585202803137,
+	"selectedCustomCSSIds": [],
+	"selectedCustomJSIds": [],
+	"description": "",
+	"globalButtons": true,
+	"object": "Account",
+	"height": "",
+	"showHeader": false,
+	"showSidebar": false,
+	"pageAPIName": "GBTabs_Child_Accounts_and_Leads"
+};
+		</script>
+	</GBLite:TabbedPageComponent>
+</apex:page>

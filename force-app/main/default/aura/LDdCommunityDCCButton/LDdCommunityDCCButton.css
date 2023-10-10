@@ -1,0 +1,58 @@
+.THIS {
+}
+
+.THIS .dd-dcc-button-wrap {
+    text-align: center; 
+    
+}
+
+.THIS .dd-dcc-button {
+    background-color: rgb(255, 48, 8);
+    width: 100%;
+    display: inline-block;
+    max-width: 25%;
+    min-width: 250px;
+    font-size: 18px;
+    padding: 8px 0px;
+    transition: all .2s;
+    text-transform: capitalize;
+    text-decoration: none;
+    color: #FFF;
+    border-radius: 40px;
+    margin-bottom: 10px;
+}
+
+
+.THIS .dd-dcc-button.dd-dcc-button-primary {
+    background: #FF3008;
+    color: #FFF;
+}
+.THIS .dd-dcc-button.dd-dcc-button-primary:hover {
+    background: #EB1700;
+    border-color: #EB1700;
+}
+
+.THIS .dd-dcc-button.dd-dcc-button-secondary {
+    background: #FFF;
+    color: #FF3008;
+       border: 2px solid #ff3008;
+}
+
+.THIS .dd-dcc-button.dd-dcc-button-secondary:hover  {
+    background: #FFF;
+    color: #EB1700;
+    border: 2px solid #ff3008;
+}
+.THIS .dd-dcc-button.dd-dcc-button-inactive {
+    background: #ff3008;
+    color: #FFFFFF;
+    opacity: 0.3;
+    cursor: text;
+}
+
+.THIS .dd-dcc-button.dd-dcc-button-inactive:hover  {
+    background: #ff3008;
+    color: #FFFFFF;
+    border-color: #ff3008;
+    opacity: 0.3;
+}

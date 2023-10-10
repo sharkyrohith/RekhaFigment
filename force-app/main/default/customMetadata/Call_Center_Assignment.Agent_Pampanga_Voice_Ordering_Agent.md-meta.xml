@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Agent_Pampanga_Voice_Ordering_Agent</label>
+    <protected>false</protected>
+    <values>
+        <field>Call_Center_Id__c</field>
+        <value xsi:type="xsd:string">04v2L000000TNmIQAW</value>
+    </values>
+    <values>
+        <field>Description__c</field>
+        <value xsi:type="xsd:string">Agent - Pampanga Voice Ordering Agent - AC Console Adapter (Voice Ordering) (Agent)</value>
+    </values>
+    <values>
+        <field>Profile_Id__c</field>
+        <value xsi:type="xsd:string">00e1a000000N8i3AAC</value>
+    </values>
+    <values>
+        <field>UserRole_Id__c</field>
+        <value xsi:type="xsd:string">00E2L000000ZdS3UAK</value>
+    </values>
+</CustomMetadata>

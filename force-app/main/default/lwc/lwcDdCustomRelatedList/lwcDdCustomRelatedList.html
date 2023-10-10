@@ -1,0 +1,34 @@
+<template>
+    <article class="slds-card lightning-card headerBottomBorder forceRelatedListCardDesktop slds-card_boundary">
+        <template if:true={hasData}>
+            <div class="slds-page-header slds-grid forceRelatedListCardHeader">
+                <header class="slds-media slds-media_center slds-has-flexi-truncate ">
+                <div class="slds-media__figure">
+                    <lightning-icon icon-name={iconName} size="small"></lightning-icon>
+                </div>
+                <div class="slds-media__body">
+                    <h2 class="slds-card__header-title">
+                        <p class="slds-card__header-link">{relatedListLabel}</p>
+                    </h2>
+                </div>
+                <div>
+                    <lightning-button-icon icon-name="utility:refresh"  alternative-text="Refresh" onclick={getData}></lightning-button-icon>
+                </div>
+            </header>
+            </div> 
+                <div class="slds-card__body">
+                        <lightning-datatable
+                            key-field="id"
+                            data={visibleRecords}
+                            columns={columns}
+                            data-id="relatedData"
+                            hide-checkbox-column="true"
+                            min-column-width="150">
+                        </lightning-datatable>                      
+                </div>
+            <footer class="slds-card__footer">
+                <a onclick={toggleRecordView}>{viewLabel}</a>
+            </footer>
+        </template>
+    </article>
+</template>

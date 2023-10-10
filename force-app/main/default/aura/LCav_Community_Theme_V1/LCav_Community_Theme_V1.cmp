@@ -1,0 +1,142 @@
+<aura:component implements="forceCommunity:themeLayout" access="global" description="Caviar Community Theme">
+    <aura:attribute name="alertsBar" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="globalHeader" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="search" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="navBar" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="globalFooter" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="pageTheme" type="String" default="Home"/>
+    <aura:attribute name="communityName" type="String" default="Courier"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <ltng:require styles="{!$Resource.SrCav_Community_Fonts + '/stylesheet.css'}" />
+
+    <div class="{!v.communityName}">
+        
+        <section class="{!'cct-header ' + v.pageTheme}">
+            <div class="grid-wrapper cct-header-alert">
+                                
+                <div class="slds-size_1-of-1 cct-alertBar">
+                    <c:LCDdCommunityAlerts_V3/>
+                </div>
+
+                <div class="cct-header-fixed">
+                <div class="slds-grid slds-wrap slds-grid_pull-padded cct-header-top-wrap">
+                    
+                    <div class="slds-p-horizontal_small slds-x-small-size_4-of-12 slds-small-size_3-of-12 slds-medium-size_2-of-12 slds-large-size_2-of-12 cct-logo">
+
+                        <aura:if isTrue="{!v.communityName == 'Courier'}">
+                            <a href="{!$Label.c.CavCommunity_URL_Home}"><img class="cct-logo-orange" src="{!$Resource.SrCav_Community_Assets + '/logo/caviar-brand-wordmark-2x.png'}" alt="Caviar Support Home" /></a>
+                        </aura:if>
+
+                        <aura:if isTrue="{!v.communityName == 'Diner'}">
+                            <a href="{!$Label.c.CavCommunity_URL_Home}"><img class="cct-logo-orange" src="{!$Resource.SrCav_Community_Assets + '/logo/caviar-brand-wordmark-2x.png'}" alt="Caviar Support Home" /></a>
+                        </aura:if>
+
+                        <aura:if isTrue="{!v.communityName == 'Restaurant'}">
+                            <a href="{!$Label.c.CavCommunity_URL_Home}"><img class="cct-logo-orange" src="{!$Resource.SrCav_Community_Assets + '/logo/caviar-brand-wordmark-2x.png'}" alt="Caviar Support Home" /></a>
+                        </aura:if>
+
+                        <aura:if isTrue="{!v.communityName == 'Companies'}">
+                            <a href="{!$Label.c.CavCommunity_URL_Home}"><img class="cct-logo-orange" src="{!$Resource.SrCav_Community_Assets + '/logo/caviar-brand-wordmark-2x.png'}" alt="Caviar Support Home" /></a>
+                        </aura:if>
+
+                    </div>
+
+                    <div class="slds-p-horizontal_small slds-x-small-size_1-of-12 slds-small-size_3-of-12 slds-medium-size_6-of-12 slds-large-size_6-of-12 cct-contact">
+
+                        <aura:if isTrue="{!v.pageTheme == 'Inner'}">
+
+                            <div class="cct-search-wrap">
+                                <div class="cct-searchBox">
+                                    {!v.search}
+                                </div>
+                            </div>
+
+                        </aura:if>
+
+                    </div>
+                    
+                      
+
+                    <div class="slds-p-horizontal_small slds-x-small-size_7-of-12 slds-small-size_6-of-12 slds-medium-size_4-of-12 slds-large-size_4-of-12 cct-contact ">
+                        
+                        <!-- {!v.navBar} -->
+                        
+
+
+                        <aura:if isTrue="{!v.communityName == 'Courier'}">
+                            <a href="{!$Label.c.CavCommunity_URL_Courier + 'topiccatalog'}" class="cct-topiccatalog">Topics</a>
+                            <a href="{!$Label.c.CavCommunity_SupportLink_Courier}" target="_blank" class="cct-contact-support">{!$Label.c.CavCommunity_SupportLabel_Courier}</a>
+                        </aura:if>
+
+                        <aura:if isTrue="{!v.communityName == 'Diner'}">
+                            <a href="{!$Label.c.CavCommunity_URL_Diners + 'topiccatalog'}" class="cct-topiccatalog">Topics</a>
+                            <a href="{!$Label.c.CavCommunity_SupportLink_Diners}" target="_blank" class="cct-contact-support">{!$Label.c.CavCommunity_SupportLabel_Diners}</a>
+                        </aura:if>
+
+                        <aura:if isTrue="{!v.communityName == 'Restaurant'}">
+                            <a href="{!$Label.c.CavCommunity_URL_Restaurant + 'topiccatalog'}" class="cct-topiccatalog">Topics</a>
+                            <a href="{!$Label.c.CavCommunity_SupportLink_Restaurant}" target="_blank" class="cct-contact-support">{!$Label.c.CavCommunity_SupportLabel_Restaurant}</a>
+                        </aura:if>
+
+                        <aura:if isTrue="{!v.communityName == 'Companies'}">
+                            <a href="{!$Label.c.CavCommunity_URL_Companies + 'topiccatalog'}" class="cct-topiccatalog">Topics</a>
+                            <a href="{!$Label.c.CavCommunity_SupportLink_Companies}" target="_blank" class="cct-contact-support">{!$Label.c.CavCommunity_SupportLabel_Companies}</a>
+                        </aura:if>
+
+                    </div>
+
+                </div>
+                </div>
+                
+            </div>
+
+            <div class="cct-hero-banner-wrap ">
+             <div class="cct-hero-banner">
+                <div class="cct-hero-title">
+
+                    <aura:if isTrue="{!v.communityName == 'Courier'}">
+                        <a href="{!$Label.c.CavCommunity_URL_Courier}">{!$Label.c.CavCommunity_HomeTitle_Courier}</a>
+                    </aura:if>
+
+                    <aura:if isTrue="{!v.communityName == 'Diner'}">
+                        <a href="{!$Label.c.CavCommunity_URL_Diners}">{!$Label.c.CavCommunity_HomeTitle_Diners}</a>
+                    </aura:if>
+
+                    <aura:if isTrue="{!v.communityName == 'Restaurant'}">
+                        <a href="{!$Label.c.CavCommunity_URL_Restaurant}">{!$Label.c.CavCommunity_HomeTitle_Restaurant}</a>
+                    </aura:if>
+
+                    <aura:if isTrue="{!v.communityName == 'Companies'}">
+                        <a href="{!$Label.c.CavCommunity_URL_Companies}">{!$Label.c.CavCommunity_HomeTitle_Companies}</a>
+                    </aura:if>
+
+                </div>
+
+
+
+                 <aura:if isTrue="{!v.pageTheme == 'Home'}">
+
+                 <div class="cct-search-wrap">
+                     <div class="cct-searchBox">
+                         {!v.search}
+                     </div>
+                 </div>
+
+                 </aura:if>
+             </div>
+            </div>
+
+        </section>
+        <section class="cct-body-wrap">
+            <div class="interiorFrame">
+                {!v.body}
+            </div>
+        </section>
+                <section class="cct-footer-wrap">
+            <div class="cct-footer">
+                {!v.globalFooter}
+            </div>
+        </section>
+    </div>
+</aura:component>

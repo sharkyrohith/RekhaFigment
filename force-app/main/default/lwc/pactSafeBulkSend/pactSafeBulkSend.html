@@ -1,0 +1,63 @@
+<template>
+  <div class="c-container">
+    <lightning-layout multiple-rows="true">
+      <lightning-layout-item padding="around-small" size="12">
+        <div class="page-section page-header">
+          <img class="pactsafe-logo" src={psLogoUrl} alt="PactSafe Logo" style="width:150px;" />
+          <h1 class="header-1">Bulk Send</h1>
+        </div>
+      </lightning-layout-item>
+      <lightning-layout-item padding="around-small" size="12">
+        <div class="page-section">
+          <template if:false={loaded}>
+            <lightning-spinner alternative-text="Loading"></lightning-spinner>
+          </template>
+          <template if:true={loaded}>
+            <div class="opportunityListSection">
+              <h2 class="header-2">Opportunities</h2>
+              <p>You are about to send to the&nbsp;
+                <template if:true={optyCountAvailable}><strong>{optyCount}</strong>&nbsp;</template>
+                selected opportunities under the parent opportunity<strong>&nbsp;{parentOpty}</strong>.</p>
+            </div>
+            <div class="contractSelectionSection">
+              <template if:true={errorOccurred}>
+                <h2 class="header-2">Error Occurred</h2>
+                <p><lightning-icon icon-name="action:close" alternative-text="Error" title="Error" size="x-small"></lightning-icon> {errorMessage}</p>
+              </template>
+              <template if:false={errorOccurred}>
+                <h2 class="header-2">Contract Selection</h2>
+                <p>Select a contract below to send to the opportunities.</p>
+                <lightning-combobox
+                  class="contractSelectDropdown"
+                  name="contractSelection"
+                  label="Contract Selection"
+                  placeholder="Choose Contract"
+                  value=""
+                  onchange={handleContractChange}
+                  options={contractOptions}
+                  required>
+                </lightning-combobox>
+                <p class="special-note">Note: Please ensure that the selected opportunities have not already been sent PactSafe contracts and are currently not pending.</p>
+                <template if:true={sentToPactSafe}>
+                  <lightning-icon icon-name="action:approval" alternative-text="Sent" title="Sent" size="x-small"></lightning-icon>
+                </template>
+                  <lightning-button
+                    data-id="send-contracts-button"
+                    label={submitButtonLabel}
+                    title="Send Contracts"
+                    onclick={handleSubmitClick}
+                    variant={submitButtonVariant}
+                    class="slds-m-left_x-small"
+                    disabled={submitIsDisabled}>
+                </lightning-button>
+                <template if:true={sentToPactSafe}>
+                  <p>Be on the lookout for an email confirming that the bulk send has been completed!</p>
+                </template>
+              </template>
+            </div>
+          </template>
+        </div>
+      </lightning-layout-item>
+    </lightning-layout>
+  </div>
+</template>

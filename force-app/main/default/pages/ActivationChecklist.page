@@ -1,0 +1,20 @@
+<apex:page standardController="Case" >
+    <apex:includeLightning />
+    <apex:slds />
+    <div id='container'></div>
+    <script>
+        var userContext = "{!$User.UITheme}";
+        $Lightning.use("c:LDdActivationChecklist", function()
+        {
+            $Lightning.createComponent(
+                "c:LCDdActivationChecklistCmp",
+                {UserContext : userContext, "recordId" : "{!$CurrentPage.parameters.id}"},
+                "container",
+                function(cmp) {
+                    console.log('createComponent');
+                    console.log(cmp);
+                }
+            );
+        });
+    </script>
+</apex:page>

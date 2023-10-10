@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Storefront Delivery Fee 005</label>
+    <protected>false</protected>
+    <values>
+        <field>Fee_Display_Name__c</field>
+        <value xsi:type="xsd:string">Trial Processing Rate</value>
+    </values>
+    <values>
+        <field>Fee_Name__c</field>
+        <value xsi:type="xsd:string">processing_rate</value>
+    </values>
+    <values>
+        <field>Fee_Onboarding_CPQ_Program__c</field>
+        <value xsi:type="xsd:string">Storefront_Delivery</value>
+    </values>
+    <values>
+        <field>Fee_Rate_Charging_Target__c</field>
+        <value xsi:type="xsd:string">subtotal</value>
+    </values>
+    <values>
+        <field>Fee_Type__c</field>
+        <value xsi:type="xsd:string">payment_processing_fee</value>
+    </values>
+    <values>
+        <field>Is_Active__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>Is_Fee_Rate__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>Is_Trial_Fee__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>Order_Item_Fee_End_Date_Field__c</field>
+        <value xsi:type="xsd:string">Trial_EndDate__c</value>
+    </values>
+    <values>
+        <field>Order_Item_Fee_Field__c</field>
+        <value xsi:type="xsd:string">Trial_Commission__c</value>
+    </values>
+    <values>
+        <field>Order_Item_Fee_Start_Date_Field__c</field>
+        <value xsi:type="xsd:string">Trial_Start_Date__c</value>
+    </values>
+    <values>
+        <field>Package_Name__c</field>
+        <value xsi:type="xsd:string">Storefront</value>
+    </values>
+    <values>
+        <field>Product_DD_Custom_ID__c</field>
+        <value xsi:type="xsd:string">MKTPL-0000144</value>
+    </values>
+    <values>
+        <field>Sequence__c</field>
+        <value xsi:type="xsd:double">650.0</value>
+    </values>
+</CustomMetadata>

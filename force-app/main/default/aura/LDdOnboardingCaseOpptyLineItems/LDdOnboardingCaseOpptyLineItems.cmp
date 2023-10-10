@@ -1,0 +1,45 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" 
+                access="global" controller="CDdOnBoardingCaseOpptyLineItemsCtrl">
+    <!-- attributes -->
+    <aura:attribute name="recordId" type="String"></aura:attribute>
+    <aura:attribute name="oppLineItems" type="Object"></aura:attribute>
+    <aura:attribute name="noResults" type="String"></aura:attribute>
+    <aura:attribute name="cardtitle" type="String"></aura:attribute>
+    <!-- handlers-->
+    <aura:handler name="init" value="{! this }" action="{! c.init }"></aura:handler>
+    
+    <lightning:card aura:id="lightCard" class="slds-card_boundary cardBg" title="{!v.cardtitle}" iconName="standard:products">  
+        <div style="overflow-x: auto;">
+            <aura:if isTrue="{!not(empty(v.oppLineItems))}" >
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                    <thead>
+                        <tr class="slds-line-height_reset">
+                            <th class="slds-text-title_caps" scope="col">
+                                <div class="slds-truncate" title="Product Name">Product Name</div>
+                            </th>
+                            <th class="slds-text-title_caps" scope="col">
+                                <div class="slds-truncate" title="Sales Price">Sales Price</div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <aura:iteration  items="{!v.oppLineItems}" var="opp">
+                            <tr class="slds-hint-parent">
+                                <td data-label="Product Name">
+                                    <div class="slds-truncate" title="Product Name">
+                                        <lightning:formattedUrl value="{! '/' + opp.Product2Id}" 
+                                            label="{!opp.Product2.Name}" target="_blank">
+                                        </lightning:formattedUrl> 
+                                    </div>  
+                                </td>
+                                <td data-label="Sales Price" class="slds-align_absolute-center">
+                                    <div class="slds-truncate" title="Sales Price">{!opp.UnitPrice}</div>  
+                                </td>
+                            </tr>
+                        </aura:iteration>
+                    </tbody>
+                </table>
+            </aura:if>
+        </div>
+    </lightning:card> 
+</aura:component>

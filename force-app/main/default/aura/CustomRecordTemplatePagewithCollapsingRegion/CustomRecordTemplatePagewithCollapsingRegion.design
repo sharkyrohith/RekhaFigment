@@ -1,0 +1,9 @@
+<design:component label="3 column template with collapsible left sidebar">
+    <flexipage:template>
+        <flexipage:region name="header" defaultWidth="LARGE" />
+        <flexipage:region name="main" defaultWidth="MEDIUM" />
+        <flexipage:region name="sidebarLeft" defaultWidth="SMALL" />
+        <flexipage:region name="sidebarRight" defaultWidth="SMALL" />
+        <flexipage:region name="quickpanel" defaultWidth="SMALL" />
+    </flexipage:template>
+</design:component>

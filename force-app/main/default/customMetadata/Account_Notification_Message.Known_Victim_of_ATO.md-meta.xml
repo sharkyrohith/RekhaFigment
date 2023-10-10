@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Known Victim of ATO</label>
+    <protected>false</protected>
+    <values>
+        <field>Is_Notification_Dismissable__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>Message__c</field>
+        <value xsi:type="xsd:string">KNOWN ATO VICTIM. PLEASE UTILIZE EXTREME HIGH RISK VERIFICATION ON ANY INBOUNDS. FOR HELP VERIFYING, PLEASE REFERENCE THE FOLLOWING KBs (&lt;a href=&quot;https://figment.lightning.force.com/lightning/r/Knowledge__kav/ka02L000000EY0TQAW/view&quot;&gt;T1&lt;/a&gt;, &lt;a href=&quot;https://figment.lightning.force.com/lightning/r/Knowledge__kav/ka02L000000g9McQAI/view&quot;&gt;T3/MXP&lt;/a&gt;). ENGAGE FRAUD TEAM IF THERE IS DOUBT PRIOR TO MAKING A CHANGE.</value>
+    </values>
+    <values>
+        <field>Notification_Ends_After_Days__c</field>
+        <value xsi:type="xsd:double">365.0</value>
+    </values>
+    <values>
+        <field>Notification_Ends_On__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Object_Names__c</field>
+        <value xsi:type="xsd:string">Case</value>
+    </values>
+    <values>
+        <field>Severity__c</field>
+        <value xsi:type="xsd:string">Error</value>
+    </values>
+    <values>
+        <field>Title__c</field>
+        <value xsi:type="xsd:string">Account Take Over (ATO)</value>
+    </values>
+</CustomMetadata>

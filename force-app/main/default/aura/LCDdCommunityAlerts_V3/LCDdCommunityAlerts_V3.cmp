@@ -1,0 +1,63 @@
+<aura:component controller="CDdCommunity_AlertController" access="global" implements="forceCommunity:availableForAllPageTypes">
+     <aura:attribute name="alerts" type="List" default="Alert to display"/>
+    <aura:attribute name="showAlert" type="Boolean" default="false"/>
+    <aura:attribute name="pageError" type="Boolean" required="true" description="" default="false" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+   
+    <!--
+        <aura:renderIf isTrue="{!v.showError}">
+            <div id="error">
+                Error
+            </div>
+        </aura:renderIf>
+    -->
+    
+    <aura:renderIf isTrue="{!and(v.showAlert,v.alerts)}">
+        
+                 
+        <aura:iteration items="{!v.alerts}" var="alrt">
+            
+                        <aura:renderIf isTrue="{!v.showAlert == true}">
+                <link rel="stylesheet" href="/resource/SRDdCommunityAlertsStyles"/>
+            			</aura:renderIf>
+            
+            <!-- <ltng:require styles="{!$Resource.SRDdCommunityAlertsStyles}" /> -->
+            <!--   <c:LCDdCommunity_TopicCatalog/>
+            <aura:renderIf isTrue="{!alrt.Alert_Type__c != 'DataBreach'}">
+                <link rel="stylesheet" href="/resource/SRDdCommunityAlertsStyles"/>
+            </aura:renderIf>
+            <aura:renderIf isTrue="{!alrt.Alert_Type__c == 'DataBreach'}">
+                <link rel="stylesheet" href="/resource/SRDdCommunityAlertsStyles_DB"/>
+            </aura:renderIf>
+            <aura:renderIf isTrue="{!v.alerts.length == 1}">
+                <link rel="stylesheet" href="/resource/SRDdCommunityAlertsStyles"/>
+            </aura:renderIf>
+            <aura:renderIf isTrue="{!v.alerts.length == 2}">
+                <link rel="stylesheet" href="/resource/SRDdCommunityAlertsStyles"/>
+            </aura:renderIf>
+            <aura:renderIf isTrue="{!v.alerts.length >=3}">
+                <link rel="stylesheet" href="/resource/SRDdCommunityAlertsStyles"/>
+            </aura:renderIf>
+ -->
+            <div>
+                <div class="{!'ot-alert-container ' + alrt.Alert_Type__c}">
+                    
+                    <div class="ot-alert-full-width">
+                        <div class="ot-alert-wrap">
+                            <div class="ot-alert-icon"></div>
+                            <div class="ot-alert-body">
+                                <span class="ot-alert-title">{!alrt.Title__c}</span>
+                                <span class="ot-alert-desc">{!alrt.Text_before_URL__c}&nbsp;</span>
+                                <a class="ot-alert-link-1" href="{!alrt.Link_URL__c}" target="_blank">{!alrt.Link_Label__c}</a>
+                                <span class="ot-alert-desc">{!alrt.Text_after_URL__c}&nbsp;</span>
+                                <a class="ot-alert-link-2" href="{!alrt.Link_URL_2__c}" target="_blank">{!alrt.Label_URL_2__c}</a>
+                                <span class="ot-alert-desc">{!alrt.End_Text__c}&nbsp;</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aura:iteration>
+    </aura:renderIf>
+
+</aura:component>

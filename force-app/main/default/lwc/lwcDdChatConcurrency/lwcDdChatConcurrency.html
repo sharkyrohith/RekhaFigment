@@ -1,0 +1,17 @@
+<template>
+    <lightning-card>
+        <h3 slot="title">
+            <lightning-icon icon-name="utility:matrix" size="small"></lightning-icon>
+            &nbsp;&nbsp;
+            Routing Configuration
+        </h3>
+        <div>
+            <lightning-datatable
+                key-field="Id"
+                data={routingConfigList}
+                columns={columns}
+                onsave={handleSave}>
+            </lightning-datatable>
+        </div>
+    </lightning-card>
+</template>

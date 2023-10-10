@@ -1,0 +1,76 @@
+.THIS {
+    text-align: center;
+}
+
+.THIS .home-support-tile {
+    padding: 18px 30px;
+    display: inline-block;
+    border: 1px #CCC solid;
+    border-radius: 5px;
+    font-size: 1.5rem;
+    max-width: initial;
+    width: auto;
+}
+
+.THIS .home-support-tile span{
+    color: #000;
+    padding-right: 10px;
+}
+
+.THIS .home-support-or {
+    padding: 10px 30px;
+    display: inline-block;
+    font-size: 1.5rem;
+}
+
+@media only screen and (max-width:768px) {
+    
+    .THIS .home-support-tile {
+        padding: 18px 30px;
+        display: inline-block;
+        border: 1px #ccc solid;
+        border-radius: 5px;
+        font-size: 1.2rem;
+        max-width: initial;
+        width: auto;
+        line-height: 1.8rem;
+    }
+    
+}    
+@media only screen and (max-width:700px) {
+    
+    .THIS .home-support-tile {
+        width: 100%;
+    }
+    
+}
+
+@media only screen and (max-width:480px) {
+    .THIS {
+        margin-top: 20px;
+    }
+    
+    .THIS .home-support-tile {
+        padding: 14px 20px;
+        display: inline-block;
+        border: 1px #CCC solid;
+        border-radius: 5px;
+        font-size: 1.2rem;
+        max-width: none;
+        width: 100%;
+    }
+    
+    .THIS .home-support-or {
+        padding: 6px 20px 8px 20px;
+        display: inline-block;
+        font-size: 1.3rem;
+    }
+    .THIS .home-support-tile span{
+        display: block;
+        padding-right: 0px;
+    }
+    .THIS .home-support-tile {
+        
+    }
+    
+}

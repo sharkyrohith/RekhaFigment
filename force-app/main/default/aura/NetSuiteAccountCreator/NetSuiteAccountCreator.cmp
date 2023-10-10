@@ -1,0 +1,4 @@
+<aura:component controller="NetSuiteAccountCreatorController" implements="flexipage:availableForRecordHome,force:lightningQuickAction,force:hasRecordId,force:hasSObjectName" >
+  <c:LDdCallout aura:id="calloutCmp" />
+  <lightning:button variant="neutral" label="Continue" title="Create NetSuite Account" onclick="{!c.handleClick}"/>
+</aura:component>

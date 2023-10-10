@@ -1,0 +1,167 @@
+"CONTRACT__C","EXTERNAL_ID__C","NAME"
+"{
+    ""store_id"": ""5678"",
+    ""error"": """",
+    ""details"": {
+      ""record_id"": ""001xxx"",
+      ""name"": ""Homer's Donut Hut"",
+      ""legal_business_name"": ""Homer's Donut Hut, LLC"",
+      ""merchant_supplied_id"": ""555"",
+      ""merchant_segment"": ""Enterprise"",
+      ""primary_vertical"": ""Restaurant"",
+      ""type"": ""Virtual"",
+      ""address_id"": ""abc"",
+      ""alcohol_activated"": true,
+      ""alcohol_addendum_signed"": true,
+      ""alcohol_eligibility"": ""Wet"",
+      ""alcohol_product_eligibility"": ""Delivery;Pickup;"",
+      ""menu_ui_type"": ""Restaurant"",
+      ""brand"": {
+        ""record_id"": ""123xxx"",
+        ""name"": ""Homer's Donuts"",
+        ""default_corporate_business_id"": ""12341"",
+        ""default_franchise_business_id"": ""98798""
+      },
+      ""franchise_parent"": {
+        ""record_id"": ""123xxx"",
+        ""name"": ""Homer's Donut Hut"",
+        ""type"": ""Franchisee""
+      },
+      ""parent"": {
+        ""record_id"": ""123xxx"",
+        ""name"": ""Homer's Donut Hut"",
+        ""type"": ""Corporate""
+      },
+      ""ultimate_parent"": {
+        ""record_id"": ""123xxx"",
+        ""name"": ""Homer's Donut Hut"",
+        ""type"": ""Corporate""
+      },
+      ""xrefs"": [{
+        ""record_id"": ""123xxx"",
+        ""source"": ""MDS"",
+        ""store_id"": ""5678"",
+        ""unified_store_id"": ""2345987"",
+        ""business_reference"": {
+          ""business_id"": ""9876"",
+          ""business_group_id"": ""12301"",
+          ""unified_business_id"": ""2345666"",
+          ""business_name"": ""Homer's Enterprises"",
+          ""default_type"": ""Franchise""
+        }
+      }, {
+        ""record_id"": ""123xxx"",
+        ""source"": ""Drive DB"",
+        ""store_id"": ""6543"",
+        ""business_id"": ""9898"",
+        ""business_group_id"": ""12300"",
+        ""unified_store_id"": ""2345987"",
+        ""business_reference"": {
+          ""business_id"": ""9876"",
+          ""business_group_id"": ""12300"",
+          ""unified_business_id"": ""2345666"",
+          ""business_name"": ""Homer's Enterprises"",
+          ""default_type"": ""Corporate""
+        }
+      }],
+      ""contacts"": [{
+        ""record_id"": ""123xxx"",
+        ""first_name"": ""Homer"",
+        ""last_name"": ""Simpson"",
+        ""email"": ""homer@example.com"",
+        ""role"": ""Store Operator;""
+      }, {
+        ""record_id"": ""123xxx"",
+        ""first_name"": ""Marge"",
+        ""last_name"": ""Simpson"",
+        ""email"": ""marge@example.com"",
+        ""role"": ""Decision Maker;Business Admin;""
+      }],
+      ""opportunities"": [{
+        ""record_id"": ""002xx1"",
+        ""name"": ""Homer's Donut Hut - Q3 22 - COO"",
+        ""type"": ""Existing"",
+        ""sub_type"": ""COO"",
+        ""closed_date"": ""2023-01-01"",
+        ""stage"": ""Contracting""
+      }, {
+        ""record_id"": ""002xx2"",
+        ""name"": ""Homer's Donut Hut - Q3 22 - Upgrade"",
+        ""type"": ""Existing"",
+        ""sub_type"": ""COO"",
+        ""closed_date"": ""2023-01-01"",
+        ""stage"": ""Negotiating""
+      }],
+      ""contracts"": [{
+        ""record_id"": ""800xxx"",
+        ""account_name"": """",
+        ""status"": ""Activated"",
+        ""type"": ""Marketplace"",
+        ""start_date"": ""2022-05-18"",
+        ""master_service_agreement_url"": """",
+        ""franchise_suppliemental_agreement_url"": """",
+        ""pricing_summary_url"": """"
+      }],
+      ""services"": [{
+          ""product_name"": ""Marketplace"",
+          ""package"": """",
+          ""status"": ""active"",
+          ""mx_agreed_to_product"": ""Yes"",
+          ""trial_commission"": ""0.00"",
+          ""trial_fee"": ""0.00"",
+          ""final_commission__c"": ""0.00"",
+          ""final_fee"": ""0.00""
+        },
+        {
+          ""product_name"": ""Delivery"",
+          ""package"": ""Marketplace"",
+          ""status"": ""active"",
+          ""mx_agreed_to_product"": ""Yes"",
+          ""trial_commission"": ""0.00"",
+          ""trial_fee"": ""0.00"",
+          ""final_commission__c"": ""10.00%"",
+          ""final_fee"": ""0.00""
+        },
+        {
+          ""product_name"": ""Dashpass"",
+          ""package"": ""Marketplace"",
+          ""status"": ""active"",
+          ""mx_agreed_to_product"": ""Yes"",
+          ""trial_commission"": ""0.00"",
+          ""trial_fee"": ""0.00"",
+          ""final_commission__c"": ""15.00%"",
+          ""final_fee"": ""0.00""
+        },
+        {
+          ""product_name"": ""Pickup"",
+          ""package"": ""Marketplace"",
+          ""status"": ""active"",
+          ""mx_agreed_to_product"": ""Yes"",
+          ""trial_commission"": ""0.00"",
+          ""trial_fee"": ""0.00"",
+          ""final_commission__c"": ""6.00%"",
+          ""final_fee"": ""0.00""
+        },
+        {
+          ""product_name"": ""Cx Delivery Fee"",
+          ""package"": ""Marketplace"",
+          ""status"": ""active"",
+          ""mx_agreed_to_product"": ""Yes"",
+          ""trial_commission"": ""0.00"",
+          ""trial_fee"": ""0.00"",
+          ""final_commission__c"": ""0.00"",
+          ""final_fee"": ""0.00""
+        },
+        {
+          ""product_name"": ""Service Rate"",
+          ""package"": ""Marketplace"",
+          ""status"": ""active"",
+          ""mx_agreed_to_product"": ""Yes"",
+          ""trial_commission"": ""0.00"",
+          ""trial_fee"": ""0.00"",
+          ""final_commission__c"": ""0.00"",
+          ""final_fee"": ""0.00""
+        }
+      ]
+    }
+  }","StoreDetails/v1.0.0","StoreDetails/v1.0.0"

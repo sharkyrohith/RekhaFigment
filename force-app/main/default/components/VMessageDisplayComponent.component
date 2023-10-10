@@ -1,0 +1,120 @@
+<apex:component >
+	<!-- Requires jQuery -->
+
+	<style>
+		#v-error-message-display {
+			width: 100%;
+			display: none;
+		}
+
+		#v-success-message-display {
+			width: 100%;
+			display: none;
+		}
+
+		#v-info-message-display {
+			width: 100%;
+			display: none;
+		}
+	</style>
+
+	<div id="v-error-message-display" class="v-message-display">
+	    <apex:pageMessage escape="false" 
+			summary="" 
+			severity="Error" strength="3" />
+    </div>
+
+	<div id="v-success-message-display" class="v-message-display">
+		<apex:pageMessage escape="false" summary="" 
+		severity="Confirm" 
+		strength="3" />
+	</div>
+
+	<div id="v-info-message-display" class="v-message-display">
+		<apex:pageMessage escape="false" summary="" 
+		severity="Info" 
+		strength="3" />
+	</div>
+
+	<script type="text/javascript">
+		var vMessageDisplayComponent = {
+			buildMessageList: function(msgList) {
+				var lst = jQuery("<div />").addClass("messageText")
+										   .addClass('v-message-text');
+
+
+				jQuery("<span />").append("<h4 />")
+								  .appendTo(lst);
+
+				for(var i = 0; i < msgList.length; i++) {
+					lst.append(msgList[i])
+					   .append($("<br />"));
+				}
+
+				return lst;
+			},
+
+			listify: function(arg) {
+				if(Object.prototype.toString.call(arg) === '[object String]') {
+					arg = [arg];
+				}
+
+				return arg;
+			},
+
+			clearAll: function() {
+				jQuery(".v-message-text").remove();
+				jQuery(".v-message-display").hide();
+			},
+
+			showError: function(msgList) {
+				this.clearAll();
+				msgList = this.listify(msgList);
+
+				jQuery("#v-error-message-display td.messageCell").empty();
+
+				var lst = this.buildMessageList(msgList);
+				lst.appendTo(jQuery("#v-error-message-display td.messageCell"));
+
+				$("#v-error-message-display").show();
+			},
+
+
+			showSuccess: function(msgList) {
+				this.clearAll();
+				msgList = this.listify(msgList);
+
+				jQuery("#v-success-message-display td.messageCell").empty();
+
+				var lst = this.buildMessageList(msgList);
+				lst.appendTo(jQuery("#v-success-message-display td.messageCell"));
+
+				$("#v-success-message-display").show();
+			},
+
+			showInfo: function(msgList) {
+				this.clearAll();
+				msgList = this.listify(msgList);
+
+				jQuery("#v-info-message-display td.messageCell").empty();
+
+				var lst = this.buildMessageList(msgList);
+				lst.appendTo(jQuery("#v-info-message-display td.messageCell"));
+
+				$("#v-info-message-display").show();
+			}
+		};
+
+		// add the message display component to the document body for retrival outside
+		// of the component
+		jQuery(document).ready(function() {
+			// remove the extraneous row in the message displays
+			$(".v-message-display table.messageTable").each(function() {
+				$(this).find('tbody').children('tr:eq(1)').remove();
+			});
+
+			jQuery(document.body).data('vMessageDisplay', vMessageDisplayComponent);
+		});
+		
+	</script>
+</apex:component>

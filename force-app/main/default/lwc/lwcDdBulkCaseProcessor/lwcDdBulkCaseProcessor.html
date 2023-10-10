@@ -1,0 +1,58 @@
+<template>
+
+    <lightning-card title="Submit Case Updates" icon-name="standard:case">
+        <div class="slds-var-p-horizontal_small">
+            <lightning-accordion allow-multiple-sections-open active-section-name={activeSections}>
+
+                <!-- Enter Case Details -->
+                <lightning-accordion-section name="step1" label="Step 1: Enter Case Details">
+                    <div class="slds-var-p-around_small">
+                        <lightning-layout multiple-rows="true">
+                            <lightning-layout-item size="4">
+                                <lightning-combobox name="status" label="Set Case Status" value={caseStatus}
+                                    options={statusOptions} onchange={handleCaseStatusChange} required>
+                                </lightning-combobox>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="8"></lightning-layout-item>
+                            <lightning-layout-item size="12" class="slds-var-p-top_small">
+                                <lightning-input type="checkbox" label="Send Email to Case Contact?"
+                                    onchange={handleCheckbox}>
+                                </lightning-input>
+                            </lightning-layout-item>
+                            <template if:true={checkboxVal}>
+                                <lightning-layout-item size="12" class="slds-var-p-top_small">
+                                    <lightning-input-rich-text name="emailBody" label={caseCloseReason}
+                                        placeholder="type here..." onchange={handleTextareaupdate} value={emailBody}
+                                        label-visible="true" required>
+                                    </lightning-input-rich-text>
+                                </lightning-layout-item>
+                            </template>
+                        </lightning-layout>
+                    </div>
+                </lightning-accordion-section>
+
+                <!-- Upload CSV File -->
+                <lightning-accordion-section name="step2" label="Step 2: Upload CSV File">
+                    <div class="slds-var-p-around_small">
+                        <lightning-file-upload accept={acceptedFormats} onuploadfinished={handleUploadFinished}
+                            label="Upload Cases" record-id={recordId}>
+                        </lightning-file-upload>
+                    </div>
+                </lightning-accordion-section>
+
+                <!-- Submit File To Process -->
+                <lightning-accordion-section name="step3" label="Step 3: Submit Job">
+                    <div class="slds-var-p-around_small">
+                        <template if:true={documentId}>
+                            <lightning-button variant="brand" label="Process Cases" onclick={handleCaseProcess}>
+                            </lightning-button>
+                        </template>
+                    </div>
+                </lightning-accordion-section>
+            </lightning-accordion>
+        </div>
+        <div slot="footer">
+            <lightning-badge label={labels.HEADER_NOTE} icon-name="utility:warning"></lightning-badge>
+        </div>
+    </lightning-card>
+</template>

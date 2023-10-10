@@ -1,0 +1,270 @@
+.THIS {
+    margin: 30px 0px 100px 0px;
+    font-family: "Square_Market_Regular", Helvetica, Arial, sans-serif;
+    
+}
+
+.THIS .cavcs-container{
+    display: flex;
+    justify-content: ;
+    text-align: center;
+    margin: 30px auto 30px auto;
+}
+
+.THIS .cavcs-head {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.375;
+    display: block;
+    width: 100%;
+}
+
+.THIS .cavcs-head h1 {
+    font-size: 48px;
+    color: #f86932;
+    font-weight: 500;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.09524;
+    display: block;
+    font-variant-ligatures: no-common-ligatures;
+    padding-bottom: 10px;
+}                  
+
+.THIS .cavcs-head h2 {
+    font-size: 28px;
+    line-height: 1.36364;
+    font-weight: 400;
+    color: #2d3c48;
+}
+
+.THIS .cavcs-tile:first-child {
+    
+}
+
+.THIS .cavcs-tile:last-child {
+    
+    border-right: none;
+    
+}
+.THIS .cavcs-tile {
+    min-height: 200px;
+    border-right: 1px solid #CCC;
+    padding: 120px 45px 40px 45px;;
+    text-align: center;
+    width: 100%;
+    background-image: url(sfsites/c/resource/SRDdHelpSelectAssets/HelpIcons/DD-Icons-DW_chat.svg);
+    background-size: 75px;
+    background-repeat: no-repeat;
+    background-position: center 30px;
+    color: #000000;
+    margin-bottom: 20px;
+}
+
+.THIS .cavcs-tile.cavcs-email {
+    background-image: url(sfsites/c/resource/SrCav_Community_Assets/icons/Cav-support-email.svg);
+    background-position: center 60px;
+}
+.THIS .cavcs-tile.cavcs-call {
+    background-image: url(sfsites/c/resource/SrCav_Community_Assets/icons/Cav-support-phone.svg);
+    background-position: center 45px;
+}
+.THIS .cavcs-tile.cavcs-chat {
+    background-image: url(sfsites/c/resource/SrCav_Community_Assets/icons/Cav-support-live-chat.svg);
+}
+.THIS .cavcs-tile.cavcs-twitter {
+    background-image: url(sfsites/c/resource/SrCav_Community_Assets/icons/Cav-support-twitter.svg);
+    background-position: center 52px;
+    background-size: 65px;
+}
+.THIS .cavcs-tile.cavcs-facebook {
+    background-image: url(sfsites/c/resource/SrCav_Community_Assets/icons/Cav-support-facebook.svg);
+    background-position: center 55px;
+    background-size: 40px;
+}
+
+.THIS .cavcs-tile.cavcs-selfhelp {
+    background-image: url(sfsites/c/resource/SrCav_Community_Assets/icons/Cav-support-app.svg);
+    background-position: center 55px;
+    background-size: 40px;
+}
+
+
+/*
+.THIS .cavcs-tile:hover  {
+text-decoration: none;
+border: 1px solid #ff3008;
+background-color: #FAE4E1;
+color: #f86932;
+
+}
+*/
+
+.THIS .cavcs-title{
+    font-size: 28px;
+    color: #2d3c48;
+    display: block;
+    margin-top: 8px;
+    line-height: 1.36364;
+    font-weight: 400;
+    margin-bottom: 5px;
+}
+
+.THIS .cavcs-sub-title{
+    font-size: 15px;
+    color: #2d3c48;
+    display: block;
+    line-height: 20px;
+    
+}
+
+.THIS .cavcs-app-chat{
+    justify-content: space-evenly;
+    text-align: center;
+    margin: 30px auto 80px auto;
+    font-size: 15px;
+    line-height: 12px;
+    color: #2d3c48;
+    padding-top: 55px;
+    border-top: 1px #CCC solid;
+    
+}
+
+.THIS .cavcs-app-chat-col-1{
+    padding: 28px 20px 28px 48px;
+    border-right: 1px #ccc solid;
+    margin-right: 20px;
+    background-image: url(sfsites/c/resource/SrCav_Community_Assets/icons/Cav-support-live-chat.svg);
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: 35px;
+}
+
+.THIS .cavcs-company-support .cavcs-app-chat-col-1 {
+    padding: 28px 25px 28px 85px;
+    border-right: 1px #ccc solid;
+    margin-right: 20px;
+    background-image: url(sfsites/c/resource/SrCav_Community_Assets/icons/for-companies-icon.svg);
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: 85px;
+    font-weight: bold;
+}
+
+.THIS .cavcs-app-chat-col-2{
+    width: 450px;
+    display: inline-block;
+    text-align: left;
+    line-height: 20px;
+    vertical-align: middle;
+}
+
+.THIS .cavcs-company-support .cavcs-app-chat-col-2 {
+    width: auto;
+}
+
+.THIS .cavcs-select-link {
+    background-color: #f97242;
+    display: inline-block;
+    border-radius: 10px;
+    font-size: 14px;
+    color: #fff;
+    padding: 10px 22px;
+    margin: 0px;
+    text-align: center;
+    letter-spacing: .05rem;
+    font-weight: bold;
+    line-height: 15px;
+    text-transform: none;
+    margin: 15px auto 0px auto;
+}
+
+
+@media (max-width:767px) {
+    
+    .THIS {
+        margin: 20px 0px 10px 0px;
+    }
+    
+    .THIS .cavcs-tile {
+        min-height: 200px;
+        border-right: 1px solid #CCC;
+        padding: 120px 25px 40px 25px;;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+@media screen and (max-width:480px) {
+    .THIS {
+        margin: 0px 0px 30px 0px;
+    }
+    
+    .THIS .cavcs-head h1 {
+        font-size: 38px;
+    }                  
+    
+    .THIS .cavcs-head h2 {
+        font-size: 20px;
+    }
+    
+    .THIS .cavcs-container{
+        display: inline-block;
+        text-align: center;
+        margin: 40px auto 0px auto;
+    }
+    
+    .THIS .cavcs-tile {
+        min-height: 200px;
+        border-top: 1px solid #CCC;
+        border-right: none;
+        padding: 120px 25px 20px 25px;;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    
+    .THIS .cavcs-app-chat{
+        justify-content: space-evenly;
+        text-align: center;
+        margin: 0px auto 0px auto;
+        font-size: 15px;
+        line-height: 12px;
+        color: #2d3c48;
+        padding-top: 20px;
+        border-top: 1px #CCC solid;
+    }
+    
+    .THIS .cavcs-app-chat-col-1{
+        display: block;
+        text-align: center;
+        border-right: none;
+        border-bottom: 1px #CCC solid;
+        background-position: 31% center;
+        padding-bottom: 40px;
+        margin-right: 0px;
+    }
+    
+    .THIS .cavcs-app-chat-col-2{
+        text-align: center;
+        padding-top: 20px;
+        width: auto;
+    }
+    
+        .THIS .cavcs-company-support .cavcs-app-chat-col-2{
+        text-align: center;
+        padding-top: 20px;
+        width: auto;
+    }
+    
+    
+    .THIS .cavcs-company-support .cavcs-app-chat-col-1 {
+    padding: 28px 25px 28px 85px;
+    border-right: none;
+    margin-right: 20px;
+    background-image: url(sfsites/c/resource/SrCav_Community_Assets/icons/for-companies-icon.svg);
+    background-position: 50px center;
+    background-repeat: no-repeat;
+    background-size: 85px;
+    font-weight: bold;
+}
+}

@@ -1,0 +1,47 @@
+.THIS {
+}
+
+.THIS button.slds-button {
+    text-transform: capitalize;
+    font-size: .8125rem;
+    color: #ffffff;
+    background-color: rgb(255, 48, 8);
+    border-color: rgb(255, 48, 8);
+    display: block;
+    border-width: 2px;
+    border-style: solid;
+    padding: 5px 24px;
+    min-width: 135px;
+    transition: all .2s;
+    margin: 0px auto;
+    border-radius: 0px;
+}
+
+.THIS h1.slds-page-header__title {
+    display: block;
+    text-align: center;
+}
+
+.THIS span.subtitle {
+    display: block;
+    text-align: center;
+}
+
+.THIS .slds-section .row{
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+}
+
+.THIS div#recaptchaCheckbox {
+    position: relative;
+    top: 0px;
+    padding: 15px 0px;
+}
+
+.THIS div#error {
+    text-align: center;
+    color: rgb(194, 57, 52);
+    background: rgb(194, 57, 52, .1);
+    border: rgb(194, 57, 52) solid 1px;
+    padding: 13px;
+}

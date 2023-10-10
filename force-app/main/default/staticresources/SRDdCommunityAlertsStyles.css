@@ -1,0 +1,93 @@
+
+.cLCav_Community_Theme_V1 .Inner .cct-header-fixed {
+    position: relative !important;
+}
+/*
+.cLCDdCommunityAlerts  {
+position: fixed;
+top: 0;
+z-index: 4000;
+background: rgb(247, 247, 247);
+width: 100%;
+margin: 0px;
+display: block;
+text-align: center;
+right: 0px;
+height: 50px;
+border-bottom: #CCC solid 1px;
+}
+
+html body .footer lightning-combobox.forceCommunityLanguageSelector43 {
+z-index: 3500 !important;
+}
+
+*/
+
+
+
+
+/*-- Desktop --
+@media (min-width:768px) {
+
+html body .siteforceThemeLayoutStarter >.header {
+top: 90px !important;
+}
+
+html body .footer lightning-combobox.forceCommunityLanguageSelector43 {
+z-index: 3500 !important;
+position: fixed !important;
+top: 82px !important;
+}
+
+html body {
+margin-top: 90px !important;
+}
+
+
+}
+*/
+/*-- Tablet --
+@media (max-width:767px) {
+
+
+html body .siteforceThemeLayoutStarter.isHeaderPinned-true >.header {
+top: 100px !important;
+background-color: #FFF !important;
+
+}
+
+html body .footer lightning-combobox.forceCommunityLanguageSelector43 {
+top: 95px !important;
+}
+
+html body {
+margin-top: 115px !important;
+}
+
+.themeNav.fadein .forceCommunityThemeNav.themeNavContainer.navMenuType-expanded {
+margin-top: 72px !important;
+}
+
+
+}
+*/
+/*-- Handheld --
+@media screen and (max-width: 480px) {
+
+html body .siteforceThemeLayoutStarter .header {
+top: 120px !important;
+}
+html body .siteforceThemeLayoutStarter .header div[data-region-name="themeHeader"] {
+padding-top: 10px;
+}
+html body .footer lightning-combobox.forceCommunityLanguageSelector43 {
+top: 120px !important;
+}
+
+html body {
+margin-top: 120px !important;
+}
+
+
+}
+*/

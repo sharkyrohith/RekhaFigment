@@ -1,0 +1,35 @@
+.status-field {
+    font-weight: bold;
+}
+
+.status-field-green {
+    color: green;
+}
+
+.status-field-orange {
+    color: orange;
+}
+
+.status-field-red {
+    color: red;
+}
+
+.status-field-black {
+    color: #000;
+}
+
+.milestones-grid-title {
+    cursor: pointer;
+}
+
+.grid-chevron:hover {
+    transform: scale(1.25);
+}
+
+.grid-chevron {
+    fill: #000;
+}
+
+.error-msg {
+    font-size: 1.25em;
+}

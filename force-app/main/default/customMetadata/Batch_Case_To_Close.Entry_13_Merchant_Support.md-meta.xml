@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Entry 13 Merchant Support</label>
+    <protected>false</protected>
+    <values>
+        <field>Active__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>Criteria__c</field>
+        <value xsi:type="xsd:string">(LastModifiedDate &lt; :hours) AND ((Initial_Queue_Name__c = &apos;MxSx - National&apos;) OR (Initial_Queue_Name__c = &apos;MxSx - Regional&apos;) OR (Initial_Queue_Name__c = &apos;MxSx - Escalated&apos;))</value>
+    </values>
+    <values>
+        <field>Hours__c</field>
+        <value xsi:type="xsd:double">168.0</value>
+    </values>
+    <values>
+        <field>Logic__c</field>
+        <value xsi:type="xsd:string">MERCHANT ENTITLEMENT</value>
+    </values>
+    <values>
+        <field>OmitProfileCheck__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>Order__c</field>
+        <value xsi:type="xsd:double">12.0</value>
+    </values>
+    <values>
+        <field>Record_Type__c</field>
+        <value xsi:type="xsd:string">Support</value>
+    </values>
+    <values>
+        <field>SkipOnWrap__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>Status_Criteria__c</field>
+        <value xsi:type="xsd:string">(Status = &apos;Waiting for DD Internal Team&apos;)</value>
+    </values>
+    <values>
+        <field>Where_Clause__c</field>
+        <value xsi:type="xsd:string">(LastModifiedDate &lt; :hours) AND ((Initial_Queue_Name__c = &apos;MxSx - National&apos;) OR (Initial_Queue_Name__c = &apos;MxSx - Regional&apos;) OR (Initial_Queue_Name__c = &apos;MxSx - Escalated&apos;))</value>
+    </values>
+</CustomMetadata>

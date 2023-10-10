@@ -1,0 +1,31 @@
+<design:component label="Custom Featured Topics">
+
+       <design:attribute name="TopicTitle" label="Topics Headline" default="What kind of help do you need?" />
+       <design:attribute name="Community" label="Community Name" datasource="consumers,dashers,merchants,work" default="consumers"  />
+       <design:attribute name="TopicCount" label="How Many Topics?" datasource="four,five,six" default="four"  />
+    
+       <design:attribute name="TopicOneLabel" label="Topic 1 Label" default="Manage Your Account" />
+       <design:attribute name="TopicOneTopicID" label="Topic 1 ID" default="0TO2L000000k9egWAA" />
+       <design:attribute name="TopicOneImage" label="Topic 1 Image" datasource="Accounts_Payments,Alcohol-Orders,Manage-Account,Merchant-Portal,Payments-Cx,Payments-Mx,Promotions,Receiving-Orders,Tablet-Hardware,Troubleshooting,Update-Menu"   />
+
+       <design:attribute name="TopicTwoLabel" label="Topic 2 Label" default="Promotions" />
+       <design:attribute name="TopicTwoTopicID" label="Topic 2 ID" default="0TO2L0000001G6XWAU" />
+       <design:attribute name="TopicTwoImage" label="Topic 2 Image" datasource="Accounts_Payments,Alcohol-Orders,Manage-Account,Merchant-Portal,Payments-Cx,Payments-Mx,Promotions,Receiving-Orders,Tablet-Hardware,Troubleshooting,Update-Menu"  />
+
+       <design:attribute name="TopicThreeLabel" label="Topic 3 Label" default="Payments" />
+       <design:attribute name="TopicThreeTopicID" label="Topic 3 ID" default="0TO1a0000007fB6GAI" />
+       <design:attribute name="TopicThreeImage" label="Topic 3 Image" datasource="Accounts_Payments,Alcohol-Orders,Manage-Account,Merchant-Portal,Payments-Cx,Payments-Mx,Promotions,Receiving-Orders,Tablet-Hardware,Troubleshooting,Update-Menu" />
+
+       <design:attribute name="TopicFourLabel" label="Topic 4 Label" default="Troubleshooting" />
+       <design:attribute name="TopicFourTopicID" label="Topic 4 ID" default="0TO1a0000007fB8GAI" />
+       <design:attribute name="TopicFourImage" label="Topic 4 Image" datasource="Accounts_Payments,Alcohol-Orders,Manage-Account,Merchant-Portal,Payments-Cx,Payments-Mx,Promotions,Receiving-Orders,Tablet-Hardware,Troubleshooting,Update-Menu"  />
+
+       <design:attribute name="TopicFiveLabel" label="Topic 5 Label" default="Alcohol Orders" />
+       <design:attribute name="TopicFiveTopicID" label="Topic 5 ID" default="0TO1a0000007fB9GAI" />
+       <design:attribute name="TopicFiveImage" label="Topic 5 Image" datasource="Accounts_Payments,Alcohol-Orders,Manage-Account,Merchant-Portal,Payments-Cx,Payments-Mx,Promotions,Receiving-Orders,Tablet-Hardware,Troubleshooting,Update-Menu"  />
+
+       <design:attribute name="TopicSixLabel" label="Topic 6 Label" default="DashPass" />
+       <design:attribute name="TopicSixTopicID" label="Topic 6 ID" default="0TO2L000000Xq0hWAC" />
+       <design:attribute name="TopicSixImage" label="Topic 6 Image" datasource="Accounts_Payments,Alcohol-Orders,Manage-Account,Merchant-Portal,Payments-Cx,Payments-Mx,Promotions,Receiving-Orders,Tablet-Hardware,Troubleshooting,Update-Menu"  />
+       
+</design:component>

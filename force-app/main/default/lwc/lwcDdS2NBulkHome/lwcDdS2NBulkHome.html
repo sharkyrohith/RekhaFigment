@@ -1,0 +1,16 @@
+<template>
+    <c-lwc-dd-s-2-n-bulk-header onselectbulkaction={handleSelectBulkAction}></c-lwc-dd-s-2-n-bulk-header>
+    <p class="slds-p-horizontal_small slds-m-top_small">
+        <template if:false={hasSelectedBulkAction}>
+            <c-lwc-dd-s-2-n-bulk-actions onselectbulkaction={handleSelectBulkAction}></c-lwc-dd-s-2-n-bulk-actions>
+        </template>
+        <template if:true={hasSelectedBulkAction}>
+            <template if:true={shouldShowBypassToolUploader}>
+                <c-lwc-dd-s-2-n-bypass-tool-uploader ms-sync-stage={selectedBulkAction}></c-lwc-dd-s-2-n-bypass-tool-uploader>
+            </template>
+            <template if:false={shouldShowBypassToolUploader}>
+                <c-lwc-dd-uploader ms-sync-stage={selectedBulkAction}></c-lwc-dd-uploader>
+            </template>
+        </template>
+    </p>
+</template>

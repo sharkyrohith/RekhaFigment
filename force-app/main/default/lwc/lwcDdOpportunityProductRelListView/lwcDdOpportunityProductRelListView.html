@@ -1,0 +1,57 @@
+<template>
+  <lightning-layout class="slds-m-top_x-small">
+    <div class="slds-card lightning-card slds-card_boundary slds-grid--vertical forceListViewManager">
+        <div class="slds-page-header--object-home slds-page-header_joined slds-page-header_bleed slds-page-header slds-shrink-none forceListViewManager test-headerRegion">
+          <div class="slds-grid">
+            <div class="slds-col slds-has-flexi-truncate firstHeaderRow">
+              <div class="slds-media slds-no-space slds-grow">
+                <div class="slds-media__body slds-align-middle">
+                  <lightning-breadcrumbs>
+                    <lightning-breadcrumb
+                        label="Opportunities"
+                        onclick={handleNavigateToOppListView}>
+                    </lightning-breadcrumb>
+                    <lightning-breadcrumb
+                        label={oppName}
+                        onclick={handleNavigateToOppRecordPage}>
+                      </lightning-breadcrumb>
+                  </lightning-breadcrumbs>
+                  <h1 class="slds-page-header__title slds-truncate listViewTitle">Products (Standard Price Book)
+                  </h1>
+                </div>
+              </div> 
+            </div>
+          </div>
+          <div class="slds-grid">
+            <div class="slds-col slds-align-bottom">
+              <span class="slds-text-body--small">
+                <div aria-live="polite" role="status">
+                  <span class="countSortedByFilteredBy">
+                    {numOfItems} item(s) 
+                  </span>
+                </div>
+              </span>
+            </div>
+          </div>
+        </div>
+        <template if:true={data}>
+            <div class="full-width">
+                <lightning-datatable
+                    key-field="Id"
+                    data={data}
+                    columns={columns}
+                    hide-checkbox-column="true"
+                    show-row-number-column="true"
+                    default-sort-direction={defaultSortDirection}
+                    sorted-direction={sortDirection}
+                    sorted-by={sortedBy}
+                    onsort={handleSort}>
+                </lightning-datatable>
+            </div>
+        </template>
+        <template if:true={error}>
+            {error}
+        </template>
+    </div>
+  </lightning-layout>
+</template>

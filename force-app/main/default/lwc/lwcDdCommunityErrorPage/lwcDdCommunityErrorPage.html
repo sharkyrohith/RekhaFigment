@@ -1,0 +1,43 @@
+<template>
+    <template if:true={showDoordashLogo}>
+        <div class="header-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <h1 class="doordash-logo">
+                        <a href="/">
+                            <img class="logo" src={image.ddLogo}/>
+                        </a>
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </template>
+    <div class="background-404" style={backgroundImage}>
+        <div class="foreground-404" style={foregroundImage}>
+            <div class="error-message-container">
+                <div class="error-message">
+                    <h1 class="error-message-header">{label.DdCommunity_Error_Hmm}</h1>
+                    <h2 class="error-message-body">
+                        {label.DdCommunity_Error_404}</h2>
+                    <p class="error-status-code">{label.DdCommunity_ErrorCode_404}</p>
+                    <template if:true={isConsumers}>
+                        <p>{label.DdCommunity_Error_GoBack}</p>
+                        <a class="error-message-return-home" href="https://help.doordash.com/consumers">{label.DdCommunity_ErrorCode_BackHome}</a>
+                    </template>
+                    <template if:true={isDashers}>
+                        <p>{label.DdCommunity_Error_GoBack}</p>
+                        <a class="error-message-return-home" href="https://help.doordash.com/dashers">{label.DdCommunity_ErrorCode_BackHome}</a>
+                    </template>
+                    <template if:true={isMerchants}>
+                        <p>{label.DdCommunity_Error_GoBack}</p>
+                        <a class="error-message-return-home" href="https://help.doordash.com/merchants">{label.DdCommunity_ErrorCode_BackHome}</a>
+                    </template>
+                    <template if:true={isHelpHub}>
+                        <p>{label.DdCommunity_Error_GoBack}</p>
+                        <a class="error-message-return-home" href="https://help.doordash.com/s/">{label.DdCommunity_ErrorCode_BackHome}</a>
+                    </template>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Case</label>
+    <protected>false</protected>
+    <values>
+        <field>Eligible_Milestone_Status__c</field>
+        <value xsi:type="xsd:string">Blocked</value>
+    </values>
+    <values>
+        <field>RecordTypeIds__c</field>
+        <value xsi:type="xsd:string">0122h000000AFFVAA4</value>
+    </values>
+    <values>
+        <field>Record_Type_Developer_Names__c</field>
+        <value xsi:type="xsd:string">Marketplace_Onboarding,Storefront_Onboarding,POS_Integrations</value>
+    </values>
+    <values>
+        <field>SObject__c</field>
+        <value xsi:type="xsd:string">Case</value>
+    </values>
+</CustomMetadata>

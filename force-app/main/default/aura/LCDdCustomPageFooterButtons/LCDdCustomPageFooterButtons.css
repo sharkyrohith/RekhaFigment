@@ -1,0 +1,96 @@
+.THIS {
+	width: 100%;
+margin-bottom: -24px;
+}
+
+.THIS .dd-custom-apply-wrap {
+        padding: 70px 0 40px 0;
+    background-color: #fbfbfb;
+}
+
+.THIS .dd-custom-apply-wrap .dd-dcc-text {
+    max-width: 800px;
+    margin: 0px auto;
+    text-align: left;
+}
+.THIS .dd-custom-apply-wrap ul {
+    list-style: disc;
+    margin: 20px 40px;  
+}
+.THIS a.dd-custom-button.dd-apply-button {
+    display: inline-block;
+    margin: 20px 0px 40px 0px;
+}
+
+.THIS .dd-custom-button-wrap {
+        padding: 80px 0 60px 0;
+    background-color: #f7e3e2;
+    
+}
+
+.THIS .dd-dcc-subtitle {
+    font-weight: bold;
+    font-size: 28px;
+    display: block;
+    text-align: center;
+    padding: 0px 0 35px 0;
+}
+
+.THIS .dd-dcc-text {
+    line-height: 24px;
+    text-align: center;
+    font-size: 16px;
+    padding: 0px 20px 35px;
+    display: block;
+}
+
+.THIS .dd-custom-button-wrap {
+    margin: 0px auto;
+    text-align: center;
+}
+
+.THIS .dd-custom-button {
+    min-width: 190px;
+    border-radius: 40px;
+    display: inline-block;
+    border: 2px #ff3008 solid;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 8px 36px 10px 36px;
+    text-decoration: none;
+    margin: 10px;
+    transition: .5s;
+}
+
+.THIS .dd-custom-button.dd-custom-button-primary {
+    background: #FF3008;
+    color: #FFF;
+}
+.THIS .dd-custom-button.dd-custom-button-primary:hover {
+    background: #EB1700;
+    border-color: #EB1700;
+}
+
+.THIS .dd-custom-button.dd-custom-button-secondary {
+    background: #FFF;
+    color: #FF3008;
+}
+
+.THIS .dd-custom-button.dd-custom-button-secondary:hover  {
+    background: #FFF;
+    color: #EB1700;
+    border-color: #EB1700;
+}
+.THIS .dd-custom-button.dd-custom-button-inactive {
+    background: #ff3008;
+    color: #FFFFFF;
+    opacity: 0.3;
+    cursor: text;
+}
+
+.THIS .dd-custom-button.dd-custom-button-inactive:hover  {
+    background: #ff3008;
+    color: #FFFFFF;
+    border-color: #ff3008;
+    opacity: 0.3;
+}

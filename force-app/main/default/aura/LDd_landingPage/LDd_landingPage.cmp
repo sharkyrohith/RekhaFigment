@@ -1,0 +1,98 @@
+<aura:component access="global" implements="forceCommunity:availableForAllPageTypes"
+    controller="CDdContactSupportChannelsController">
+    <meta http-equiv="refresh" content="0; URL='http://new-website.com'" />
+
+    <aura:attribute name="currentWaitTime" type="String" default="" />
+    <aura:attribute name="community" type="String" default="dasher" />
+    <aura:attribute name="customerURL" type="String" />
+    <aura:attribute name="dasherURL" type="String" />
+    <aura:attribute name="merchantURL" type="String" />
+    <aura:attribute name="supportPhone" type="String" default="855-973-1040" />
+    <aura:attribute name="showPhone" type="Boolean" default="true" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <ltng:require styles="{!$Resource.SrCav_Community_Fonts + '/stylesheet.css'}" />
+
+    <div>
+
+
+
+        <div class="ddhs-select-outer">
+
+
+            <div class="cardContainer">
+                <a href="{!v.customerURL}">
+                    <div class="ddhs-select-inner slds-align_absolute-center">
+                        <div class="ddhs-select-tile">
+
+                            <img class="ddhs-select-icon"
+                                src="{!$Resource.SRDdHelpSelectAssets + '/SVGs/Customer_new.svg'}" />
+
+                        </div>
+                    </div>
+
+                    <div class="ddhs-select-block" display="block">
+                        <div class="ddhs-select-text" size="16">
+
+                            {!$Label.c.DdCommunity_Help_CustomerSupport}
+
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+
+
+            <div class="cardContainer">
+
+                <a href="{!v.dasherURL}">
+                    <div class="ddhs-select-inner slds-align_absolute-center">
+                        <div class="ddhs-select-tile">
+
+                            <img class="ddhs-select-icon"
+                                src="{!$Resource.SRDdHelpSelectAssets + '/SVGs/Dasher_new.svg'}" />
+                        </div>
+                    </div>
+
+                    <div class="ddhs-select-block" display="block">
+                        <div class="ddhs-select-text" size="16">
+
+                            {!$Label.c.DdCommunity_Help_DasherSupport}
+
+                        </div>
+                    </div>
+                </a>
+
+
+            </div>
+
+
+            <div class="cardContainer">
+                <a href="{!v.merchantURL}">
+                    <div class="ddhs-select-inner slds-align_absolute-center">
+                        <div class="ddhs-select-tile">
+
+                            <img class="ddhs-select-icon"
+                                src="{!$Resource.SRDdHelpSelectAssets + '/SVGs/Merchant_new.svg'}" />
+                        </div>
+                    </div>
+
+                    <div class="ddhs-select-block" display="block">
+                        <div class="ddhs-select-text" size="16">
+
+                            {!$Label.c.DdCommunity_Help_MerchantSupport}
+
+                        </div>
+                    </div>
+
+                </a>
+            </div>
+
+
+        </div>
+
+
+
+    </div>
+
+
+</aura:component>

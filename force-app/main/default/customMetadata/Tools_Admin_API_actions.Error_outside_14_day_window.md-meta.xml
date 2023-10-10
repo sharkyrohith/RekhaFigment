@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Error - outside 14 day window</label>
+    <protected>false</protected>
+    <values>
+        <field>Email_Template_Name__c</field>
+        <value xsi:type="xsd:string">Mx_Chargeback_refund_denied_14d</value>
+    </values>
+    <values>
+        <field>Fields_To_Update__c</field>
+        <value xsi:type="xsd:string">Status =&gt;Closed;Issue_Type__c =&gt;Missing Payments - MX; Issue__c =&gt;Error Charge Dispute;Resolution_Type__c =&gt;Pay Management - MX; Resolution__c =&gt;Resolved Pay Dispute;</value>
+    </values>
+    <values>
+        <field>Response_Message_key__c</field>
+        <value xsi:type="xsd:string">9 FAILED_PRECONDITION: Error = FAILED_PRECONDITION: The Mx error charge refund was denied because it&apos;s outside of our 14-day policy dispute window.</value>
+    </values>
+    <values>
+        <field>Response_Status_Code__c</field>
+        <value xsi:type="xsd:double">500.0</value>
+    </values>
+    <values>
+        <field>Tools_Admin_API__c</field>
+        <value xsi:type="xsd:string">ChargeBackSubmission_EC_Dispute</value>
+    </values>
+</CustomMetadata>

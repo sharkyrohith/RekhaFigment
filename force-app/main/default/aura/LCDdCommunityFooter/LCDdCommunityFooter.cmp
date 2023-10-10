@@ -1,0 +1,234 @@
+<aura:component access="global" implements="forceCommunity:availableForAllPageTypes">
+    <aura:attribute default="Help" name="CommunityName" type="String" />
+    <div>
+<!-- Consumer Footer START -->
+        <aura:if isTrue="{!v.CommunityName == 'Consumers'}">
+            <div class="dd-footer-choice">
+                <div class="dd-footer-choice-title">
+                    {!$Label.c.DdCommunity_Footer_NotDdCustomer}
+                </div>
+                <div class="dd-footer-choice-button-wrap">
+                    <a class="dd-footer-choice-button dd-footer-choice-dashers" target="_blank" href="{!$Label.c.DdCommunity_Footer_ImaDasher_link}"  alt="I'm a Dasher">
+                         <img class="ddhs-select-icon" src="{!$Resource.SRDdHelpSelectAssets + '/Dasher.svg'}" alt="I'm a Dasher"/>{!$Label.c.DdCommunity_Footer_ImaDasher}<img class="ddhs-select-arrow-svg" src="{!$Resource.SRDdHelpSelectAssets + '/arrow-2px.svg'}"/>
+                    </a>
+                    <a class="dd-footer-choice-button dd-footer-choice-merchants" target="_blank" href="{!$Label.c.DdCommunity_Footer_ImaMerchant_Link}" alt="I'm a Merchant">
+                        <img class="ddhs-select-icon" src="{!$Resource.SRDdHelpSelectAssets + '/Merchant.svg'}"/>{!$Label.c.DdCommunity_Footer_ImaMerchant}<img class="ddhs-select-arrow-svg" alt="I'm a Merchant" src="{!$Resource.SRDdHelpSelectAssets + '/arrow-2px.svg'}"/>
+                    </a>
+                </div>
+            </div>
+        </aura:if>
+<!-- Consumer Footer END -->
+
+<!-- Dasher Footer START -->
+        <aura:if isTrue="{!v.CommunityName == 'Dashers'}">
+            <div class="dd-footer-choice">
+                <div class="dd-footer-choice-title">
+                    {!$Label.c.DdCommunity_Footer_NotDdDasher}
+                </div>
+                <div class="dd-footer-choice-button-wrap">
+                    <a class="dd-footer-choice-button dd-footer-choice-customers" target="_blank" href="{!$Label.c.DdCommunity_Footer_ImaCustomer_Link}" alt="I'm a Customer" >{!$Label.c.DdCommunity_Footer_ImaCustomer}
+                                                    <img class="ddhs-select-icon" src="{!$Resource.SRDdHelpSelectAssets + '/Customer.svg'}" alt="I'm a Customer"/>
+
+                        <img class="ddhs-select-arrow-svg" src="{!$Resource.SRDdHelpSelectAssets + '/arrow-2px.svg'}"/>
+                    </a>
+                    <a class="dd-footer-choice-button dd-footer-choice-merchants" target="_blank" href="{!$Label.c.DdCommunity_Footer_ImaMerchant_Link}" alt="I'm a Merchant">
+                        <img class="ddhs-select-icon" src="{!$Resource.SRDdHelpSelectAssets + '/Merchant.svg'}"/>{!$Label.c.DdCommunity_Footer_ImaMerchant}<img class="ddhs-select-arrow-svg" alt="I'm a Merchant" src="{!$Resource.SRDdHelpSelectAssets + '/arrow-2px.svg'}"/>
+                    </a>
+                </div>
+            </div>
+        </aura:if>
+<!-- Dasher Footer END -->
+
+<!-- Merchants Footer START -->
+        <aura:if isTrue="{!v.CommunityName == 'Merchants'}">
+            <div class="dd-footer-choice">
+                <div class="dd-footer-choice-title">
+                    {!$Label.c.DdCommunity_Footer_NotDdMerchant}
+                </div>
+                <div class="dd-footer-choice-button-wrap">
+                    <a class="dd-footer-choice-button dd-footer-choice-dashers" target="_blank" href="{!$Label.c.DdCommunity_Footer_ImaDasher_link}" alt="I'm a Dasher">
+                                                   <img class="ddhs-select-icon" src="{!$Resource.SRDdHelpSelectAssets + '/Dasher.svg'}" alt="I'm a Dasher"/>{!$Label.c.DdCommunity_Footer_ImaDasher}<img class="ddhs-select-arrow-svg" src="{!$Resource.SRDdHelpSelectAssets + '/arrow-2px.svg'}"/>
+                    </a>
+                    <a class="dd-footer-choice-button dd-footer-choice-customers" target="_blank" href="{!$Label.c.DdCommunity_Footer_ImaCustomer_Link}" alt="I'm a Customer">
+                                                    <img class="ddhs-select-icon" src="{!$Resource.SRDdHelpSelectAssets + '/Customer.svg'}" alt="I'm a Customer"/>
+					{!$Label.c.DdCommunity_Footer_ImaCustomer}
+                        <img class="ddhs-select-arrow-svg" src="{!$Resource.SRDdHelpSelectAssets + '/arrow-2px.svg'}"/>
+                    </a>
+                </div>
+            </div>
+        </aura:if>
+<!-- Merchants Footer END -->
+
+
+        <!-- Consumer Footer START -->
+        <aura:if isTrue="{!v.CommunityName == 'Work'}">
+            <div class="dd-footer-choice">
+                <div class="dd-footer-choice-title">
+                    {!$Label.c.DdCommunity_Footer_NotDdWorkClient}
+                </div>
+                <div class="dd-footer-choice-button-wrap dd-footer-choice-button-work ">
+                    <a class="dd-footer-choice-button dd-footer-choice-customers" target="_blank" style="margin-right: 2%;" href="{!$Label.c.DdCommunity_Footer_ImaCustomer_Link}" alt="I'm a Customer">
+                        <img class="ddhs-select-icon" src="{!$Resource.SRDdHelpSelectAssets + '/Customer.svg'}" alt="I'm a Customer"/>{!$Label.c.DdCommunity_Footer_ImaCustomer}<img class="ddhs-select-arrow-svg" src="{!$Resource.SRDdHelpSelectAssets + '/arrow-2px.svg'}"/>
+                    </a>
+
+                    <a class="dd-footer-choice-button dd-footer-choice-dashers" target="_blank" style="margin-right: 2%;" href="{!$Label.c.DdCommunity_Footer_ImaDasher_link}"  alt="I'm a Dasher">
+                         <img class="ddhs-select-icon" src="{!$Resource.SRDdHelpSelectAssets + '/Dasher.svg'}" alt="I'm a Dasher"/>{!$Label.c.DdCommunity_Footer_ImaDasher}<img class="ddhs-select-arrow-svg" src="{!$Resource.SRDdHelpSelectAssets + '/arrow-2px.svg'}"/>
+                    </a>
+                    <a class="dd-footer-choice-button dd-footer-choice-merchants" target="_blank" href="{!$Label.c.DdCommunity_Footer_ImaMerchant_Link}" alt="I'm a Merchant">
+                        <img class="ddhs-select-icon" src="{!$Resource.SRDdHelpSelectAssets + '/Merchant.svg'}"/>{!$Label.c.DdCommunity_Footer_ImaMerchant}<img class="ddhs-select-arrow-svg" alt="I'm a Merchant" src="{!$Resource.SRDdHelpSelectAssets + '/arrow-2px.svg'}"/>
+                    </a>
+                </div>
+            </div>
+        </aura:if>
+<!-- Consumer Footer END -->
+
+
+<!-- Support Footer START -->
+        <aura:if isTrue="{!v.CommunityName == 'Support'}">
+            <div class="dd-footer-choice dd-support-footer">
+                <div class="dd-footer-choice-title">
+                    {!$Label.c.DdCommunity_Footer_NotDdMerchant}
+                </div>
+                <div class="dd-footer-choice-button-wrap">
+                    <a class="dd-footer-choice-button dd-footer-choice-dashers" target="_blank" href="{!$Label.c.DdCommunity_Footer_ImaDasher_link}" alt="I'm a Dasher">
+                                                   <img class="ddhs-select-icon" src="{!$Resource.SRDdHelpSelectAssets + '/Dasher.svg'}" alt="I'm a Dasher"/>{!$Label.c.DdCommunity_Footer_ImaDasher}<img class="ddhs-select-arrow-svg" src="{!$Resource.SRDdHelpSelectAssets + '/arrow-2px.svg'}"/>
+                    </a>
+                    <a class="dd-footer-choice-button dd-footer-choice-customers" target="_blank" href="{!$Label.c.DdCommunity_Footer_ImaCustomer_Link}" alt="I'm a Customer">
+                                                    <img class="ddhs-select-icon" src="{!$Resource.SRDdHelpSelectAssets + '/Customer.svg'}" alt="I'm a Customer"/>
+					{!$Label.c.DdCommunity_Footer_ImaCustomer}
+                        <img class="ddhs-select-arrow-svg" src="{!$Resource.SRDdHelpSelectAssets + '/arrow-2px.svg'}"/>
+                    </a>
+                                        <a class="dd-footer-choice-button dd-footer-choice-merchants" target="_blank" href="{!$Label.c.DdCommunity_Footer_ImaMerchant_Link}" alt="I'm a Merchant">
+                        <img class="ddhs-select-icon" src="{!$Resource.SRDdHelpSelectAssets + '/Merchant.svg'}"/>{!$Label.c.DdCommunity_Footer_ImaMerchant}<img class="ddhs-select-arrow-svg" alt="I'm a Merchant" src="{!$Resource.SRDdHelpSelectAssets + '/arrow-2px.svg'}"/>
+                    </a>
+                </div>
+            </div>
+        </aura:if>
+<!-- Support Footer END -->
+
+
+
+
+
+
+        <div class="dd-footer-global">
+            <div class="footer-wrap">
+                <div class="footer-columns-wrap">
+                    <div class="footer-column footer-column-links">
+                        <div class="footer-column-title">
+                            {!$Label.c.DdCommunity_Footer_Col1_Title}
+                        </div>
+                        <div class="footer-column-links">
+                            <a href="{!$Label.c.DdCommunity_Footer_Col1_Link1}" target="_blank">
+                                {!$Label.c.DdCommunity_Footer_Col1_Label1}
+                            </a>
+                            <a href="{!$Label.c.DdCommunity_Footer_Col1_Link2}" target="_blank">
+                                {!$Label.c.DdCommunity_Footer_Col1_Label2}
+                            </a>
+                            <a href="{!$Label.c.DdCommunity_Footer_Col1_Link3}" target="_blank">
+                                {!$Label.c.DdCommunity_Footer_Col1_Label3}
+                            </a>
+                            <a href="{!$Label.c.DdCommunity_Footer_Col1_Link4}" target="_blank">
+                                {!$Label.c.DdCommunity_Footer_Col1_Label4}
+                            </a>
+                            <a href="{!$Label.c.DdCommunity_Footer_Col1_Link5}" target="_blank">
+                                {!$Label.c.DdCommunity_Footer_Col1_Label5}
+                            </a>
+                            <a href="{!$Label.c.DdCommunity_Footer_Col1_Link6}" target="_blank">
+                                {!$Label.c.DdCommunity_Footer_Col1_Label6}
+                            </a>
+                        </div>
+                    </div>
+                    <div class="footer-column footer-column-links">
+                        <div class="footer-column-title">
+                            {!$Label.c.DdCommunity_Footer_Col2_Title}
+                        </div>
+                        <div class="footer-column-links">
+                            <a href="{!$Label.c.DdCommunity_Footer_Col2_Link1}" target="_blank">
+                                {!$Label.c.DdCommunity_Footer_Col2_Label1}
+                            </a>
+                            <a href="{!$Label.c.DdCommunity_Footer_Col2_Link2}" target="_blank">
+                                {!$Label.c.DdCommunity_Footer_Col2_Label2}
+                            </a>
+                            <a href="{!$Label.c.DdCommunity_Footer_Col2_Link3}" target="_blank">
+                                {!$Label.c.DdCommunity_Footer_Col2_Label3}
+                            </a>
+                            <a href="{!$Label.c.DdCommunity_Footer_Col2_Link4}" target="_blank">
+                                {!$Label.c.DdCommunity_Footer_Col2_Label4}
+                            </a>
+                        </div>
+                    </div>
+                    <div class="footer-column footer-column-links">
+                        <div class="footer-column-title">
+                            {!$Label.c.DdCommunity_Footer_Col3_Title}
+                        </div>
+                        <div class="footer-column-links">
+                            <a href="{!$Label.c.DdCommunity_Footer_Col3_Link1}" target="_blank">
+                                {!$Label.c.DdCommunity_Footer_Col3_Label1}
+                            </a>
+                            <a href="{!$Label.c.DdCommunity_Footer_Col3_Link2}" target="_blank">
+                                {!$Label.c.DdCommunity_Footer_Col3_Label2}
+                            </a>
+                            <a href="{!$Label.c.DdCommunity_Footer_Col3_Link3}" target="_blank">
+                                {!$Label.c.DdCommunity_Footer_Col3_Label3}
+                            </a>
+                        </div>
+                    </div>
+                    <div class="footer-column footer-column-apps">
+                        <a href="{!$Label.c.DdCommunity_Footer_Google}" target="_blank">
+                            <img class="ddhs-select-apps" src="{!$Resource.SRDdHelpSelectAssets + '/GooglePlay-white-01.svg'}"/>
+                        </a>
+                        <a href="{!$Label.c.DdCommunity_Footer_iTunes}" target="_blank">
+                            <img class="ddhs-select-apps" src="{!$Resource.SRDdHelpSelectAssets + '/app-store-white-01.svg'}"/>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <div class="footer-bottom-left">
+                        <a>
+                            <img class="ddhs-select-logo" src="{!$Resource.SRDdHelpSelectAssets + '/dd-icon.svg'}"/>
+                        </a>
+                        <aura:if isTrue="{!v.CommunityName == 'Merchants'}">
+                            <a href="{!$Label.c.DdCommunity_Footer_Merchants_TermsOfService_Link}" target="_blank">
+                                {!$Label.c.DdCommunity_Footer_TermsOfService}
+                            </a>
+                        </aura:if>
+                        <aura:if isTrue="{!v.CommunityName == 'Dashers'}">
+                            <a href="{!$Label.c.DdCommunity_Footer_TermsOfService_Link}" target="_blank">
+                                {!$Label.c.DdCommunity_Footer_TermsOfService}
+                            </a>
+                        </aura:if>
+                        <aura:if isTrue="{!v.CommunityName == 'Consumers'}">
+                            <a href="{!$Label.c.DdCommunity_Footer_TermsOfService_Link}" target="_blank">
+                                {!$Label.c.DdCommunity_Footer_TermsOfService}
+                            </a>
+                        </aura:if>
+                        <a href="{!$Label.c.DdCommunity_Footer_Privacy_Link}" target="_blank">
+                            {!$Label.c.DdCommunity_Footer_Privacy}
+                        </a>
+                        <a href="{!$Label.c.DdCommunity_Footer_DeliveryLocations_Link}" target="_blank">
+                            {!$Label.c.DdCommunity_Footer_DeliveryLocations}
+                        </a>
+                        <a href="{!$Label.c.DdCommunity_Footer_Copyright_Link}">
+                            © {!$Label.c.DdCommunity_Footer_Copyright}
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-bottom-right">
+                    <a href="{!$Label.c.DdCommunity_Footer_Facebook_Link}" target="_blank">
+                        <img class="ddhs-select-social" src="{!$Resource.SRDdHelpSelectAssets + '/facebook.svg'}"/>
+                    </a>
+                    <a href="{!$Label.c.DdCommunity_Footer_Twitter_Link}" target="_blank">
+                        <img class="ddhs-select-social" src="{!$Resource.SRDdHelpSelectAssets + '/twitter.svg'}"/>
+                    </a>
+                    <a href="{!$Label.c.DdCommunity_Footer_Instagram_Link}" target="_blank">
+                        <img class="ddhs-select-social" src="{!$Resource.SRDdHelpSelectAssets + '/instagram.svg'}"/>
+                    </a>
+                    <a href="{!$Label.c.DdCommunity_Footer_Glassdoor_Link}" target="_blank">
+                        <img class="ddhs-select-social" src="{!$Resource.SRDdHelpSelectAssets + '/glassdoor.svg'}"/>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</aura:component>

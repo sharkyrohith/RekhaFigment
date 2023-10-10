@@ -1,0 +1,13 @@
+<apex:page standardcontroller="Account" extensions="Acct_Action_Extension" sidebar="false" showHeader="false">
+ 
+  <apex:form >
+   <apex:sectionHeader title="Create Drop-In Meeting">
+    <apex:pageBlock title="New Event" >
+        <apex:pageBlockSection columns="1">
+        	<apex:inputTextarea label="Notes" value="{!evtNotes}" title="Notes" />
+      		<apex:commandButton value="Create Drop-In Event" action="{!dropInEvent}" />
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+   </apex:sectionHeader>
+  </apex:form>  
+</apex:page>

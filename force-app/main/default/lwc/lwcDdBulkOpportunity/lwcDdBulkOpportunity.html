@@ -1,0 +1,54 @@
+<!--
+* Created by Jeremy S. Johnson (Perficient, Inc)
+*
+* Implements BZAP-7037: "Bulk Creation Opportunities" button and batch job
+* Implements BZAP-7046: Batch Job "Retry" Process and GridBuddy button
+-->
+<template>
+    <div class="c-container">
+        <lightning-layout multiple-rows="true">
+            <lightning-layout-item padding="around-small" size="12">
+                <div class="page-section page-header">
+                    <!--<img class="pactsafe-logo" src={psLogoUrl} alt="PactSafe Logo" style="width:150px;" />-->
+                    <h1 class="header-1">Bulk Create Opportunities</h1>
+                </div>
+            </lightning-layout-item>
+
+            <lightning-layout-item padding="around-small" size="12">
+                <div class="page-section">
+                    <div class="slds-card__body slds-card__body_inner">
+                        <lightning-spinner data-id="spinner" variant="brand" size="large" class="slds-hidden" alternative-text="Waiting for response from server."></lightning-spinner>
+
+                        <div data-id="importStatus" class="slds-form-element slds-m-top_medium">
+                            <div>
+                                <lightning-button data-id="btnExecute" label="Execute" onclick={handleExecute}>Execute</lightning-button>
+                            </div>
+                            <h2 class="header-2">Submission Status</h2>
+                            <div id="importStatusDiv" data-id="importStatusDiv"  class="slds-box">{importStatus}</div>
+
+                            <h2 class="header-2">Batch Progress</h2>
+                            <div id="progressIndicatorDiv">
+                                <lightning-progress-indicator data-id="progressIndicator" current-step={currentStep} has-error={hasError} type="path" variant="base">
+                                    <lightning-progress-step label="Submitted" value="submitted"></lightning-progress-step>
+                                    <lightning-progress-step label="Holding" value="holding"></lightning-progress-step>
+                                    <lightning-progress-step label="Queued" value="queued"></lightning-progress-step>
+                                    <lightning-progress-step label="Preparing" value="preparing"></lightning-progress-step>
+                                    <lightning-progress-step label="Processing" value="processing"></lightning-progress-step>
+                                    <lightning-progress-step label="Completed" value="completed"></lightning-progress-step>
+                                </lightning-progress-indicator>
+
+                                <h2 class="header-2">Batch Job Progress</h2>
+                                <div class="slds-form-element__control" id="progressBarCtrl">
+                                    <lightning-progress-bar id="progressBar" value={progressValue} size="large"></lightning-progress-bar>
+                                </div>
+
+                                <h2 class="header-2">Batch Results</h2>
+                                <div id="importMessages" data-id="importMessages" class="slds-box">{importMessages}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </lightning-layout-item>
+        </lightning-layout>
+    </div>
+</template>

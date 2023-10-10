@@ -1,0 +1,37 @@
+.c-container {
+    margin: 10px 0 20px 0;
+    max-width: 1000px;
+}
+.page-section {
+    border: solid 1px #ccc;
+    padding: 1rem;
+}
+.page-main {
+    background: #f8f8f8;
+}
+.page-left,
+.page-right {
+    background: #f0efef;
+}
+.contractSelectDropdown {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.header-1 {
+    font-size: 24px;
+    font-weight: 600;
+}
+.header-2 {
+    font-size: 16px;
+    margin-top: 20px;
+}
+.opportunityListSection {
+    margin: 5px;
+}
+.contractSelectionSection {
+    margin: 5px;
+}
+.special-note {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

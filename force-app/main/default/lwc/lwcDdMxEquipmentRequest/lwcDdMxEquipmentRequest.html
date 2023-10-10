@@ -1,0 +1,284 @@
+<template>
+	<c-lwc-dd-mx-custom-toast-messge auto-close-time="80000"></c-lwc-dd-mx-custom-toast-messge>
+	<div if:false={hideEquimentRequestUI}>
+	<section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+		<div class="slds-modal__container">
+			<!-- Modal/Popup Box LWC header here -->
+			<button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeQuickAction}>
+				<lightning-icon icon-name="utility:close" alternative-text="close" variant="inverse" size="small"></lightning-icon>
+				<span class="slds-assistive-text">Close</span>
+			</button>
+			<!-- Modal/Popup Box LWC body starts here -->
+			<div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+				<lightning-card title="Equipment Request" icon-name="standard:opportunity">
+					<lightning-messages></lightning-messages>
+					<div if:false={isLoaded}>
+						<div class="myClass slds-card">
+							<div class="slds-p-top_medium slds-p-around_medium">
+								<lightning-progress-indicator current-step={currentStep} type="base" variant="base">
+									<lightning-progress-step value="1" onclick={handleOnStepClick}></lightning-progress-step>
+									<lightning-progress-step value="2" onclick={handleOnStepClick}></lightning-progress-step>
+									<lightning-progress-step value="3" onclick={handleOnStepClick}></lightning-progress-step>
+									<lightning-progress-step value="4" onclick={handleOnStepClick}></lightning-progress-step>
+								</lightning-progress-indicator>
+								<template if:true={isStepOne}>
+									<div>
+										<c-lwc-dd-mx-dynamic-column-data-table
+											table-name={casetableName}
+											url-field={caseUrlField}
+											custom-filter-field={caseCustomFilterField}
+											custom-filter-value={accountId}
+											hide-check-box={hideCheckBox}
+											is-console={isOpenedConsole}
+											message-for-no-rows="No previous related tablet request for this account please continue to next screen."
+										>
+										</c-lwc-dd-mx-dynamic-column-data-table>
+									</div>
+								</template>
+								<!--request type selection-->
+								<template if:true={isStepTwo}>
+									<div class="slds-p-top_medium">
+										<c-lwc-dd-mx-lookup
+											errors={errors}
+											onsearch={handleLookupSearch}
+											search-object="Opportunity"
+											onload={handleLookupLoad}
+											onselectionchange={handleLookupSelectionChange}
+											label="Select an opportunity"
+											placeholder="Search opportunity"
+											selection={oppInitialSelection}
+											required
+										>
+										</c-lwc-dd-mx-lookup>
+									</div>
+									<div class="slds-p-top_medium">
+										<lightning-combobox
+											name="MerchanthasWifi"
+											label="Merchant has Wifi?"
+											value={merchanthasWifi}
+											options={MerchanthasWifiOptions}
+											onchange={handleMerchanthasWifiChange}
+											required
+										>
+										</lightning-combobox>
+									</div>
+
+									<div class="slds-p-top_small">
+										<lightning-combobox
+											name="progress"
+											label="Request Type"
+											value={reqestType}
+											placeholder="Select Progress"
+											options={items}
+											onchange={handleRequestTypeChange}
+											field-level-help="Request type selection not required for only returns"
+										>
+										</lightning-combobox>
+									</div>
+
+									<div class="slds-p-top_x-small">
+										<template if:true={showNewProductBox}>
+											<lightning-checkbox-group
+												label="Select Product"
+												options={requestProducts}
+												value={selectedProducts}
+												onchange={handleProductSelection}
+												disabled="true"
+											></lightning-checkbox-group>
+										</template>
+									</div>
+								</template>
+								<!--return product selection-->
+
+								<template if:true={isStepThree}>
+									<div class="slds-p-top_x-small">
+										<lightning-combobox
+											name="Return Replace Components"
+											label="Return Replace Components"
+											value={returnRaplceOption}
+											onchange={handleReturnReplaceChange}
+											options={returnReplaceOptions}
+											required
+										>
+										</lightning-combobox>
+									</div>
+
+									<div class="slds-p-top_small">
+										<lightning-checkbox-group
+											name="Select Return Product"
+											label="Select Return Product"
+											options={returnProds}
+											value={returnSelectedProds}
+											onchange={handleReturnProductSelection}
+											disabled="true"
+										></lightning-checkbox-group>
+									</div>
+									<div class="slds-p-top_medium">
+										<c-lwc-dd-mx-lookup
+											errors={errors}
+											onsearch={handleLookupSearch}
+											search-object="tablet"
+											onselectionchange={handleLookupSelectionChange}
+											label="Tablet IMEI"
+											placeholder="Search Salesforce"
+											selection={tabletInitialSelection}
+											onload={handleLookupLoad}
+											required
+										>
+										</c-lwc-dd-mx-lookup>
+									</div>
+									<div class="slds-p-top_small">
+										<c-lwc-dd-mx-lookup
+											errors={errors}
+											onsearch={handleLookupSearch}
+											search-object="printer"
+											onselectionchange={handleLookupSelectionChange}
+											label="Printer IMEI"
+											placeholder="Search Salesforce"
+											selection={printerInitialSelection}
+											onload={handleLookupLoad}
+											required
+										>
+										</c-lwc-dd-mx-lookup>
+									</div>
+									<div class="slds-p-top_medium">
+										<template if:true={reasonForReplacementPicklistValues.data}>
+											<lightning-radio-group
+												name="Replacement Reason"
+												label="Replacement Reason"
+												options={reasonForReplacementPicklistValues.data.values}
+												value={reasonsForRequest}
+												onchange={handleReasonforRequestChange}
+												type="radio"
+											></lightning-radio-group>
+										</template>
+									</div>
+									<div class="slds-p-top_x-small">
+										<lightning-input
+											type="text"
+											data-id="ReasonforReplacement"
+											value={reasonforRequestIfOther}
+											label="Reason for Replacement if other"
+											onchange={handleReasonChange}
+										></lightning-input>
+									</div>
+								</template>
+								<!--contact and address selection-->
+								<template if:true={isStepFour}>
+									<div class="slds-p-top_small">
+										<c-lwc-dd-mx-lookup
+											selection={conactInitialSelection}
+											onload={handleLookupLoad}
+											onsearch={handleLookupSearch}
+											onselectionchange={handleLookupSelectionChange}
+											label="Contact"
+											search-object="Contact"
+											placeholder="Search Salesforce"
+											new-record-options={newRecordOptions}
+											onnewrecord={handleNewContact}
+											oneditcontactrecord={handleEditContact}
+											account-id={accountId}
+											required
+										>
+										</c-lwc-dd-mx-lookup>
+									</div>
+									<div class="slds-p-top_medium">
+										<lightning-combobox
+											name="Internal deployment"
+											label="Internal deployment"
+											value={internalDeployment}
+											onchange={handleinternalDeploymentChange}
+											options={internalDeploymentOptions}
+										>
+										</lightning-combobox>
+									</div>
+
+									<div class="slds-p-top_medium">
+										<lightning-combobox
+											name="Shipping Type"
+											label="Shipping Type"
+											placeholder="Please Select Shipping Type"
+											value={shippingType}
+											onchange={handleShipppingTypeChange}
+											options={shippingTypeOptions}
+										>
+										</lightning-combobox>
+									</div>
+									<div class="slds-p-top_large">
+										<div class="slds-text-heading_small slds-p-around_medium">
+											Shipping Address
+											<lightning-helptext
+												content="By Default Address will be (DM) Address on file. If the Merchant wishes to have the equipment shipped to any other address please confirm. Example if the
+												merchant wants the equipment sent to there home instead primary billing or shipping address."
+											>
+											</lightning-helptext>
+										</div>
+										<div class="slds-box">
+											<div class="slds-size_2-of-3">
+												<c-lwc-dd-mx-address-form account-details={account} onupdateaddress={HandleUpdateAddress}></c-lwc-dd-mx-address-form>
+											</div>
+										</div>
+									</div>
+								</template>
+								<lightning-layout class="slds-p-top_large">
+									<lightning-layout-item class="slds-p-left_medium slds-p-around_x-small">
+										<template if:true={isStepOne}>
+											<lightning-button onclick={closeQuickAction} variant="brand" label="Terminate Case Creation" class="slds-m-left_x-small"></lightning-button>
+										</template>
+									</lightning-layout-item>
+									<lightning-layout-item class="slds-p-around_x-small">
+										<template if:true={isEnablePrev}>
+											<lightning-button label="Back" variant="brand" onclick={handlePrev}></lightning-button>
+										</template>
+									</lightning-layout-item>
+									<lightning-layout-item class="slds-p-around_x-small">
+										<template if:true={isEnableNext}>
+											<lightning-button label="Next" variant="brand" onclick={handleNext}></lightning-button>
+										</template>
+									</lightning-layout-item>
+									<lightning-layout-item class="slds-p-around_x-small">
+										<template if:true={isEnableFinish}>
+											<lightning-button label="Finish" variant="brand" onclick={handleFinish}></lightning-button>
+										</template>
+									</lightning-layout-item>
+								</lightning-layout>
+
+								<template if:true={showEditContactForm}>
+									<div class="slds-modal slds-fade-in-open slds-backdrop">
+										<div class="slds-modal__container">
+											<div class="slds-modal__header">
+												<button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close">
+													<lightning-icon icon-name="utility:close" alternative-text="close" variant="inverse" size="small" onclick={handleCloseModal}></lightning-icon>
+													<span class="slds-assistive-text">Close</span>
+												</button>
+												<div class="slds-box">
+													<c-lwc-dd-mxdynamic-form
+														object-name={objectName}
+														record-id={contactId}
+														field-set-name={fieldSetConactName}
+														oncontactcreation={handleLookupLoadFromContact}
+														mode={contactFormMode}
+														isnew={createNewContact}
+														account-id={accountId}
+														title={contactTitle}
+													></c-lwc-dd-mxdynamic-form>
+												</div>
+											</div>
+										</div>
+									</div>
+								</template>
+							</div>
+						</div>
+					</div>
+					<div if:true={isLoaded} class="slds-is-relative" style="height: 6rem">
+						<lightning-spinner alternative-text="Loading..." variant="brand"> </lightning-spinner>
+					</div>
+				</lightning-card>
+				
+			</div>
+		</div>
+	</section>
+</div>
+	<div class="slds-backdrop slds-backdrop_open"></div>
+
+</template>

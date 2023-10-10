@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Alerts Catchall 4</label>
+    <protected>false</protected>
+    <values>
+        <field>AC_Contact_Trace_Queue_Name__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Business_Hours_Id__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Compare_Case_Sensitive__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>Compare_Type__c</field>
+        <value xsi:type="xsd:string">Actual value is one of (In)</value>
+    </values>
+    <values>
+        <field>Field_API_Name__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Field_Value__c</field>
+        <value xsi:type="xsd:string">00e2L000000iBbeQAE;00e2L000000xVkVQAU;00e2L000000xVkaQAE;00e2L000000xVsZQAU;00e2L000000xVseQAE;00e2L000000xVsjQAE;00e2L0000011h4PQAQ;00e2L0000011h4UQAQ;00e2L0000011hBpQAI;00e2L0000011hEoQAI;00e2L0000011hIqQAI;00e2L0000011hKIQAY</value>
+    </values>
+    <values>
+        <field>Parent__c</field>
+        <value xsi:type="xsd:string">Alerts_Catchall</value>
+    </values>
+    <values>
+        <field>Related_Object_Field_API_Name__c</field>
+        <value xsi:type="xsd:string">ProfileId</value>
+    </values>
+    <values>
+        <field>Related_Object__c</field>
+        <value xsi:type="xsd:string">Current Owner (User)</value>
+    </values>
+    <values>
+        <field>Rule_Number__c</field>
+        <value xsi:type="xsd:double">4.0</value>
+    </values>
+    <values>
+        <field>Use_Prior_Value__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>isActive__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+</CustomMetadata>

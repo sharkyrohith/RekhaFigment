@@ -1,0 +1,18 @@
+<design:component label="Page Footer Buttons">
+    
+     <design:attribute name="ButtonCount" label="How Many Buttons?" datasource="One,Two" default="Two" />
+
+     <design:attribute name="ButtonOneStyle" label="Button 1 Style" datasource="primary,secondary,inactive" default="primary" />
+     <design:attribute name="ButtonOneLink" label="Button 1 Link"/>
+     <design:attribute name="ButtonOneLabel" label="Button 1 Label"/>
+    
+     <design:attribute name="ButtonTwoStyle" label="Button 2 Style" datasource="primary,secondary,inactive" default="secondary" />
+     <design:attribute name="ButtonTwoLink" label="Button 2 Link"/>
+     <design:attribute name="ButtonTwoLabel" label="Button 2 Label"/>
+    
+    
+         <design:attribute name="ApplyButtonStyle" label="Apply Button Style" datasource="primary,secondary,inactive" default="secondary" />
+     <design:attribute name="ApplyButtonLink" label="Apply Button Link"/>
+     <design:attribute name="ApplyButtonLabel" label="Apply Button Label"/>
+	
+</design:component>

@@ -1,0 +1,19 @@
+<aura:component controller="CDdCoverageCheckMassActionCtrl" implements="force:appHostable" access="global">
+	
+	<!-- Constant attributes -->
+	<aura:attribute name="INFO_MSG_BATCH_JOB_SUBMITTED" type="String" access="PUBLIC" default="{!($Label.c.INFO_MSG_BATCH_JOB_SUBMITTED)}"/>
+	<aura:attribute name="INFO_MSG_NO_RECORD_SELECTED" type="String" access="PUBLIC" default="{!($Label.c.INFO_MSG_NO_RECORD_SELECTED)}"/>
+
+	<!-- public attributes -->
+	<aura:attribute name="selectedIdsSerializedString" type="String" access="PUBLIC" />
+	<aura:attribute name="selectedIds" type="String[]" access="PRIVATE" />
+
+    <!--handlers-->
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>		
+
+    <!--Include components -->
+    <c:LDdCallout aura:id="calloutCmp" />
+
+    <div aura:id="toastCmpPlaceHolder" />
+
+</aura:component>

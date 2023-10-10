@@ -1,0 +1,75 @@
+.THIS {
+    padding-top: 0px;
+ /*   background-color: #f6f6f6; */
+}
+
+.THIS .DCC-ta-container {
+    max-width: 1000px;
+    margin: 0px auto;
+    text-align: center;
+}
+
+.THIS .dd-dcc-subtitle {
+    font-weight: bold;
+    font-size: 28px;
+    display: block;
+    text-align: center;
+    padding: 35px 0 15px 0;
+}
+
+.THIS .DCC-ta-item {
+text-align: center;
+    display: inline-block;
+    padding: 30px 40px;
+}
+
+.THIS img.DCC-ta-image {
+    width: 200px;
+    height: 200px;
+}
+
+.THIS .DCC-ta-name {
+    display: block;
+    font-size: 22px;
+    font-weight: bold;
+    padding-top: 18px;
+}
+
+.THIS .DCC-ta-local {
+    display: block;
+    font-size: 16px;
+    line-height: 24px;
+
+}
+
+.THIS .DCC-ta-info {
+    position: relative;
+}
+
+.THIS .DCC-ta-since {
+    display: block;
+    font-size: 16px;
+    font-style: oblique;
+}
+.THIS .DCC-ta-name.DCC-remembrance::before {
+content: 'In Remembrance of';
+    position: absolute;
+    font-size: 12px;
+    display: inline-block;
+    text-align: center;
+    left: 47px;
+    top: 4px;
+}
+
+
+
+/*
+.THIS .DCC-ta-background {
+    display: block;
+    background-color: #000;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    z-index: 41;
+}
+*/

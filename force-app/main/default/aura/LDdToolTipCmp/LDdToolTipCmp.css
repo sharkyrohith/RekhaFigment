@@ -1,0 +1,31 @@
+.THIS .toggle {
+    display: none;
+}
+
+.THIS {
+    display: inline-block;
+    position: relative;
+    top: -4px;
+    left: -8px;
+}
+
+.THIS .slds-popover.slds-popover--tooltip {
+position: absolute;
+    top: -12px;
+    left: 35px;
+    background-color: #efefef;
+
+}
+
+.THIS button.slds-button--icon.tool-tip-icon {
+    background-color: transparent;
+    border: none;
+    display: inline-block;
+}
+
+.THIS .slds-popover.slds-popover--tooltip .slds-popover__body{
+        color: #000;
+    text-align: left;
+    min-width: 300px;
+    line-height: 1.2rem;
+}

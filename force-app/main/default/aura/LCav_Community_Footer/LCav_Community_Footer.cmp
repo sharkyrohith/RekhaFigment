@@ -1,0 +1,176 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global">
+
+    <aura:attribute default="Help" name="CommunityName" type="String" />
+
+    <div>
+
+        <aura:if isTrue="{!v.CommunityName != 'Help'}">
+
+        <div class="global-footer-options">
+
+          <div class="ddhs-body">
+
+             <div class="ddhs-head">
+            <span class="ddhs-headline" display="block">
+            <aura:if isTrue="{!v.CommunityName == 'Diner'}">
+                {!$Label.c.CavCommunity_Footer_NotDiner}
+            </aura:if>
+            <aura:if isTrue="{!v.CommunityName == 'Courier'}">
+                {!$Label.c.CavCommunity_Footer_NotCourier}
+            </aura:if>
+            <aura:if isTrue="{!v.CommunityName == 'Restaurant'}">
+                {!$Label.c.CavCommunity_Footer_NotRestaurant}
+            </aura:if>
+            <aura:if isTrue="{!v.CommunityName == 'Companies'}">
+                {!$Label.c.CavCommunity_Footer_NotCompanies}
+            </aura:if>
+
+            </span>
+             </div>
+
+             <div class="ddhs-select-outer">
+
+
+
+                 <!-- Customers Footer START -->
+             <aura:if isTrue="{!v.CommunityName != 'Diner'}">
+
+                <div class="ddhs-select-inner dhs-select-inner-1">
+                   <a href="{!$Label.c.CavCommunity_URL_Diners}" target="_blank">
+                      <div class="ddhs-select-tile">
+                         <img class="ddhs-select-icon" src="{!$Resource.SrCav_Community_Assets + '/icons/trycaviar_individual.svg'}"/>
+                         <span class="ddhs-select-block" display="block">
+                                <div class="ddhs-select-text" size="16">
+                                    <div>
+                                       {!$Label.c.CavCommunity_Footer_AmDiner}
+                                    </div>
+
+                                </div>
+                                <span class="ddhs-select-link" display="block">
+                                        {!$Label.c.CavCommunity_Footer_GetDinerSupport}
+                                </span>
+                            </span>
+                      </div>
+                   </a>
+                </div>
+             </aura:if>
+                 <!-- Customers Footer End -->
+
+
+                 <!-- Couriers Footer START -->
+                 <aura:if isTrue="{!v.CommunityName != 'Courier'}">
+
+                <div class="ddhs-select-inner dhs-select-inner-2">
+                   <a href="{!$Label.c.CavCommunity_URL_Courier}" target="_blank">
+                      <div class="ddhs-select-tile">
+                         <img class="ddhs-select-icon" src="{!$Resource.SrCav_Community_Assets + '/icons/trycaviar_couriers.svg'}"/>
+                         <span class="ddhs-select-block" display="block">
+                                <div class="ddhs-select-text" size="16">
+                                    <div>
+                                       {!$Label.c.CavCommunity_Footer_AmCourier}
+                                    </div>
+
+                                </div>
+                                <span class="ddhs-select-link" display="block">
+                                       {!$Label.c.CavCommunity_Footer_GetCourierSupport}
+                                        </span>
+                            </span>
+                      </div>
+                   </a>
+                </div>
+
+                 </aura:if>
+                 <!-- Couriers Footer End -->
+
+                 <!-- Restaurants Footer START -->
+                 <aura:if isTrue="{!v.CommunityName != 'Restaurant'}">
+
+                <div class="ddhs-select-inner dhs-select-inner-3">
+                   <a href="{!$Label.c.CavCommunity_URL_Restaurant}" target="_blank">
+                      <div class="ddhs-select-tile">
+                         <img class="ddhs-select-icon" src="{!$Resource.SrCav_Community_Assets + '/icons/trycaviar_restaurants.svg'}"/>
+                         <span class="ddhs-select-block" display="block">
+                                <div class="ddhs-select-text" size="16">
+                                    <div>
+                                       {!$Label.c.CavCommunity_Footer_AmRestaurant}
+                                    </div>
+
+                                </div>
+                                <span class="ddhs-select-link" display="block">
+                                       {!$Label.c.CavCommunity_Footer_GetRestaurantSupport}
+                                        </span>
+                            </span>
+                      </div>
+                   </a>
+                </div>
+
+                 </aura:if>
+                 <!-- Restaurants Footer End -->
+
+                 <!-- Companies Footer START -->
+                 <aura:if isTrue="{!v.CommunityName != 'Companies'}">
+
+                <!--div class="ddhs-select-inner dhs-select-inner-4">
+                   <a href="{!$Label.c.CavCommunity_URL_Companies}" target="_blank">
+                      <div class="ddhs-select-tile">
+                         <img class="ddhs-select-icon" src="{!$Resource.SrCav_Community_Assets + '/icons/trycaviar_customers.svg'}"/>
+                         <span class="ddhs-select-block" display="block">
+                                <div class="ddhs-select-text" size="16">
+                                    <div>
+                                       {!$Label.c.CavCommunity_Footer_AmCompanies}
+                                    </div>
+
+                                </div>
+                                <span class="ddhs-select-link" display="block">
+                                       {!$Label.c.CavCommunity_Footer_GetCompaniesSupport}
+                                        </span>
+                            </span>
+                      </div>
+                   </a>
+                </div -->
+
+                 </aura:if>
+                 <!-- Companies Footer End -->
+
+
+
+             </div>
+          </div>
+
+
+       </div>
+        </aura:if>
+       <div class="global-footer">
+   <nav class="global-footer_navigation" role="navigation">
+      <ul>
+         <li>
+            <a href="{!$Label.c.CavCommunity_Footer_LinkHelp}" target="_blank">{!$Label.c.CavCommunity_Footer_LabelHelp}</a>
+         </li>
+         <li>
+             <a href="{!$Label.c.CavCommunity_Footer_LinkAbout}" target="_blank">{!$Label.c.CavCommunity_Footer_LabelAbout}</a>
+         </li>
+         <li>
+             <a href="{!$Label.c.CavCommunity_Footer_LinkPress}" target="_blank">{!$Label.c.CavCommunity_Footer_LabelPress}</a>
+         </li>
+         <li>
+             <a href="{!$Label.c.CavCommunity_Footer_LinkPrivacy}" target="_blank">{!$Label.c.CavCommunity_Footer_LabelPrivacy}</a>
+         </li>
+         <li>
+             <a href="{!$Label.c.CavCommunity_Footer_LinkCompanies}" target="_blank">{!$Label.c.CavCommunity_Footer_LabelCompanies}</a>
+         </li>
+         <li>
+             <a href="{!$Label.c.CavCommunity_Footer_LinkRestaurant}" target="_blank">{!$Label.c.CavCommunity_Footer_LabelRestaurant}</a>
+         </li>
+      </ul>
+   </nav>
+   <div class="global-footer_jewel">
+      <img src="{!$Resource.SrCav_Community_Assets + '/bug/caviar-jewel.png'}" alt="Caviar Jewel" />
+   </div>
+
+   <div id="footer" class="global-footer_desk-attribution">
+      
+      <p>{!$Label.c.CavCommunity_Footer_Copyright}</p>
+   </div>
+</div>
+	</div>
+</aura:component>

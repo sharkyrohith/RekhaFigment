@@ -1,0 +1,15 @@
+<apex:page sidebar="false" >
+    <apex:includeLightning />
+    <div id="container" style="height:100%"/>
+    <script>
+        $Lightning.use("c:LDdQueueManagerApp", function() {
+            $Lightning.createComponent("c:lwcDdQueueManager",
+                {},
+                "container",
+                function(cmp) {
+                    console.log('component created');
+                }
+            );
+        });
+    </script>
+</apex:page>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>54.0</apiVersion>
+    <isExposed>true</isExposed>
+    <description>LWC DoorDash Logo</description>
+    <masterLabel>LWC DoorDash Logo</masterLabel>
+    <targets>
+        <target>lightningCommunity__Page</target>
+        <target>lightningCommunity__Default</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightningCommunity__Default">
+            <property label="Position" name="position" type="String" datasource="left,center,right" default="left" />
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

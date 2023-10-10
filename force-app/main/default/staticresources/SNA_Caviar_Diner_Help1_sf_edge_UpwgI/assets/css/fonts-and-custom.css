@@ -1,0 +1,5 @@
+/*-- Recaptcha update 04/28/2021 --*/
+.grecaptcha-badge {
+    display :none;
+}
+:root { --dxp-c-section-columns-max-width: 1170px; }

@@ -1,0 +1,65 @@
+<aura:component implements="forceCommunity:themeLayout" access="global" description="DoorDash Advanced Community Theme (Japan)">
+    <aura:attribute name="customHeader" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="languageBar" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="globalHeader" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="search" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="navBar" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="customRegion" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="profileMenu" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="themeFooter" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="pageTheme" type="String" default="Home"/>
+    <aura:attribute name="communityName" type="String" default="Consumer"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <ltng:require styles="{!$Resource.SRDdCommunityStyleSheet}" />
+
+    <div class="{!v.communityName}">
+        <section class="{!'ddst-header ' + v.pageTheme}">
+            <div class="grid-wrapper ddst-header-wrap">
+                <div class="ddst-header-fixed">
+                    <div class="slds-grid slds-wrap slds-grid_pull-padded ddst-header-top-wrap">     
+                        <div class="ddst-logo slds-p-horizontal_small slds-p-vertical_large slds-x-small-size_5-of-12 slds-small-size_5-of-12 slds-medium-size_3-of-12 slds-large-size_3-of-12 slds-order_2 slds-large-order_2 slds-medium-order_2 slds-small-order_2 slds-x-small-order_2">
+                            <img class="ddst-logo-red" src="{!$Resource.SRDdHelpSelectAssets + '/Logo/DoorDash_logo_RGB-01.svg'}" alt="Dasher Help Home" />
+                        </div>                  
+                    </div>
+                </div>
+            </div>
+
+            <aura:if isTrue="{!v.pageTheme != 'LegalDocs'}">
+                <div class="ddst-hero-banner-wrap ">
+                    <div class="ddst-hero-banner">
+                        <div class="ddst-hero-banner-content">
+                            <aura:if isTrue="{!v.pageTheme == 'Home'}">
+                                <div class="ddst-hero-small-title">
+									こんにちは、                              
+                                </div>
+                                
+                                <div class="ddst-hero-title">
+									ダッシャーヘルプセンターへようこそ                        
+                                </div>
+                                
+                            </aura:if>
+                            <aura:if isTrue="{!or(v.pageTheme == 'Inner', v.pageTheme == 'ArticleDetail')}">
+                                <div class="ddst-hero-inner-title">
+                                    ダッシャーヘルプセンターへようこそ
+                                </div>
+                             </aura:if>   
+                        </div> 
+                    </div>
+                </div>
+			</aura:if>
+            
+        </section>
+        
+        <section class="ddst-body-wrap">
+            <div class="interiorFrame">
+                {!v.body}
+            </div>
+        </section>
+        <section class="ddst-footer-wrap">
+            <div class="ddst-footer">
+                {!v.themeFooter} 
+            </div>
+        </section>
+    </div>
+</aura:component>

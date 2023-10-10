@@ -1,0 +1,7 @@
+<apex:page standardController="Case" extensions="CDdCaseRedirectToDispatchController" action="{!redirectPage}"> 
+    <apex:pageBlock title="Error">
+        Something went wrong, please click <apex:outputLink value="{!defaultURL}" id="dispatchLink">here</apex:outputLink> to navigate to Dispatch
+
+        
+    </apex:pageBlock>
+</apex:page>

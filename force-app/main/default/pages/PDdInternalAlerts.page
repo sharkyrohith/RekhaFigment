@@ -1,0 +1,23 @@
+<apex:page controller="CDdCommunity_AlertController" >
+    <apex:includeLightning />
+    <apex:slds />
+    <apex:includeScript value="/support/console/55.0/integration.js"/>
+    <div id='container'></div>
+    <script>
+        var userContext = "{!$User.UITheme}";
+        $Lightning.use("c:LDdInternalAlertsApp", function()
+        {
+            $Lightning.createComponent(
+                "c:LDdInternalAlerts",
+                {},
+                "container",
+                function(cmp) {
+                    $A.eventService.addHandler({ "event": "c:LDdRefreshInternalAlertEvt", "handler": function() {
+                            sforce.console.setCustomConsoleComponentVisible(true);
+                        }
+                    });
+                }
+            );
+        });
+    </script>
+</apex:page>

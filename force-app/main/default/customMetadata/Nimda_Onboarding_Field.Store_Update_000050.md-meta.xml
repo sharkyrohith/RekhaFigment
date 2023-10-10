@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Market</label>
+    <protected>false</protected>
+    <values>
+        <field>Is_Active__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>Label__c</field>
+        <value xsi:type="xsd:string">Market</value>
+    </values>
+    <values>
+        <field>Nimda_Onboarding_Step__c</field>
+        <value xsi:type="xsd:string">Nimda_Onboarding_Step_060</value>
+    </values>
+    <values>
+        <field>Options__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Property__c</field>
+        <value xsi:type="xsd:string">market_id</value>
+    </values>
+    <values>
+        <field>ReadOnly__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>Scale__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Sequence__c</field>
+        <value xsi:type="xsd:double">50.0</value>
+    </values>
+    <values>
+        <field>Table__c</field>
+        <value xsi:type="xsd:string">Store</value>
+    </values>
+    <values>
+        <field>Type__c</field>
+        <value xsi:type="xsd:string">text</value>
+    </values>
+</CustomMetadata>

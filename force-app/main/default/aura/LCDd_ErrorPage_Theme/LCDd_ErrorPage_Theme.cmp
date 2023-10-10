@@ -1,0 +1,55 @@
+<aura:component implements="forceCommunity:themeLayout" access="global" description="DoorDash ErrorPage Theme">
+    <aura:attribute name="CommunityName" type="String" default="Consumers"/>
+    
+    <style>
+        .cLCDd_ErrorPage_Theme {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/ErrorPage/404-background.jpg'}");
+        }
+        .cLCDd_ErrorPage_Theme .background-404 {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/ErrorPage/404-background.jpg'}");
+        }
+        .cLCDd_ErrorPage_Theme .foreground-404 {
+        background-image: url("{!$Resource.SRDdHelpSelectAssets + '/ErrorPage/404-foreground.png'}");
+        }      
+    </style>
+    <div>
+        
+        <div class="header-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <h1 class="doordash-logo">
+                        <a href="/">                            
+                            <img class="logo" src="{!$Resource.SRDdHelpSelectAssets + '/ErrorPage/doordash-logo-red@2x.png'}"/></a>
+                    </h1>
+                </div>
+                
+            </div>
+        </div>
+        <div class="background-404">
+            <div class="foreground-404">
+                <div class="error-message">
+                    <h1 class="error-message-header">{!$Label.c.DdCommunity_Error_Hmm}</h1>
+                    <h2 class="error-message-body">
+                        {!$Label.c.DdCommunity_Error_404}</h2>
+                    <p class="error-status-code">{!$Label.c.DdCommunity_ErrorCode_404}</p>
+                    <p>{!$Label.c.DdCommunity_Error_GoBack}</p>
+                    <aura:if isTrue="{!v.CommunityName == 'Consumers'}">    
+                    <a class="error-message-return-home" href="https://help.doordash.com/consumers">{!$Label.c.DdCommunity_ErrorCode_BackHome}</a>
+					</aura:if>	
+                    <aura:if isTrue="{!v.CommunityName == 'Dashers'}">    
+                    <a class="error-message-return-home" href="https://help.doordash.com/dashers">{!$Label.c.DdCommunity_ErrorCode_BackHome}</a>
+					</aura:if>	
+                    <aura:if isTrue="{!v.CommunityName == 'Merchants'}">    
+                    <a class="error-message-return-home" href="https://help.doordash.com/merchants">{!$Label.c.DdCommunity_ErrorCode_BackHome}</a>
+					</aura:if>	
+                    <aura:if isTrue="{!v.CommunityName == 'Help'}">    
+                    <a class="error-message-return-home" href="https://help.doordash.com/s/">{!$Label.c.DdCommunity_ErrorCode_BackHome}</a>
+					</aura:if>	
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+    
+</aura:component>

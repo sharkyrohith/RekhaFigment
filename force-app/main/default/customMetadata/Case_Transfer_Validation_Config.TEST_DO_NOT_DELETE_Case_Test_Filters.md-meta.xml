@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>[TEST-DO NOT DELETE] Case Test W/Filters</label>
+    <protected>false</protected>
+    <values>
+        <field>Bypass_Trigger_Case_Insert__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>Criteria_Behavior__c</field>
+        <value xsi:type="xsd:string">Allow transfer only if criteria is met</value>
+    </values>
+    <values>
+        <field>Description__c</field>
+        <value xsi:type="xsd:string">Do not delete - this is needed for test class.</value>
+    </values>
+    <values>
+        <field>Error_Message__c</field>
+        <value xsi:type="xsd:string">Target Queue Name: {Target Queue Name}
+Previous Queue Name: {Previous Queue Name}
+Status: {Status}
+Priority: {Priority}</value>
+    </values>
+    <values>
+        <field>Filter_Logic__c</field>
+        <value xsi:type="xsd:string">1 AND (2 OR 3)</value>
+    </values>
+    <values>
+        <field>Is_Test_Record__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>Sort_Order__c</field>
+        <value xsi:type="xsd:double">10.0</value>
+    </values>
+    <values>
+        <field>Target_Queue_Id__c</field>
+        <value xsi:type="xsd:string">00G000000000000001</value>
+    </values>
+    <values>
+        <field>isActive__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+</CustomMetadata>

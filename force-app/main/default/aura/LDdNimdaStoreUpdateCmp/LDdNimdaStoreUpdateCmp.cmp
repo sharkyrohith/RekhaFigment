@@ -1,0 +1,478 @@
+<aura:component controller="CDdLtngNimdaSyncCtrl" implements="force:appHostable,force:hasRecordId,c:LDdNimdaSyncConstants" access="global">
+
+    <!-- public attributes -->
+    <aura:attribute name="businessId" type="String" access="PUBLIC" />  
+    <aura:attribute name="accountId" type="String" access="PUBLIC" />
+    <aura:attribute name="opportunity" type="Opportunity" access="PUBLIC" />    
+    <aura:attribute name="account" type="Account" access="PUBLIC" />
+    <aura:attribute name="storeId" type="String" access="PUBLIC" />
+    <aura:attribute name="previousStep" type="String" access="PUBLIC" /> 
+    
+    <!-- private attributes -->
+    <aura:attribute name="version" type="Integer" default="3" access="PRIVATE" />
+    <aura:attribute name="currentStep" type="String" access="PRIVATE" default="Update Store" /> 
+    <aura:attribute name="isLoading" type="Boolean" default="true" access="PRIVATE" />
+    <aura:attribute name="isEditing" type="Boolean" default="false" access="PRIVATE" />
+    <aura:attribute name="storeName" type="String" access="PRIVATE" />
+    <aura:attribute name="isOrderProtocolPOS" type="Boolean" default="false" access="PRIVATE" />
+    <aura:attribute name="paymentAcctId" type="String" access="PRIVATE" />
+    <aura:attribute name="stripeAcctId" type="String" access="PRIVATE" />
+    <aura:attribute name="stripeBankAcctId" type="String" access="PRIVATE" />
+    <aura:attribute name="storeData" type="List" access="PRIVATE" description="Original store data from Nimda"/>
+    <aura:attribute name="storePartnershipData" type="List" access="PRIVATE" description="Original store partnership data from Nimda"/>
+    <aura:attribute name="storePosData" type="List" access="PRIVATE" description="Original store point of sales data from Nimda"/>
+    <aura:attribute name="storeRequest" type="Object" access="PRIVATE" description="Original store and store partnership data from Salesforce"/>
+    <aura:attribute name="review" type="String" default="All" access="PRIVATE" />
+    <aura:attribute name="REVIEW_ALL" type="String" default="All" access="PRIVATE" />
+    <aura:attribute name="REVIEW_CHANGES_ONLY" type="String" default="Changes Only" access="PRIVATE" />
+    <aura:attribute name="selectedAction" type="String" default="Full Onboarding Update" access="PRIVATE" />
+    <aura:attribute name="NIMDA_TO_ACCOUNT_PROPERTY_MAP" 
+                    type="Map" 
+                    access="PRIVATE" 
+                    default="{
+                                id: 'Restaurant_ID__c',
+                                business_id: 'Business_ID__c',
+                                street_address: 'BillingStreet',
+                                city: 'BillingCity',
+                                state: 'BillingState',
+                                zipcode: 'BillingPostalCode',
+                                phone_number: 'Phone',
+                                price_range: 'Price_Range_S2N__c',
+                                merchant_supplied_id: 'Merchant_Supplied_ID__c',
+                                is_test: 'Is_Test_Store__c',
+                                payment_account_id: 'Payment_Account_ID__c',
+                                fulfills_own_deliveries_disabled: 'Fulfills_Own_Deliveries_Disabled__c',
+                                error_report_frequency: 'Error_Report_Frequency__c'
+                            }"/>
+    <aura:attribute name="NIMDA_TO_OPPORTUNITY_PROPERTY_MAP" 
+                    type="Map" 
+                    access="PRIVATE" 
+                    default="{
+                                business_id: 'Business_ID__c',
+                                email: 'Order_Protocol_Email__c',
+                                fax_number: 'Order_Protocol_Fax__c',
+                                max_order_size: 'Maximum_Order_Size__c',
+                                override_tax_rate: 'Tax_Override_Rate__c'
+                            }"/>
+    <aura:attribute name="NIMDA_TO_DM_PROPERTY_MAP" 
+                    type="Map" 
+                    access="PRIVATE" 
+                    default="{
+                                contact_emails: 'DM_Email__c'
+                            }"/>                                                        
+    <aura:attribute name="PRICE_RANGE_NIMDA_TO_ACCOUNT_MAP" 
+                    type="Map" 
+                    access="PRIVATE" 
+                    default="{
+                                1: '$',
+                                2: '$$',
+                                3: '$$$',
+                                4: '$$$$'
+                            }"/>
+    <aura:attribute name="POST_FULL_ONBOARDING_STORE_UPDATE_PROPERTIES" 
+                    type="String[]"
+                    access="PRIVATE" 
+                    default="['payment_protocol','offers_pickup']" />                                                            
+    <!--error related attributes-->
+    <aura:attribute name="fieldErrors" type="String[]" default="[]" access="PRIVATE" />
+    <aura:attribute name="errorType" type="String" access="PRIVATE" />
+    <aura:attribute name="errorMessage" type="String" access="PRIVATE" />
+    <aura:attribute name="calloutRequest" type="String" access="PRIVATE" />                     
+    <aura:attribute name="calloutResponse" type="String" access="PRIVATE" />    
+
+    <!-- register event-->
+    <aura:registerEvent name="LDdNimdaSyncEvent" type="c:LDdNimdaSyncEvent"/>
+    <!-- handler event-->
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    <aura:handler name="LDdNimdaStoreFormItemEvent" event="c:LDdNimdaStoreFormItemEvent" action="{!c.handleStoreFormItemEvent}"/>
+    <!--Include LDdCallout component -->
+    <c:LDdCallout aura:id="calloutCmp" />
+
+    <div aura:id="toastCmpPlaceHolder" />    
+
+    <aura:if isTrue="{!v.isLoading}">
+        <lightning:spinner alternativeText="Loading" size="medium" />
+        <aura:set attribute="else">
+            <div class="c-container">
+                <lightning:layout multipleRows="true">
+                    <lightning:layoutItem padding="around-small" size="12">
+                        <div class="page-section page-header slds-box slds-m-horizontal_small">
+                                <lightning:layout>
+                                    <lightning:layoutItem size="3">
+                                        <div class="slds-clearfix">
+                                            <div class="slds-float_left">
+                                                <aura:if isTrue="{!(!empty(v.previousStep))}">
+                                                    <lightning:button variant="brand"
+                                                                          label="Previous"
+                                                                          title="Previous"
+                                                                          onclick="{!c.previous}"/>
+                                                </aura:if>
+                                                <lightning:button variant="neutral"
+                                                                      label="Cancel"
+                                                                      title="Cancel"
+                                                                      onclick="{!c.cancel}"/>                                                       
+                                            </div>
+                                        </div>
+                                    </lightning:layoutItem>
+                                    <lightning:layoutItem size="6">
+                                        <div class="slds-text-align_center">
+                                            <h2 class="slds-text-heading_medium slds-hyphenate">{!$Label.c.DDS2N_Title}</h2>
+                                        </div>
+                                    </lightning:layoutItem>
+                                    <lightning:layoutItem size="3">
+                                         <div class="slds-clearfix">
+                                            <div class="slds-float_right">
+                                                <lightning:button variant="brand"
+                                                                      label="Finish"
+                                                                      title="Finish"
+                                                                      onclick="{!c.handleUpdateStore}"
+                                                                      disabled="{!(!empty(v.fieldErrors))}"/>
+                                            </div>
+                                        </div>
+                                    </lightning:layoutItem>                       
+                                </lightning:layout>
+                        </div>
+                    </lightning:layoutItem>
+                    <lightning:layoutItem padding="around-small" size="12">
+                        <lightning:layout>
+                            <lightning:layoutItem padding="horizontal-small" size="12">
+                                <div>
+                                    <h2 class="slds-text-heading_small">Confirm Changes to Store:</h2>
+                                </div>
+                                <div class="slds-m-vertical_small">
+                                    You are about to update an existing store’s information. Please verify that the new values are correct, then click “Finish” to update the store in Nimda. All changes are highlighted in red.
+                                </div>
+                            </lightning:layoutItem>
+                        </lightning:layout>
+                        <lightning:layout>                      
+                            <lightning:layoutItem padding="horizontal-small" size="12">
+                                <div class="slds-box slds-text-align_center slds-theme_shade">
+                                    <h2 class="slds-text-heading_small">Selected Store: {!v.storeName} - {!v.storeId}</h2>
+                                </div>
+                            </lightning:layoutItem>
+                        </lightning:layout>
+                    </lightning:layoutItem>
+                    <!-- SELECT TYPE OF UPDATE SECTION -->
+                    <lightning:layoutItem padding="around-small" size="12">
+                        <lightning:layout>
+                            <lightning:layoutItem padding="horizontal-large" size="12">                
+                                <fieldset class="slds-form-element">
+                                    <legend class="slds-form-element__legend slds-form-element__label slds-m-bottom_small slds-text-heading_small">Select the type of update</legend>
+                                    <div class="slds-form-element__control">
+                                        <aura:iteration items="{!v.STORE_UPDATE_ACTIONS_V3}" var="action">
+                                            <div class="slds-m-around_small">
+                                                <span class="slds-radio">
+                                                    <input type="radio" id="{!action.value}" value="{!action.value}" name="action" checked="{!(v.selectedAction eq action.value)}" data-value="{!action.value}" disabled="{!action.disabled}" onchange="{!c.handleActionChange}"/>
+                                                    <label class="slds-radio__label" for="{!action.value}">
+                                                        <span class="slds-radio_faux"></span>
+                                                        <span class="slds-form-element__label">{!action.label}</span>
+                                                    </label>
+                                                    <c:LDdHelpText content="{!action.helpText}"/>
+                                                </span>
+                                            </div>                            
+                                        </aura:iteration>
+                                    </div>
+                                </fieldset>
+                            </lightning:layoutItem>
+                        </lightning:layout>
+                    </lightning:layoutItem>
+                    <!-- / SELECT TYPE OF UPDATE SECTION -->
+                    <!-- ERROR MESSAGE -->
+                    <aura:if isTrue="{!(!empty(v.errorMessage))}">
+                        <lightning:layoutItem padding="around-small" size="12">
+                            <div class="slds-box slds-theme--error slds-theme--alert-texture slds-m-horizontal_small">
+                                <h2>
+                                    <lightning:icon class="slds-icon icon-text-email slds-icon--small slds-m-right--x-small"
+                                                    iconName="utility:error" size="x-small" variant="bare" alternativeText="error"/>
+                                    <span>{!v.errorMessage}</span>
+                                </h2>
+                            </div>
+                        </lightning:layoutItem>
+                    </aura:if>
+                    <!-- / ERROR MESSAGE -->                    
+                    <!-- REVIEW CHANGES SECTION -->
+                    <lightning:layoutItem padding="around-small" size="12">
+                        <div aura:id="reviewChangesSection" class="slds-section slds-m-horizontal_small slds-is-open">
+                            <h3 class="slds-section__title" onclick="{!c.toggleReviewChangesSection}">
+                                <button aria-controls="expando-unique-id" aria-expanded="false" class="slds-button slds-section__title-action">
+                                    <lightning:icon iconName="utility:switch" size="x-small" class="slds-section__title-action-icon slds-button__icon slds-button__icon_left" aria-hidden="true"/>
+                                    <span class="slds-truncate" title="Section Title">Review Changes</span>
+                                </button>
+                            </h3>
+                            <div aria-hidden="false" class="slds-section__content">
+                                <lightning:layout>
+                                    <lightning:layoutItem padding="around-small" size="6">
+                                        <div class="slds-text-align_center">
+                                            <h2 class="slds-text-heading_small">Current</h2>
+                                        </div>                        
+                                    </lightning:layoutItem>
+                                    <lightning:layoutItem padding="around-small" size="6">
+                                        <div class="slds-text-align_center">
+                                            <h2 class="slds-text-heading_small">Updated</h2>
+                                        </div>                          
+                                    </lightning:layoutItem>
+                                </lightning:layout>                                
+                                <lightning:layout>
+                                    <lightning:layoutItem padding="horizontal-small" size="12">
+                                        <div class="slds-box page-section page-main">
+                                            <div class="slds-form" role="list">
+                                                <aura:iteration items="{!v.storeData}" var="data">
+                                                    <aura:if isTrue="{!(data.oldValue ne data.newValue)}">
+                                                        <div class="slds-form__row">
+                                                            <c:LDdNimdaStoreFormItem mode="{!v.FORM_ITEM_READ_ONLY}" 
+                                                                                    label="{!data.label}"
+                                                                                    property="{!data.property}"
+                                                                                    value="{!data.oldValue}" />
+                                                            <c:LDdNimdaStoreFormItem mode="{!v.FORM_ITEM_READ_ONLY}" 
+                                                                                    label="{!data.label}"
+                                                                                    property="{!data.property}"
+                                                                                    value="{!data.newValue}"
+                                                                                    isModified="{!(data.oldValue ne data.newValue)}" />
+                                                        </div>
+                                                    </aura:if>
+                                                </aura:iteration>
+                                                <aura:iteration items="{!v.storePartnershipData}" var="data">
+                                                    <aura:if isTrue="{!(data.oldValue ne data.newValue)}">
+                                                        <div class="slds-form__row">
+                                                            <c:LDdNimdaStoreFormItem mode="{!v.FORM_ITEM_READ_ONLY}" 
+                                                                                    label="{!data.label}"
+                                                                                    property="{!data.property}"
+                                                                                    value="{!data.oldValue}" />
+                                                            <c:LDdNimdaStoreFormItem mode="{!v.FORM_ITEM_READ_ONLY}" 
+                                                                                    label="{!data.label}"
+                                                                                    property="{!data.property}"
+                                                                                    value="{!data.newValue}"
+                                                                                    isModified="{!(data.oldValue ne data.newValue)}" />
+                                                        </div>
+                                                    </aura:if>
+                                                </aura:iteration>
+                                                <aura:if isTrue="{!v.isOrderProtocolPOS}">
+                                                    <aura:iteration items="{!v.storePosData}" var="data">
+                                                        <aura:if isTrue="{!(data.oldValue ne data.newValue)}">
+                                                            <div class="slds-form__row">
+                                                                <c:LDdNimdaStoreFormItem mode="{!v.FORM_ITEM_READ_ONLY}" 
+                                                                                        label="{!data.label}"
+                                                                                        property="{!data.property}"
+                                                                                        value="{!data.oldValue}" />
+                                                                <c:LDdNimdaStoreFormItem mode="{!v.FORM_ITEM_READ_ONLY}" 
+                                                                                        label="{!data.label}"
+                                                                                        property="{!data.property}"
+                                                                                        value="{!data.newValue}"
+                                                                                        isModified="{!(data.oldValue ne data.newValue)}" />
+                                                            </div>
+                                                        </aura:if>
+                                                    </aura:iteration>
+                                                </aura:if>
+                                            </div>
+                                        </div>
+                                    </lightning:layoutItem>
+                                </lightning:layout>
+                            </div>
+                        </div>
+                    </lightning:layoutItem>
+                    <!-- / REVIEW CHANGES SECTION -->            
+                    <!-- STORE SECTION -->
+                    <lightning:layoutItem padding="around-small" size="12">
+                        <div aura:id="storeSection" class="slds-section slds-m-horizontal_small slds-is-open">
+                            <h3 class="slds-section__title" onclick="{!c.toggleStoreSection}">
+                                <button aria-controls="expando-unique-id" aria-expanded="false" class="slds-button slds-section__title-action">
+                                    <lightning:icon iconName="utility:switch" size="x-small" class="slds-section__title-action-icon slds-button__icon slds-button__icon_left" aria-hidden="true"/>
+                                    <span class="slds-truncate" title="Section Title">Store Details</span>
+                                </button>
+                            </h3>
+                            <div aria-hidden="false" class="slds-section__content">
+                                <lightning:layout>
+                                    <lightning:layoutItem padding="around-small" size="6">
+                                        <div class="slds-text-align_center">
+                                            <h2 class="slds-text-heading_small">Current</h2>
+                                        </div>                        
+                                    </lightning:layoutItem>
+                                    <lightning:layoutItem padding="around-small" size="6">
+                                        <div class="slds-text-align_center">
+                                            <h2 class="slds-text-heading_small">Updated</h2>
+                                        </div>                          
+                                    </lightning:layoutItem>
+                                </lightning:layout>                                
+                                <lightning:layout>
+                                    <lightning:layoutItem padding="horizontal-small" size="12">
+                                        <div class="slds-box page-section page-main">
+                                            <div class="slds-form" role="list">
+                                                <aura:iteration items="{!v.storeData}" var="data">
+                                                    <div class="slds-form__row">
+                                                        <c:LDdNimdaStoreFormItem mode="{!v.FORM_ITEM_READ_ONLY}" 
+                                                                                label="{!data.label}"
+                                                                                property="{!data.property}"
+                                                                                value="{!data.oldValue}" />
+                                                        <aura:if isTrue="{!(v.isEditing eq false)}">
+                                                            <c:LDdNimdaStoreFormItem mode="{!(data.readOnly ? v.FORM_ITEM_READ_ONLY : v.FORM_ITEM_INLINE_EDIT)}" 
+                                                                                    label="{!data.label}"
+                                                                                    property="{!data.property}"
+                                                                                    value="{!data.newValue}"
+                                                                                    isModified="{!(data.oldValue ne data.newValue)}" />
+                                                        <aura:set attribute="else">                                        
+                                                            <c:LDdNimdaStoreFormItem mode="{!(data.readOnly ? v.FORM_ITEM_READ_ONLY : v.FORM_ITEM_EDIT)}" 
+                                                                                    label="{!data.label}"
+                                                                                    property="{!data.property}"
+                                                                                    value="{!data.newValue}" 
+                                                                                    isModified="{!(data.oldValue ne data.newValue)}"
+                                                                                    type="{!data.type}"
+                                                                                    scale="{!data.scale}"
+                                                                                    placeholder="{!data.placeholder}"
+                                                                                    pattern="{!data.pattern}"
+                                                                                    options="{!data.options}" />
+                                                        </aura:set>
+                                                        </aura:if>                       
+                                                    </div>
+                                                </aura:iteration>
+                                            </div>
+                                        </div>
+                                    </lightning:layoutItem>
+                                </lightning:layout>
+                            </div>
+                        </div>
+                    </lightning:layoutItem>
+                    <!-- / STORE SECTION -->
+                    <!-- STORE PARTNERSHIP SECTION -->
+                    <lightning:layoutItem padding="around-small" size="12">
+                        <div aura:id="storePartnershipSection" class="slds-section slds-m-horizontal_small slds-is-open" >
+                            <h3 class="slds-section__title" onclick="{!c.toggleStorePartnershipSection}">
+                                <button aria-controls="expando-unique-id" aria-expanded="false" class="slds-button slds-section__title-action">
+                                    <lightning:icon iconName="utility:switch" size="x-small" class="slds-section__title-action-icon slds-button__icon slds-button__icon_left" aria-hidden="true"/>
+                                    <span class="slds-truncate" title="Section Title">Store Partnership Details</span>
+                                </button>
+                            </h3>
+                            <div aria-hidden="false" class="slds-section__content">
+                                <lightning:layout>
+                                    <lightning:layoutItem padding="around-small" size="6">
+                                        <div class="slds-text-align_center">
+                                            <h2 class="slds-text-heading_small">Current</h2>
+                                        </div>                        
+                                    </lightning:layoutItem>
+                                    <lightning:layoutItem padding="around-small" size="6">
+                                        <div class="slds-text-align_center">
+                                            <h2 class="slds-text-heading_small">Updated</h2>
+                                        </div>                          
+                                    </lightning:layoutItem>
+                                </lightning:layout> 
+                                <lightning:layout>
+                                    <lightning:layoutItem padding="horizontal-small" size="12">
+                                        <div class="slds-box page-section page-main">
+                                            <div class="slds-form" role="list">
+                                                <aura:iteration items="{!v.storePartnershipData}" var="data">
+                                                    <div class="slds-form__row">
+                                                        <c:LDdNimdaStoreFormItem mode="{!v.FORM_ITEM_READ_ONLY}" 
+                                                                                label="{!data.label}"
+                                                                                property="{!data.property}"
+                                                                                value="{!data.oldValue}" />
+                                                        <aura:if isTrue="{!(v.isEditing eq false)}">
+                                                            <c:LDdNimdaStoreFormItem mode="{!(data.readOnly ? v.FORM_ITEM_READ_ONLY : v.FORM_ITEM_INLINE_EDIT)}" 
+                                                                                    label="{!data.label}"
+                                                                                    property="{!data.property}"
+                                                                                    value="{!data.newValue}"
+                                                                                    isModified="{!(data.oldValue ne data.newValue)}" />
+                                                        <aura:set attribute="else">                                        
+                                                            <c:LDdNimdaStoreFormItem mode="{!(data.readOnly ? v.FORM_ITEM_READ_ONLY : v.FORM_ITEM_EDIT)}" 
+                                                                                    label="{!data.label}"
+                                                                                    property="{!data.property}"
+                                                                                    value="{!data.newValue}" 
+                                                                                    isModified="{!(data.oldValue ne data.newValue)}"
+                                                                                    type="{!data.type}"
+                                                                                    scale="{!data.scale}"
+                                                                                    placeholder="{!data.placeholder}"
+                                                                                    pattern="{!data.pattern}"
+                                                                                    options="{!data.options}" />
+                                                        </aura:set>
+                                                        </aura:if>                       
+                                                    </div>
+                                                </aura:iteration>
+                                            </div>
+                                        </div>
+                                    </lightning:layoutItem>
+                                </lightning:layout>
+                            </div>
+                        </div>                        
+                    </lightning:layoutItem>
+                    <!-- / STORE PARTNERSHIP SECTION -->
+                    <!-- STORE POS SECTION -->
+                    <aura:if isTrue="{!v.isOrderProtocolPOS}">
+                        <lightning:layoutItem padding="around-small" size="12">
+                            <div aura:id="storePosSection" class="slds-section slds-m-horizontal_small slds-is-open" >
+                                <h3 class="slds-section__title" onclick="{!c.toggleStorePosSection}">
+                                    <button aria-controls="expando-unique-id" aria-expanded="false" class="slds-button slds-section__title-action">
+                                        <lightning:icon iconName="utility:switch" size="x-small" class="slds-section__title-action-icon slds-button__icon slds-button__icon_left" aria-hidden="true"/>
+                                        <span class="slds-truncate" title="Section Title">Store Point of Sales Details</span>
+                                    </button>
+                                </h3>
+                                <div aria-hidden="false" class="slds-section__content">
+                                    <lightning:layout>
+                                        <lightning:layoutItem padding="around-small" size="6">
+                                            <div class="slds-text-align_center">
+                                                <h2 class="slds-text-heading_small">Current</h2>
+                                            </div>                        
+                                        </lightning:layoutItem>
+                                        <lightning:layoutItem padding="around-small" size="6">
+                                            <div class="slds-text-align_center">
+                                                <h2 class="slds-text-heading_small">Updated</h2>
+                                            </div>                          
+                                        </lightning:layoutItem>
+                                    </lightning:layout> 
+                                    <lightning:layout>
+                                        <lightning:layoutItem padding="horizontal-small" size="12">
+                                            <div class="slds-box page-section page-main">
+                                                <div class="slds-form" role="list">
+                                                    <aura:iteration items="{!v.storePosData}" var="data">
+                                                        <div class="slds-form__row">
+                                                            <c:LDdNimdaStoreFormItem mode="{!v.FORM_ITEM_READ_ONLY}" 
+                                                                                    label="{!data.label}"
+                                                                                    property="{!data.property}"
+                                                                                    value="{!data.oldValue}" />
+                                                            <aura:if isTrue="{!(v.isEditing eq false)}">
+                                                                <c:LDdNimdaStoreFormItem mode="{!(data.readOnly ? v.FORM_ITEM_READ_ONLY : v.FORM_ITEM_INLINE_EDIT)}" 
+                                                                                        label="{!data.label}"
+                                                                                        property="{!data.property}"
+                                                                                        value="{!data.newValue}"
+                                                                                        isModified="{!(data.oldValue ne data.newValue)}" />
+                                                            <aura:set attribute="else">                                        
+                                                                <c:LDdNimdaStoreFormItem mode="{!(data.readOnly ? v.FORM_ITEM_READ_ONLY : v.FORM_ITEM_EDIT)}" 
+                                                                                        label="{!data.label}"
+                                                                                        property="{!data.property}"
+                                                                                        value="{!data.newValue}" 
+                                                                                        isModified="{!(data.oldValue ne data.newValue)}"
+                                                                                        type="{!data.type}"
+                                                                                        scale="{!data.scale}"
+                                                                                        placeholder="{!data.placeholder}"
+                                                                                        pattern="{!data.pattern}"
+                                                                                        options="{!data.options}" />
+                                                            </aura:set>
+                                                            </aura:if>                       
+                                                        </div>
+                                                    </aura:iteration>
+                                                </div>
+                                            </div>
+                                        </lightning:layoutItem>
+                                    </lightning:layout>
+                                </div>
+                            </div>                        
+                        </lightning:layoutItem>
+                    </aura:if>
+                    <!-- / STORE POS SECTION -->                    
+                    <lightning:layoutItem flexibility="auto" padding="around-small" size="12">
+                        <div class="page-footer page-section">
+                            <div class="slds-text-align_center">
+                                <lightning:button variant="neutral"
+                                                      label="Cancel"
+                                                      title="Cancel"
+                                                      onclick="{!c.cancel}"/>
+                                <lightning:button variant="brand"
+                                                      label="Finish"
+                                                      title="Finish"
+                                                      onclick="{!c.handleUpdateStore}"
+                                                      disabled="{!(!empty(v.fieldErrors))}"/>                                                                       
+                            </div>
+                        </div>
+                    </lightning:layoutItem>
+                </lightning:layout>
+            </div>
+        </aura:set>
+    </aura:if>
+</aura:component>

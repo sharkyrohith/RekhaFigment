@@ -1,0 +1,6 @@
+<apex:page standardController="Case" extensions="CDdSendCaseToDenaliController" action="{!sendToDenali}">
+    <apex:pageMessages />
+    <apex:form >
+        <apex:commandButton action="{!back}" value="Back"/>
+    </apex:form>  
+</apex:page>

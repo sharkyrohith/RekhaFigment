@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>US PostSale Unknown</label>
+    <protected>false</protected>
+    <values>
+        <field>BillingCountry__c</field>
+        <value xsi:type="xsd:string">United States</value>
+    </values>
+    <values>
+        <field>OpportunityRecordType__c</field>
+        <value xsi:type="xsd:string">Post Sale</value>
+    </values>
+    <values>
+        <field>SSMO_Default__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>SalesRole__c</field>
+        <value xsi:type="xsd:string">Unknown</value>
+    </values>
+    <values>
+        <field>UserGroup__c</field>
+        <value xsi:type="xsd:string">USD Inside Postsales</value>
+    </values>
+</CustomMetadata>

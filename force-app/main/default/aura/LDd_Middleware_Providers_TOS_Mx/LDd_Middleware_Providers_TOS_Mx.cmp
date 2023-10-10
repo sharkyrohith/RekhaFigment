@@ -1,0 +1,209 @@
+<aura:component access="global" implements="forceCommunity:availableForAllPageTypes">
+    
+    <div>
+        <div class="section">
+            <h1 class="title center">Technology License and Terms of Use for Middleware Providers
+                <h2 class="location-title">(United States, Canada, and Australia)
+                </h2>
+            </h1>
+            
+        </div>
+        <div class="section">
+            <p>This Technology License and Terms of Use for Middleware Providers (this <b>“Agreement”</b>) is made and entered
+                into on the date that Middleware Provider (as defined below) accepts the terms herein by signing the accompanying
+                Middleware Provider Sign-Up Sheet (<b>“Effective Date”</b>), by and between the entity listed in the Middleware
+                Provider Sign-Up Sheet (<b>“Middleware Provider”</b>), and DoorDash (as defined below).</p>
+            <p>If Middleware Provider is a Canada-based entity, then “DoorDash” as used herein will mean DoorDash Technologies Canada, Inc., a British Columbia corporation. If Middleware Provider is an Australia-based entity, then “DoorDash” as used herein will mean DoorDash Technologies Australia Pty Ltd. If Middleware Provider is an entity based in any other country, then “DoorDash” as used herein will mean DoorDash, Inc., a Delaware corporation. </p>        </div>
+        <div class="section">
+            <b>WHEREAS:</b>
+            <ol> <!-- class="lettered-list" -->
+                <li>DoorDash offers a proprietary system (<b>“DoorDash Platform”</b>) to enable the fulfillment of last mile
+                    delivery.
+                </li>
+                <li>Middleware Provider offers last mile software solutions to Merchant, retail, and other clients (each, a <b>“Merchant”</b>) and desires to integrate its product with DoorDash to send mutually agreed End User orders to DoorDash for delivery fulfillment by independent delivery providers (<b>“Dashers”</b>).
+                </li>
+                <li> DoorDash’s use of the Middleware Provider services and Middleware Provider’s use of DoorDash’s services shall be governed by the terms and conditions herein.  DoorDash’s services to Merchant shall be governed by such agreement as may be entered into by DoorDash and Merchant. 
+                </li>
+            </ol>
+            <b>IN CONSIDERATION OF THE MUTUAL PROMISES AND COVENANTS CONTAINED HEREIN, THE PARTIES AGREE AS FOLLOWS:</b>
+        </div>
+        <div class="section center">
+            <b>ARTICLE 1: Definitions and Interpretation</b>
+        </div>
+        <div class="section">
+            <p>1.1.	The following words and expressions shall have the meanings assigned to them:</p>
+            <p><b>“Collected Data”</b> shall have the meaning set forth in Section 3.6. </p>
+            <p><b>“Delivery API”</b> shall mean the DoorDash application programming interface (API) that will allow the Licensed Applications to exchange information with DoorDash.
+            </p>
+            <p><b>“DoorDash”</b> shall mean one of the following. If Middleware Provider is a Canada-based entity, then <b>“DoorDash”</b> as used herein will mean DoorDash Technologies Canada, Inc., a British Columbia corporation. If Middleware Provider is an entity based in any other country, then <b>“DoorDash”</b> as used herein will mean DoorDash, Inc., a Delaware corporation. </p>
+            <p><b>“DoorDash Platform”</b> shall mean the DoorDash technology platform accessed and used by Dashers to fulfill deliveries. </p>
+            
+            
+            <p><b>“End User”</b> shall mean the customer that places an order through the Middleware Provider’s software for delivery fulfillment during the term of this Agreement.</p>
+            <p>
+                <b>“Licensed Applications”</b> shall mean the software and systems that are used by Middleware Provider to provide digital order solutions and services to its End Users generally, including any associated application program interfaces and technology and any enhancements or modifications, and documentation related, thereto.
+            </p>
+        </div>
+        <div class="section center">
+            <b>ARTICLE 2: Commercial Terms, General Obligations, Exclusivity, Fees, Refunds</b>
+        </div>
+        <div class="section">
+            <p>2.1. <b>Commercial Terms</b>. <br />
+                Contracting Mechanism.
+                <ol>
+                    <li><b>If DoorDash has a contract with the Merchant and invoices Merchant directly:</b> DoorDash is responsible for establishing commercial terms with Merchant for services that DoorDash agrees to provide to Merchant using the Licensed Applications. DoorDash shall collect or pay applicable fees from Merchant as provided in a separately attached schedule or Sign-Up Sheet. DoorDash may, at its option, elect to pass through Middleware Provider fees (if any) to Merchant. Middleware Provider shall not make any representation or extend any warranty concerning the DoorDash services and shall not and is not authorized to make any promise or give any assurances of any nature, or make or give any financial commitment, on behalf of DoorDash to any third party. Middleware Provider shall enable End Users to provide an optional tip through its platform and shall pre-populate a suggested tip of 20% (which may be modified by End Users) of the order subtotal (excluding taxes and Fees). If accessible through the Delivery API, Middleware Provider shall communicate the End User’s actual tip amount and order subtotal value to DoorDash. </li>
+                    <li><b>If DoorDash does not have a contract with the Merchant and invoices Middleware Provider:</b> Middleware Provider is responsible for establishing commercial terms with Merchant for services Middleware Provider agrees to provide to Merchant using the Licensed Applications. Middleware Provider shall collect or pay applicable fees from Merchant as provided in the contract between Merchant and Middleware Provider. </li>
+                </ol>
+            </p>
+            <p>In either case, Middleware Provider shall not make any representation or extend any warranty concerning the DoorDash services and shall not and is not authorized to make any promise or give any assurances of any nature, or make or give any financial commitment, on behalf of DoorDash to any third party. Middleware Provider shall enable End Users to provide an optional tip through its platform and shall pre-populate a suggested tip of 20% (which may be modified by End Users) of the order subtotal (excluding taxes and Fees). If accessible through the Delivery API, Middleware Provider shall communicate the End User’s actual tip amount and order subtotal value to DoorDash.
+            </p>
+            <p>2.2.  <b>Fees and Taxes</b>. </p>
+            <p>2.2.1  Fees to be paid by one Party to the other Party in connection with this Agreement shall be as set forth in as provided in a separate schedule or Sign-Up Sheet (“<b>Fees</b>”). All Fees are nonrefundable except as may be provided expressly herein.   
+            </p>
+            <p>2.2.2 <b>If Middleware Provider is an entity based anywhere outside of Canada and Australia, then the following applies: </b> Middleware Provider shall pay any sales, use, or value-added taxes imposed by any taxing authority with respect to Middleware Provider Services or the Fees payable hereunder, provided that Middleware Provider shall not be liable for any taxes related to DoorDash’s income. All Fees are payable in U.S. dollars. 
+            </p>
+            <p>2.2.3 <b>If Middleware Provider is a Canadian entity, then the following applies:</b> DoorDash is registered for Canadian Federal, Provincial sales, goods and services, value added and other similar taxes <b>("Canadian Sales Taxes")</b>. DoorDash will promptly provide evidence of such registration from time to time as may reasonably be required.  The Parties agree that for each Order, for purposes of compliance with Canada’s Excise Tax Act, Middleware Provider  will make a taxable supply of goods to DoorDash and DoorDash will make a taxable supply of services to Middleware Provider.  The Parties agree that (i) with regard to Middleware Provider’s supply of goods to DoorDash, Middleware Provider shall include any Canadian Sales Taxes applicable to each Order and will timely remit such taxes to the appropriate tax authorities; (ii) with regard to DoorDash’s performance of services, Middleware Provider will pay applicable Canadian Sales Taxes to DoorDash in addition to amounts payable under this Agreement on the date that it is required to make the payment to which such taxes apply. DoorDash is solely responsible for any penalty and interest charged by any relevant taxing authority in respect of Canada Sales Tax owed in connection with this Agreement as they relate to DoorDash fees charged to Middleware Provider. All Fees are payable in Canadian dollars.
+            </p>
+            <p>2.2.4 <b>If Middleware Provider is an Australian entity, then the following applies:</b> Middleware Provider shall pay any sales, use, or value-added taxes imposed by any taxing authority with respect to Middleware Provider Services or the Fees payable hereunder, including GST (if applicable), provided that Middleware Provider shall not be liable for any taxes related to DoorDash’s income. All Fees are payable in U.S. dollars. 
+            </p>            
+            <p>2.3. <b>Refunds</b>. Middleware Provider and DoorDash agree to be responsible for refunds (only as specifically set forth in a Refunds Matrix provided by DoorDash).  Middleware Provider’s decision to issue a refund shall not itself obligate DoorDash to provide a refund. Under no circumstance will DoorDash be responsible for providing a refund directly to an End User.</p>
+        </div>
+        <div class="section center">
+            <b>ARTICLE 3: Licenses; Proprietary Rights; Data </b>
+        </div>
+        <div class="section">
+            <p>3.1. <b>Access to the Licensed Applications</b>. Middleware Provider will provide DoorDash with access to the Licensed Applications through the Delivery API to enable DoorDash to enable deliveries to be made for End Users. Middleware Provider shall be responsible for all costs and expenses to facilitate the integration between the Delivery API and the Licensed Applications.   </p>
+            <p>3.2. <b>License to the Licensed Applications</b>. </p>
+            <p class="left-margin">(a)	During the Term, Middleware Provider grants to DoorDash and its subsidiaries and affiliates a non-exclusive, royalty-free, non-assignable, non-transferable, non-sublicensable, revocable, limited, fully paid-up-license to access and use the Licensed Applications and Collected Data, in accordance with the terms of this Agreement. This license to use the Collected Data shall be limited to enabling deliveries to be made to End Users in accordance with this Agreement.  DoorDash shall not use or disclose, or cause to be used or disclosed, any Collected Data for any other purpose including, but not limited to, marketing and sales efforts by or on behalf of DoorDash or any of its affiliated entities or any other third parties.
+            </p>
+            <p class="left-margin">(b)	DoorDash will not and will not permit or authorize any third party to (i) sell, license, rent, resell, lease, assign (except as permitted herein), transfer, or otherwise commercially exploit the Licensed Applications; (ii) circumvent or disable any security or other technological features or measures of, or otherwise gain or attempt to gain unauthorized access to the Licensed Applications; (iii) reverse engineer, disassemble, decompile, or otherwise attempt to derive the source code or the underlying ideas, algorithms, structure, or organization of the Licensed Applications; (iv) use the Licensed Applications in any manner or for any purpose that violates any law or regulation; and (v) use the Licensed Applications for a reason other than as specifically provided or intended under this Agreement.
+            </p>
+            <p>3.3. <b>License to the Delivery API</b>. </p>
+            <p class="left-margin">(c)	During the Term, DoorDash grants to Middleware Provider a non-exclusive, royalty-free, non-assignable, non-transferable, non-sublicensable, revocable, limited, fully paid-up license to access the Delivery API solely to transmit information to facilitate Merchant delivery in accordance with the terms of this Agreement.
+            </p>
+            <p class="left-margin">(d)	Middleware Provider will not and will not permit or authorize any third party to (i) sell, license, rent, resell, lease, assign (except as permitted herein), transfer, or otherwise commercially exploit the Delivery API; (ii) circumvent or disable any security or other technological features or measures of, or otherwise gain or attempt to gain unauthorized access to the Delivery API; (iii) reverse engineer, disassemble, decompile, or otherwise attempt to derive the source code or the underlying ideas, algorithms, structure, or organization of the Delivery API; (iv) use the Delivery API in any manner or for any purpose that violates any law or regulation; and (v) use the Delivery API for a reason other than as specifically provided or intended under this Agreement.
+            </p>
+            <p>3.4. <b>License to the DoorDash Logo</b>. During the term of and subject to the terms and conditions of this Agreement, DoorDash grants to Middleware Provider a non-exclusive, non-transferable, non-sublicensable, revocable license to use DoorDash’s name and any DoorDash logo(s) provided by DoorDash solely in order to indicate a working relationship with one another, subject to DoorDash’s prior written consent, and subject to any usage guidelines established by DoorDash.
+            </p>
+            <p>3.5. <b>Proprietary Rights</b>. Neither Party shall have any intellectual property rights in the other Party’s software, application, products, interface, or other intellectual property. Each Party acknowledges that the ownership, right, title, and interest in and to the other Party’s trademarks , name, logo(s), and product and service names rests with the other Party, and both Parties agree that neither will do anything inconsistent with such ownership. 
+            </p>
+            <p>3.6. <b>Data Restrictions</b>. Middleware Provider will collect certain limited data (<b>“Collected Data”</b>)
+                available from the Licensed Applications through the Delivery API to enable DoorDash to fulfill End User orders. Unless otherwise agreed in writing, the Collected Data shall not include any End User payment information (including, without limitation, End User credit card information), social security numbers, driver’s license numbers, personal identification numbers, or other highly sensitive personally identifiable information.
+            </p>
+            <p>3.7. <b>Malware</b>. Each Party agrees not to perform any action with the intent of introducing to the other Party’s systems, products, or services (including the Delivery API and the Licensed Applications) any viruses, worms, defect, Trojan horses, malware, or any items of a destructive nature.
+            </p>
+        </div>
+        <div class="section center">
+            <b>ARTICLE 4: Confidentiality</b>
+        </div>
+        <div class="section">
+            <p>4.1. <b>Confidential Information</b>. “Confidential Information” will mean all information that a reasonable industry participant would understand to likely be confidential or proprietary, including, without limitation, all documents that are identified as confidential or proprietary, referrals to prospective sales opportunities, technical documentation, and product design and roadmaps. Confidential Information includes trade secrets as defined under the Uniform Trade Secrets Act. Confidential Information does not include information that is independently developed, that becomes public knowledge, or that is received from a third party under circumstances that do not create a reasonable suspicion that it has been misappropriated or improperly disclosed.
+            </p>
+            <p>4.2. <b>Use of Confidential Information</b>. A receiving Party will use commercially reasonable efforts to protect Confidential Information it receives and will use Confidential Information only as necessary to perform its obligations and exercise its rights under this Agreement. A receiving Party will not disclose Confidential Information to third parties other than as permitted under this Agreement or as compelled by a court or regulator of competent authority (and then while taking all reasonable steps to inform the disclosing Party prior to disclosure and to limit the scope of the disclosure).
+            </p>
+        </div>
+        <div class="section center">
+            <b>ARTICLE 5: Representations and Warranties</b>
+        </div>
+        <div class="section">
+            <p>5.1. <b>Mutual.</b> Each Party represents and warrants (a) that it has the legal power and authority to enter into this Agreement, that no authorization or prior approval is required from any third-party in connection with the execution or performance of this Agreement; (b) that it is in compliance with and will comply with all applicable laws and regulations, including with respect to data privacy and security, and pay their share of taxes, duties and governmental charges as required thereunder in connection with this Agreement and its performance; (c) it maintains industry standard security practices with respect to the collection, use, storage, sharing, and transmission of personal information; (d) it has in place a comprehensive information security program designed to protect the information under its custody, including all Personal Information; and (e) its information program includes the following safeguards: (i) secure business facilities, data centers, servers, back-up systems, and computing equipment; (ii) network, device application, database, and platform security; (iii) secure transmission, storage, and disposal; (iv) encryption of personal information placed on any electronic notebook, portable hard drive, or removable electronic media with information storage capability, such as compacts discs, USB drives, flash drives, and tapes; (v) encryption of personal information in transit; and (vi) personnel security and integrity including, but not limited to, background checks consistent with applicable law and the requirements of this Agreement.
+            </p>
+            <p>5.2. <b>DoorDash.</b> DoorDash represents and warrants that it will provide the DoorDash Platform in a manner consistent with general industry standards reasonably applicable to the provision thereof. 
+            </p>
+            <p>5.3. <b>Middleware Provider.</b> Middleware Provider represents and warrants that it will provide the Middleware Provider licensed applications in a manner consistent with general industry standards reasonably applicable to the provision thereof, and that the information provided from the Licensed Applications to the Delivery API will be true and correct.
+            </p>
+            <p>5.4. <b>DISCLAIMER.</b> EXCEPT AS EXPRESSLY SET FORTH HEREIN, NEITHER PARTY MAKES ANY REPRESENTATIONS OR WARRANTIES OF ANY KIND, WHETHER EXPRESS, IMPLIED (EITHER IN FACT OR BY OPERATION OF LAW), OR STATUTORY, AS TO ANY MATTER WHATSOEVER. THE APIs AND APPLICATIONS ARE PROVIDED “AS IS” WITH NO WARRANTY, EXPRESS OR IMPLIED, OF ANY KIND AND THE PARTIES EXPRESSLY DISCLAIM ANY AND ALL WARRANTIES AND CONDITIONS, INCLUDING ANY IMPLIED WARRANTY OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AVAILABILITY, SECURITY, TITLE, AND NON-INFRINGEMENT.</p>
+        </div>
+        <div class="section center">
+            <b>ARTICLE 6: Insurance</b>
+        </div>
+        <div class="section">
+            <p>6.1.  <b>Insurance Coverage.</b> Each Party, at its sole cost and expense, shall maintain at all times during the Term, commercially reasonable levels of insurance for the business type of such Party.    At a minimum, the Parties shall maintain: 
+            </p>
+            <p class="left-margin">(i) Commercial General Liability on an “occurrence basis,” with a limit of not less than $1,000,000 USD combined single limit per occurrence for bodily injury and property damage liability.
+            </p>
+            <p class="left-margin">(ii) Umbrella/Excess Liability with a minimum limit of $3,000,000 USD in excess of the insurance under policies indicated in this article.            
+            </p>
+            <p class="left-margin">(iii) Technology Errors and Omissions/Cyber Liability including Network Security/Privacy covering liability for loss or damage due to an act, error, omission, or negligence and for claims arising from unauthorized access to or use of the licensed software under this Agreement in an amount of at least $2,000,000 USD. Such insurance shall include network security and privacy risks, including unauthorized access, failure of security, breach of privacy, wrongful disclosure, or other negligence in the handling of Personal Information, privacy perils, and including coverage for related regulatory defense and penalties. The coverage shall be written on a claims made and reported basis. 
+            </p>
+            <p>All insurance coverages required under this Agreement shall be on an occurrence basis and Middleware Provider shall add DoorDash as an additional insured by endorsement. Such insurance will not replace or reduce each Party’s obligations of indemnification under this Agreement.
+            </p>
+        </div>
+        <div class="section center">
+            <b>ARTICLE 7: Termination</b>
+        </div>
+        <div class="section">
+            <p>7.1.	<b>Term.</b> The term of this Agreement (“<b>Term</b>”) shall begin on the Effective Date and shall remain in force for six (6) months (“<b>Initial Term</b>”). The Agreement will automatically renew in increments of 6 months (“<b>Renewal Term</b>”) unless prior written notice of termination is sent and received by either Party no later than thirty (30) days prior to the end of the Term. 
+            </p><p>7.2. <b>Termination for Material Change in Law</b>. Either Party can terminate the Agreement during the Term upon thirty (30) days prior written notice to the other Party due to a material change in law that adversely impacts the business or operations of such Party.
+            </p><p>7.3. <b>Termination for Cause; Reasonable Opportunity to Cure Breach.</b> If a Party breaches any material provision of this Agreement, the non-breaching Party may terminate this Agreement by giving thirty (30) days’ notice to the other Party, except that such termination shall not take effect if the breaching Party cures the breach before the end of such thirty (30) day period. Breaches that constitute material breaches shall include, but not be limited to (a) violations of state or federal laws or regulations; (b) violations of Article 4 (Confidentiality); (c) breaches of any representation or warranty set forth in Article V; (d) any action by a Party as deemed by the other Party to constitute irreparable harm to the reputation and goodwill of such Party; and (e) upon either Party filing for bankruptcy, receivership, liquidation or insolvency.  
+            </p><p>7.4.	<b>Effect of Termination.</b> Upon the expiration or termination of this Agreement, Middleware Provider and DoorDash shall immediately cease to market the services of the other Party and cease all use of the trademarks and other intellectual property from the date of termination. Neither Party shall be entitled to any compensation as a result of termination or expiration of this Agreement.
+            </p>
+        </div>
+        <div class="section center">
+            <b>ARTICLE 8: Indemnity</b>
+        </div>
+        <div class="section">
+            <p>8.1. <b>Indemnification by DoorDash</b>. DoorDash shall indemnify, defend, and hold harmless Middleware Provider and each of its subsidiaries and affiliates, and each of their respective past or present officers, directors, agents, servants, employees, stockholders, predecessors, successors or assigns against all losses, damages, claims, liabilities, and expenses (including reasonable legal fees) (<b>"Claims"</b>) incurred by Middleware Provider resulting from or relating to: (i) any grossly negligent, willful, or fraudulent acts or omissions of DoorDash (including any grossly negligent, willful, or fraudulent acts or omissions of DoorDash’s employees, contractors, or representatives hereunder); (ii) DoorDash’s breach of any representations or warranties under this Agreement; and (iii) allegations that the use of the DoorDash Platform or Delivery API infringes, violates, or misappropriates any United States, patent, trademark, or copyright of a third party; and (iv) if not obtained, the failure to inform DoorDash of any failure to obtain Merchant’s consent to any applicable policies or terms for which DoorDash was obligated to obtain such consent..
+            </p>
+            <p>8.2. <b>Indemnification by Middleware Provider</b>. Middleware Provider shall indemnify, defend, and hold harmless DoorDash and each of its subsidiaries and affiliates, and each of their respective past or present officers, directors, agents, servants, employees, stockholders, predecessors, successors or assigns against all Claims incurred by DoorDash resulting from or relating to: (i) any grossly negligent, willful, or fraudulent acts or omissions of Middleware Provider (including any grossly negligent, willful, or fraudulent acts or omissions of Middleware Provider’ employees, contractors, or representatives hereunder); (ii) Middleware Provider’s breach of any representations or warranties under this Agreement; (iii) allegations that the use of the Middleware Provider API or of the Licensed Applications infringes, violates, or misappropriates any United States, patent, trademark, or copyright of a third party; (iv) if not obtained (only in instances where delivery status notifications are enabled for the platform and where Middleware Provider is obligated hereunder to obtain End User’s permission to be contacted for such purposes), the failure to inform DoorDash that it has not obtained such permission from End Users to be contacted for the purpose of enabling DoorDash to provide the delivery services contemplated by this Agreement as and in the manner provided in Article 2.2; and (v) if not obtained, the failure to inform DoorDash of any failure to obtain Merchant’s consent to any applicable policies or terms for which Middleware Provider was obligated to obtain such consent.
+            </p>
+            <p>8.3. <b>Indemnification Procedures</b>. In connection with any Claim for which a Party is responsible pursuant to this Article 8: (i) the indemnified Party shall notify the indemnifying Party in writing within thirty (30) days after the indemnified Party knew or reasonably should have known of the Claim, provided that failure to provide such notice shall not relieve the indemnifying Party of liability under this Article 8 but in no event shall the indemnifying Party be liable to the extent that such delay directly prejudices the defense of the Claim; (ii) the indemnifying Party has sole control of the defense and all related settlement negotiations, provided that the indemnified Party shall have the right to participate in the defense of such Claim with counsel of its choosing at the indemnifying Party’s expense; and (iii) the indemnified Party provides the indemnifying Party with the assistance, information, and authority reasonably necessary to perform the above, provided that reasonable out-of- pocket expenses incurred by the indemnified Party in providing such assistance will be reimbursed by the indemnifying Party. Notwithstanding the foregoing, the indemnifying Party may not, without the indemnified Party’s prior written consent, settle, compromise or consent to the entry of any judgment in any such commenced or threatened claim or action, unless such settlement, compromise or consent: (x) includes an unconditional release of the indemnified Party from all liability arising out of such commenced or threatened claim or action; (y) is solely monetary in nature (provided that the indemnified Party is fully indemnified hereunder for such monetary damages), and (z) does not include an admission of fault by the indemnified Party or otherwise adversely affect the indemnified Party. 
+            </p>
+        </div>
+        <div class="section center">
+            <b>ARTICLE 9: Limitation of Liability</b>
+        </div>
+        <div class="section">
+            <p>9.1. 	EXCEPT WITH RESPECT TO AMOUNTS PAYABLE TO THIRD PARTIES UNDER ARTICLE 8 (INDEMNIFICATION) AND CLAIMS ARISING FROM BREACH OF ARTICLE 4 (CONFIDENTIALITY) (EXCEPT WITH RESPECT TO UNAUTHORIZED ACCESS OR LOSS OF END USER DATA, WHERE A PARTY’S MAXIMUM AGGREGATE LIABILITIES RELATED TO OR IN CONNECTION WITH THIS AGREEMENT SHALL NOT EXCEED TWO TIMES THE TOTAL AMOUNT PAID OR PAYABLE BY ONE PARTY TO THE OTHER PARTY HEREUNDER IN THE TWELVE (12) MONTH PERIOD IMMEDIATELY PRECEDING ANY CLAIM), NEITHER PARTY WILL BE LIABLE TO THE OTHER UNDER THIS AGREEMENT, FOR INDIRECT, SPECIAL, PUNITIVE OR CONSEQUENTIAL DAMAGES, AND (B) EACH PARTY’S MAXIMUM AGGREGATE LIABILITIES RELATED TO OR IN CONNECTION WITH THIS AGREEMENT SHALL NOT EXCEED THE TOTAL AMOUNT PAID OR PAYABLE BY ONE PARTY TO THE OTHER PARTY HEREUNDER IN THE TWELVE (12) MONTH PERIOD IMMEDIATELY PRECEDING ANY CLAIM.
+            </p>
+        </div>
+        <div class="section center">
+            <b>ARTICLE 10: Vendor Code of Conduct</b>
+        </div>
+        <div class="section">
+            <p>10.1. Middleware Provider agrees to the DoorDash Partner Code of Conduct:
+                <a href="https://www.doordash.com/partner/code-of-conduct" target="_blank">https://www.doordash.com/partner/code-of-conduct</a>
+            </p>
+        </div>
+        <div class="section center">
+            <b>ARTICLE 11: General</b>
+        </div>
+        <div class="section">
+            <p>11.1.	<b>Entire Agreement.</b> This Agreement supersedes all prior and contemporaneous agreements, representations and understandings and contains the entire agreement between the Parties. DoorDash may revise the terms herein from time to time and we will notify Middleware Provider of material revisions. No amendment or modification of any provision of this Agreement shall be effective unless in writing and acknowledged by a duly authorized representative of each Party. No failure or delay of either Party in exercising any right or remedy under this Agreement shall operate as a waiver of such right or remedy.
+            </p>
+            <p>11.2.	<b>Assignment.</b> This Agreement shall be binding upon the Parties and their successors and assigns. Neither Party shall have the right to assign or otherwise transfer its rights or delegate its duties under this Agreement without the express written consent of the other Party. Neither Party has any authority to enter into any agreement on behalf of the other Party, draw, accept, or endorse any bill on behalf of the other Party or to use the name of the other Party with respect to its products or services except to the extent as contained herein. Both Parties agree that they shall not transfer their rights under the Agreement to anyone else without the prior written consent of the other Party. 
+            </p>
+            <p>11.3.	<b>Notices.</b> Any notice required or permitted by this Agreement shall be in writing and shall be sent by prepaid registered or certified mail, return receipt requested, or electronically via email, addressed to the Parties at the addresses shown at the beginning of this Agreement or, if electronically, as follows:
+                <p>
+                    For DoorDash: <a href="mailto:legal@doordash.com">legal@doordash.com</a> <br />
+                    For Middleware Provider: as provided to DoorDash in the Sign-Up Sheet 
+                </p>
+                <p>
+                    Such notice shall be effective upon receipt.
+                </p>
+            </p>
+            <p>11.4.   	<b>Electronic Signature.</b> The Parties consent to conducting business via electronic transactions and recognize the validity, enforceability and admissibility of any electronic record or any electronic signature created in connection with this Agreement or the relationship contemplated by it. An electronic record of this Agreement and any electronic signature made in connection with this Agreement shall be deemed to have been signed by hand by the Parties.
+            </p>
+            <p>11.5.	<b>No Waiver.</b> Nonperformance of either Party, except for the making of payments, shall be excused to the extent where failure to perform is beyond the control and not caused by the negligence of the nonperforming Party.
+            </p>
+            <p>11.6. 	<b>Press, Non-disparagement.</b> Neither Middleware Provider nor DoorDash shall issue any press release or public statement regarding the relationship between the Parties or the nature of the services without the prior written consent of the other Party. Neither Party shall issue any statement about the other Party that could be interpreted as disparaging the other Party or its operations, even if such statement does not name the other Party specifically. Nothing in this section prevents a party from making statements as compelled by law or regulation as provided in Section 4.2.            </p>
+            <p>11.7.	<b>Arbitration.</b><br/>
+                <p><b>This Arbitration Agreement shall apply to all disputes arising from or relating to the subject matter of this Agreement or the relationship between the Parties and their personnel. This Arbitration Agreement shall apply, without limitation, to all claims that arose or were asserted before the Effective Date of this Agreement. 
+                    </b>
+                </p><b>If Middleware Provider is an entity based in Australia:  </b>Any dispute, claim or controversy arising out of or relating to this Agreement or the breach, termination, enforcement, interpretation or validity thereof, including the determination of the scope or applicability of this agreement to arbitrate, shall be brought by arbitration, will be conducted by the Australian Disputes Centre (“ADC”) under its then-current arbitration rules and pursuant to the terms of this Agreement. Payment of all filing, administration, and arbitration fees will be governed by ADC’s rules. The arbitrator, and not any federal, state, or local court or agency, shall have exclusive authority to resolve any dispute relating to the interpretation, applicability, enforceability or formation of this Arbitration Agreement including, but not limited to any claim that all or any part of this Arbitration Agreement is void or voidable. The arbitration will decide the rights and liabilities, if any, of Middleware Provider and DoorDash. The arbitration proceeding will not be consolidated with any other matters or joined with any other proceedings or parties. The arbitrator will have the authority to grant motions dispositive of all or part of any claim or dispute. The arbitrator will have the authority to award monetary damages and to grant any non-monetary remedy or relief available to an individual under applicable law, the arbitral forum’s rules, and this Agreement (including this Arbitration Agreement). The arbitrator will issue a written statement of decision describing the essential findings and conclusions on which any award (or decision not to render an award) is based, including the calculation of any damages awarded. The arbitrator shall follow the applicable law. The arbitrator has the same authority to award relief on an individual basis that a judge in a court of law would have. The arbitrator’s decision is final and binding on Middleware Provider and DoorDash.
+            </p>            
+            <p><b>If Middleware Provider is an entity based in Canada: </b>Any dispute, claim or controversy arising out of or relating to this Agreement or the breach, termination, enforcement, interpretation or validity thereof, including the determination of the scope or applicability of this agreement to arbitrate, shall be governed by the Federal Arbitration Act in all respects. To begin an arbitration proceeding, you must send a letter requesting arbitration and describing your claim to DoorDash’s registered agent. The arbitration will be administered by the International Centre for Dispute Resolution Canada under its rules and pursuant to the terms of this Agreement before one arbitrator mutually agreed upon by the Parties, and if no agreement can be reached within thirty (30) days of commencement of arbitration, then by one arbitrator appointed by the ICDR. The arbitration shall take place in Toronto, Ontario, or any other jurisdiction mutually agreed upon by Middleware Provider and DoorDash. The arbitration shall be conducted in accordance with the ICDR arbitration rules then in effect. Payment of all filing, administration, and arbitration fees will be governed by ICDR’s rules. If ICDR is not available to arbitrate, the Parties will select an alternative arbitral forum. You may choose to have the arbitration conducted by telephone, video conference, based on written submissions, or in person in the country where you live or at another mutually agreed location.
+            </p>
+            <p><b>If Middleware Provider is an entity based outside of Canada and Australia:  </b>Any dispute, claim or controversy arising out of this Agreement or the breach, termination, enforcement, interpretation or validity thereof, including the determination of the scope or applicability of this agreement to arbitrate, shall be determined by arbitration in San Francisco, California before one arbitrator. The arbitration shall be administered by JAMS pursuant to its Comprehensive Arbitration Rules and Procedures. Judgment on the resulting Award may be entered in any court having jurisdiction. This clause shall not preclude Parties from seeking provisional remedies in aid of arbitration from a court of appropriate jurisdiction. This arbitration agreement explicitly supersedes any and all different or contradictory terms included in the Agreement.
+            </p>
+            <p>11.8.	<b>Enforceability.</b> Any provision of this Agreement which is prohibited or unenforceable in any jurisdiction shall be ineffective to the extent of such prohibition or unenforceability without invalidating the remaining provisions of this Agreement. The prohibition on or unenforceability of any provision in any jurisdiction shall not affect the validity or enforceability of such provision in any other jurisdiction.
+            </p>
+            <p class="left-margin">11.9.	<b>Attorneys’ Fees.</b> In any legal action to enforce the terms of this Agreement, the prevailing party in such action shall be entitled to recover its reasonable attorneys’ fees and costs from the other party. 
+            </p>
+            <p class="left-margin">11.10.	<b>Survival.</b> The rights and obligations set forth herein, which by their nature should, or by their express terms do, survive or extend beyond the termination or expiration of these terms shall so survive and extend.
+                
+            </p>
+        </div>
+    </div>
+    
+</aura:component>

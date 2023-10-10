@@ -1,0 +1,150 @@
+<apex:page showHeader="false"
+           sidebar="false"
+           standardStylesheets="false"
+           standardController="Case"
+           extensions="CDdSendbirdChatController">
+    <apex:includeScript value="{!$Resource.jQuery360}" />
+    <html style="height:100%">
+        <script>
+        	window.sendbirdSFDCInstance = "{!orgInstance}";
+        </script>
+        <body style="background:#fff;height:100%;margin:0px;">
+            <apex:iframe id="sendbird-chat-iframe" height="100%"
+                src="{!$Resource.SendbirdChatUIUnified + '/index.html?classic=true&sendbirdChannelUrl=' + sendbirdChannelUrl + '&agentUserId=' + $User.Id +'&caseId=' + caseRecord.Id + '&Contact_FirstName=' + JSENCODE(contactFirstName) + '&instance='+orgInstance +'&tabId=' + $CurrentPage.parameters.tabId + '&contactId=' + caseRecord.ContactId}"
+            />
+        </body>
+    </html>
+    <script>
+        window.agentUserId = "{!$User.Id}";
+        window.quickTextFieldMap = {
+            Contact: {
+                FirstName: "{!contactFirstName}",
+            },
+            Contact_FirstName: "{!contactFirstName}",
+        };
+        window.sendbirdChannelUrl = "{!sendbirdChannelUrl}";
+        window.caseId = "{!caseRecord.Id}";
+        const currentPageURL = '{!$CurrentPage.URL}';
+        var lightningDomain = currentPageURL.indexOf('sandbox') !== -1 ?
+            ('{!LEFT($CurrentPage.URL,FIND('.',$CurrentPage.URL,9))}').replace('--c','') + 'sandbox.lightning.force.com' :
+            ('{!LEFT($CurrentPage.URL,FIND('.',$CurrentPage.URL,9))}').replace('--c','') + 'lightning.force.com';
+
+        /******** Event handler ************/
+        function sendMessageToLightningComponent(messageType,payload) {
+            if (!payload) {
+                payload = {};
+            }
+            if (!payload.hasOwnProperty('tabId')) {
+                payload.tabId = "{!$CurrentPage.parameters.tabId}";
+            }
+            if (!payload.hasOwnProperty('caseId')) {
+                payload.caseId = "{!caseRecord.Id}";
+            }
+            console.log('[sendbirdChatVf] message to pass to lightning component',messageType,payload);
+            parent.postMessage({messageType,payload}, lightningDomain);
+        }
+
+        $( document ).ready(function() {
+            window.addEventListener("message", function(event) {
+                console.log('[sendbirdChatVf] message received',event.data);
+                const messageType = event.data.type;
+                const payload = event.data.payload;
+                switch (messageType) {
+                    case 'ping':
+                        handlePing();
+                        return;
+                    case 'unread_message_count_changed':
+                    case 'close_tab':
+                        sendMessageToLightningComponent(messageType,payload);
+                        return;
+                    default:
+                        break;
+                }
+                _callControllerMethod(messageType,payload)
+                .then((data) => {
+                    _sendMessageToSendbirdIFrame(messageType, {
+                        status: "success",
+                        data,
+                    });
+                })
+                .catch((error) => {
+                    console.log('[sendbirdChatVf] Apex Controller Error',messageType,error);
+                    _sendMessageToSendbirdIFrame(messageType, {
+                        status: "error",
+                        message: error.message || "Something went wrong"
+                    });
+                });
+                //console.log('message to pass to sendbird iframe',event.data);
+                //
+            }, false);
+            setTimeout(function () {
+                handlePing();
+            }, 2000);
+            //sendToLightningComponent({'type':'AcceptMessage'});
+        });
+
+        /**
+         * Sends a message to the lightning container
+         * @param {string} type - Message type
+         * @param {string} payload - Message payload
+         */
+        function _sendMessageToSendbirdIFrame(type, payload) {
+            console.log('[sendbirdChatVf] sending message to sendbird-chat-iframe',type,payload);
+            $('#sendbird-chat-iframe')[0].contentWindow.postMessage({ type, payload },"{!orgInstance}");
+        }
+
+        function handlePing() {
+            _sendMessageToSendbirdIFrame("ping");
+        }
+
+        function _callControllerMethod(methodName, params) {
+            if (!params) {
+                switch (methodName) {
+                    case 'chat_info':
+                        params = {
+                            'userId' : "{!$User.Id}",
+                            'sendbirdChannelUrl' : "{!sendbirdChannelUrl}"
+                        }
+                        break;
+                    case 'should_connect':
+                        params = {
+                            'caseId' : "{!caseRecord.Id}",
+                            'agentUserId' : "{!$User.Id}"
+                        };
+                        break;
+                    case 'end_chat':
+                        params = {
+                            'channelUrl' : "{!sendbirdChannelUrl}"
+                        };
+                        break;
+                    case 'quick_text':
+                        params = {
+                            'contactId' : "{!caseRecord.ContactId}"
+                        };
+                        break;
+                    default:
+                        break;
+                }
+            }
+            return new Promise((resolve, reject) => {
+                Visualforce.remoting.Manager.invokeAction(
+                    //Invoking controller action getcon
+                    `{!$RemoteAction.CDdSendbirdChatController.processSendbirdAction}`,
+                    methodName,params || {},
+                    function(result, event){
+                        //We can access the records through the parameter result
+                        //event.status determines if there is error or not
+                        //console.log('[sendbirdChatVf] Controller Response',methodName,result,event);
+                        if(event.status){
+                            return resolve(result);
+                        } else {
+                            return reject(event);
+                        }
+                    },
+                    {escape: true}
+                );
+            });
+        }
+    </script>
+    <script src="{!$Resource.SendbirdVFController}" />
+</apex:page>

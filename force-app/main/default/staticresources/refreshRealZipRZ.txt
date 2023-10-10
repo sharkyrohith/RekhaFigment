@@ -1,0 +1,5 @@
+id,name,realzip__bus_sq_mile_fact__c,realzip__realzips_populate_account_isactive__c,realzip__realzips_populate_case_isactive__c,realzip__realzips_populate_contact_isactive__c,realzip__realzips_populate_lead_isactive__c,realzip__realzips_populate_opportunity_isactive__c
+a6o1a000000L03eAAC,RZ Factors (Profile),,false,false,false,true,false
+a6o1a000000L03jAAC,RZ Factors (Profile),,false,false,false,true,false
+a6o1a000000L17rAAC,RZ Factors (Profile),,false,false,false,true,false
+a6o1a000000CbbDAAS,RZ Factors (Profile),,true,false,false,true,false

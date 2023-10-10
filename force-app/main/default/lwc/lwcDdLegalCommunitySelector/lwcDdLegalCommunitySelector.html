@@ -1,0 +1,29 @@
+<template>
+    <template if:true={invalidArguments}>
+        <c-lwc-dd-community-error-page community-name="legal"></c-lwc-dd-community-error-page>
+    </template>
+    <template if:false={invalidArguments}>
+        <lightning-layout multiple-rows>
+            <lightning-layout-item padding="around-small" size="12" small-device-size="4">
+                <lightning-combobox
+                    name="countrySelector"
+                    label={label.DdLegalCommunity_Country}
+                    value={selectedCountry}
+                    placeholder="Select Country"
+                    options={countryOptions}
+                    onchange={handleCountryChange}>
+                </lightning-combobox>
+            </lightning-layout-item>
+            <lightning-layout-item padding="around-small" size="12" small-device-size="4">
+                <lightning-combobox
+                    name="languageSelector"
+                    label={label.DdLegalCommunity_Language}
+                    value={selectedLanguage}
+                    placeholder="Select Language"
+                    options={languageOptions}
+                    onchange={handleLanguageChange}>
+                </lightning-combobox>
+            </lightning-layout-item>
+        </lightning-layout>
+    </template>
+</template>

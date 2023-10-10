@@ -1,0 +1,14 @@
+.THIS {
+}
+.THIS #staticHighlightId {
+    color: token(colorTextError);
+    font-weight: token(fontWeightBold);    
+}
+.THIS .fieldHighlightText .slds-input{
+    color: token(colorTextError);
+    font-weight: token(fontWeightBold);
+}
+.THIS .fieldHighlightSelect .slds-select{
+    color: token(colorTextError);
+    font-weight: token(fontWeightBold);
+}

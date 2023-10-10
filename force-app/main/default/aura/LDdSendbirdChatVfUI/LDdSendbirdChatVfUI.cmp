@@ -1,0 +1,18 @@
+<aura:component access="global" implements="flexipage:availableForAllPageTypes,force:hasRecordId">
+    <aura:attribute name="enclosingTabId" type="String" />
+    <aura:attribute name="positionClass" type="String" default=".position-absolute" />
+    <aura:attribute name="freezeHeader" type="Boolean" default="false" description="DEPRECATED"/>
+    <aura:attribute name="freezeSidebar" type="Boolean" default="false" description="DEPRECATED"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <lightning:workspaceAPI aura:id="workspace"/>
+    <aura:handler event="lightning:tabFocused" action="{! c.onTabFocused }"/>
+
+    <div class="{!v.positionClass}">
+        <aura:if isTrue="{!not(empty(v.enclosingTabId))}">
+            <iframe aura:id="sendbirdChatVf" id="sendbirdChatVf" width="100%" height="100%" frameBorder="0"
+                sandbox="allow-scripts allow-forms allow-same-origin allow-popups allow-downloads allow-storage-access-by-user-activation"
+                src="{!'/apex/PDdSendbirdLightning?Id=' + v.recordId + '&amp;tabId=' + v.enclosingTabId}"/>
+        </aura:if>
+    </div>
+</aura:component>

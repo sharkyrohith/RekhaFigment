@@ -1,0 +1,60 @@
+<template>
+	<div class="slds-notify slds-notify_alert slds-alert_warning" role="alert">
+		<h2>
+			For better performance : Maximum limit of rows is 5000 records.
+		</h2>
+	</div>
+	<lightning-card title="CSV Uploader" icon-name="custom:custom19">
+		<form class="slds-form_inline">
+			<div class="slds-form-element">
+				<lightning-input type="file" label="Choose File" accept=".csv" onchange={importcsv}>
+				</lightning-input>
+			</div>
+			<div class="slds-form-element slds-text-body_small slds-text-color_error">{filename}</div>
+			<div style="margin-left:4%" class="slds-form-element">
+				<template if:true={showLoadingSpinner}>
+					<lightning-spinner alternative-text="Uploading......" size="medium"></lightning-spinner>
+				</template>
+			</div>
+		</form>
+		<br />
+		<template if:true={csvFormateMessage}>
+			<div class="slds-notify slds-notify_alert slds-alert_error" role="alert">
+				<h2>Required columns are missing in .CSV file</h2>
+			</div>
+		</template>
+		<template if:true={duplicateRecords}>
+			<div class="slds-notify slds-notify_alert slds-alert_warning" style="margin-bottom:10px;" role="alert">
+				<span class="slds-assistive-text">warning</span>
+				<span class="slds-icon_container slds-icon-utility-warning slds-m-right_x-small"
+					title="Description of icon when needed">
+					<svg class="slds-icon slds-icon_x-small" aria-hidden="true">
+						<use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#warning"></use>
+					</svg>
+				</span>
+				<h2>Duplicate records will not be added
+				</h2>
+				<div class="slds-notify__close">
+					<button class="slds-button slds-button_icon slds-button_icon-small" title="Close">
+						<svg class="slds-button__icon" aria-hidden="true">
+							<use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+						</svg>
+						<span class="slds-assistive-text">Close</span>
+					</button>
+				</div>
+			</div>
+		</template>
+		<template if:false={csvFormateMessage}>
+			<template if:true={dataTableVisibility}>
+				<lightning-datatable data={accountsAndUserRowsCombination} columns={columns} key-field="SAID"
+					hide-checkbox-column>
+				</lightning-datatable>
+			</template>
+			<template if:true={accountDataVisibility}>
+				<lightning-datatable data={accountRecordsBulk} columns={accountColumns} key-field="SAID"
+					hide-checkbox-column>
+				</lightning-datatable>
+			</template>
+		</template>
+	</lightning-card>
+</template>

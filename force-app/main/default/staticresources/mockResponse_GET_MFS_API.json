@@ -1,0 +1,119 @@
+{
+    "programs": [
+        {
+            "store_id": "123456",
+            "experience": "CAVIAR",
+            "audience": "ANY_AUDIENCE",
+            "fee_attributes": [
+                {
+                    "name": "pickup_fee",
+                    "friendly_display_name": "Pickup Fee",
+                    "fee_type": "COMMISSION",
+                    "fee_rate": "6.000",
+                    "fee_rate_charging_target": "SUBTOTAL",
+                    "start_time": "2022-01-31T21:39:37.358Z"
+                }
+            ],
+            "start_time": "2022-01-31T21:38:37.427967Z",
+            "salesforce_opportunity_id": "0060r0000092UV9AAM"
+        },
+        {
+            "store_id": "123456",
+            "experience": "CAVIAR",
+            "audience": "SUBSCRIBER",
+            "fee_attributes": [
+                {
+                    "name": "dashpass_commission",
+                    "friendly_display_name": "Dashpass Commission",
+                    "fee_type": "COMMISSION",
+                    "fee_rate": "15.000",
+                    "fee_rate_charging_target": "SUBTOTAL",
+                    "start_time": "2022-01-31T21:39:37.358Z"
+                }
+            ],
+            "start_time": "2022-01-31T21:38:37.427967Z",
+            "salesforce_opportunity_id": "0060r0000092UV9AAM"
+        },
+        {
+            "store_id": "123456",
+            "experience": "CAVIAR",
+            "audience": "ANY_AUDIENCE",
+            "fee_attributes": [
+                {
+                    "name": "delivery_fee",
+                    "friendly_display_name": "Delivery Fee",
+                    "fee_type": "COMMISSION",
+                    "fee_rate": "15.000",
+                    "fee_rate_charging_target": "SUBTOTAL",
+                    "start_time": "2022-01-31T21:39:37.358Z"
+                }
+            ],
+            "start_time": "2022-01-31T21:38:37.427967Z",
+            "salesforce_opportunity_id": "0060r0000092UV9AAM"
+        },
+        {
+            "store_id": "123456",
+            "experience": "WHITE_LABELED",
+            "channel": "ONLINE_ORDERING",
+            "audience": "ANY_AUDIENCE",
+            "fee_attributes": [
+                {
+                    "name": "pickup_fee",
+                    "friendly_display_name": "Pickup Fee",
+                    "fee_type": "PICKUP_ORDER_FEE",
+                    "flat_fee_in_cents": 0,
+                    "start_time": "2022-01-26T22:18:48.201Z"
+                },
+                {
+                    "name": "processing_fee",
+                    "friendly_display_name": "Processing Fee",
+                    "fee_type": "PAYMENT_PROCESSING_FEE",
+                    "flat_fee_in_cents": 30,
+                    "start_time": "2022-01-26T22:18:48.201Z"
+                },
+                {
+                    "name": "processing_rate",
+                    "friendly_display_name": "Processing Rate",
+                    "fee_type": "PAYMENT_PROCESSING_FEE",
+                    "fee_rate": "2.400",
+                    "fee_rate_charging_target": "SUBTOTAL",
+                    "start_time": "2022-01-26T22:18:48.201Z"
+                }
+            ],
+            "start_time": "2022-01-26T22:17:48.259501Z",
+            "salesforce_opportunity_id": "0060r0000092t1vAAA"
+        },
+        {
+            "store_id": "123456",
+            "experience": "WHITE_LABELED",
+            "channel": "ONLINE_ORDERING",
+            "audience": "ANY_AUDIENCE",
+            "fee_attributes": [
+                {
+                    "name": "processing_fee",
+                    "friendly_display_name": "Processing Fee",
+                    "fee_type": "PAYMENT_PROCESSING_FEE",
+                    "flat_fee_in_cents": 30,
+                    "start_time": "2022-01-26T22:18:48.201Z"
+                },
+                {
+                    "name": "processing_rate",
+                    "friendly_display_name": "Processing Rate",
+                    "fee_type": "PAYMENT_PROCESSING_FEE",
+                    "fee_rate": "2.400",
+                    "fee_rate_charging_target": "SUBTOTAL",
+                    "start_time": "2022-01-26T22:18:48.201Z"
+                },
+                {
+                    "name": "delivery_fee",
+                    "friendly_display_name": "Delivery Fee",
+                    "fee_type": "DELIVERY_ORDER_FEE",
+                    "flat_fee_in_cents": 0,
+                    "start_time": "2022-01-26T22:18:48.201Z"
+                }
+            ],
+            "start_time": "2022-01-26T22:17:48.259501Z",
+            "salesforce_opportunity_id": "0060r0000092t1vAAA"
+        }
+    ]
+}

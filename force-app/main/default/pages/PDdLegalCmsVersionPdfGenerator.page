@@ -1,0 +1,22 @@
+<!--
+@author Raju Lakshman
+@date  June 2022
+@decription BIZS-1390 - Generates a PDF version of the legal content version.
+-->
+<apex:page controller="CDdLegalCmsVersionPdfGenController" renderAs="pdf"
+		   applyHtmlTag="false" showHeader="false" cache="true" readOnly="true" >
+    <html>
+        <head>
+            <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+            <style>
+                @page {
+                    size: a4 portrait;
+                    padding-left: 2px;
+                    padding-right: 2px;
+                }
+            </style>
+        </head>
+        <apex:image id="theImage" value="{!$Resource.SRDdHelpSelectAssets}/Logo/DoorDash_logo_RGB_community.png"/>
+        <apex:outputText value="{!displayText}" escape="false"/>
+    </html>
+</apex:page>

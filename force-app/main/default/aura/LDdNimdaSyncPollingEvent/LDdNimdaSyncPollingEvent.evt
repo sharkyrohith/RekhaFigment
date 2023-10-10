@@ -1,0 +1,3 @@
+<aura:event type="COMPONENT" access="GLOBAL" description="This event is used to broadcast the payload message received from Nimda Sync Push Topic Event" >
+    <aura:attribute name="message" type="Object" access="GLOBAL" />
+</aura:event>

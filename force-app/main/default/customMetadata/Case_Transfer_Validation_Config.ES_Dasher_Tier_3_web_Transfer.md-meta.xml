@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>ES Dasher Tier 3 - web Transfer</label>
+    <protected>false</protected>
+    <values>
+        <field>Bypass_Trigger_Case_Insert__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>Criteria_Behavior__c</field>
+        <value xsi:type="xsd:string">Allow transfer only if criteria is met</value>
+    </values>
+    <values>
+        <field>Description__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Error_Message__c</field>
+        <value xsi:type="xsd:string">Queue &apos;{Target Queue Name}&apos; cannot be assigned to this Case as the Prior Queue is not a Spanish inbound queue.</value>
+    </values>
+    <values>
+        <field>Filter_Logic__c</field>
+        <value xsi:type="xsd:string">1 OR 2</value>
+    </values>
+    <values>
+        <field>Is_Test_Record__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>Sort_Order__c</field>
+        <value xsi:type="xsd:double">16.0</value>
+    </values>
+    <values>
+        <field>Target_Queue_Id__c</field>
+        <value xsi:type="xsd:string">00G2L000001XaWQUA0</value>
+    </values>
+    <values>
+        <field>isActive__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+</CustomMetadata>

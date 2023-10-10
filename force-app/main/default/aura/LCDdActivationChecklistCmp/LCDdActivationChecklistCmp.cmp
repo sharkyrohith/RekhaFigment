@@ -1,0 +1,36 @@
+<!--
+  * Created by Jeremy S. Johnson, Perficient, Inc.
+ -->
+
+<aura:component description="Activation Checklist" controller="CDdActivationChecklistController" implements="force:hasRecordId,flexipage:availableForAllPageTypes" access="GLOBAL">
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    <aura:handler event="force:refreshView" action="{!c.isRefreshed}" />
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="data" type="Object"/>
+    <aura:attribute name="columns" type="List"/>
+    <aura:attribute name="passing" type="String"/>
+    <aura:attribute name="warning" type="String"/>
+    <aura:attribute name="failing" type="String"/>
+    <aura:attribute name="ignoring" type="String"/>
+    <aura:attribute name="errorMsg" type="String"/>
+
+    <lightning:spinner aura:id="aSpinner" variant="brand" alternativeText="Loading" size="medium" />
+    <lightning:button class="slds-form-element slds-m-bottom--large" onclick="{!c.invoke}">Validate</lightning:button>
+    <lightning:datatable aura:id="dataTable" class="slds-m-top--medium"
+        keyField="Id"
+        data="{!v.data}"
+        columns="{!v.columns}"
+        hideCheckboxColumn="true"
+        onsave="{!c.handleSave}">
+    </lightning:datatable>
+    <div aura:id="statusDiv" class="slds-m-top--medium">
+        {!v.passing}&nbsp;Passing,
+        {!v.warning}&nbsp;Warning(s),
+        {!v.failing}&nbsp;Failing,
+        {!v.ignoring}&nbsp;Ignoring/Resolved
+    </div>
+    <div aura:id="errorMessageCnt" class="slds-m-top--medium slds-is-collapsed">
+        <label class="slds-form-element__label" for="errorMessageDiv">System Error</label>
+        <div aura:id="errorMessageDiv" class="slds-box slds-theme--error">{!v.errorMsg}</div>
+    </div>
+</aura:component>

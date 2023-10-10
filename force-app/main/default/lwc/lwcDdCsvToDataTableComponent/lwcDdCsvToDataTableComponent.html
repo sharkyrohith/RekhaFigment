@@ -1,0 +1,21 @@
+<template>
+        <div class="slds-p-around_medium">
+          <lightning-input
+            type="file"
+            label={uploadmsg}
+            accept=".csv"
+            onchange={handleFileUpload}
+            required
+          >
+          </lightning-input>
+        </div>
+        <template if:true={tableData}>
+            <div class="slds-notify slds-notify_alert alert_success" role="alert">
+                <lightning-icon icon-name="utility:success" variant="inverse" alternative-text="Success!" title="Success" size="x-small" class="slds-p-right_x-small"></lightning-icon>
+                <h2>Parse Successfull</h2>
+            </div>
+            <div>
+                <lightning-datatable key-field="id" data={tableData} columns={columns} hide-checkbox-column> </lightning-datatable>
+            </div>
+        </template>
+</template>

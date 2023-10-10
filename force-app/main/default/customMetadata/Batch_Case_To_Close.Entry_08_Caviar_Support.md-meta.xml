@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Entry 08 Caviar Support</label>
+    <protected>false</protected>
+    <values>
+        <field>Active__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>Criteria__c</field>
+        <value xsi:type="xsd:string">(LastModifiedDate &lt; :hours) AND (Type = &apos;Merchant Catering&apos;)</value>
+    </values>
+    <values>
+        <field>Hours__c</field>
+        <value xsi:type="xsd:double">240.0</value>
+    </values>
+    <values>
+        <field>Logic__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>OmitProfileCheck__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>Order__c</field>
+        <value xsi:type="xsd:double">8.0</value>
+    </values>
+    <values>
+        <field>Record_Type__c</field>
+        <value xsi:type="xsd:string">Caviar Support</value>
+    </values>
+    <values>
+        <field>SkipOnWrap__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>Status_Criteria__c</field>
+        <value xsi:type="xsd:string">(Status = &apos;Solved&apos;)</value>
+    </values>
+    <values>
+        <field>Where_Clause__c</field>
+        <value xsi:type="xsd:string">(LastModifiedDate &lt; :hours) AND (Type = &apos;Merchant Catering&apos;)</value>
+    </values>
+</CustomMetadata>

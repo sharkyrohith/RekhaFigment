@@ -1,0 +1,83 @@
+<aura:component controller="CDdLtngNimdaSyncCtrl" implements="force:appHostable,force:hasRecordId,c:LDdNimdaSyncConstants" access="global">
+	<!-- public attributes -->
+	<aura:attribute name="businessId" type="String" access="PUBLIC" />	
+	<aura:attribute name="storeId" type="String" access="PUBLIC" />
+	<aura:attribute name="accountId" type="String" access="PUBLIC" />
+	<aura:attribute name="opportunity" type="Opportunity" access="PUBLIC" />	
+	<aura:attribute name="account" type="Account" access="PUBLIC" />
+    <aura:attribute name="storeUpdateRequest" type="Object" access="PUBLIC" />    
+    <aura:attribute name="nimdaHistoryData" type="Object" access="PUBLIC" />    
+	<!--private attributes-->					        
+	<aura:attribute name="currentStep" type="String" access="PRIVATE" default="Initialize" />
+	<aura:attribute name="userId" type="String" access="PRIVATE" />
+    <aura:attribute name="paymentAcctId" type="String" access="PRIVATE" />
+	<aura:attribute name="stripeAcctId" type="String" access="PRIVATE" />
+	<aura:attribute name="bankTokenId" type="String" access="PRIVATE" />
+	<aura:attribute name="stripeBankAcctId" type="String" access="PRIVATE" />
+	<!--error related attributes-->
+	<aura:attribute name="errorType" type="String" access="PRIVATE" />
+	<aura:attribute name="errorMessage" type="String" access="PRIVATE" />
+	<aura:attribute name="calloutRequest" type="String" access="PRIVATE" />						
+	<aura:attribute name="calloutResponse" type="String" access="PRIVATE" />
+    <!--handlers-->
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    <aura:handler name="change" value="{!v.currentStep}" action="{!c.handleStepChange}"/>
+    <!--aura methods-->    
+    <aura:method name="processNextStepJS" action="{!c.handleProcessNextStep}" >
+        <aura:attribute name="params" type="Object" />
+    </aura:method>
+    <!-- register event-->
+    <aura:registerEvent name="LDdNimdaSyncEvent" type="c:LDdNimdaSyncEvent"/>
+    <!--Include LDdCallout component -->
+    <c:LDdCallout aura:id="calloutCmp" />    	
+
+	<!-- SHOW PROGRESS INDICATOR -->
+    <aura:if isTrue="{!(v.currentStep ne v.STEP_INITIALIZE)}">
+        <lightning:progressIndicator currentStep="{!v.currentStep}" type="path" variant="base">
+            <aura:iteration items="{! v.steps }" var="step">
+                <lightning:progressStep label="{! step.label }" value="{! step.value }"/>
+            </aura:iteration>
+        </lightning:progressIndicator>
+    </aura:if>
+	<!-- SHOW PROGRESS INDICATOR -->
+	<!-- SUCCESS MESSAGE -->
+	<aura:if isTrue="{!(v.currentStep eq v.STEP_COMPLETE)}">
+        <div class="slds-m-around--large slds-wrap">
+            <div class="slds-box slds-theme_success">
+                <h2>
+                    <lightning:icon class="slds-icon icon-text-email slds-icon--small slds-m-right--x-small"
+                                    iconName="utility:success" size="x-small" variant="bare" alternativeText="success"/>
+					<span>All steps complete</span>
+                </h2>	                    	
+            </div>
+    	</div>
+    	<aura:set attribute="else">
+            <!-- ERROR MESSAGE -->
+            <aura:if isTrue="{!(!empty(v.errorMessage))}">
+                <div class="slds-m-around--large slds-wrap">
+                    <div class="slds-box slds-theme--error slds-theme--alert-texture">
+                        <h2>
+                            <lightning:icon class="slds-icon icon-text-email slds-icon--small slds-m-right--x-small"
+                                            iconName="utility:error" size="x-small" variant="bare" alternativeText="error"/>
+							<span>{!v.currentStep}</span>
+							<br/>	                                            
+                            <span>Type: {!v.errorType}</span>
+							<br/>								
+                            <span>Message: {!v.errorMessage}</span>
+							<br/>
+							<aura:if isTrue="{!(!empty(v.calloutRequest))}">                                            
+                            	<span>Request: {!v.calloutRequest}</span>
+                            </aura:if>
+							<br/>
+							<aura:if isTrue="{!(!empty(v.calloutResponse))}">                                           
+                            	<span>Response: {!v.calloutResponse}</span>
+                            </aura:if>	                            	                            
+                        </h2>
+                    </div>
+                </div>
+            </aura:if>
+            <!-- / ERROR MESSAGE -->	            		
+		</aura:set>					
+	</aura:if>
+	<!-- / SUCCESS MESSAGE -->
+</aura:component>

@@ -1,0 +1,3 @@
+<design:component label="Recaptcha form">
+    <design:attribute name="communityDomain" label="Community Domain"/>
+</design:component>

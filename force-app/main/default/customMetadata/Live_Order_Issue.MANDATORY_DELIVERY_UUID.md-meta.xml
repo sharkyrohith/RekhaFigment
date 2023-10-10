@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>MANDATORY DELIVERY UUID</label>
+    <protected>false</protected>
+    <values>
+        <field>Issue_Type__c</field>
+        <value xsi:type="xsd:string">Start or Cancel/Unassign Order - Dx;Issue With Dropoff - Dx;Company Inquiry - CX;DashCard Inquiries - Cx;DDfW Group Order/Microsite - CX;DDfW Live Order - CX;DoorDash Drive - CX;Live Order - CX;P2P - Completed Order - Buyer;P2P - Live Order - Buyer;Order Status Inquiry - MX;Issue with Preparing Order - MX;Issue with Dropoff - MX;Cancel Order - MX;Missing Payments - MX;Refund Requests (DDD);Issue with Preparing Order - MX;</value>
+    </values>
+    <values>
+        <field>Issue__c</field>
+        <value xsi:type="xsd:string">Cancel + Unassign Order - Dx;Can&apos;t Find Customer + Customer Unavailable - Dx;Can&apos;t Find Merchant or Merchant Closed - Dx;Unable to Dropoff - Dx;Order Not Ready - Dx;Order Not Here - Dx;Order Incorrect + Damaged - Dx;Item-Level Issue - Dx;Blocked From Pickup - Dx;Order Status Inquiries;Food Quality Issue;Delivery Too Late / Early;Wrong Order Received;Never Delivered;Missing or Incorrect Items;C&amp;R Compensation Denied;Refund/Credit Inquiry;Order Cart Adjustment;Missing/Incorrect Items Refund (Expensed);Missing/Incorrect Items Redelivery (Group);Missing/Incorrect Items Refund (Group);Missing Order (Expensed);Missing/Incorrect Items Redelivery (Expensed);Change Delivery Time/Day, already placed (Expensed);Missing Order (Group);Cancel Live Order (Group);Incorrect Delivery address (Expensed);Order Adjustment, already placed (Expensed);Cancel My Order;SaaS - Tampered Food;SaaS - Redelivery Request;Can&apos;t Find Customer + Customer Unavailable - Dx;Why was my Order Cancelled?;Item Issue - Incorrect Item/Description;Item Issue - Item Damaged;Feedback About Dasher Interaction;Seller Behavior Complaint;Item Damaged During Transit;Order Status Inquiry;Cancel Order Request;Order Status Inquiries;Item Unavailable;Change Order Details;Issue with Pickup;Order Was Never Delivered;Order Delivered late or early;Issue / Feedback about Dasher;Issue with Order;Cancel Order Request;Error Charge Dispute;Canceled Order Dispute;Redelivery Request;Non-Bulk Refund Request (DDD);Bulk Refund Manual - Never Delivered (DDD);Bulk Refund Manual - Missing &amp; Incorrect (DDD);Bulk Refund Manual - Cancelled Order (DDD);Bulk Refund Manual - Late/Early Deliver (DDD);Bulk Refund Automated (DDD);Split Order Request (DDD);</value>
+    </values>
+    <values>
+        <field>Time_in_seconds_to_store_in_Cache__c</field>
+        <value xsi:type="xsd:double">3600.0</value>
+    </values>
+</CustomMetadata>

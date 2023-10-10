@@ -1,0 +1,71 @@
+<template>
+    <div role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container">
+            <div class="slds-modal__header">
+                <h2 class="slds-text-heading_medium">New Version</h2>
+            </div>
+            <div class="slds-modal__content slds-var-p-around_medium">
+                <template if:true={_publishedVersion}>
+                    <div class="slds-form slds-border_bottom slds-var-m-bottom_small">
+                        <div class="slds-form-element slds-form-element_horizontal">
+                            <label class="slds-form-element__label">Current Published Version</label>
+                            <div class="slds-form-element__control">{currentPublishedVersion}</div>
+                        </div>
+                        <div class="slds-form-element slds-form-element_horizontal">
+                            <label class="slds-form-element__label" for="horizontal-id-02">Published On</label>
+                            <div class="slds-form-element__control">
+                                <lightning-formatted-date-time value={_publishedVersion.Published_Date__c}></lightning-formatted-date-time>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-var-m-bottom_small"></div>
+                </template>
+                <div class="slds-grid slds-wrap">
+                    <lightning-radio-group name="versionOptions"
+                        data-id="versionOptions"
+                        label="Version Options"
+                        class="slds-size_1-of-1"
+                        options={newVersionOptions}
+                        value={_newVersionOption}
+                        disabled={disableVersionOptions}
+                        onchange={handleChange}
+                        type="radio">
+                    </lightning-radio-group>
+                    <template if:true={_publishedVersion}>
+                        <lightning-radio-group name="contentOptions"
+                            data-id="contentOptions"
+                            label="Content Options"
+                            class="slds-size_1-of-1"
+                            options={newVersionCloneOptions}
+                            value={_newVersionCloneOption}
+                            onchange={handleChange}
+                            type="radio">
+                        </lightning-radio-group>
+                    </template>
+                    <lightning-textarea
+                        label="Description"
+                        value={_newVersionDescription}
+                        data-id="newVersionDescription"
+                        onchange={handleChange}
+                        class="slds-size_1-of-1">
+                    </lightning-textarea>
+                    <lightning-input
+                        label="Effective Date"
+                        value={_newVersionEffectiveDate}
+                        data-id="newVersionEffectiveDate"
+                        type="date"
+                        onchange={handleChange}
+                        class="slds-size_1-of-1">
+                    </lightning-input>
+                </div>
+            </div>
+            <div class="slds-modal__footer">
+                <lightning-button variant="neutral" label="Cancel" onclick={handleCancel}>
+                </lightning-button>
+                <lightning-button variant="brand" label="Save" class="slds-var-m-left_medium" onclick={handleSave}>
+                </lightning-button>
+            </div>
+        </div>
+    </div>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+</template>

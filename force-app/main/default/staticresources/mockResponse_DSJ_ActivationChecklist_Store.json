@@ -1,0 +1,33 @@
+{
+  "payment_account_id": 953709,
+  "phone_number": "(526) 667-5302",
+  "name": "Slices Pizza",
+  "business": {
+    "description": "",
+    "is_active": true,
+    "id": 50912,
+    "name": "Slices Pizza"
+  },
+  "should_show_store_logo": true,
+  "is_active": true,
+  "confirm_protocol": "NO_CONFIRMATION",
+  "special_instructions_max_length": 500,
+  "cover_img_url": "https://cdn.doordash.com/media/restaurant/cover/SlicesPizza_4111_Las_Vegas_NV.png",
+  "address": {
+    "city": "South San Francisco",
+    "subpremise": "",
+    "id": 31980555,
+    "printable_address": "0 Mulberry Ln South San Francisco CA 95689 USA",
+    "state": "CA",
+    "street": "0 Mulberry Ln",
+    "country": "United States",
+    "lat": 33.2561459,
+    "lng": -111.7635621,
+    "shortname": "0 Mulberry Ln",
+    "zip_code": "95689"
+  },
+  "order_protocol": "POINT_OF_SALE",
+  "id": 766918,
+  "is_partner": true,
+  "starting_point_id": 1234
+}

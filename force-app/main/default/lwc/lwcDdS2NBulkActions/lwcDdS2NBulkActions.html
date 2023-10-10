@@ -1,0 +1,11 @@
+<template>
+    <template if:true={actions}>
+        <lightning-layout vertical-align="center" horizontal-align="center">
+            <template for:each={actions.data} for:item="action">
+                <lightning-layout-item padding="around-small" key={action.key} size="3" onselectbulkaction={handleSelectBulkAction}>
+                    <c-lwc-dd-s-2-n-bulk-action-item key={action.key} action={action}></c-lwc-dd-s-2-n-bulk-action-item>
+                </lightning-layout-item>
+            </template>
+        </lightning-layout>
+    </template>
+</template>

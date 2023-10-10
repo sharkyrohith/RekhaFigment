@@ -1,0 +1,24 @@
+<aura:component controller="CDdLtngAccountFieldCopyActionCtrl" implements="force:lightningQuickActionWithoutHeader,force:hasRecordId" >
+
+    <!-- Constant attributes -->
+    <aura:attribute name="INFO_MSG_BATCH_JOB_SUBMITTED" type="String" access="PUBLIC" default="{!($Label.c.INFO_MSG_BATCH_JOB_SUBMITTED)}"/>
+
+    <aura:attribute name="info" type="String" access="PUBLIC" />
+    <aura:attribute name="error" type="String" access="PUBLIC" />
+
+    <!--handlers-->
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>      
+
+    <!--Include components -->
+    <c:LDdCallout aura:id="calloutCmp" />
+
+    <div class="row">
+        <aura:if isTrue="{!(!empty(v.info))}">
+            <lightning:icon iconName="action:approval" alternativeText="Approved" />&nbsp;&nbsp;{!v.info}
+        </aura:if>
+        <aura:if isTrue="{!(!empty(v.error))}">
+            <lightning:icon iconName="utility:error" alternativeText="Error!" variant="error"/>&nbsp;&nbsp;{!v.error}
+        </aura:if>      
+    </div>
+        
+</aura:component>

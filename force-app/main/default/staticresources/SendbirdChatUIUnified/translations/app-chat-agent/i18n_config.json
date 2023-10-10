@@ -1,0 +1,71 @@
+{
+  "supportedLocales": [
+    "en",
+    "fr-CA",
+    "es",
+    "ja",
+    "de",
+    "en-CA",
+    "en-AU",
+    "en-NZ"
+  ],
+  "translationFiles": {
+    "de": "de.json",
+    "en-NZ": "en-NZ.json",
+    "en-CA": "en-CA.json",
+    "ja": "ja.json",
+    "en": "en.json",
+    "en-AU": "en-AU.json",
+    "fr-CA": "fr-CA.json",
+    "es": "es.json"
+  },
+  "localeFallbacks": {
+    "de": ["en"],
+    "de-DE": ["de", "en"],
+    "en-CA": ["en"],
+    "en-US": ["en"],
+    "zh-HK": ["en"],
+    "zh-TW": ["en"],
+    "es-PR": ["es", "en"],
+    "zh-MO": ["en"],
+    "fr": ["en"],
+    "zh-CN": ["zh", "en"],
+    "fr-CA": ["en"],
+    "es": ["en"],
+    "zh": ["en"],
+    "en-NZ": ["en"],
+    "ja": ["en"],
+    "en-AU": ["en"],
+    "es-US": ["es", "en"],
+    "ja-JP": ["ja", "en"]
+  },
+  "localeInfo": {
+    "de": {
+      "name": "Deutsch"
+    },
+    "en-NZ": {
+      "name": "English (New Zealand)"
+    },
+    "en-CA": {
+      "name": "English (Canada)"
+    },
+    "ja": {
+      "name": "日本語"
+    },
+    "en": {
+      "name": "English (United States)"
+    },
+    "en-AU": {
+      "name": "English (Australia)"
+    },
+    "es": {
+      "name": "Español"
+    },
+    "fr-CA": {
+      "name": "Français (Canada)"
+    },
+    "zh": {
+      "name": "简体中文"
+    }
+  }
+}

@@ -1,0 +1,33 @@
+<aura:component implements="forceCommunity:layout" description="DD Article Page - Default" access="global">
+    <aura:attribute name="header" type="Aura.Component[]" required="false"></aura:attribute>
+    <aura:attribute name="content" type="Aura.Component[]" required="false"></aura:attribute>
+    <aura:attribute name="sidebar" type="Aura.Component[]" required="false"></aura:attribute>
+    <aura:attribute name="footer" type="Aura.Component[]" required="false"></aura:attribute>
+    
+    <div class="dd_container_article_default siteforceContentArea ">
+        
+        <div class="slds-col--padded comm-content-header comm-layout-column dd_home_header">{!v.header}</div>
+        
+        <div class="slds-grid slds-wrap slds-large-nowrap dd_home_content">
+            
+            <div class="slds-col--padded has-widgets slds-medium-size--8-of-12 slds-large-size--8-of-12 comm-layout-column">{!v.content}</div>
+            
+            <div class="slds-col slds-medium-size--4-of-12 slds-large-size--4-of-12">
+                <div class="slds-grid--vertical">
+                    <div class="slds-col--padded comm-layout-column">
+                        {!v.sidebar}
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+        <div class="slds-col--padded comm-content-footer comm-layout-column qcp_home_footer">
+            
+            <div class="slds-col--padded has-widgets slds-medium-size--12-of-12 slds-large-size--12-of-12 comm-layout-column">{!v.footer}</div>
+            
+        </div>
+        
+    </div>
+    
+</aura:component>

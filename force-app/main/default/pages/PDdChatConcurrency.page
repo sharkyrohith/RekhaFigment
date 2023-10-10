@@ -1,0 +1,15 @@
+<apex:page >
+    <apex:includeLightning />
+    <div id="container" />
+    <script>
+        $Lightning.use("c:LDdChatConcurrencyApp", function() {
+            $Lightning.createComponent("c:lwcDdChatConcurrency",
+                {},
+                "container",
+                function(cmp) {
+                    console.log('component created');
+                }
+            );
+        });
+    </script>
+</apex:page>

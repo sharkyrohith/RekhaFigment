@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Default</label>
+    <protected>false</protected>
+    <values>
+        <field>Auto_Create_Case_Customer_Type__c</field>
+        <value xsi:type="xsd:string">Merchant;Consumer;Dasher</value>
+    </values>
+    <values>
+        <field>Auto_Create_Case_Email_Address__c</field>
+        <value xsi:type="xsd:string">canada-partners@doordash.com;cash@doordash.com;restaurantaccounts@trycaviar.com;ddfb-support@doordash.com;dasher-drive-support@doordash.com;garnishments@doordash.com;mxpsupport@doordash.com;drive-pilot-support@doordash.com;walmart@doordash.com;drive-api-support@doordash.com;drive-support@doordash.com;drive-integrations@doordash.com;drive_pizza@doordash.com;mxliensandholds@doordash.com;merchant-drive-support@doordash.com;nationalsupport@doordash.com;posprovidersupport@doordash.com;platformescalations@doordash.com;doordash@denaliai.com;customer-support@doordash.com;dasher-support@doordash.com;opt-out@doordash.com;privacy@doordash.com;support@doordash.com</value>
+    </values>
+    <values>
+        <field>Auto_Create_Case_Record_Type__c</field>
+        <value xsi:type="xsd:string">0121a0000006QogAAE;0122L000000AYiUQAW</value>
+    </values>
+    <values>
+        <field>Close_Date_Range__c</field>
+        <value xsi:type="xsd:double">30.0</value>
+    </values>
+    <values>
+        <field>Parent_Case_Fields__c</field>
+        <value xsi:type="xsd:string">Issue__c;Issue_Type__c;Customer_Type__c;Subject;RecordtypeId;DeliveryUUID__c;To_Email_Address__c;AccountId</value>
+    </values>
+</CustomMetadata>

@@ -1,0 +1,17 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:lightningQuickAction" access="global" controller="CDdCreatePersonAccountController" >
+	<aura:attribute name="recordId" type="String" default="5002h000000btIYAAY"/>
+    <aura:attribute name="showError" type="Boolean" required="true" description="" default="false" />
+    <aura:attribute name="errorMessage" type="String" required="false" description="" access="private"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler event="aura:doneWaiting" action="{!c.spinnerOff}" />
+    <aura:handler event="aura:waiting" action="{!c.spinnerOn}" />
+    <lightning:spinner aura:id="pageSpinner" alternativeText="Loading..." variant="brand" size="large"/>
+    <aura:if isTrue="{!v.showError}">
+        <div id="error">
+        	<p class="error">{!v.errorMessage}</p>
+        </div>
+        
+    </aura:if>
+    <lightning:button label="Go Back" title="Go Back" onclick="{! c.cancel }"/>
+
+</aura:component>

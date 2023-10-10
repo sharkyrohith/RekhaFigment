@@ -1,0 +1,40 @@
+.pagination-row {
+    display: flex;
+    justify-content: flex-end; /* Position the content to the right */
+    align-items: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.pagination-controls {
+    display: flex;
+    align-items: center;
+    flex-grow: 1; /* Allow the pagination controls to grow and take up remaining space */
+}
+
+.pagination-indicator {
+    margin: 0 1rem;
+    font-size: 0.875rem;
+    color: #999;
+}
+
+.pagination-controls lightning-button-icon {
+    padding: 0.25rem;
+    cursor: pointer;
+}
+
+.pagination-size {
+    margin-left: auto; /* Align the page size dropdown to the right */
+}
+
+.pagination-search {
+    flex-grow: 0.2;
+    text-align: right;
+    margin-right: 1rem;
+}
+
+.spinner-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}

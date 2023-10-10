@@ -1,0 +1,16 @@
+{
+  "id": "ba_1CUOHGJCKaerxYObpFE81SWY",
+  "object": "bank_account",
+  "account": "acct_1CSw7eJCKaerxYOb",
+  "account_holder_name": "JN Test",
+  "account_holder_type": "company",
+  "bank_name": "JPMORGAN CHASE",
+  "country": "US",
+  "currency": "usd",
+  "default_for_currency": true,
+  "fingerprint": "IBGKXAF4wLJufb6P",
+  "last4": "6789",
+  "metadata": {},
+  "routing_number": "021000021",
+  "status": "new"
+}

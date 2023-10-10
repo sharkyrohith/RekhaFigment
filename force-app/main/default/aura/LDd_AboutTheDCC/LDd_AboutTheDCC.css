@@ -1,0 +1,42 @@
+.THIS {
+    margin-left: -4vh;
+    margin-right: -4vh;
+    margin-top: -25px;
+    text-align: center;
+    font-size: 16px;
+    position: relative;
+}
+
+.THIS .smallFrame {
+    padding: 0 50px;
+    font-size: 21px;
+}
+
+.THIS .aboutTheDCC {
+    padding: 105px 0 125px 0;
+}
+
+.THIS .aboutTheDCC h4,
+.THIS .aboutTheDCC h2 {
+    color: #fff;
+}
+
+.THIS a {
+    color: #fff;
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+.THIS:after {
+    background: var(--darkGrayBackground);
+    content: "";
+    display: block;
+    height: 3vh;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: auto;
+    bottom: -2.9vh;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 5%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 5%);
+}

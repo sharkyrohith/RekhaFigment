@@ -1,0 +1,28 @@
+<apex:page controller="CDdQueueMonitorController" showHeader="false" sidebar="false">
+    <apex:includeScript value="/support/console/50.0/integration.js"/>
+    <apex:includeLightning /> 
+    <div id="content" />
+
+    <script>
+        $Lightning.use("c:LDdQueueMonitorApp", function(){
+            $Lightning.createComponent("c:LDdQueueMonitorCmp",
+                {},
+                "content",
+                function(cmp) {
+                    $A.eventService.addHandler({
+                        event: "c:LDdQueueMonitorEvt",
+                        handler: function(event){
+                            sforce.console.chat.getEngagedChats(function(chatResult) {
+                                if(chatResult.success) {
+                                    sforce.console.presence.logout(function() {
+                                        sforce.console.presence.login("{!$Label.Omni_Available_Status}");
+                                    });
+                                }
+                            });
+                        }
+                    });
+                }
+            );
+        });
+    </script>
+</apex:page>

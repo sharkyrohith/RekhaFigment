@@ -1,0 +1,46 @@
+<template>
+    <template if:true={isLoading}>
+        <lightning-spinner alternative-text="Loading" size="large"></lightning-spinner>
+    </template>
+
+    <template if:false={isLoading}>
+        <template if:true={showBanner}>
+            <template if:true={showCurrentVersion}>
+                <div class="slds-notify slds-notify_alert slds-alert_warning" role="alert">
+                    <lightning-icon icon-name="utility:warning" alternative-text="Warning!" title="Warning" size="x-sm  all" class="slds-p-right_x-small"></lightning-icon>
+                    <h2>These terms or this policy will be effective on {currentPolicyEffectiveDate}. You can view the existing terms or policy <a class="bannerLink" onclick={toggleVersion}>here</a></h2>
+                </div><br/><br/>
+            </template>
+        </template>
+        <template if:true={showCurrentVersion}>
+            <template if:true={showContent}>
+                <template for:each={content} for:item="item">
+                    <span key={item}>
+                        <lightning-formatted-rich-text
+                            value={item}>
+                        </lightning-formatted-rich-text>
+                    </span>
+                </template>
+            </template>
+        </template>
+        <template if:true={showBanner}>
+            <template if:false={showCurrentVersion}>
+                <div class="slds-notify slds-notify_alert slds-alert_warning" role="alert">
+                    <lightning-icon icon-name="utility:warning" alternative-text="Warning!" title="Warning" size="x-sm  all" class="slds-p-right_x-small"></lightning-icon>
+                    <h2>These terms or this policy expire on {currentPolicyEffectiveDate}. You may view the terms or policy that are effective on {currentPolicyEffectiveDate} <a class="bannerLink" onclick={toggleVersion}>here</a></h2>
+                </div><br/><br/>
+            </template>
+        </template>
+        <template if:false={showCurrentVersion}>
+            <template if:true={showPreviousContent}>
+                <template for:each={previousContent} for:item="item">
+                    <span key={item}>
+                        <lightning-formatted-rich-text
+                            value={item}>
+                        </lightning-formatted-rich-text>
+                    </span>
+                </template>
+            </template>
+        </template>
+    </template>
+</template>

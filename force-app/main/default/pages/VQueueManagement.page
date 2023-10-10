@@ -1,0 +1,279 @@
+<apex:page controller="VQueueManagementController" showHeader="true" sidebar="true">
+    <apex:stylesheet value="{!URLFOR($Resource.vKendo, 'styles/kendo.common-material.min.css')}" />
+    <apex:stylesheet value="{!URLFOR($Resource.vKendo, 'styles/kendo.material.min.css')}" />
+
+    <apex:includeScript value="{!URLFOR($Resource.vKendo, 'js/jquery.min.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.vKendo, 'js/kendo.all.min.js')}" />
+    
+    <apex:sectionHeader title="Queue Management" />
+    <c:VMessageDisplayComponent />
+    <apex:pageBlock > 
+        Queue Manager V2 is available <a target="_blank" href="/apex/PDdQueueManager">here</a>
+    </apex:pageBlock>
+    <div class="roles">
+        <apex:pageBlock > 
+            <apex:pageBlockButtons >
+                <input type="button" class="search btn" value="Search" />
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection title="Select Roles" columns="2">
+                <label for="select-roles">Roles</label>
+                <select id="select-roles" />
+            </apex:pageBlockSection>
+
+        </apex:pageBlock>
+    </div>
+    <div class="queues">
+        <apex:pageBlock title="Queue Management" mode="edit">
+            <apex:pageBlockButtons >
+                <input type="button" class="save btn" value="Save" />
+            </apex:pageBlockButtons>
+
+            <apex:pageBlockSection title="Select Users" columns="1">
+                <apex:pageBlockSectionItem >
+                    <div id="user-grid"></div>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+
+            <apex:pageBlockSection title="Select Queues" columns="2">
+                <label for="select-queues">Queues</label>
+                <select id="select-queues" />
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </div>
+
+    <script type="text/javascript">
+        var QueueManagementPage = {
+            init: function() {
+                var self = this;
+                self.initMultiselect();
+                self.initMultiselectQueues();
+                self.initSearchButton();
+                $('.queues').hide();
+
+            },
+            initSecondGrid: function(roles) {
+                var self = this;
+
+                self.initGrid(roles);
+                //self.initMultiselectQueues();
+                self.initSaveButton();
+                $('.queues').show();
+            },
+            showError: function(msg) {
+                vMessageDisplayComponent.showError(msg);
+            },
+            showSuccess: function(msg) {
+                vMessageDisplayComponent.showSuccess(msg);
+            },
+            clearNotifications: function(msg) {
+                vMessageDisplayComponent.clearAll();
+            },
+            showProgress: function() {
+                $(".save").prop('disabled', true).removeClass('btn').addClass('btnDisabled');
+                $("#select-queues").data("kendoMultiSelect").enable(false);
+                kendo.ui.progress($("#user-grid").data("kendoGrid").element, true);
+            },
+            hideProgress: function() {
+                $(".save").prop('disabled', false).removeClass('btnDisabled').addClass('btn');
+                $("#select-queues").data("kendoMultiSelect").enable(true);
+                kendo.ui.progress($("#user-grid").data("kendoGrid").element, false);
+            },
+            initGrid: function(roles) {
+                var self = this;
+
+                $("#user-grid").kendoGrid({
+                    dataSource: {
+                        sort: {
+                            field: "userName", dir: "asc"
+                        },
+                        group: {
+                            field: "roleName"
+                        },
+                        transport: {
+                            read: function(options) { self.userGridRead(self, options, roles); }
+                        },
+                        schema: {
+                            model: {
+                                fields: {
+                                    isChecked: { type: "boolean" },
+                                    userId:   { type: "string" },
+                                    userName: { type: "string" },
+                                    queueNames: { type: "string" },
+                                    roleName: { type: "string" }
+                                }
+                            }
+                        }
+                    },
+                    columns: [
+                        { field: "isChecked", title: " ", width: 50, template: "<input id='#=userId#' onchange='QueueManagementPage.checkboxChanged(\"#=userId#\")' type='checkbox' # if(isChecked) { # checked # } #>", groupable: false},
+                        { field: "userName", title: "Email", width: 250 },
+                        { field: "roleName", title: "Role", width: 250 },
+                        { field: "queueNames", title: "Current Queues" }
+                    ],
+                    resizable: true,
+                    sortable: true,
+                    scrollable: true,
+                    groupable: true,
+                    height: 475
+                });
+
+                console.log('end init');
+            },
+            userGridRead: function(self, options, roles) {
+                Visualforce.remoting.Manager.invokeAction(
+                    '{!$RemoteAction.VQueueManagementController.getUsers}',
+                    roles,
+                    function(result, event) {
+                        if(event.status) {
+                            options.success(result);
+                        } else {
+                            self.showError(event.message);
+                        }
+                    }, { escape: false }
+                );
+            },
+            checkboxChanged: function(id) {
+                var checkInput = $("#" + id);
+                var row = checkInput.closest("tr");
+                var grid = $("#user-grid").data("kendoGrid");
+                var dataItem = grid.dataItem(row);
+
+                dataItem.set('isChecked', checkInput.is(':checked'));
+            },
+            initMultiselect: function() {
+                var self = this;
+
+                $("#select-roles").kendoMultiSelect({
+                    placeholder: "Select Roles...",
+                    dataTextField: "Name",
+                    dataValueField: "Id",
+                    dataSource: {
+                        transport: {
+                            read: function(options) { self.rolesRead(self, options); }
+                        }
+                    }
+                })
+            },
+            initMultiselectQueues: function() {
+                var self = this;
+
+                $("#select-queues").kendoMultiSelect({
+                    placeholder: "Select Queues...",
+                    dataTextField: "MasterLabel",
+                    dataValueField: "QueueId__c",
+                    dataSource: {
+                        transport: {
+                            read: function(options) { self.queueRead(self, options); }
+                        }
+                    }
+                })
+            },
+            queueRead: function(self, options) {
+                Visualforce.remoting.Manager.invokeAction(
+                    "{!$RemoteAction.VQueueManagementController.getQueues}",
+                    function(result, event) {
+                        if(event.status) {
+                            console.log(result);
+                            options.success(result);
+                        } else {
+                            self.showError(event.message);
+                        }
+                    }
+                );
+            },
+            rolesRead: function(self, options) {
+                Visualforce.remoting.Manager.invokeAction(
+                    "{!$RemoteAction.VQueueManagementController.getUserRoles}",
+                    function(result, event) {
+                        if(event.status) {
+                            console.log(result);
+                            options.success(result);
+                        } else {
+                            self.showError(event.message);
+                        }
+                    }
+                );
+            },
+            initButtons: function() {
+                var self = this;
+                self.initSaveButton();
+                self.initSearchButton();
+            },
+            initSaveButton: function() {
+                var self = this;
+
+                $(".save").each(function() {
+                    $(this).click(function() {
+                        self.clearNotifications();
+
+                        var queues = $("#select-queues").data("kendoMultiSelect").value();
+                        var grid = $("#user-grid").data("kendoGrid");
+
+                        var selection = [];
+
+                        grid.dataSource.data().forEach(function(item) {
+                            if(item.isChecked) {
+                                selection.push(item.userId);
+                            }
+                        });
+
+                        if(selection.length == 0) {
+                            self.showError('{!JSENCODE($Label.vQMNoUsersSelected)}');
+                            return;
+                        }
+
+                        if(queues.length == 0) {
+                            if(!confirm('{!JSENCODE($Label.vQMConfirmDeleteQueues)}')) {
+                                return;
+                            }
+                        }
+
+                        self.showProgress();
+
+                        Visualforce.remoting.Manager.invokeAction(
+                            "{!$RemoteAction.VQueueManagementController.updateQueues}",
+                            selection,
+                            queues,
+                            function(result, event) {
+                                if(event.status) {
+                                    self.showSuccess('Success');
+
+                                    setTimeout(function() { self.clearNotifications(); },
+                                        3000);
+                                } else {
+                                    self.showError(event.message);
+                                }
+
+                                self.hideProgress();
+                                grid.dataSource.read();
+                            }
+                        );
+                    });
+                });
+            },
+            initSearchButton: function() {
+                var self = this;
+
+                $(".search").each(function() {
+                    $(this).click(function() {
+                        self.clearNotifications();
+
+                        var roles = $("#select-roles").data("kendoMultiSelect").value();
+                        
+
+                        if(roles.length == 0) {
+                            self.showError('No roles selected');
+                            return;
+                        }
+
+                        self.initSecondGrid(roles);
+                    });
+                });
+            }
+        }
+
+        $(document).ready(function() {
+            QueueManagementPage.init();
+        });
+    </script>
+</apex:page>

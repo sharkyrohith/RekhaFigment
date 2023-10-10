@@ -1,0 +1,22 @@
+.button-pause-resume{
+    background-color: rgb(228, 209, 46);
+    color: black;
+    padding-left: var(--lwc-spacingMedium,1rem);
+    padding-right: var(--lwc-spacingMedium,1rem);
+}
+
+
+.wtt-button-group {
+    display: flex;
+    margin-top: 12px;
+}
+
+.wtt-button-group button {
+    margin-right: 5px;
+    padding: 12px 12px;
+    line-height: 15px;
+}
+
+.wtt-button-group button:last-child {
+    margin-right: 0px;
+}

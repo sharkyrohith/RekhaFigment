@@ -1,0 +1,35 @@
+<aura:component implements="force:appHostable,force:hasRecordId,c:LDdNimdaSyncConstants" access="global">
+    <aura:attribute name="key" type="String" access="PUBLIC" />
+    <aura:attribute name="mode" type="String" access="PUBLIC" />
+    <aura:attribute name="iconName" type="String" access="PUBLIC" />
+    <aura:attribute name="label" type="String" access="PUBLIC" />
+    <aura:attribute name="alternativeText" type="String" access="PUBLIC" />
+    <aura:attribute name="title" type="String" access="PUBLIC" />
+    <aura:attribute name="value" type="String" access="PUBLIC" />
+    <aura:attribute name="version" type="String" access="PUBLIC" />
+    <aura:attribute name="disabled" type="Boolean" access="PUBLIC" />
+    <aura:attribute name="helpText" type="String" access="PUBLIC" />
+    <!-- register event-->
+    <aura:registerEvent name="LDdNimdaSyncEvent" type="c:LDdNimdaSyncEvent"/>
+    <lightning:layoutItem padding="around-small" size="3">
+        <div class="slds-media slds-media_responsive">
+            <div class="slds-media__figure">
+                <lightning:icon class="slds-icon slds-icon--large"
+                    iconName="{!v.iconName}" size="large" alternativeText="{!v.alternativeText}"/>                      
+            </div>
+            <div class="slds-media__body">
+                <h3 class="slds-tile__title slds-text-heading_medium nimda-button" title="{!v.title}">
+                    <aura:if isTrue="{!v.disabled}">
+                        {!v.label}
+                        <aura:set attribute="else">
+                            <a href="javascript:void(0);" data-value="{!v.value}" data-version="{!v.version}" onclick="{!c.handleSelection}">{!v.label}</a>                                        
+                        </aura:set>
+                    </aura:if>
+                </h3>
+                <div class="slds-m-top_xx-small slds-text-title">
+                    <p>{!v.helpText}</p>
+                </div>
+            </div>
+        </div>
+    </lightning:layoutItem> 
+</aura:component>

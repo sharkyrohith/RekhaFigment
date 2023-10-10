@@ -1,0 +1,86 @@
+<aura:component access="global" implements="forceCommunity:availableForAllPageTypes">
+    <aura:attribute name="image1URL" type="String" />
+    <aura:attribute name="content1Title" type="String" />
+    <aura:attribute name="content1Body" type="String" />
+    <aura:attribute name="showItem1" type="Boolean" default="true" />
+
+    <aura:attribute name="image2URL" type="String" />
+    <aura:attribute name="content2Title" type="String" />
+    <aura:attribute name="content2Body" type="String" />
+    <aura:attribute name="showItem2" type="Boolean" default="true" />
+
+    <aura:attribute name="image3URL" type="String" />
+    <aura:attribute name="content3Title" type="String" />
+    <aura:attribute name="content3Body" type="String" />
+    <aura:attribute name="showItem3" type="Boolean" default="true" />
+
+    <aura:attribute name="image4URL" type="String" />
+    <aura:attribute name="content4Title" type="String" />
+    <aura:attribute name="content4Body" type="String" />
+    <aura:attribute name="showItem4" type="Boolean" default="true" />
+
+
+    <div>
+
+        <!-- ROW 1 -->
+        <div class="slds-grid slds-gutters">
+            <aura:if isTrue="{!v.showItem1}">
+                <div class="slds-col slds-large-size_8-of-12 slds-medium-size_8-of-12 slds-size_1-of-1 content">
+                    <div class="content-overlay"></div>
+                    <img class="content-image" src="{!v.image1URL}" />
+                    <div class="content-title">
+                        <h3>{!v.content1Title}</h3>
+                    </div>
+                    <div class="content-details fadeIn-bottom">
+                        <p>{!v.content1Body}</p>
+                    </div>
+                </div>
+            </aura:if>
+
+            <aura:if isTrue="{!v.showItem2}">
+                <div class="slds-col slds-large-size_4-of-12 slds-medium-size_4-of-12 slds-size_1-of-1 content">
+                    <div class="content-overlay"></div>
+                    <img class="content-image" src="{!v.image2URL}" />
+                    <div class="content-title">
+                        <h3>{!v.content2Title}</h3>
+                    </div>
+                    <div class="content-details fadeIn-bottom">
+                        <p>{!v.content2Body}</p>
+                    </div>
+                </div>
+            </aura:if>
+        </div>
+
+
+        <!-- ROW 2 -->
+        <div class="slds-grid slds-gutters">
+            <aura:if isTrue="{!v.showItem3}">
+                <div class="slds-col slds-large-size_4-of-12 slds-medium-size_4-of-12 slds-size_1-of-1 content">
+                    <div class="content-overlay"></div>
+                    <img class="content-image" src="{!v.image3URL}" />
+                    <div class="content-title">
+                        <h3>{!v.content3Title}</h3>
+                    </div>
+                    <div class="content-details fadeIn-bottom">
+                        <p>{!v.content3Body}</p>
+                    </div>
+                </div>
+            </aura:if>
+
+            <aura:if isTrue="{!v.showItem4}">
+                <div class="slds-col slds-large-size_8-of-12 slds-medium-size_8-of-12 slds-size_1-of-1 content">
+                    <div class="content-overlay"></div>
+                    <img class="content-image" src="{!v.image4URL}" />
+                    <div class="content-title">
+                        <h3>{!v.content4Title}</h3>
+                    </div>
+                    <div class="content-details fadeIn-bottom">
+                        <p>{!v.content4Body}</p>
+                    </div>
+                </div>
+            </aura:if>
+
+        </div>
+
+    </div>
+</aura:component>

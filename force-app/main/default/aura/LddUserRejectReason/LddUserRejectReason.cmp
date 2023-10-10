@@ -1,0 +1,40 @@
+<aura:component controller="cDdRejectedUsersReasonController">
+	<aura:attribute name="userReview" type="User_Review__c"/>
+    <aura:attribute name="options" type="List" default=",Wrong Profile,Not My Report,User Terminated, Other" access="PRIVATE"/>
+    <aura:attribute name="ApprovalStatusOptions" type="List" default="Pending,Approved,Rejected" access="PRIVATE"/>
+    <aura:attribute name="selectedReason" type="String" access="PRIVATE"/>
+    
+    <lightning:layout>
+            		
+                    <lightning:layoutItem padding="around-small" size="4">
+                        <lightning:tile label="{!v.userReview.Name}" href="/bruce.html">
+                            <aura:set attribute="media">
+                                <lightning:avatar src="/docs/component-library/app/images/examples/avatar1.jpg" fallbackIconName="standard:person_account"/>
+                            </aura:set>
+                            <ul class="slds-list_horizontal slds-has-dividers_right">
+                                <!--<li class="slds-item">{!v.userReview.User_Reviewed__r.Profile.Name}</li>-->
+                                
+                            </ul>
+                        </lightning:tile>
+                    </lightning:layoutItem>
+                    
+        			<lightning:layoutItem padding="horizontal-large" size="4">
+                    	
+                        <lightning:select required="true" onchange="{!c.onStatusChange}" name="{!v.userReview.Id}" label="Approval Status" value="{!v.userReview.Approval_Status__c}">
+                            <aura:iteration items="{!v.ApprovalStatusOptions}" var="statusOption">
+                                <option text="{!statusOption}"/>
+                            </aura:iteration>
+                        </lightning:select>
+                    </lightning:layoutItem>
+        
+                    <lightning:layoutItem padding="horizontal-large" size="4">
+                    	
+                        <lightning:select aura:id="selectTag" required="false" onchange="{!c.onReasonChange}" name="{!v.userReview.Id}" label="Select Rejected Reason" value="{!v.userReview.Rejected_Reason__c}">
+                            <aura:iteration items="{!v.options}" var="option">
+                                <option text="{!option}"/>
+                            </aura:iteration>
+                        </lightning:select>
+                    </lightning:layoutItem>
+                    
+                </lightning:layout>
+</aura:component>

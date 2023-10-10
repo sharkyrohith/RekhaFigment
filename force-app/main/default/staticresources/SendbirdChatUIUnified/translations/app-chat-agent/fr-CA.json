@@ -1,0 +1,14 @@
+{
+  "agent_ui_end_chat_dismiss": "Ignorez",
+  "agent_ui_end_chat_subtitle": "Une erreur s'est produite lors de la tentative de fermeture de la séance de clavardage.",
+  "agent_ui_end_chat_title": "Impossible de mettre fin au clavardage",
+  "agent_ui_transer_chat_confirmation_message": "Transfert du clavardage vers la file d'attente {{queueName}}.",
+  "agent_ui_transer_chat_confirmation_close_message": "Cet onglet de cas se fermera automatiquement.",
+  "agent_ui_transfer_chat_modal_subtitle": "Vous êtes sur le point de transférer ce clavardage vers",
+  "agent_ui_transfer_chat_modal_title": "Transférez le clavardage",
+  "agent_ui_transfer_chat_modal_primary_text": "Transfert",
+  "agent_ui_transfer_chat_error_text": "Annulez cette demande et réessayez après avoir corrigé les erreurs",
+  "agent_ui_transfer_chat_modal_secondary_text": "annuler",
+  "agent_ui_transfer_chat_modal_failure_message": "Le transfert a échoué. Merci de réessayer.",
+  "agent_ui_cannot_connect_msg": "Cette séance de clavardage n'est plus active. Veuillez vérifier la transcription pour voir la conversation précédente."
+}

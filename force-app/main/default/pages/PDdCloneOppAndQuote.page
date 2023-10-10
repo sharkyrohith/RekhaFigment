@@ -1,0 +1,31 @@
+<apex:page standardController="Opportunity">
+    <apex:includeLightning />
+    <div id="lightningComponent"/>
+    
+    <script>  
+      let oppId = '{!Opportunity.id}';
+      let oppName = '{!JSENCODE(Opportunity.Name)}';   
+      let accountName = '{!JSENCODE(Opportunity.Account.Name)}';
+      let parentAccountId = '{!Opportunity.Account.ParentId}';
+      let quoteName = '{!JSENCODE(Opportunity.SBQQ__PrimaryQuote__r.Name)}'; 
+      let quoteId = '{!Opportunity.SBQQ__PrimaryQuote__r.Id}'; 
+      let currentStore = '{!Opportunity.Account.Restaurant_ID__c}';     
+      let bulkActivation = '{!Opportunity.Bulk_Activation__c}';
+
+      $Lightning.use("c:LCDdCloneOppandQuote", function() {
+        $Lightning.createComponent("c:lwcDdCloneOppAndQuotes",  
+        {
+          oppId: oppId,
+          oppName: oppName,
+          accountName: accountName,
+          currentStore: currentStore,
+          quoteName: quoteName,
+          quoteId: quoteId,
+          parentAccountId: parentAccountId,
+          bulkActivation: bulkActivation,
+        },
+        "lightningComponent"
+        )
+      });
+    </script>
+</apex:page>

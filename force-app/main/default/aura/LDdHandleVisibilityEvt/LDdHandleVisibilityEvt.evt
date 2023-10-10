@@ -1,0 +1,4 @@
+<aura:event type="APPLICATION" description="Event to handle visibility of components on flexipage">
+    <aura:attribute name="region" type="String"/>
+    <aura:attribute name="visibility" type="String"/>
+</aura:event>

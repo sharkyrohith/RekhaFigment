@@ -1,0 +1,31 @@
+crmc.require(["KendoPopup", "sfdc"], function(popup,sfdc){
+  crmc.addCustomAction({
+     "itemId":"AG_Send_For_Negotiation",
+     //"isBatchAddItem":true,
+     "isAvailable": function(context){
+         var isEnabled = this.featureSecurity.getSetting(context.objectDescribe.name, this.itemID) !== false;
+           var isAccessible = context.objectDescribe.name == "APXT_Redlining__Contract_Agreement__c";
+           var oneSelected = context.selectedRows && context.selectedRows.length > 0 && context.selectedRows.length < 2;
+           return isAccessible && isEnabled && oneSelected;
+     },
+     "getLabel": function(context){
+          return kendo.format("Send for Negotiation");
+     },
+     "click": function(context){
+      var ids = [];
+      context.selectedRows.map(function(row){
+       ids.push(row.Id);
+      });
+      var data = sfdc.query("SELECT Id, Name FROM "+context.objectDescribe.name+" WHERE Id IN('" + ids.join("','") + "')");
+      for(i = 0; i < data.length; i++){
+          var row = data[i];
+          if(data.length > 0){
+              window.open("/apex/APXT_Redlining__apxt_sendForNegotiation?scontrolCaching=1&altId=" + row.Id +"&emailTo="+ context.selectedRows[0].Vendor_Contact__c);
+          }
+          else{
+              popup.popup('Please select records','Please select a record to send to');
+          }
+      }
+     }
+  });
+});

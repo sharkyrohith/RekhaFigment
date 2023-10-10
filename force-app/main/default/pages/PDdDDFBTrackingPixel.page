@@ -1,0 +1,24 @@
+<apex:page >
+    <style>
+       html .brandQuaternaryBgr {
+       background: none !important;
+    }    
+    </style>
+    <script type="text/javascript" src="https://services.xg4ken.com/js/kenshoo.js?cid=d60341d8-80a5-4dc7-b88a-061b46d9b475" ></script>
+    <script type="text/javascript">
+    kenshoo.trackConversion('7158','d60341d8-80a5-4dc7-b88a-061b46d9b475',{
+       /*OPTIONAL PARAMETERS. FILL VALUES OR REMOVE UNNEEDED PARAMETERS*/
+       conversionType: 'formstacksubmit', /*specific conversion type. example: type:'AppInstall' default is 'conv'*/
+       revenue: 0.0, /*numeric conversion value. example convValue: 12.34*/
+       currency:'USD', /*example currency:'USD'*/
+       orderId:'',/*example orderId: 'abc'*/
+       promoCode:'',
+       customParam1:'', /*any custom parameter. example: Airport: 'JFK'*/
+       customParam2:'', /*any cu'stom parameter. example: Rooms: '3'*/
+       customParamN:'' })
+    </script>
+    
+    <noscript>
+       <img src="https://7158.xg4ken.com/pixel/v1?track=1&token=d60341d8-80a5-4dc7-b88a-061b46d9b475&conversionType=formstacksubmit&revenue=0.0&currency=USD&orderId=&promoCode=&customParam1=&customParam2=" width="1" height="1" />
+    </noscript>
+</apex:page>

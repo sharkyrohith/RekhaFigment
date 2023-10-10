@@ -1,0 +1,27 @@
+<template>
+    <div style="display:none">
+        <h2> leadStatus={leadStatus}</h2>
+        <h2> leadSubStatus= {leadSubStatus}</h2>
+    </div>
+    <template if:true={isShowErrorMessage}>
+        <c-dd-modal data-id="modal"
+            title=""
+            size="medium"
+            type="info"
+            modal-content-overflow>
+            <div slot="content" style="display: unset;">
+                <div class="slds-p-around_x-small">
+                    <!-- <lightning-icon icon-name="utility:warning" alternative-text="Warning!" title="Warning" class="warning-icn"></lightning-icon>  -->
+                        <!--Added custom svg for warning because standard slds icon is showing in black color -->
+                        <svg class="slds-icon slds-icon-text-warning slds-icon_large" focusable="false" 
+                            data-key="warning" aria-hidden="true" viewBox="0 0 52 52">
+                            <g>
+                                <path d="M51.4 42.5l-22.9-37c-1.2-2-3.8-2-5 0L.6 42.5C-.8 44.8.6 48 3.1 48h45.8c2.5 0 4-3.2 2.5-5.5zM26 40c-1.7 0-3-1.3-3-3s1.3-3 3-3 3 1.3 3 3-1.3 3-3 3zm3-9c0 .6-.4 1-1 1h-4c-.6 0-1-.4-1-1V18c0-.6.4-1 1-1h4c.6 0 1 .4 1 1v13z"></path>
+                            </g>
+                        </svg>
+                    <span class="slds-m-left_large">Please transfer lead to New Verticals team using Transfer lead button.</span>
+                </div>
+            </div>
+        </c-dd-modal>
+    </template> 
+</template>

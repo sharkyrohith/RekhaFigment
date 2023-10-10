@@ -1,0 +1,38 @@
+<aura:component >
+    <!-- public attributes -->
+    <aura:attribute name="message" type="String" access="PUBLIC" />    
+    <!-- private attributes -->
+    <aura:attribute name="progress" type="Integer" default="0" access="PRIVATE"/>
+    <aura:attribute name="increment" type="Integer" default="{!$Label.c.Nimda_Info_Dialog_Progress_Increment}" access="PRIVATE"/>
+    <aura:attribute name="interval" type="Integer" default="{!$Label.c.Nimda_Info_Dialog_Progress_Interval}" access="PRIVATE"/>
+    <!-- handler event-->
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+	<!-- html template -->    
+    <div class="send-to-nimda">
+        <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open slds-modal_large" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header">
+                    <h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate">{!$Label.c.DDS2N_Title}</h2>
+                    <br/>
+                    <div class="slds-var-m-around_medium">
+                        <lightning:progressBar value="{!v.progress}" size="large" />
+                    </div>
+                    <div class="slds-var-m-around_medium">{!v.message}</div>
+                </header>
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <!--<lightning:spinner alternativeText="Loading" size="medium" /> -->
+                    <div class="slds-align_absolute-center" style="height:4rem">
+                        <div role="status" class="slds-spinner slds-spinner_medium slds-spinner_inline">
+                            <span class="slds-assistive-text">Loading</span>
+                            <div class="slds-spinner__dot-a"></div>
+                            <div class="slds-spinner__dot-b"></div>
+                        </div>
+                    </div>                        
+                </div>
+                <footer class="slds-modal__footer">
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </div>	
+</aura:component>

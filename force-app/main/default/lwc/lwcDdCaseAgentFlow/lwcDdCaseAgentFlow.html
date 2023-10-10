@@ -1,0 +1,61 @@
+<template>
+    <div if:false={isLoaded} class="slds-is-relative">
+        <lightning-spinner
+            alternative-text="Loading..." variant="brand">
+        </lightning-spinner>
+    </div>
+    <template if:true={obj}>
+
+        <div class="CaseAgentFlow-container">
+
+        <div class="CaseAgentFlow-tile">
+            <div class="CaseAgentFlow-title">
+                Listen
+            </div>
+            <div class="CaseAgentFlow-subtitle">
+                <lightning-formatted-text value={obj.Listen_Subtitle__c} ></lightning-formatted-text>
+            </div>
+            <div class="CaseAgentFlow-body">
+                <lightning-formatted-rich-text value={obj.Listen_Body__c} ></lightning-formatted-rich-text>
+            </div>
+        </div>
+
+            <div class="CaseAgentFlow-tile">
+                <div class="CaseAgentFlow-title">
+                    Empathize
+                </div>
+                <div class="CaseAgentFlow-subtitle">
+                    <lightning-formatted-text value={obj.Empathize_Subtitle__c} ></lightning-formatted-text>
+                </div>
+                <div class="CaseAgentFlow-body">
+                    <lightning-formatted-rich-text value={obj.Empathize_Body__c} ></lightning-formatted-rich-text>
+                </div>
+            </div>
+
+            <div class="CaseAgentFlow-tile">
+                <div class="CaseAgentFlow-title">
+                    Resolve
+                </div>
+                <div class="CaseAgentFlow-subtitle">
+                    <lightning-formatted-text value={obj.Resolve_Subtitle__c} ></lightning-formatted-text>
+                </div>
+                <div class="CaseAgentFlow-body">
+                    <lightning-formatted-rich-text value={obj.Resolve_Body__c} ></lightning-formatted-rich-text>
+                </div>
+            </div>
+
+            <div class="CaseAgentFlow-tile">
+                <div class="CaseAgentFlow-title">
+                    Close
+                </div>
+                <div class="CaseAgentFlow-subtitle">
+                    <lightning-formatted-text value={obj.Close_Subtitle__c} ></lightning-formatted-text>
+                </div>
+                <div class="CaseAgentFlow-body">
+                    <lightning-formatted-rich-text value={obj.Close_Body__c} ></lightning-formatted-rich-text>
+                </div>
+            </div>
+        </div>
+    </template>
+    
+</template>

@@ -1,0 +1,18 @@
+<apex:page standardController="Case" sidebar="false" showHeader="false">
+    <apex:includeLightning />
+    <div id='container'>
+    </div>
+    <script>
+        $Lightning.use("c:LDdOnBoardingCaseOpptyLineItemsApp", function() {
+            $Lightning.createComponent(
+                "c:LDdOnBoardingCaseOpptyLineItems", {
+                    "recordId" : "{!$CurrentPage.parameters.id}"
+                },
+                "container",
+                function(cmp)
+                {
+                    console.log('component created');
+            });
+        });
+    </script>
+</apex:page>

@@ -1,0 +1,13 @@
+<template>
+    <a href={URL}>
+        <div class="supportLink">
+            <div class="supportLinkText">{linkText}</div>
+            <template if:true={showCarat}>
+                <div class="supportLinkCarat">
+                    <lightning-icon icon-name="utility:chevronright" alternative-text="carat" title="Carat">
+                    </lightning-icon>
+                </div>
+            </template>
+        </div>
+    </a>
+</template>

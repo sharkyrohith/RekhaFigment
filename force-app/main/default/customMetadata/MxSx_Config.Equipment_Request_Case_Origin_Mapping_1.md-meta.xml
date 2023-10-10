@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Equipment_Request_Case_Origin_Mapping</label>
+    <protected>false</protected>
+    <values>
+        <field>Country__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Disabled__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>Do_Not_Process_Opp_Closed_X_Years_Ago__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Enable_MxOnboarding_PlatformEvent_Update__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>Enable_Mx_Order_Routing__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>Event_Count__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>First_Equipment_Caseorigin__c</field>
+        <value xsi:type="xsd:string">UI - New Tablet Request</value>
+    </values>
+    <values>
+        <field>Follow_Up_Caseorigin__c</field>
+        <value xsi:type="xsd:string">UI - Follow Up Tablet Request</value>
+    </values>
+    <values>
+        <field>Generate_Mx_Order__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>Mx_Order_Open_Case_Status_To_Exclude__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Mx_Order_State_Valid_Country_Exclusion__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Mx_Order_Submission_Min_Elapsed_Minutes__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Opportunity_Close_Date_Cutover__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Platform_Event_Retry_Limit__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Request_Type__c</field>
+        <value xsi:type="xsd:string">Ship to Merchant (New Tablet)</value>
+    </values>
+    <values>
+        <field>Reusable_Text_Field__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Type_of_order__c</field>
+        <value xsi:nil="true"/>
+    </values>
+</CustomMetadata>

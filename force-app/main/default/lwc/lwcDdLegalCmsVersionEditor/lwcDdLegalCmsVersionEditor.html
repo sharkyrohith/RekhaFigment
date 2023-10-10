@@ -1,0 +1,55 @@
+<template>
+    <template if:true={isReadOnly}>
+        <article class="slds-card">
+            <div class="slds-card__body slds-card__body_inner">
+                <lightning-formatted-rich-text value={body}></lightning-formatted-rich-text>
+            </div>
+        </article>
+    </template>
+    <template if:false={isReadOnly}>
+        <template if:false={isEditMode}>
+            <article class="slds-card">
+                <div class="slds-card__body slds-card__body_inner">
+                    <template if:true={canEdit}>
+                        <div class="slds-var-p-around_large slds-var-m-around_small slds-align_absolute-center">
+                            <lightning-button variant="bare"
+                                label="Edit Content"
+                                title="Edit Content"
+                                icon-name="utility:edit"
+                                onclick={handleEditButtonClick}>
+                            </lightning-button>
+                        </div>
+                    </template>
+                    <lightning-formatted-rich-text value={body}></lightning-formatted-rich-text>
+                </div>
+            </article>
+        </template>
+        <template if:true={isEditMode}>
+            <article class="slds-card">
+                <div class="slds-card__body slds-card__body_inner">
+                    <div class="slds-var-p-around_large slds-var-m-around_small slds-align_absolute-center">
+                        <lightning-button variant="brand"
+                            label="Save"
+                            title="Save"
+                            icon-name="utility:save"
+                            onclick={handleSaveButtonClick}
+                            class="slds-var-m-right_x-small">
+                        </lightning-button>
+                        <lightning-button variant="bare"
+                            label="Cancel"
+                            title="Cancel"
+                            icon-name="utility:clear"
+                            onclick={handleCancelButtonClick}>
+                        </lightning-button>
+                    </div>
+                    <div>
+                        <lightning-input-rich-text
+                            value={body}
+                            onchange={handleBodyChange}>
+                        </lightning-input-rich-text>
+                    </div>
+                </div>
+            </article>
+        </template>
+    </template>
+</template>

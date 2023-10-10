@@ -1,0 +1,15 @@
+<template>
+    <div class="slds-var-m-bottom_small">
+        <lightning-button-group>
+            <template if:true={mintStorePageLink}>
+                <lightning-button label="MINT Store" onclick={openMintStorePage}></lightning-button>
+            </template>
+            <template if:true={mintBusinessPageLink}>
+                <lightning-button label="MINT Business" onclick={openMintBusinessPage}></lightning-button>
+            </template>
+            <template if:true={merchantPortalLink}>
+                <lightning-button label="Merchant Portal" onclick={openMerchantPortal}></lightning-button>
+            </template>
+        </lightning-button-group>
+    </div>
+</template>

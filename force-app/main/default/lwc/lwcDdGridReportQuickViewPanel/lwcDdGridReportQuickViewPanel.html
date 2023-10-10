@@ -1,0 +1,53 @@
+<template>
+    <div style="float:left;height:56px;background: rgb(255, 255, 255);">
+        <lightning-button-icon variant="border-inverse" class="closeButton" icon-name="utility:close" size="medium"
+            alternative-text="Close Panel" onclick={closePanel}>
+        </lightning-button-icon>
+    </div>
+    <div class="quickViewPanel">
+        <div class="quickViewPanel-Header">
+            <span class="slds-var-m-right_small">
+                <template if:true={iconURL}>
+                    <span class="slds-avatar slds-avatar_medium">
+                        <img src={iconURL} style={iconColor}></img>
+                    </span>
+                </template>
+                <template if:false={iconURL}>
+                    <lightning-icon icon-name="utility:error" alternative-text="Error" title="Error">
+                    </lightning-icon>
+                </template>
+            </span>
+            <span style="justify-content: start;" class="slds-align_absolute-center slds-truncate">
+                {header}
+            </span>
+            <span class="slds-var-m-left_small">
+                <lightning-button-icon variant="border-inverse" icon-name="utility:new_window" size="medium"
+                    alternative-text="Open in Console" onclick={openInConsoleTab} disabled={error}>
+                </lightning-button-icon>
+            </span>
+        </div>
+        <div class="slds-scrollable slds-p-around_medium">
+            <template if:true={showSpinner}>
+                <div style="margin-top:30px;">
+                    <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+                </div>
+            </template>
+            <template if:true={error}>
+                <c-lwc-dd-error-panel errors={error}></c-lwc-dd-error-panel>
+            </template>
+            <template if:false={error}>
+                <template if:true={isAccount}>
+                    <c-lwc-dd-grid-report-quick-view-account-custom-links
+                        record-id={recordId}>
+                    </c-lwc-dd-grid-report-quick-view-account-custom-links>
+                </template>
+                <lightning-record-view-form record-id={recordId} object-api-name={objectName}>
+                    <template for:each={fields} for:item="field">
+                        <lightning-output-field key={field} field-name={field}>
+                        </lightning-output-field>
+                    </template>
+                </lightning-record-view-form>
+            </template>
+        </div>
+    </div>
+</template>

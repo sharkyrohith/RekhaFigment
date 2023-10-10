@@ -1,0 +1,62 @@
+.THIS {
+}
+
+.THIS .section {
+    margin-bottom: 14px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}
+
+.THIS .section.center {
+	font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.THIS .title {
+	font-weight: 500;
+    font-size: 1.4rem;
+    margin-top: 20px;
+    margin-bottom: 25px;
+}
+
+.THIS .center {
+    text-align: center;
+    padding-top: 12px;
+}
+
+.THIS .justify {
+    text-align: justify;
+}
+
+.THIS p {
+    margin: 0 0 10px;
+        line-height: 1.4rem;
+
+}
+
+.THIS .left-margin {
+    margin-left: 60px;
+}
+
+.THIS b, .THIS strong {
+    font-weight: bold;
+    text-shadow: 0px 0px 0 #000, 0px 0px 0 #000, 0px 0px 0 #000, 0px 0px 0 #000;
+}
+
+
+
+.THIS ol {
+    padding: 0 12px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    list-style: decimal;
+}
+
+.THIS .lettered-list ol {
+    list-style: upper-alpha;
+}
+
+.THIS ol li{
+    padding-left: 15px;
+}

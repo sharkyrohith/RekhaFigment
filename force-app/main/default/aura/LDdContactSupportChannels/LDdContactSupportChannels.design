@@ -1,0 +1,8 @@
+<design:component label="Contact Support Channels">
+	<design:attribute name="community" label="Community Name" />
+    <design:attribute name="supportPhone" label="Support Phone Number" />
+    <design:attribute name="showChat" label="Show Chat" />
+    <design:attribute name="showPhone" label="Show Phone" />
+    <design:attribute name="webForm" label="Show Web Form" />
+    <design:attribute name="showSelfHelp" label="Show Self-Help" />
+</design:component>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.0.6, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 500 500" style="enable-background:new 0 0 500 500;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;stroke:#FF3008;stroke-width:16;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st1{fill:none;stroke:#FF3008;stroke-width:16;stroke-linecap:round;stroke-miterlimit:10;}
+	.st2{fill:none;stroke:#FF3008;stroke-width:18;stroke-linecap:round;stroke-miterlimit:10;stroke-dasharray:30,40;}
+	.st3{fill:none;stroke:#FF3008;stroke-width:15.5273;stroke-linecap:round;stroke-miterlimit:10;}
+	.st4{fill:none;stroke:#FF3008;stroke-width:18;stroke-linecap:round;stroke-miterlimit:10;stroke-dasharray:29.1136,38.8182;}
+	.st5{fill:none;stroke:#FF3008;stroke-width:16;stroke-linecap:round;stroke-linejoin:round;}
+	.st6{fill:none;stroke:#FF3008;stroke-width:18;stroke-linecap:round;stroke-miterlimit:10;stroke-dasharray:33.7034,44.9379;}
+	.st7{fill:none;stroke:#FF3008;stroke-width:18;stroke-linecap:round;stroke-miterlimit:10;stroke-dasharray:26.5234,35.3646;}
+	.st8{fill:#FF3008;}
+	.st9{fill:none;stroke:#FF3008;stroke-width:16;stroke-linecap:round;stroke-miterlimit:10;stroke-dasharray:30,40;}
+	
+		.st10{fill:none;stroke:#FF3008;stroke-width:18;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:33.7034,44.9379;}
+</style>
+<g id="Layer_1">
+</g>
+<g id="Layer_2">
+	<g>
+		<path class="st0" d="M388.7,345.6v75.6c0,6.1-4.9,11-11,11H124.8c-6.1,0-11-4.9-11-11V102.9c0-6.1,4.9-11,11-11h60.1"/>
+		<line class="st7" x1="388.7" y1="159.2" x2="388.7" y2="325.7"/>
+		<path class="st0" d="M316.7,91.9h61c6.1,0,11,4.9,11,11v23.5"/>
+		<polyline class="st0" points="223.8,232.3 239.5,248 293.2,187.6 		"/>
+		<path class="st0" d="M311.5,133.4c6.1,0,11-4.9,11-11v-8.8c0-7-1.8-21.7-17.5-29.2c-16-7.7-21-15.2-23.4-21s-10.5-21-29.2-21H250
+			c-18.7,0-26.9,15.2-29.2,21c-2.3,5.8-7.3,13.4-23.4,21c-15.7,7.5-17.5,22.2-17.5,29.2v8.8c0,6.1,4.9,11,11,11H311.5z"/>
+		<circle class="st8" cx="251.2" cy="69" r="7.2"/>
+		<polyline class="st0" points="223.8,325.3 239.5,341 293.2,280.6 		"/>
+	</g>
+</g>
+</svg>

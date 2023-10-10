@@ -1,0 +1,3 @@
+<apex:page StandardController="APXT_Redlining__Contract_Agreement__c" showHeader="false">
+<apex:iframe src="/apex/APXT_Redlining__apxt_viewRedLines?scontrolCaching=1&altid={!APXT_Redlining__Contract_Agreement__c.Id}" height="650" scrolling="true"/>
+</apex:page>

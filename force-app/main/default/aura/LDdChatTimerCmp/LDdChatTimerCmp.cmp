@@ -1,0 +1,20 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId" access="global" controller="CDdChatTimerController" >
+    <aura:attribute name="minutes" type="String" default="00"/>
+    <aura:attribute name="seconds" type="String" default="00"/>
+    <aura:attribute name="timercss" type="String" default="dd-service-console-green"/>
+    <aura:attribute name="transObj" type="Object" />
+    <aura:attribute name="intId" type="Long" />
+
+    <lightning:workspaceAPI aura:id="workspace"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/> 
+    <aura:handler event="lightning:tabClosed" action="{!c.onTabClosed}"/>
+        
+    <div>
+        <div class="{! 'dd-service-console-timer ' + v.timercss}">
+            <span class="dd-service-console-label">AHT Timer: </span> 
+            <span class="dd-service-console-mins">{!v.minutes}:</span> 
+            <span class="dd-service-console-secs">{!v.seconds}</span> 
+        </div>
+    </div>
+</aura:component>

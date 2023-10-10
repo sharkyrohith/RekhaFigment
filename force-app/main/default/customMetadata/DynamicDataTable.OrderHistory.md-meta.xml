@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Order Table test</label>
+    <protected>false</protected>
+    <values>
+        <field>Field_Name__c</field>
+        <value xsi:type="xsd:string">Id:text,Vendor__c:text</value>
+    </values>
+    <values>
+        <field>Filter__c</field>
+        <value xsi:type="xsd:string">Vendor__c =&apos;Denali&apos;</value>
+    </values>
+    <values>
+        <field>Header_Name__c</field>
+        <value xsi:type="xsd:string">Id,Vendor__c</value>
+    </values>
+    <values>
+        <field>Query__c</field>
+        <value xsi:type="xsd:string">select Id,Vendor__c from Mx_Order__c where</value>
+    </values>
+    <values>
+        <field>Table_Title__c</field>
+        <value xsi:type="xsd:string">Order Table</value>
+    </values>
+</CustomMetadata>

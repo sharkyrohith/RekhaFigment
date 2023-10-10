@@ -1,0 +1,24 @@
+/* lwcDdCommunityStorefrontTC */
+
+
+p {
+    padding: 0px 0 20px 0;
+}
+
+.p-all-Caps {
+    text-transform: uppercase;
+}
+
+.numeric-title {
+    font-weight: bold;
+    padding: 0px 0 20px 15px;}
+
+.alpha-title {
+    padding: 0px 0 20px 30px;
+    font-style: italic;
+}
+
+ul {
+    list-style: disc;
+    padding: 0px 0px 30px 30px;
+}

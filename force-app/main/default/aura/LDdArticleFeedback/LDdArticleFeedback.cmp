@@ -1,0 +1,65 @@
+<aura:component controller="CDdArticleFeedbackController" implements="forceCommunity:availableForAllPageTypes,force:hasRecordId" access="global">
+
+    <!-- attributes -->
+    <aura:attribute name="showMessage" type="Boolean" />
+    <aura:attribute name="yesORno" type="Boolean"/>
+    <aura:attribute name="pickMap" type="Map"/>
+    <aura:attribute name="radioValue" type="String"/>
+    <aura:attribute name="moreInfo" type="String"/>
+    <aura:attribute name="community" type="String"/>
+    <aura:attribute name="mLength" type="String" default="{!$Label.c.DdCommunity_Article_Feedback_Max_Characters}"/>
+
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+    <div>
+        <aura:if isTrue="{!v.yesORno==null}">
+            <lightning:layout verticalAlign="stretch" multipleRows="true" class="x-large AF_yesNO">
+                <lightning:layoutItem flexibility="auto" class="custom-box">
+                    <label class="slds-form-element__label element-sm-title"><strong>{!$Label.c.DdCommunity_Article_Feedback_Was_this_article_helpful}</strong></label>
+                    <button class="slds-button slds-button_neutral" onclick="{!c.onYesClick}">{!$Label.c.DdCommunity_Article_Feedback_Yes}</button>
+                    <button class="slds-button slds-button_neutral" onclick="{!c.onNoClick}">{!$Label.c.DdCommunity_Article_Feedback_No}</button>
+                </lightning:layoutItem>
+            </lightning:layout>
+        </aura:if>
+
+        <aura:if isTrue="{!v.showMessage}">
+            <div class="showMessage">
+                <label>
+                    {!$Label.c.DdCommunity_Article_Feedback_Submit_Message}
+                </label>
+            </div>
+        </aura:if>
+
+        <!-- NO -->
+        <aura:if isTrue="{!and(v.yesORno==false , v.showMessage==null)}">
+            <lightning:layout verticalAlign="stretch" multipleRows="true" class="x-large">
+                <lightning:layoutItem flexibility="auto" class="custom-box">
+                    <label class="slds-form-element__label">{!$Label.c.DdCommunity_Article_Feedback_How_we_can_improve}</label>
+                    <lightning:radioGroup
+                            name="radioButtonGroup"
+                            options="{! v.pickMap }"
+                            value="{! v.radioValue }"/>
+
+                    <aura:if isTrue="{!v.radioValue}">
+                        <div class="lightning_textarea">
+
+                        <label class="slds-form-element__label">{!$Label.c.DdCommunity_Article_Feedback_What_info_are_you_looking_for}</label>
+                        <span onkeyup="{!c.checkLength}" >
+                            <lightning:textarea value="{!v.moreInfo}" placeholder="{!$Label.c.DdCommunity_Article_Feedback_Optional}"
+                                                 maxlength="250" messageWhenTooLong="" />
+
+                            
+                            <div id="lengthDiv">0 {!v.mLength}</div>
+
+                        </span>
+                        </div>
+                        <button class="slds-button slds-button_neutral slds-m-top_x-large AF_submitFeedback" onclick="{!c.onSubmit}">{!$Label.c.DdCommunity_Article_Feedback_Submit_Feedback}</button>
+                    </aura:if>
+
+                </lightning:layoutItem>
+            </lightning:layout>
+        </aura:if>
+
+    </div>
+</aura:component>

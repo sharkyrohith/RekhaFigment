@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ApexPage xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>42.0</apiVersion>
+    <availableInTouch>true</availableInTouch>
+    <confirmationTokenRequired>false</confirmationTokenRequired>
+    <description>Tableau Dashboard on child account in account object [DD Merchant Partner Stores]Filter on SFDC Account ID, where Restaurant_ID__c = store_id (Nimda dimension store)</description>
+    <label>Tableau Store/Child Account</label>
+</ApexPage>

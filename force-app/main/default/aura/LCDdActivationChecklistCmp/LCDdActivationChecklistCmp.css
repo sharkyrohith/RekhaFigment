@@ -1,0 +1,30 @@
+/**
+ * Created by Jeremy S. Johnson, Perficient, Inc.
+ */
+.THIS .fail svg{
+    fill : red;
+}
+.THIS .fail, .THIS .fail a{
+    color: red ;
+}
+.THIS .fail svg{
+    fill: red !important;
+}
+.THIS .warn svg{
+    fill : darkorange;
+}
+.THIS .warn, .THIS .warn a{
+    color: darkorange ;
+}
+.THIS .warn svg{
+    fill: darkorange !important;
+}
+.THIS .pass svg{
+    fill : black;
+}
+.THIS .pass, .THIS .pass a{
+    color: black ;
+}
+.THIS .pass svg{
+    fill: black !important;
+}

@@ -1,0 +1,903 @@
+<aura:component
+  access="global"
+  implements="forceCommunity:availableForAllPageTypes"
+>
+  <aura:attribute default="current" name="DCCTeam" type="String" />
+
+  <style>
+    .forceCommunityRichText .uiOutputRichText {
+      max-width: 800px;
+      margin: 0px auto;
+    }
+  </style>
+
+  <div>
+    <!-- Starts Current DCC -->
+    <aura:if isTrue="{!v.DCCTeam == 'current'}">
+      <div class="dd-dcc-subtitle">Meet the Dasher Community Council</div>
+
+      <div class="DCC-ta-container">
+        <div class="DCC-ta-background"></div>
+        <!--
+                <div class="DCC-ta-item"> 
+                    <img class="DCC-ta-image" src="{!$Resource.SRdDCC_Assets + '/DCC_Members_2020/Q2/DCC_Members_Ankit.jpg'}"/>
+                    <div class="DCC-ta-info"> 
+                        <span class="DCC-ta-name">Ankit</span>
+                        <span class="DCC-ta-local">Brooklyn, New York</span> 
+                    </div>
+                </div>
+				-->
+
+        <div class="DCC-ta-item">
+          <img
+            class="DCC-ta-image"
+            src="{!$Resource.SRdDCC_Assets + '/DCC_Members_2020/Q2/DCC_Members_Elizabeth.jpg'}"
+          />
+          <div class="DCC-ta-info">
+            <span class="DCC-ta-name">Elizabeth</span>
+            <span class="DCC-ta-local">Federal Way, Washington</span>
+          </div>
+        </div>
+
+        <div class="DCC-ta-item">
+          <img
+            class="DCC-ta-image"
+            src="{!$Resource.SRdDCC_Assets + '/DCC_Members_2020/Q2/DCC_Members_Jeffrey.jpg'}"
+          />
+          <div class="DCC-ta-info">
+            <span class="DCC-ta-name">Jeffrey</span>
+            <span class="DCC-ta-local">Minneapolis, Minnesota</span>
+          </div>
+        </div>
+
+        <div class="DCC-ta-item">
+          <img
+            class="DCC-ta-image"
+            src="{!$Resource.SRdDCC_Assets + '/DCC_Members_2020/Q2/DCC_Members_Josue.jpg'}"
+          />
+          <div class="DCC-ta-info">
+            <span class="DCC-ta-name">Josue</span>
+            <span class="DCC-ta-local">San Francisco, California</span>
+          </div>
+        </div>
+
+        <div class="DCC-ta-item">
+          <img
+            class="DCC-ta-image"
+            src="{!$Resource.SRdDCC_Assets + '/DCC_Members_2020/Q2/DCC_Members_Sanjaya.jpg'}"
+          />
+          <div class="DCC-ta-info">
+            <span class="DCC-ta-name">Sanjaya</span>
+            <span class="DCC-ta-local">Toronto, Ontario </span>
+          </div>
+        </div>
+
+        <div class="DCC-ta-item">
+          <img
+            class="DCC-ta-image"
+            src="{!$Resource.SRdDCC_Assets + '/DCC_Members_2020/Q2/DCC_Members_Tallal.jpg'}"
+          />
+          <div class="DCC-ta-info">
+            <span class="DCC-ta-name">Tallal</span>
+            <span class="DCC-ta-local">Los Angeles, California</span>
+          </div>
+        </div>
+
+        <div class="DCC-ta-item">
+          <img
+            class="DCC-ta-image"
+            src="{!$Resource.SRdDCC_Assets + '/DCC_Members_2020/Q2/DCC_Members_Tamara.jpg'}"
+          />
+          <div class="DCC-ta-info">
+            <span class="DCC-ta-name">Tamara</span>
+            <span class="DCC-ta-local">Douglas, Georgia</span>
+          </div>
+        </div>
+
+        <div class="DCC-ta-item">
+          <img
+            class="DCC-ta-image"
+            src="{!$Resource.SRdDCC_Assets + '/DCC_Members_2020/Q2/DCC_Members_Tanya.jpg'}"
+          />
+          <div class="DCC-ta-info">
+            <span class="DCC-ta-name">Tanya</span>
+            <span class="DCC-ta-local">Billings, Montana</span>
+          </div>
+        </div>
+
+        <div class="DCC-ta-item">
+          <img
+            class="DCC-ta-image"
+            src="{!$Resource.SRdDCC_Assets + '/DCC_Members_2020/Q2/DCC_Members_Toni.jpg'}"
+          />
+          <div class="DCC-ta-info">
+            <span class="DCC-ta-name">Toni</span>
+            <span class="DCC-ta-local">Palm Coast, Florida</span>
+          </div>
+        </div>
+      </div>
+    </aura:if>
+
+    <!-- Ends Current DCC -->
+
+    <!-- Starts 2020 Q1 DCC -->
+    <aura:if isTrue="{!v.DCCTeam == 'DCC_Q1_2020_Team'}">
+      <div class="dd-dcc-subtitle">January 2020 to July 2020</div>
+
+      <div class="DCC-ta-container">
+        <div class="DCC-ta-background"></div>
+
+        <div class="DCC-ta-item">
+          <img
+            class="DCC-ta-image"
+            src="{!$Resource.SRdDCC_Assets + '/DCC_Members_2020/DCC_Members_Alicia.jpg'}"
+          />
+          <div class="DCC-ta-info">
+            <span class="DCC-ta-name">Alicia</span>
+            <span class="DCC-ta-local">Turlock, California</span>
+            <!-- <span class="DCC-ta-since">Dashing since 2015</span>			 -->
+          </div>
+        </div>
+
+        <div class="DCC-ta-item">
+          <img
+            class="DCC-ta-image"
+            src="{!$Resource.SRdDCC_Assets + '/DCC_Members_2020/DCC_Members_Brian.jpg'}"
+          />
+          <div class="DCC-ta-info">
+            <span class="DCC-ta-name">Brian</span>
+            <span class="DCC-ta-local">Abbotsford, British Columbia</span>
+          </div>
+        </div>
+
+        <div class="DCC-ta-item">
+          <img
+            class="DCC-ta-image"
+            src="{!$Resource.SRdDCC_Assets + '/DCC_Members_2020/DCC_Members_Ceita.jpg'}"
+          />
+          <div class="DCC-ta-info">
+            <span class="DCC-ta-name">Ceita</span>
+            <span class="DCC-ta-local">Trenton, New Jersey</span>
+          </div>
+        </div>
+
+        <div class="DCC-ta-item">
+          <img
+            class="DCC-ta-image"
+            src="{!$Resource.SRdDCC_Assets + '/DCC_Members_2020/DCC_Members_Diego.jpg'}"
+          />
+          <div class="DCC-ta-info">
+            <span class="DCC-ta-name">Diego</span>
+            <span class="DCC-ta-local">Las Vegas, Nevada</span>
+          </div>
+        </div>
+
+        <div class="DCC-ta-item">
+          <img
+            class="DCC-ta-image"
+            src="{!$Resource.SRdDCC_Assets + '/DCC_Members_2020/DCC_Members_Jonathan.jpg'}"
+          />
+          <div class="DCC-ta-info">
+            <span class="DCC-ta-name">Jonathan</span>
+            <span class="DCC-ta-local">Watertown, New York</span>
+          </div>
+        </div>
+
+        <div class="DCC-ta-item">
+          <img
+            class="DCC-ta-image"
+            src="{!$Resource.SRdDCC_Assets + '/DCC_Members_2020/DCC_Members_Kari.jpg'}"
+          />
+          <div class="DCC-ta-info">
+            <span class="DCC-ta-name">Kari</span>
+            <span class="DCC-ta-local">Killeen, Texas</span>
+          </div>
+        </div>
+
+        <div class="DCC-ta-item">
+          <img
+            class="DCC-ta-image"
+            src="{!$Resource.SRdDCC_Assets + '/DCC_Members_2020/DCC_Members_Nick.jpg'}"
+          />
+          <div class="DCC-ta-info">
+            <span class="DCC-ta-name">Nick</span>
+            <span class="DCC-ta-local">Chicago, Illinois</span>
+          </div>
+        </div>
+
+        <div class="DCC-ta-item">
+          <img
+            class="DCC-ta-image"
+            src="{!$Resource.SRdDCC_Assets + '/DCC_Members_2020/DCC_Members_Randy.jpg'}"
+          />
+          <div class="DCC-ta-info">
+            <span class="DCC-ta-name">Randy</span>
+            <span class="DCC-ta-local">Colorado Springs, Colorado</span>
+          </div>
+        </div>
+
+        <div class="DCC-ta-item">
+          <img
+            class="DCC-ta-image"
+            src="{!$Resource.SRdDCC_Assets + '/DCC_Members_2020/DCC_Members_Tilneka.jpg'}"
+          />
+          <div class="DCC-ta-info">
+            <span class="DCC-ta-name">Tilneka</span>
+            <span class="DCC-ta-local">Arbutus, Maryland</span>
+          </div>
+        </div>
+      </div>
+    </aura:if>
+
+    <!-- End 2020 Q2 DCC -->
+
+    <!-- Starts 2020 VDC Team -->
+    <aura:if isTrue="{!v.DCCTeam == 'VDC_2020'}">
+      <div class="dd-dcc-subtitle">
+        Meet the Voice from Dashers of Color Council Members
+      </div>
+
+      <div class="DCC-ta-container">
+        <div class="DCC-ta-background"></div>
+
+        <div class="DCC-ta-item">
+          <img
+            class="DCC-ta-image"
+            src="{!$Resource.SRdDCC_Assets + '/VDC_Members_2020/DCC_Members_Angel.jpg'}"
+          />
+          <div class="DCC-ta-info">
+            <span class="DCC-ta-name">Angel</span>
+            <span class="DCC-ta-local">Longmont, Colorado</span>
+          </div>
+        </div>
+
+        <div class="DCC-ta-item">
+          <img
+            class="DCC-ta-image"
+            src="{!$Resource.SRdDCC_Assets + '/VDC_Members_2020/DCC_Members_Dawnena.jpg'}"
+          />
+          <div class="DCC-ta-info">
+            <span class="DCC-ta-name">Dawnena</span>
+            <span class="DCC-ta-local">Minot, North Dakota</span>
+          </div>
+        </div>
+
+        <div class="DCC-ta-item">
+          <img
+            class="DCC-ta-image"
+            src="{!$Resource.SRdDCC_Assets + '/VDC_Members_2020/DCC_Members_Edgar.jpg'}"
+          />
+          <div class="DCC-ta-info">
+            <span class="DCC-ta-name">Edgar</span>
+            <span class="DCC-ta-local">Chicago, Illinois</span>
+          </div>
+        </div>
+
+        <div class="DCC-ta-item">
+          <img
+            class="DCC-ta-image"
+            src="{!$Resource.SRdDCC_Assets + '/VDC_Members_2020/DCC_Members_Javon.jpg'}"
+          />
+          <div class="DCC-ta-info">
+            <span class="DCC-ta-name">Javon</span>
+            <span class="DCC-ta-local">Anchorage, Alaska</span>
+          </div>
+        </div>
+
+        <div class="DCC-ta-item">
+          <img
+            class="DCC-ta-image"
+            src="{!$Resource.SRdDCC_Assets + '/VDC_Members_2020/DCC_Members_Kevin.jpg'}"
+          />
+          <div class="DCC-ta-info">
+            <span class="DCC-ta-name">Kevin</span>
+            <span class="DCC-ta-local">Cleveland, Ohio</span>
+          </div>
+        </div>
+
+        <!--
+                <div class="DCC-ta-item"> 
+                    <img class="DCC-ta-image" src="{!$Resource.SRdDCC_Assets + '/VDC_Members_2020/DCC_Members_Monique.jpg'}"/>
+                    <div class="DCC-ta-info"> 
+                        <span class="DCC-ta-name">Monique</span>
+                        <span class="DCC-ta-local">Woodbridge, New Jersey</span> 
+                    </div>
+                </div>   
+			-->
+
+        <div class="DCC-ta-item">
+          <img
+            class="DCC-ta-image"
+            src="{!$Resource.SRdDCC_Assets + '/VDC_Members_2020/DCC_Members_Prynce.jpg'}"
+          />
+          <div class="DCC-ta-info">
+            <span class="DCC-ta-name">Prynce</span>
+            <span class="DCC-ta-local">Greensboro, North Carolina</span>
+          </div>
+        </div>
+
+        <div class="DCC-ta-item">
+          <img
+            class="DCC-ta-image"
+            src="{!$Resource.SRdDCC_Assets + '/VDC_Members_2020/DCC_Members_Stephanie.jpg'}"
+          />
+          <div class="DCC-ta-info">
+            <span class="DCC-ta-name">Stephanie</span>
+            <span class="DCC-ta-local">Oxnard, California</span>
+          </div>
+        </div>
+
+        <!-- 
+           
+                <div class="DCC-ta-item"> 
+                    <img class="DCC-ta-image" src="{!$Resource.SRdDCC_Assets + '/VDC_Members_2020/DCC_Members_Tiffany.jpg'}"/>
+                    <div class="DCC-ta-info"> 
+                        <span class="DCC-ta-name">Tiffany</span>
+                        <span class="DCC-ta-local">Baton Rouge, Lousiana</span> 
+                    </div>
+                </div> 
+ 
+				-->
+        <div class="DCC-ta-item">
+          <img
+            class="DCC-ta-image"
+            src="{!$Resource.SRdDCC_Assets + '/VDC_Members_2020/DCC_Members_Wayne.jpg'}"
+          />
+          <div class="DCC-ta-info">
+            <span class="DCC-ta-name">Wayne</span>
+            <span class="DCC-ta-local">Vancouver, British Columbia</span>
+          </div>
+        </div>
+      </div>
+    </aura:if>
+
+    <!-- End 2020 VDC Team -->
+
+    <!-- Starts 2019 DCC Team -->
+    <aura:if isTrue="{!v.DCCTeam == '2019_Team'}">
+      <div class="dd-dcc-subtitle">July 2019 to December 2019</div>
+
+      <div class="DCC-ta-container">
+        <div class="DCC-ta-background"></div>
+
+        <div class="DCC-ta-item">
+          <img
+            class="DCC-ta-image"
+            src="{!$Resource.SRdDCC_Assets + '/tamara@2x.jpg'}"
+          />
+          <div class="DCC-ta-info">
+            <span class="DCC-ta-name">Tamara</span>
+            <span class="DCC-ta-local">Sacramento, California</span>
+          </div>
+        </div>
+
+        <!--
+                <div class="DCC-ta-item"> 
+                        <img class="DCC-ta-image" src="{!$Resource.SRdDCC_Assets + '/james@2x.jpg'}"/>
+                    <div class="DCC-ta-info"> 
+                        <span class="DCC-ta-name">James</span>
+                        <span class="DCC-ta-local">Eatontown, New Jersey</span> 
+                    </div>
+                </div>
+-->
+
+        <div class="DCC-ta-item">
+          <img
+            class="DCC-ta-image"
+            src="{!$Resource.SRdDCC_Assets + '/jacob@2x.jpg'}"
+          />
+          <div class="DCC-ta-info">
+            <span class="DCC-ta-name">Jacob</span>
+            <span class="DCC-ta-local">Broomfield, Colorado</span>
+          </div>
+        </div>
+
+        <div class="DCC-ta-item">
+          <img
+            class="DCC-ta-image"
+            src="{!$Resource.SRdDCC_Assets + '/loucus@2x.jpg'}"
+          />
+          <div class="DCC-ta-info">
+            <span class="DCC-ta-name">Loucus</span>
+            <span class="DCC-ta-local">Houston, Texas</span>
+          </div>
+        </div>
+
+        <div class="DCC-ta-item">
+          <img
+            class="DCC-ta-image"
+            src="{!$Resource.SRdDCC_Assets + '/vanessa-b@2x.jpg'}"
+          />
+          <div class="DCC-ta-info">
+            <span class="DCC-ta-name">Vanessa B.</span>
+            <span class="DCC-ta-local">Virginia Beach, Virginia</span>
+          </div>
+        </div>
+
+        <div class="DCC-ta-item">
+          <img
+            class="DCC-ta-image"
+            src="{!$Resource.SRdDCC_Assets + '/vanessa-h@2x.jpg'}"
+          />
+          <div class="DCC-ta-info">
+            <span class="DCC-ta-name">Vanessa H.</span>
+            <span class="DCC-ta-local">Thousand Oaks, California</span>
+          </div>
+        </div>
+
+        <div class="DCC-ta-item">
+          <img
+            class="DCC-ta-image"
+            src="{!$Resource.SRdDCC_Assets + '/kyeleen@2x.jpg'}"
+          />
+          <div class="DCC-ta-info">
+            <span class="DCC-ta-name DCC-remembrance">Kyleen</span>
+            <span class="DCC-ta-local">Indianapolis, Indiana</span>
+          </div>
+        </div>
+
+        <div class="DCC-ta-item">
+          <img
+            class="DCC-ta-image"
+            src="{!$Resource.SRdDCC_Assets + '/alfonso@2x.jpg'}"
+          />
+          <div class="DCC-ta-info">
+            <span class="DCC-ta-name">Alfonso</span>
+            <span class="DCC-ta-local">Davidson, North Carolina</span>
+          </div>
+        </div>
+
+        <div class="DCC-ta-item">
+          <img
+            class="DCC-ta-image"
+            src="{!$Resource.SRdDCC_Assets + '/jackie@2x.jpg'}"
+          />
+          <div class="DCC-ta-info">
+            <span class="DCC-ta-name">Jackie</span>
+            <span class="DCC-ta-local">Alberta, Canada</span>
+          </div>
+        </div>
+      </div>
+    </aura:if>
+
+    <!-- Ends 2019 DCC Team -->
+    <!-- Starts July 2020 to December 2020 DCC -->
+    <aura:if isTrue="{!v.DCCTeam == 'JulToDec_2020'}">
+      <div class="dd-dcc-subtitle">July 2020 to December 2020</div>
+
+      <div class="DCC-ta-container">
+        <div class="DCC-ta-background"></div>
+        <!--
+                <div class="DCC-ta-item"> 
+                    <img class="DCC-ta-image" src="{!$Resource.SRdDCC_Assets + '/DCC_Members_2020/Q2/DCC_Members_Ankit.jpg'}"/>
+                    <div class="DCC-ta-info"> 
+                        <span class="DCC-ta-name">Ankit</span>
+                        <span class="DCC-ta-local">Brooklyn, New York</span> 
+                    </div>
+                </div>
+				-->
+
+        <div class="DCC-ta-item">
+          <img
+            class="DCC-ta-image"
+            src="{!$Resource.SRdDCC_Assets + '/DCC_Members_2020/Q2/DCC_Members_Elizabeth.jpg'}"
+          />
+          <div class="DCC-ta-info">
+            <span class="DCC-ta-name">Elizabeth</span>
+            <span class="DCC-ta-local">Federal Way, Washington</span>
+          </div>
+        </div>
+
+        <div class="DCC-ta-item">
+          <img
+            class="DCC-ta-image"
+            src="{!$Resource.SRdDCC_Assets + '/DCC_Members_2020/Q2/DCC_Members_Jeffrey.jpg'}"
+          />
+          <div class="DCC-ta-info">
+            <span class="DCC-ta-name">Jeffrey</span>
+            <span class="DCC-ta-local">Minneapolis, Minnesota</span>
+          </div>
+        </div>
+
+        <div class="DCC-ta-item">
+          <img
+            class="DCC-ta-image"
+            src="{!$Resource.SRdDCC_Assets + '/DCC_Members_2020/Q2/DCC_Members_Josue.jpg'}"
+          />
+          <div class="DCC-ta-info">
+            <span class="DCC-ta-name">Josue</span>
+            <span class="DCC-ta-local">San Francisco, California</span>
+          </div>
+        </div>
+
+        <div class="DCC-ta-item">
+          <img
+            class="DCC-ta-image"
+            src="{!$Resource.SRdDCC_Assets + '/DCC_Members_2020/Q2/DCC_Members_Sanjaya.jpg'}"
+          />
+          <div class="DCC-ta-info">
+            <span class="DCC-ta-name">Sanjaya</span>
+            <span class="DCC-ta-local">Toronto, Ontario </span>
+          </div>
+        </div>
+
+        <div class="DCC-ta-item">
+          <img
+            class="DCC-ta-image"
+            src="{!$Resource.SRdDCC_Assets + '/DCC_Members_2020/Q2/DCC_Members_Tallal.jpg'}"
+          />
+          <div class="DCC-ta-info">
+            <span class="DCC-ta-name">Tallal</span>
+            <span class="DCC-ta-local">Los Angeles, California</span>
+          </div>
+        </div>
+
+        <div class="DCC-ta-item">
+          <img
+            class="DCC-ta-image"
+            src="{!$Resource.SRdDCC_Assets + '/DCC_Members_2020/Q2/DCC_Members_Tamara.jpg'}"
+          />
+          <div class="DCC-ta-info">
+            <span class="DCC-ta-name">Tamara</span>
+            <span class="DCC-ta-local">Douglas, Georgia</span>
+          </div>
+        </div>
+
+        <div class="DCC-ta-item">
+          <img
+            class="DCC-ta-image"
+            src="{!$Resource.SRdDCC_Assets + '/DCC_Members_2020/Q2/DCC_Members_Tanya.jpg'}"
+          />
+          <div class="DCC-ta-info">
+            <span class="DCC-ta-name">Tanya</span>
+            <span class="DCC-ta-local">Billings, Montana</span>
+          </div>
+        </div>
+
+        <div class="DCC-ta-item">
+          <img
+            class="DCC-ta-image"
+            src="{!$Resource.SRdDCC_Assets + '/DCC_Members_2020/Q2/DCC_Members_Toni.jpg'}"
+          />
+          <div class="DCC-ta-info">
+            <span class="DCC-ta-name">Toni</span>
+            <span class="DCC-ta-local">Palm Coast, Florida</span>
+          </div>
+        </div>
+      </div>
+    </aura:if>
+
+    <!-- Ends July 2020 to December 2020 DCC -->
+
+    
+    <!-- Starts 2021 USA Team -->
+    <aura:if isTrue="{!v.DCCTeam == '2021_USA'}">
+      <div class="dd-dcc-subtitle">
+        DCC USA Team
+      </div>
+
+      <div class="DCC-ta-container">
+        <div class="DCC-ta-background"></div>
+
+        <div class="DCC-ta-item">
+          <img
+            class="DCC-ta-image"
+            src="{!$Resource.dcc_pics + '/dcc_pics/Arthur.png'}"/>
+          <div class="DCC-ta-info">
+            <span class="DCC-ta-name">Arthur</span>
+            <span class="DCC-ta-local">Adrian, MI</span>
+          </div>
+        </div>
+
+        <div class="DCC-ta-item">
+          <img
+            class="DCC-ta-image"
+            src="{!$Resource.dcc_pics + '/dcc_pics/Terri.png'}"
+          />
+          <div class="DCC-ta-info">
+            <span class="DCC-ta-name">Terri</span>
+            <span class="DCC-ta-local">Clovis, CA</span>
+          </div>
+        </div>
+
+        <div class="DCC-ta-item">
+          <img
+            class="DCC-ta-image"
+            src="{!$Resource.dcc_pics + '/dcc_pics/Shannon.png'}"
+          />
+          <div class="DCC-ta-info">
+            <span class="DCC-ta-name">Shannon</span>
+            <span class="DCC-ta-local">Neptune, NJ</span>
+          </div>
+        </div>
+
+        <div class="DCC-ta-item">
+          <img
+            class="DCC-ta-image"
+            src="{!$Resource.dcc_pics + '/dcc_pics/Roel.png'}"
+          />
+          <div class="DCC-ta-info">
+            <span class="DCC-ta-name">Roel</span>
+            <span class="DCC-ta-local">Centennial, CO</span>
+          </div>
+        </div>
+
+        <div class="DCC-ta-item">
+          <img
+            class="DCC-ta-image"
+            src="{!$Resource.dcc_pics + '/dcc_pics/Lori.png'}"
+          />
+          <div class="DCC-ta-info">
+            <span class="DCC-ta-name">Lori</span>
+            <span class="DCC-ta-local">Harrisburg, PA</span>
+          </div>
+        </div>
+
+        <div class="DCC-ta-item">
+          <img
+            class="DCC-ta-image"
+            src="{!$Resource.dcc_pics + '/dcc_pics/Paul.png'}"
+          />
+          <div class="DCC-ta-info">
+            <span class="DCC-ta-name">Paul</span>
+            <span class="DCC-ta-local">Peoria, IL</span>
+          </div>
+        </div>
+
+        <div class="DCC-ta-item">
+          <img
+            class="DCC-ta-image"
+            src="{!$Resource.dcc_pics + '/dcc_pics/Kira.png'}"
+          />
+          <div class="DCC-ta-info">
+            <span class="DCC-ta-name">Kira</span>
+            <span class="DCC-ta-local">Raynham, MA</span>
+          </div>
+        </div>
+
+        <div class="DCC-ta-item">
+          <img
+            class="DCC-ta-image"
+            src="{!$Resource.dcc_pics + '/dcc_pics/Ralph.png'}"
+          />
+          <div class="DCC-ta-info">
+            <span class="DCC-ta-name">Ralph</span>
+            <span class="DCC-ta-local">Ozone Park, NY</span>
+          </div>
+        </div>
+
+        <div class="DCC-ta-item">
+            <img
+              class="DCC-ta-image"
+              src="{!$Resource.dcc_pics + '/dcc_pics/Fortino.png'}"
+            />
+            <div class="DCC-ta-info">
+              <span class="DCC-ta-name">Fortino</span>
+              <span class="DCC-ta-local">McAllen, TX</span>
+            </div>
+          </div>
+      </div>
+    </aura:if>
+    <!-- End 2021 USA Team -->
+
+    <!-- Starts 2021 Australia Team -->
+    <aura:if isTrue="{!v.DCCTeam == '2021_AUS'}">
+      <div class="dd-dcc-subtitle">
+        DCC Australia Team
+      </div>
+
+      <div class="DCC-ta-container">
+        <div class="DCC-ta-background"></div>
+
+        <div class="DCC-ta-item">
+          <img
+            class="DCC-ta-image"
+            src="{!$Resource.dcc_pics + '/dcc_pics/Brianna.png'}"/>
+          <div class="DCC-ta-info">
+            <span class="DCC-ta-name">Brianna</span>
+            <span class="DCC-ta-local">Kooringal, NSW</span>
+          </div>
+        </div>
+
+        <div class="DCC-ta-item">
+          <img
+            class="DCC-ta-image"
+            src="{!$Resource.dcc_pics + '/dcc_pics/Michael.png'}"
+          />
+          <div class="DCC-ta-info">
+            <span class="DCC-ta-name">Michael</span>
+            <span class="DCC-ta-local">Warrnambool, VIC</span>
+          </div>
+        </div>
+
+        <div class="DCC-ta-item">
+          <img
+            class="DCC-ta-image"
+            src="{!$Resource.dcc_pics + '/dcc_pics/Teddy.png'}"
+          />
+          <div class="DCC-ta-info">
+            <span class="DCC-ta-name">Teddy</span>
+            <span class="DCC-ta-local">Braddon, ACT</span>
+          </div>
+        </div>
+
+        <div class="DCC-ta-item">
+          <img
+            class="DCC-ta-image"
+            src="{!$Resource.dcc_pics + '/dcc_pics/Hualison.png'}"
+          />
+          <div class="DCC-ta-info">
+            <span class="DCC-ta-name">Hualison</span>
+            <span class="DCC-ta-local">Dee Why, NSW</span>
+          </div>
+        </div>
+
+        <div class="DCC-ta-item">
+          <img
+            class="DCC-ta-image"
+            src="{!$Resource.dcc_pics + '/dcc_pics/Nayva.png'}"
+          />
+          <div class="DCC-ta-info">
+            <span class="DCC-ta-name">Nayva</span>
+            <span class="DCC-ta-local">Meadow Springs, WA</span>
+          </div>
+        </div>
+
+        <div class="DCC-ta-item">
+          <img
+            class="DCC-ta-image"
+            src="{!$Resource.dcc_pics + '/dcc_pics/Sahana.png'}"
+          />
+          <div class="DCC-ta-info">
+            <span class="DCC-ta-name">Sahana</span>
+            <span class="DCC-ta-local">Footscray, VIC</span>
+          </div>
+        </div>
+
+        <div class="DCC-ta-item">
+          <img
+            class="DCC-ta-image"
+            src="{!$Resource.dcc_pics + '/dcc_pics/David.png'}"
+          />
+          <div class="DCC-ta-info">
+            <span class="DCC-ta-name">David</span>
+            <span class="DCC-ta-local">Currumbin, QLD</span>
+          </div>
+        </div>
+
+        <div class="DCC-ta-item">
+          <img
+            class="DCC-ta-image"
+            src="{!$Resource.dcc_pics + '/dcc_pics/Noremey.png'}"
+          />
+          <div class="DCC-ta-info">
+            <span class="DCC-ta-name">Noremey</span>
+            <span class="DCC-ta-local">Bundaberg North, QLD</span>
+          </div>
+        </div>
+
+        <div class="DCC-ta-item">
+            <img
+              class="DCC-ta-image"
+              src="{!$Resource.dcc_pics + '/dcc_pics/Kerryanne.png'}"
+            />
+            <div class="DCC-ta-info">
+              <span class="DCC-ta-name">Kerryanne</span>
+              <span class="DCC-ta-local">Singelton, NSW</span>
+            </div>
+          </div>
+      </div>
+    </aura:if>
+    <!-- End 2021 Australia Team -->
+
+    <!-- Starts 2021 Canada Team -->
+    <aura:if isTrue="{!v.DCCTeam == '2021_CAN'}">
+      <div class="dd-dcc-subtitle">
+        DCC Canada Team
+      </div>
+
+      <div class="DCC-ta-container">
+        <div class="DCC-ta-background"></div>
+
+        <div class="DCC-ta-item">
+          <img
+            class="DCC-ta-image"
+            src="{!$Resource.dcc_pics + '/dcc_pics/Emily.png'}"/>
+          <div class="DCC-ta-info">
+            <span class="DCC-ta-name">Emily</span>
+            <span class="DCC-ta-local">Elmira, ON</span>
+          </div>
+        </div>
+
+        <div class="DCC-ta-item">
+          <img
+            class="DCC-ta-image"
+            src="{!$Resource.dcc_pics + '/dcc_pics/Moses.png'}"
+          />
+          <div class="DCC-ta-info">
+            <span class="DCC-ta-name">Moses</span>
+            <span class="DCC-ta-local">Winnipeg, MB</span>
+          </div>
+        </div>
+
+        <div class="DCC-ta-item">
+          <img
+            class="DCC-ta-image"
+            src="{!$Resource.dcc_pics + '/dcc_pics/Karen.png'}"
+          />
+          <div class="DCC-ta-info">
+            <span class="DCC-ta-name">Karen</span>
+            <span class="DCC-ta-local">Saskatoon, SK</span>
+          </div>
+        </div>
+
+        <div class="DCC-ta-item">
+          <img
+            class="DCC-ta-image"
+            src="{!$Resource.dcc_pics + '/dcc_pics/Maryam.png'}"
+          />
+          <div class="DCC-ta-info">
+            <span class="DCC-ta-name">Maryam</span>
+            <span class="DCC-ta-local">North Vancouver, BC</span>
+          </div>
+        </div>
+
+        <div class="DCC-ta-item">
+          <img
+            class="DCC-ta-image"
+            src="{!$Resource.dcc_pics + '/dcc_pics/Michelle.png'}"
+          />
+          <div class="DCC-ta-info">
+            <span class="DCC-ta-name">Michelle</span>
+            <span class="DCC-ta-local">Niagara Falls, ON</span>
+          </div>
+        </div>
+
+        <div class="DCC-ta-item">
+          <img
+            class="DCC-ta-image"
+            src="{!$Resource.dcc_pics + '/dcc_pics/Sandeep.png'}"
+          />
+          <div class="DCC-ta-info">
+            <span class="DCC-ta-name">Sandeep</span>
+            <span class="DCC-ta-local">Etobicoke, ON</span>
+          </div>
+        </div>
+
+        <div class="DCC-ta-item">
+          <img
+            class="DCC-ta-image"
+            src="{!$Resource.dcc_pics + '/dcc_pics/Liane.png'}"
+          />
+          <div class="DCC-ta-info">
+            <span class="DCC-ta-name">Liane</span>
+            <span class="DCC-ta-local">Nanaimo, BC</span>
+          </div>
+        </div>
+
+        <div class="DCC-ta-item">
+          <img
+            class="DCC-ta-image"
+            src="{!$Resource.dcc_pics + '/dcc_pics/Wadah.png'}"
+          />
+          <div class="DCC-ta-info">
+            <span class="DCC-ta-name">Wadah</span>
+            <span class="DCC-ta-local">Saint Hubert, QC</span>
+          </div>
+        </div>
+
+        <div class="DCC-ta-item">
+            <img
+              class="DCC-ta-image"
+              src="{!$Resource.dcc_pics + '/dcc_pics/Shedrach.png'}"
+            />
+            <div class="DCC-ta-info">
+              <span class="DCC-ta-name">Shedrach</span>
+              <span class="DCC-ta-local">St. John’s, NL</span>
+            </div>
+          </div>
+      </div>
+    </aura:if>
+    <!-- End 2021 Canada Team -->
+  </div>
+</aura:component>

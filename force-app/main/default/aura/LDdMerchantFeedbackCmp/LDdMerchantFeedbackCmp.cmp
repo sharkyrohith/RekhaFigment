@@ -1,0 +1,13 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId,force:hasSObjectName,force:lightningQuickActionWithoutHeader" access="global">
+    <aura:html tag="style">
+        .slds-modal__container{
+        width: 80%;
+        max-width: 70rem;
+        }
+        .modal-body{
+        height : 550px !important;
+        max-height: 550px !important;
+        }
+    </aura:html>
+    <c:lwcDdMerchantFeedback recId="{!v.recordId}" objectName="{!v.sObjectName}"/>
+</aura:component>

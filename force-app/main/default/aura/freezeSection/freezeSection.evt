@@ -1,0 +1,4 @@
+<aura:event type="COMPONENT" description="Event template">
+    <aura:attribute name="freezeSidebar" type="String"/>
+    <aura:attribute name="freezeHeader" type="String"/>
+</aura:event>

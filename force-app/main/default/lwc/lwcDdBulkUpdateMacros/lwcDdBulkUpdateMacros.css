@@ -1,0 +1,13 @@
+.accordionStyle {
+    --sds-c-accordion-heading-font-size:1.2rem;
+    --slds-c-accordion-heading-text-color:#005cb3;
+}
+.downloadIcon {
+    cursor: pointer;
+}
+.alert_success {
+    --slds-c-alert-color-background: green;
+}
+.alert_error {
+    --slds-c-alert-color-background: red;
+}

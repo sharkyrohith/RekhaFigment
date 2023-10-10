@@ -1,0 +1,51 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:lightningQuickActionWithoutHeader,force:hasRecordId" access="global" controller="CDdCloseOnSolvedController">
+    <aura:attribute name="recordId" type="String" default="5002h000000btIYAAY"/>
+    <aura:attribute name="isLightning" type="Boolean" description="" default="true" />
+    <aura:attribute name="isSuccess" type="Boolean" description="" default="false" />
+    <aura:attribute name="showError" type="Boolean" required="true" description="" default="false" />
+    <aura:attribute name="errorMessage" type="String" required="false" description="" access="private"/>
+
+    <lightning:workspaceAPI aura:id="workspace" />
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler event="c:LDdCloseOnSolvedEvt" action="{!c.handleOK}"/>
+    <ltng:require styles="{!$Resource.SRDdQuickActionStyles}" />
+    <!-- Header -->
+    <aura:if isTrue="{! v.isLightning}">
+        <div class="modal-header slds-modal__header slds-size_1-of-1">
+            <h1 class="slds-page-header__title slds-m-right_small">Solve Case</h1>
+        </div>
+    </aura:if>
+    <!-- Header -->
+
+    <!-- Body -->
+    <div class="slds-modal__content slds-p-around–x-small slds-align_absolute-center slds-size_1-of-1 slds-is-relative">
+        <aura:if isTrue="{!v.showError}">
+            <div class="error">
+                <lightning:icon class="error-icn" iconName="utility:error" size="small" alternativeText="Error" title="Error" />&nbsp;
+                {!v.errorMessage}
+            </div>
+        </aura:if>
+        <aura:if isTrue="{!v.isSuccess}">
+            <div>
+                <lightning:icon class="success-icn" iconName="utility:check" size="small" alternativeText="Success" title="Success" />&nbsp;
+                Success! The case status has been updated to Solved.
+            </div>
+        </aura:if>
+        <div class="loading">
+            <lightning:spinner aura:id="pageSpinner" alternativeText="Loading" size="large" />
+        </div>
+    </div>
+    <!-- Body -->
+
+    <!-- Footer -->
+    <div class="modal-footer slds-modal__footer slds-size_1-of-1">
+        <aura:if isTrue="{! not(v.isLightning)}">
+            <lightning:button variant="Brand" class="slds-button" label="Go Back" onclick="{! c.cancel }"/> 
+            <aura:set attribute="else">
+                <lightning:button variant="Brand" class="slds-button" label="OK" onclick="{! c.handleOK }"/>
+            </aura:set>
+        </aura:if>
+    </div>
+    <!-- Footer -->
+</aura:component>

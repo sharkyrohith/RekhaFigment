@@ -1,0 +1,15 @@
+<aura:component controller="CDdSendbirdChatController" implements="flexipage:availableForAllPageTypes,force:hasRecordId">
+    <aura:handler name="render" value="{!this}" action="{!c.onRender}" />
+    <aura:attribute name="hideSendbirdUI" type="Boolean" default="true" />
+    <aura:registerEvent name="handleVisibilityEvent" type="c:LDdHandleVisibilityEvt"/>
+    <aura:attribute name="agentUserId" type="String" />
+    <aura:attribute name="caseRecord" type="Object" />
+    <aura:attribute name="recordError" type="String" />
+    <force:recordData
+        aura:id="recordLoader"
+        fields="Id, Status, Origin, Channel__c, OwnerId, RecordType.DeveloperName"
+        recordId="{!v.recordId}"
+        targetFields="{!v.caseRecord}"
+        targetError="{!v.recordError}"
+    />
+</aura:component>

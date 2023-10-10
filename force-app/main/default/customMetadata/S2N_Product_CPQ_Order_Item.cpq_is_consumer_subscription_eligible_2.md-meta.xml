@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>CPQ Is Consumer Subscription Eligible</label>
+    <protected>false</protected>
+    <values>
+        <field>Order_Item_Field__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Order_Item_Trial_End_Date_Field__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Order_Item_Trial_Field__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Order_Item_Trial_Start_Date_Field__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Product_DD_Custom_ID__c</field>
+        <value xsi:type="xsd:string">MKTPL-0000154</value>
+    </values>
+    <values>
+        <field>S2N_Product_Property__c</field>
+        <value xsi:type="xsd:string">consumer_subscription_eligible</value>
+    </values>
+</CustomMetadata>

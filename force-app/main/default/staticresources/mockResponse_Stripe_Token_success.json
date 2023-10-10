@@ -1,0 +1,22 @@
+{
+  "id": "btok_0CUOFArw8hWoEwIJut6uveEy",
+  "object": "token",
+  "bank_account": {
+    "id": "ba_CuCen68xPSanbm",
+    "object": "bank_account",
+    "account_holder_name": "JN Test",
+    "account_holder_type": "company",
+    "bank_name": "JPMORGAN CHASE",
+    "country": "US",
+    "currency": "usd",
+    "fingerprint": "iEzLlGB8p6mPFLOf",
+    "last4": "6789",
+    "routing_number": "021000021",
+    "status": "new"
+  },
+  "client_ip": "67.170.241.110",
+  "created": 1526948448,
+  "livemode": false,
+  "type": "bank_account",
+  "used": false
+}

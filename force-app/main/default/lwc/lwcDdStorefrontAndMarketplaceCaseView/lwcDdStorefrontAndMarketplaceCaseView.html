@@ -1,0 +1,45 @@
+<template>
+    <lightning-card title={cardTitle} icon-name="utility:case" if:true={componentLoaded}>
+        <div if:false={hasError} class="slds-p-around_x-small">
+            <div class="slds-grid">
+                <div class="slds-col slds-size_1-of-2 slds-p-left_medium">
+                    <p><a href="#" onclick={navigateToRecord}>{siblingCase.caseToDisplay.CaseNumber}</a></p>
+                    <p>{siblingCase.completedMilestones} of {siblingCase.totalMilestones} Milestones Completed</p>
+                </div>
+                <div class="slds-col slds-size_1-of-2">
+                    <p><strong>Case Status: &nbsp;</strong> <span class={statusClass}>{caseStatus}</span></p>
+                    <p><strong>Owner: &nbsp;</strong> {siblingCase.caseToDisplay.Owner.Name}</p>
+                </div>
+            </div>
+
+            <div class="slds-p-around_medium">
+                <div class="slds-text-heading_small slds-p-bottom_small milestones-grid-title" onclick={toggleMilestonesGrid}>
+                    <lightning-icon class="grid-chevron grid-closed-chevron" if:true={gridClosed} icon-name="utility:chevronright" size="x-small"></lightning-icon>
+                    <lightning-icon class="grid-chevron grid-open-chevron" if:false={gridClosed} icon-name="utility:chevrondown" size="x-small"></lightning-icon>
+                    &nbsp; Milestones
+                </div>
+
+                <lightning-datatable
+                    if:false={gridClosed}
+                    key-field="Sort_Order__c"
+                    columns={milestoneTableColumns}
+                    data={siblingCase.milestones}
+                    hide-checkbox-column
+                    show-row-number-column
+                    column-widths-mode="auto">
+                </lightning-datatable>
+            </div>
+        </div>
+
+        <div if:true={hasError} class="slds-p-left_large slds-p-top_small error-msg">
+            <em>No Case to display.</em>
+        </div>
+    </lightning-card>
+
+    <lightning-spinner 
+        alternative-text="Loading" 
+        size="medium" 
+        variant="brand"
+        if:false={componentLoaded}
+    ></lightning-spinner>
+</template>

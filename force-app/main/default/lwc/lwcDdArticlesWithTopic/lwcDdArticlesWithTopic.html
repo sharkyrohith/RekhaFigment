@@ -1,0 +1,65 @@
+<template>
+    <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+    <!-- Grouped Articles -->
+    <template if:true={showGroupedArticles}>
+        <lightning-accordion allow-multiple-sections-open onsectiontoggle={handleSectionToggle}
+            active-section-name={activeSections}>
+            <template for:each={groupArticleData} for:item="article">
+                <lightning-accordion-section key={article.category} name={article.category} label={article.category}>
+                    <template if:true={article.subcategory}>
+                        <template for:each={article.subcategory} for:item="subcategory">
+                            <lightning-accordion-section key={subcategory.category} name={subcategory.category}
+                                label={subcategory.category}>
+                                <template if:false={subcategory.subcategory}>
+                                    <template for:each={subcategory.links} for:item="sublink">
+                                        <div class={artcleItemStyle} key={sublink}>
+                                            <a data-url={sublink.url} onmouseover={handleHover} onmouseout={handleHover}
+                                                href={sublink.url} target="_self">
+                                                {sublink.label}
+                                            </a>
+                                        </div>
+                                    </template>
+                                </template>
+                            </lightning-accordion-section>
+                        </template>
+                    </template>
+                    <template if:false={article.subcategory}>
+                        <template for:each={article.links} for:item="link">
+                            <div class={artcleItemStyle} key={link}>
+                                <a data-url={link.url} onmouseover={handleHover} onmouseout={handleHover}
+                                    href={link.url} target="_self">
+                                    {link.label}
+                                </a>
+                            </div>
+                        </template>
+                    </template>
+                </lightning-accordion-section>
+            </template>
+        </lightning-accordion>
+    </template>
+    <template if:false={showGroupedArticles}>
+        <!-- List Articles -->
+        <template if:true={showListArticles}>
+            <div class="slds-p-around_small">
+                <ul>
+                    <template for:each={articlesToShow} for:item="article">
+                        <li class="slds-p-top_medium" key={article}>
+                            <a data-url={article.url} class="articleItem" onmouseover={handleMouse}
+                                onmouseout={handleMouse} href={article.url} target="_self">
+                                {article.label}
+                            </a>
+                        </li>
+                    </template>
+                </ul>
+                <template if:true={showLoadMoreButton}>
+                    <lightning-button variant="brand" label="Load more" title="Load more" onclick={handleLoading}
+                        class="slds-p-top_small slds-align_absolute-center"></lightning-button>
+                </template>
+            </div>
+        </template>
+        <!-- No Articles Found -->
+        <template if:false={showListArticles}>
+            {label.noarticlesfound}
+        </template>
+    </template>
+</template>

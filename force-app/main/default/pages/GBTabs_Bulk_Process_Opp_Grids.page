@@ -1,0 +1,42 @@
+<apex:page standardController="Opportunity" showHeader="false" sidebar="false" title="Bulk Process Opp Grids">
+	<GBLite:TabbedPageComponent pageAPIName="GBTabs_Bulk_Process_Opp_Grids" customJsIds="" customCssIds="">
+	<GBLite:EmbedComponent baseGridUrl="{!$Page.GBLite__Grid}" />
+		<script>
+			var pageDefinition = {
+	"name": "Bulk Process Opp Grids",
+	"tabs": [
+		{
+			"name": "Bulk Opp Creation",
+			"content": "{!gridPage}gname=Franchise Accts without Open Opps&amp;sh=0&amp;sfname=default&amp;fpf=Account.Id&amp;fpv={!Opportunity.Account.ParentId}&amp;fpv2={!Opportunity.Id}",
+			"id": 1589234710157
+		},
+		{
+			"name": "Bulk Ready for Signature",
+			"content": "{!gridPage}gname=New Franchise Opps&amp;sh=0&amp;sfname=default&amp;fpf=Opportunity.Id&amp;fpv={!Opportunity.Id}",
+			"id": 1589239297301
+		},
+		{
+			"id": 1589302403287,
+			"content": "{!gridPage}gname=Ready for Signature Franchise Opps&amp;sh=0&amp;sfname=default&amp;fpf=Opportunity.Id&amp;fpv={!Opportunity.Id}",
+			"name": "Bulk Send PactSafe Contracts"
+		},
+		{
+			"id": 1590514018484,
+			"content": "{!gridPage}gname=Franchise Opps with PactSafe Status&amp;fpf=Parent_Opportunity__c&amp;fpv={!Opportunity.Id}",
+			"name": "PactSafe Request Statuses"
+		}
+	],
+	"id": 1589234710157,
+	"selectedCustomCSSIds": [],
+	"selectedCustomJSIds": [],
+	"description": "",
+	"globalButtons": true,
+	"object": "Opportunity",
+	"height": "",
+	"showHeader": false,
+	"showSidebar": false,
+	"pageAPIName": "GBTabs_Bulk_Process_Opp_Grids"
+};
+		</script>
+	</GBLite:TabbedPageComponent>
+</apex:page>

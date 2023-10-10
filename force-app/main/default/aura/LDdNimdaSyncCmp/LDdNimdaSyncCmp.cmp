@@ -1,0 +1,216 @@
+<aura:component controller="CDdLtngNimdaSyncCtrl" implements="force:appHostable,force:hasRecordId,c:LDdNimdaSyncConstants" access="global">
+    <!-- private attributes -->
+    <aura:attribute name="currentStep" type="String" access="PRIVATE" />
+    <aura:attribute name="previousStep" type="String" access="PRIVATE" /> 
+    <aura:attribute name="businessId" type="String" access="PRIVATE" default="{!$Label.c.NimdaSyncDefaultBusinessId}" />
+    <aura:attribute name="addressId" type="String" access="PRIVATE" />
+    <aura:attribute name="storeId" type="String" access="PRIVATE" />
+    <aura:attribute name="accountId" type="String" access="PRIVATE" />
+    <aura:attribute name="opportunity" type="Opportunity" access="PRIVATE" />   
+    <aura:attribute name="account" type="Account" access="PRIVATE" />
+    <aura:attribute name="homeActions" type="List" access="PRIVATE" />
+    <aura:attribute name="fullOnboardingAction" type="String" access="PRIVATE" />
+    <aura:attribute name="originatingOnboardingStep" type="String" access="PRIVATE" />
+    <aura:attribute name="version" type="Integer" default="3" access="PRIVATE" />
+    <aura:attribute name="isChangeOfOwnership" type="Boolean" access="PRIVATE" default="false"/>
+    <aura:attribute name="isLoading" type="Boolean" default="true" access="PRIVATE" />
+
+    <!--error related attributes-->
+    <aura:attribute name="errorType" type="String" access="PRIVATE" />
+    <aura:attribute name="errorMessage" type="String" access="PRIVATE" />
+    <aura:attribute name="calloutRequest" type="String" access="PRIVATE" />                     
+    <aura:attribute name="calloutResponse" type="String" access="PRIVATE" />    
+
+    <!--handlers-->
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    <aura:handler name="LDdNimdaSyncEvent" event="c:LDdNimdaSyncEvent" action="{!c.handleNimdaSyncEvent}"/>
+    <!--Include LDdCallout component -->
+    <c:LDdCallout aura:id="calloutCmp" />
+
+    <!--is loading - Begin -->
+    <aura:if isTrue="{!v.isLoading}">
+        <lightning:spinner alternativeText="Loading" size="medium" />
+    </aura:if>    
+    <!--is loading - End -->
+
+    <!-- Is Initialize or Search or Full Onboarding - Begin -->
+    <aura:if isTrue="{!(v.currentStep eq v.STEP_INITIALIZE) || (v.currentStep eq v.STEP_SEARCH_STORE) || (v.currentStep eq v.FULL_ONBOARDING_CREATE) || (v.currentStep eq v.FULL_ONBOARDING_UPDATE) || (v.currentStep eq v.CHANGE_OF_OWNERSHIP_CREATE) || (v.currentStep eq v.CHANGE_OF_OWNERSHIP_UPDATE) || (v.currentStep eq v.STEP_PAYMENT_ACCOUNT) || (!empty(v.errorMessage))}">
+        <div class="send-to-nimda" style="height: 640px;">
+        <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open slds-modal_large" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1">
+                <div class="slds-modal__container">
+                    <header class="slds-modal__header">
+                        <lightning:buttonIcon iconName="utility:close"
+                                                onclick="{!c.navigateToPreviousPage}"
+                                                alternativeText="close"
+                                                variant="bare-inverse"
+                                                class="slds-modal__close"/>
+                        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">{!$Label.c.DDS2N_Title}</h2>
+                    </header>
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                        <!-- Initialize step - Begin -->
+                        <aura:if isTrue="{!(v.currentStep eq v.STEP_INITIALIZE)}">
+                            <c:LDdNimdaHomeCmp opportunity="{!v.opportunity}" />
+                        </aura:if>
+                        <!-- Initialize step - End -->
+                        <!-- Search step - Begin -->
+                        <aura:if isTrue="{!(v.currentStep eq v.STEP_SEARCH_STORE)}">
+                            <aura:if isTrue="{!(equals(v.version,4))}"> 
+                                <c:LDdNimdaStoreSearchForUpdateCmpV4 aura:id="searchCmpV4"
+                                                    recordId="{!v.recordId}"
+                                                    businessId="{!v.businessId}"
+                                                    accountId="{!v.accountId}"
+                                                    opportunity="{!v.opportunity}"
+                                                    account="{!v.account}"/>
+                                <aura:set attribute="else">
+                                    <c:LDdNimdaStoreSearchForUpdateCmp aura:id="searchCmp"
+                                                        recordId="{!v.recordId}"
+                                                        businessId="{!v.businessId}"
+                                                        accountId="{!v.accountId}"
+                                                        opportunity="{!v.opportunity}"
+                                                        account="{!v.account}"/>                  
+                                </aura:set>
+                            </aura:if>                        
+                        </aura:if>
+                        <!-- Search step - End -->      
+                        <!-- NIMDA SYNC PROCESS CMP PLACEHOLDER -->
+                        <div aura:id="processCmpPlaceHolder" />
+                        <!-- / NIMDA SYNC PROCESS CMP PLACEHOLDER -->
+                        <!-- ERROR MESSAGE -->
+                        <aura:if isTrue="{!(!empty(v.errorMessage))}">
+                            <div class="slds-m-around--large slds-wrap">
+                                <div class="slds-box slds-theme--error slds-theme--alert-texture">
+                                    <h2>
+                                        <lightning:icon class="slds-icon icon-text-email slds-icon--small slds-m-right--x-small"
+                                                        iconName="utility:error" size="x-small" variant="bare" alternativeText="error"/>
+                                        <span>{!v.currentStep}</span>
+                                        <br/>                                               
+                                        <span>Type: {!v.errorType}</span>
+                                        <br/>                               
+                                        <span>Message: {!v.errorMessage}</span>
+                                        <br/>
+                                        <aura:if isTrue="{!(!empty(v.calloutRequest))}">                                            
+                                            <span>Request: {!v.calloutRequest}</span>
+                                        </aura:if>
+                                        <br/>
+                                        <aura:if isTrue="{!(!empty(v.calloutResponse))}">                                           
+                                            <span>Response: {!v.calloutResponse}</span>
+                                        </aura:if>                                                              
+                                    </h2>
+                                </div>
+                            </div>
+                        </aura:if>
+                        <!-- / ERROR MESSAGE -->                        
+                    </div>
+                    <footer class="slds-modal__footer">
+                        <aura:if isTrue="{!(v.currentStep eq v.STEP_SEARCH_STORE) || (v.currentStep eq v.STEP_UPDATE_STORE)}">
+                            <lightning:button variant="brand"
+                                                label="Previous"
+                                                title="Previous"
+                                                onclick="{!c.previous}"/>
+                        </aura:if>
+                        <aura:if isTrue="{!(v.currentStep eq v.STEP_SEARCH_STORE)}">
+                            <aura:if isTrue="{!not(empty(v.storeId))}">
+                                <lightning:button variant="brand"
+                                                    label="Next"
+                                                    title="Next"
+                                                    onclick="{!c.next}"/>
+                            <aura:set attribute="else">
+                                <lightning:button variant="brand"
+                                                    label="Next"
+                                                    title="Next"
+                                                    disabled="true"/>                            
+                            </aura:set>
+                            </aura:if>
+                        </aura:if>                    
+                        <lightning:button variant="neutral"
+                                        label="{!((v.currentStep eq v.STEP_COMPLETE) ? 'Finish' : 'Cancel')}"
+                                        title="{!((v.currentStep eq v.STEP_COMPLETE) ? 'Finish' : 'Cancel')}"
+                                        onclick="{!c.navigateToPreviousPage}"/>
+                    </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </div>
+    </aura:if>
+    <!-- Is Initialize or Search or Full Onboarding - End -->
+    <!-- is not Loading - Begin -->
+    <aura:if isTrue="{!(not(v.isLoading))}">       
+        <!-- Is Update Store - Begin -->
+        <aura:if isTrue="{!(v.currentStep eq v.STEP_UPDATE_STORE)}">
+            <aura:if isTrue="{!(equals(v.version,4))}"> 
+                <c:LDdNimdaStoreUpdateCmpV4 aura:id="updateCmpV4"
+                                    recordId="{!v.recordId}"
+                                    businessId="{!v.businessId}"
+                                    accountId="{!v.accountId}"
+                                    opportunity="{!v.opportunity}"
+                                    account="{!v.account}"
+                                    storeId="{!v.storeId}"
+                                    isChangeOfOwnership="{!v.isChangeOfOwnership}"
+                                    previousStep="{!(!empty(v.previousStep) ? v.previousStep : v.STEP_INITIALIZE)}"
+                                    originatingOnboardingStep="{!v.STEP_UPDATE_STORE}"/>
+                <aura:set attribute="else">
+                    <c:LDdNimdaStoreUpdateCmp aura:id="updateCmp"
+                                        recordId="{!v.recordId}"
+                                        businessId="{!v.businessId}"
+                                        accountId="{!v.accountId}"
+                                        opportunity="{!v.opportunity}"
+                                        account="{!v.account}"
+                                        storeId="{!v.storeId}"
+                                        previousStep="{!(!empty(v.previousStep) ? v.previousStep : v.STEP_INITIALIZE)}"/>                    
+                </aura:set>
+            </aura:if>
+        </aura:if>
+        <!-- Is Update Store - End -->
+        <!-- Is fee onboarding - Begin -->
+        <aura:if isTrue="{!(v.currentStep eq v.STEP_FEE_ONBOARDING)}">
+            <div class="send-to-nimda" style="height: 640px;">
+            <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open slds-modal_large" aria-labelledby="modal-heading-02" aria-modal="true" aria-describedby="modal-content-id-2">
+                    <div class="slds-modal__container">
+                        <header class="slds-modal__header">
+                            <lightning:buttonIcon iconName="utility:close"
+                                                    onclick="{!c.navigateToPreviousPage}"
+                                                    alternativeText="close"
+                                                    variant="bare-inverse"
+                                                    class="slds-modal__close"/>
+                            <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">{!$Label.c.DDS2N_Title}</h2>
+                        </header>
+                        <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-2">                    
+                            <c:lwcCavFeeOnboardingSelector recordId="{!v.recordId}"/>
+                        </div>
+                        <footer class="slds-modal__footer">
+                            <lightning:button variant="brand"
+                                                label="Previous"
+                                                title="Previous"
+                                                onclick="{!c.previous}"/>                                    
+                            <lightning:button variant="neutral"
+                                            label="Cancel"
+                                            title="Cancel"
+                                            onclick="{!c.navigateToPreviousPage}"/>
+                        </footer>
+                    </div>
+                </section>
+                <div class="slds-backdrop slds-backdrop_open"></div>
+            </div>                                     
+        </aura:if>
+        <!-- Is fee onboarding - End -->
+        <!-- Is product and pricing onboarding - Begin -->
+        <aura:if isTrue="{!(v.currentStep eq v.STEP_PRODUCT_AND_PRICING_ONBOARDING)}">
+            <c:LDdNimdaStoreReadOnlyCmp aura:id="readOnlyCmpV5"
+                recordId="{!v.recordId}"
+                businessId="{!v.businessId}"
+                accountId="{!v.accountId}"
+                opportunity="{!v.opportunity}"
+                account="{!v.account}"
+                storeId="{!v.storeId}"
+                previousStep="{!v.STEP_INITIALIZE}"
+                originatingOnboardingStep="{!v.STEP_PRODUCT_AND_PRICING_ONBOARDING}"/>
+        </aura:if>
+        <!-- Is product and pricing onboarding - End -->
+        <!--Display Change of Ownership Confirmation Component - Begin -->
+        <aura:if isTrue="{!(v.currentStep eq v.STEP_CHANGE_OF_OWNERSHIP_CONFIRMATION)}">
+           <c:LDdNimdaCOOCmp opportunity="{!v.opportunity}"  version="{!v.version}"/>
+      </aura:if>
+    <!--Display Change of Ownership Confirmation Component - End -->      
+    </aura:if>
+    <!-- is not Loading - End -->
+</aura:component>

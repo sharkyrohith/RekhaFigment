@@ -1,0 +1,32 @@
+<apex:page id="PDd" standardController="Case" docType="html-5.0" showHeader="true" sidebar="true" standardStylesheets="false" cache="false" applyHtmlTag="true">
+    <apex:includeLightning />
+    <apex:outputPanel id="panel" layout="block" html-data-role="panel" styleClass="slds">
+        <apex:outputPanel id="loading" layout="block" style="width: 100%; text-align: center; font-family: 'HelveticaNeue', Helvetica, Arial, sans-serif;">
+            <img src="/img/spinner.gif" alt="Loading..." title="Loading..." border="0" width="48" height="48" />
+            <p>Loading...</p>
+        </apex:outputPanel>
+        <apex:outputPanel id="lightning" layout="block"/>
+    </apex:outputPanel>
+
+
+    <script>
+        $Lightning.use('c:LDdNimdaSyncApp', function() {
+            var attributes = {
+                recordId: '{!case.Opportunity_Name__c}'
+            };
+            $Lightning.createComponent('c:LDdNimdaSyncCmp', attributes, 'PDd:lightning', function(component) {
+                document.getElementById('PDd:loading').style.display = 'none';
+                $A.eventService.addHandler({
+                    event: 'force:navigateToSObject',
+                    handler: function(event) {
+                        if (sforce && sforce.one) {
+                            sforce.one.back(true);
+                        } else {
+                            window.location = "/{!Case.Id}";
+                        }
+                    }
+                });                
+            });
+        });
+    </script>
+</apex:page>

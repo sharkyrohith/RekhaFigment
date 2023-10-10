@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="urn:metadata.tooling.soap.sforce.com" fqn="lwcDdCsvToDataTableComponent">
+    <apiVersion>56.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>CSV To Datatable</masterLabel>
+    <description>A simple parser for UTF-8 encoded, comma separated .csv files.</description>
+    <targets>
+      <target>lightning__AppPage</target>
+      <target>lightning__HomePage</target>
+      <target>lightning__RecordPage</target>
+    </targets>
+</LightningComponentBundle>

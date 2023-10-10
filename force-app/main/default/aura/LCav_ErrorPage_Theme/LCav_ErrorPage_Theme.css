@@ -1,0 +1,68 @@
+.THIS {
+}
+
+.THIS {
+    font-family: "Square_Market_Regular", Helvetica, Arial, sans-serif;
+}
+
+
+.THIS span.err-caviar-title {
+    display: block;
+    text-align: center;
+    font-size: 28px;
+    line-height: 1.28571;
+    max-width: 400px;
+    margin: 0 auto;
+    color: #2d3c48;
+}
+
+.THIS .err-caviar-body {
+	text-align: center;
+    display: block;
+	background: url(/sfsites/c/resource/SrCav_Community_Assets/error/Buildings_BG.png);
+    background-position: center 65%;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.THIS a.err-caviar-cta {
+    width: 200px;
+    margin: 30px 0;
+    background-color: #f86932;
+        border: none;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 500;
+    max-width: 100%;
+    outline: none;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color .15s;
+    white-space: nowrap;
+    font-size: 14px;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 15px;
+}
+
+.THIS span.err-caviar-404 {
+    display: block;
+    padding: 30px;
+}
+
+
+.THIS .err-caviar-logo {
+    text-align: center;
+    box-shadow: 0 1px rgba(0,0,0,.2);
+    padding: 16px 0;
+    height: 70px;
+    margin-bottom: 40px;
+}
+
+.THIS .err-caviar-logo img {
+       max-width: 90px;
+    position: relative;
+        top: 5px;
+}

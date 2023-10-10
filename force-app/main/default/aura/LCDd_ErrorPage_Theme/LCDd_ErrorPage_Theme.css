@@ -1,0 +1,136 @@
+.THIS {
+	width: 100%;
+	height: 100vh;
+	margin: 0;
+	font-family: ProximaNova, "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+/*	background: url(/sfsites/c/resource/SRDdHelpSelectAssets/ErrorPage/500-background.png) no-repeat center center; */
+	background-size: cover;
+}
+
+/*
+@font-face {
+    font-family: 'DDTTNorms1';
+    src: url('sfsites/c/resource/DDTTNorms1') format('woff');
+}
+*/
+
+/*-- /sfsites/c/resource/ErrorPage/close.png --*/
+
+.THIS .background-404 {
+	width: 100%;
+	height: 100%;
+/*	background: url(/sfsites/c/resource/SRDdHelpSelectAssets/ErrorPage/404-background.jpg) no-repeat center center; */
+	background-size: cover;
+}
+
+.THIS .background-500 {
+}
+
+.THIS .header-fixed-top {
+	background-color: rgba(255, 255, 255, 0.8);
+	padding: 26px;
+	border-bottom: #eee solid 1px;
+	position: fixed;
+	width: 100%;
+}
+
+.THIS .navbar-header {
+}
+
+.THIS .container {
+	max-width: 1170px;
+	margin: 0px auto;
+	width: 100%;
+}
+
+.THIS .logo {
+	width: 174px;
+}
+
+.THIS div .navbar-collapse {
+	background-color: transparent !important;
+}
+
+.THIS .foreground-404 {
+	width: 100%;
+	height: 100%;
+/*	background: url(/sfsites/c/resource/SRDdHelpSelectAssets/ErrorPage/404-foreground.png) no-repeat center center; */
+	background-size: cover;
+}
+
+.THIS .error-message {
+	text-align: center;
+	position: relative;
+	margin: 0 auto;
+	top: 20%;
+	padding: 60px 50px;
+	max-width: 600px;
+	width: 80%;
+	color: #fff;
+	font-family: ProximaNova, "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+}
+
+.THIS .error-message-500 {
+	top: 8%;
+}
+
+.THIS .error-message-header {
+	text-transform: uppercase;
+	font-weight: bold;
+	margin: 0;
+	margin-bottom: 20px;
+	color: #fff;
+	font-size: 48px;
+	font-family: ProximaNova, "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+}
+
+.THIS .error-message-body {
+	color: #fff;
+	text-transform: uppercase;
+	font-weight: bold;
+	letter-spacing: 2px;
+	padding: 0 50px;
+	font-family: ProximaNova, "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+	font-size: 30px;
+	margin-top: 20px;
+	margin-bottom: 10px;
+	line-height: 36px;
+}
+
+.THIS .error-status-code {
+	font-weight: bold;
+	font-family: ProximaNova, "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+	margin: 6px 0px 6px 0px;
+}
+
+.THIS .error-message-return-home {
+	font-size: 15px;
+	color: white;
+	text-decoration: underline;
+}
+
+@media (max-width:767px) {
+	.THIS .error-message-header {
+		font-size: 40px;
+	}
+
+	.THIS .error-message-return-home {
+		font-size: 22px;
+	}
+
+}
+
+@media (max-width:480px) {
+.THIS .error-message-body {
+	padding: 0 10px;
+}
+
+.THIS .error-message {
+    text-align: center;
+    position: relative;
+    margin: 0 auto;
+    top: 20%;
+    padding: 60px 10px;
+
+}
+}

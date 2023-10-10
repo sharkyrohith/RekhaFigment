@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Case Received To Mx Order Copy Field 01</label>
+    <protected>false</protected>
+    <values>
+        <field>Field_Type__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Is_Active__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>Mx_Order_Event_Config__c</field>
+        <value xsi:type="xsd:string">Update_Mx_Order_For_Case_Received</value>
+    </values>
+    <values>
+        <field>Notes__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Source_SObject_API_Field__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Target_Default_Value__c</field>
+        <value xsi:type="xsd:string">delivered</value>
+    </values>
+    <values>
+        <field>Target_SObject_API_Field_Length__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Target_SObject_API_Field__c</field>
+        <value xsi:type="xsd:string">Order_Status__c</value>
+    </values>
+</CustomMetadata>

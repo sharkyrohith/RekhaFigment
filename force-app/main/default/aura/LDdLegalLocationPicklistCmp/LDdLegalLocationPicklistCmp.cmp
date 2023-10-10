@@ -1,0 +1,114 @@
+<aura:component access="global" implements="forceCommunity:availableForAllPageTypes">
+    
+    <ltng:require styles="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<ltng:require styles="{!$Resource.SRDdLegalLocationPicklistStyles}" />
+	<aura:attribute default="https://help.doordash.com/" name="BaseURL" type="String" />
+	<aura:attribute default="consumers" name="CommunityName" type="String" />
+    <aura:attribute default="us,ca,au,mx,jp,de,nz" name="countries" type="String" />
+    <aura:attribute default="terms-and-conditions" name="AgreementType" type="String" />
+    <aura:attribute default="us" name="LocationDefault" type="String" />
+    <aura:attribute default="One" name="LocationCount" type="String" />
+    <aura:attribute default="ca" name="LocationOneLabel" type="String" />  
+    <aura:attribute default="au" name="LocationTwoLabel" type="String" /> 
+    <aura:attribute default="mx" name="LocationThreeLabel" type="String" /> 
+
+    <aura:attribute name="countryOptions" type="List" /> 
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" /> 
+
+    <div>
+        <div class="navbar">
+            <div class="dropdown">
+
+                <lightning:select onchange="{! c.onCountryChange }" label="" value="{!v.LocationDefault}" class="dropbtn" name="locationDDL">
+                    <aura:iteration items="{!v.countryOptions}" var="opt">
+                        <option class="dropdown-content" text="{!opt.label}" value="{!opt.value}" selected="{!opt.selected}"/>
+                    </aura:iteration>
+                </lightning:select>
+                
+                <!-- aura:if isTrue="{!v.LocationCount != 'None'}">
+
+                <button class="dropbtn">
+                    <aura:if isTrue="{!v.LocationDefault == 'us'}">{!$Label.c.DdCommunity_Legal_United_States}</aura:if>
+                    <aura:if isTrue="{!v.LocationDefault == 'ca'}">Canada</aura:if>
+                    <aura:if isTrue="{!v.LocationDefault == 'au'}">Australia</aura:if>
+                    <aura:if isTrue="{!v.LocationDefault == 'mx'}">Mexico</aura:if>
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                    
+				</aura:if>                 
+                
+                <div class="dropdown-content">
+                    
+                <aura:if isTrue="{!or(v.LocationCount == 'One', v.LocationCount == 'Two', v.LocationCount == 'Three')}">
+                    
+                    <a href="{!v.BaseURL + v.CommunityName + '/s/' + v.AgreementType + '-' + v.LocationOneLabel}">
+                    <aura:if isTrue="{!v.LocationOneLabel == 'us'}">{!$Label.c.DdCommunity_Legal_United_States}</aura:if>
+                    <aura:if isTrue="{!v.LocationOneLabel == 'ca'}">Canada</aura:if>
+                    <aura:if isTrue="{!v.LocationOneLabel == 'au'}">Australia</aura:if>
+                    <aura:if isTrue="{!v.LocationOneLabel == 'mx'}">Mexico</aura:if>
+                   	</a>
+     			
+                </aura:if>
+                    
+                <aura:if isTrue="{!or(v.LocationCount == 'Two', v.LocationCount == 'Three')}">
+                         
+                    <a href="{!v.BaseURL + v.CommunityName + '/s/' + v.AgreementType + '-' + v.LocationTwoLabel}">
+                    <aura:if isTrue="{!v.LocationTwoLabel == 'us'}">{!$Label.c.DdCommunity_Legal_United_States}</aura:if>
+                    <aura:if isTrue="{!v.LocationTwoLabel == 'ca'}">Canada</aura:if>
+                    <aura:if isTrue="{!v.LocationTwoLabel == 'au'}">Australia</aura:if>
+                    <aura:if isTrue="{!v.LocationTwoLabel == 'mx'}">Mexico</aura:if>                        
+                    </a>
+                         
+                </aura:if>
+
+                <aura:if isTrue="{!or(v.LocationCount == 'One', v.LocationCount == 'Two')}">
+                    
+                    <a href="{!v.BaseURL + v.CommunityName + '/s/' + v.AgreementType + '-' + v.LocationOneLabel}">
+                    <aura:if isTrue="{!v.LocationOneLabel == 'us'}">{!$Label.c.DdCommunity_Legal_United_States}</aura:if>
+                    <aura:if isTrue="{!v.LocationOneLabel == 'ca'}">Canada</aura:if>
+                    <aura:if isTrue="{!v.LocationOneLabel == 'au'}">Australia</aura:if>
+                    <aura:if isTrue="{!v.LocationOneLabel == 'mx'}">Mexico</aura:if>
+                   	</a>
+     			
+                </aura:if>
+                    
+                </div -->
+            </div> 
+        </div>
+                <div class="selection-header">
+                  	
+                    <div class="selection-title">
+
+                    <div class="selection-location">
+                    <aura:if isTrue="{!v.AgreementType == 'terms-and-conditions'}">{!$Label.c.DdCommunity_Legal_Terms_Conditions}</aura:if>
+                    <aura:if isTrue="{!v.AgreementType == 'privacy-policy'}">{!$Label.c.DdCommunity_Legal_Privacy_Policy}</aura:if>
+                    <aura:if isTrue="{!v.AgreementType == 'ica'}">{!$Label.c.DdCommunity_Legal_Independent_Contractor_Agreement}</aura:if>
+                    <aura:if isTrue="{!v.AgreementType == 'deactivation-policy'}">{!$Label.c.DdCommunity_Legal_Deactivation_Policy}</aura:if>
+                    <aura:if isTrue="{!v.AgreementType == 'terms-of-service'}">{!$Label.c.DdCommunity_Legal_Terms_Service}</aura:if>
+                    <aura:if isTrue="{!v.AgreementType == 'faq-privacy-terms'}">{!$Label.c.DdCommunity_Legal_Overview_FAQ}</aura:if>
+                    <aura:if isTrue="{!v.AgreementType == 'data-security-and-privacy-policy'}">{!$Label.c.DdCommunity_Legal_Data_Security_and_Privacy_Policy}</aura:if>
+                    <aura:if isTrue="{!v.AgreementType == 'storefront-services-terms-of-service'}">{!$Label.c.DdCommunity_Legal_Storefront_Services_Terms_of_Service}</aura:if>
+                    <aura:if isTrue="{!v.AgreementType == 'partner-code-of-conduct'}">{!$Label.c.DdCommunity_Legal_Partner_Code_of_Conduct} </aura:if>
+                    </div>    
+                        
+                    <div class="selection-type">
+                    <aura:if isTrue="{!v.LocationDefault == 'us'}"> - {!$Label.c.DdCommunity_Legal_United_States}</aura:if>
+                    <aura:if isTrue="{!v.LocationDefault == 'ca'}"> - {!$Label.c.DdCommunity_Legal_Canada}</aura:if>
+                    <aura:if isTrue="{!v.LocationDefault == 'au'}"> - {!$Label.c.DdCommunity_Legal_Australia}</aura:if>
+                    <aura:if isTrue="{!v.LocationDefault == 'mx'}"> - {!$Label.c.DdCommunity_Legal_Mexico}</aura:if>
+                    <aura:if isTrue="{!v.LocationDefault == 'jp'}"> - {!$Label.c.DdCommunity_Legal_Japan}</aura:if>
+                    <aura:if isTrue="{!v.LocationDefault == 'de'}"> - {!$Label.c.DdCommunity_Legal_Germany}</aura:if>
+                    <aura:if isTrue="{!v.LocationDefault == 'nz'}"> - {!$Label.c.DdCommunity_Legal_New_Zealand}</aura:if>
+                    </div>  
+                        
+                    </div> 
+                    
+                    <div class="selection-community">
+                    <aura:if isTrue="{!v.CommunityName == 'consumers'}">{!$Label.c.DdCommunity_Legal_DoorDash_Consumers}</aura:if>
+                    <aura:if isTrue="{!v.CommunityName == 'dashers'}">{!$Label.c.DdCommunity_Legal_DoorDash_Dashers}</aura:if>
+                    <aura:if isTrue="{!v.CommunityName == 'merchants'}">{!$Label.c.DdCommunity_Legal_DoorDash_Merchants}</aura:if>
+                    </div>
+        		</div>
+    </div>
+    
+</aura:component>

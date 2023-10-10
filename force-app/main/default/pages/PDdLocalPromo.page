@@ -1,0 +1,41 @@
+<apex:page standardController="Account" extensions="CDdLocalPromoCtrl" tabStyle="Account">
+    <!-- <apex:slds /> -->
+    <apex:pageMessages />
+    <!-- <apex:pageBlock>
+        <apex:pageBlockTable value="{!RegCalls}" var="item">
+            <apex:column value="{!item.Date__c}"/>
+            <apex:column value="{!item.Phone__c}"/>
+        </apex:pageBlockTable> 
+    </apex:pageBlock> -->
+    <apex:pageBlock >   
+        <apex:pageBlockSection title="Store Bounty Program Information">
+            <apex:outputField value="{!Account.Name}"/>
+            <apex:outputField value="{!Account.Restaurant_ID__c}"/>
+            <apex:outputField value="{!Account.PAP_Weblink_ID__c}"/>
+            <apex:outputField value="{!Account.PAP_Promotion_Code__c}"/>
+        </apex:pageBlockSection>
+        <apex:pageBlockSection title="Partner Affiliate Program Opportunities">
+            <apex:pageBlockTable value="{!promoOpps}" var="opp">
+                <apex:column headerValue="Opportunity Name">
+                    <apex:outputLink target="_blank" value="{!URLFOR($Action.Opportunity.View, opp.id)}">{!opp.Name}</apex:outputLink>
+                </apex:column>
+                <apex:column headerValue="Owner Name">
+                    <apex:outputLink target="_blank" value="{!URLFOR($Action.User.View, opp.OwnerId)}">{!opp.Owner.Name}</apex:outputLink>
+                </apex:column>
+                <apex:column value="{!opp.Id}"/>
+                <apex:column value="{!opp.Type}"/>
+                <apex:column value="{!opp.CloseDate}"/>   
+            </apex:pageBlockTable>
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+    <apex:form >
+        <apex:inputHidden value="{!Account.RecordType.DeveloperName}"/>
+        <apex:inputHidden value="{!Account.ParentId}"/>
+        <apex:pageBlock >
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton value="Create Bounty" action="{!createBountyProgram}"/>
+                <apex:commandButton value="Close" action="{!close}"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

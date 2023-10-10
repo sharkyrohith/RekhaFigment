@@ -1,0 +1,7 @@
+<design:component label="DCC Meet the Team">
+    
+    
+            <design:attribute name="DCCTeam" label="DCC Team" datasource="current,DCC_Q1_2020_Team,2019_Team,VDC_2020,2021_USA,2021_AUS,2021_CAN,JulToDec_2020" default="current"/>
+
+	
+</design:component>

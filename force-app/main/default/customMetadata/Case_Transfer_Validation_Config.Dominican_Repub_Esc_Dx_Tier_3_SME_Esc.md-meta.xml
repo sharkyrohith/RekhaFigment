@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Dominican Repub Esc-Dx - Tier 3 SME Esc</label>
+    <protected>false</protected>
+    <values>
+        <field>Bypass_Trigger_Case_Insert__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>Criteria_Behavior__c</field>
+        <value xsi:type="xsd:string">Prevent transfer if criteria is met</value>
+    </values>
+    <values>
+        <field>Description__c</field>
+        <value xsi:type="xsd:string">BIZS-2594 Prevent transfer of cases from &apos;Dominican Republic Escalation&apos; to &apos;T3 Dx 2&apos; queue.</value>
+    </values>
+    <values>
+        <field>Error_Message__c</field>
+        <value xsi:type="xsd:string">You are not authorised to transfer cases from &apos;Dominican Republic Escalation&apos; to &apos;{Target Queue Name}&apos;.</value>
+    </values>
+    <values>
+        <field>Filter_Logic__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Is_Test_Record__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>Sort_Order__c</field>
+        <value xsi:type="xsd:double">33.0</value>
+    </values>
+    <values>
+        <field>Target_Queue_Id__c</field>
+        <value xsi:type="xsd:string">00G2L000001vHh9UAE</value>
+    </values>
+    <values>
+        <field>isActive__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+</CustomMetadata>

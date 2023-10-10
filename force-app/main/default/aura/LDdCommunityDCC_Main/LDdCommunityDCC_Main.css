@@ -1,0 +1,33 @@
+.THIS {
+    padding-top: 0px;
+}
+
+.THIS .dd-dcc-subtitle {
+    font-weight: bold;
+    font-size: 28px;
+    display: block;
+    padding: 35px 0 15px 0;
+}
+
+
+.THIS .dd-dcc-subtitle-white {
+    font-weight: bold;
+    font-size: 28px;
+    display: block;
+    padding: 35px 0 15px 0;
+    color: white;
+}
+
+.THIS .dd-dcc-white {
+    display: block;
+    padding: 35px 0 15px 0;
+    color: white;
+    align-content:center;
+}
+
+.THIS img.DCC-main-image {
+}
+
+.THIS .dcc-red-background{
+    background-color: red;
+}

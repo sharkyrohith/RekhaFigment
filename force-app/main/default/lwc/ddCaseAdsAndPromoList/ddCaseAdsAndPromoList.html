@@ -1,0 +1,34 @@
+<template>
+    <div if:false={isLoaded} class="slds-is-relative">
+        <lightning-spinner
+            alternative-text="Loading..." variant="brand">
+        </lightning-spinner>
+    </div>
+    <template if:true={showProducts}>
+        <article class="slds-card slds-card_boundary">
+            <div class="slds-card__header slds-grid slds-page-header">
+                <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                    <div class="slds-media__figure">
+                        <lightning-icon icon-name="standard:promotions" size="small" alternative-text="Promotions"></lightning-icon>
+                    </div>
+                    <div class="slds-media__body">
+                        <h2 class="slds-card__header-title">Ads &amp; Promo Products to Activate</h2>
+                    </div>
+                </header>
+            </div>
+            <template if:true={hasError}>
+                <p class="error-p">{serviceError}</p>
+            </template>
+            <div if:false={hasError} class="slds-media__body table-body-div">
+                <lightning-datatable
+                    key-field="Id"
+                    columns={columns}
+                    data={orderItems}
+                    hide-checkbox-column
+                    wrap-text-lines="4"
+                    resize-column-disabled>
+                </lightning-datatable>
+            </div>
+        </article>
+    </template>
+</template>

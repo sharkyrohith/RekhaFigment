@@ -1,0 +1,18 @@
+<apex:page controller="PSBulkSendController"
+           showHeader="false"
+           sideBar="false">
+    <apex:includeLightning />
+
+    <div id="lightningvf" />
+
+    <script>
+        $Lightning.use("c:PSBulkSendApp", function() {
+          $Lightning.createComponent("c:pactSafeBulkSend",
+            {opportunityIds: "{!$CurrentPage.parameters.id}"},
+            "lightningvf",
+            function(cmp) {
+            }
+          );
+        });
+    </script>
+</apex:page>

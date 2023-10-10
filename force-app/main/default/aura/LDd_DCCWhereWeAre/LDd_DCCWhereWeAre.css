@@ -1,0 +1,20 @@
+.THIS {
+    margin-top: -25px;
+    margin-left: -4vh;
+    margin-right: -4vh;
+}
+
+.THIS h5 {
+    font-size: 16px;
+}
+
+.THIS h2,
+.THIS h3,
+.THIS h4,
+.THIS h5 {
+    color: #fff !important;
+}
+
+.THIS a:hover img {
+    opacity: 0.6;
+}

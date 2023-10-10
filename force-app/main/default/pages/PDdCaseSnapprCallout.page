@@ -1,0 +1,4 @@
+<apex:page standardController="Case" extensions="CDdCaseSnapprCalloutCtrl" action="{!makeSnapprCallout}" lightningStylesheets="true">
+    <apex:slds />
+    <apex:pageMessages />
+</apex:page>

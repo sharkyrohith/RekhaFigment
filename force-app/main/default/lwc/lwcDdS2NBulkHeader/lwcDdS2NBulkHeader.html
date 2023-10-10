@@ -1,0 +1,21 @@
+<template>
+    <lightning-card variant="narrow" icon-name="standard:account"> 
+        <div slot="title">
+            <lightning-breadcrumbs>
+                <lightning-breadcrumb label={label.homeHeader} href="#" onclick={navigateToHome}></lightning-breadcrumb>
+                    <template if:true={hasSelectedBulkAction}>
+                        <lightning-breadcrumb label={selectedBulkAction}></lightning-breadcrumb>
+                    </template>
+            </lightning-breadcrumbs>
+        </div>
+        <lightning-button label={label.reportHeader} slot="actions" class="slds-m-horizontal_xx-small" onclick={navigateToReport}></lightning-button>
+        <lightning-button label={label.jobHeader} slot="actions" class="slds-m-horizontal_xx-small" onclick={handleShowMyApexJobs}></lightning-button>
+        <lightning-button label={label.instructionsHeader} slot="actions" class="slds-m-left_xx-small" onclick={handleShowBulkInstructions}></lightning-button>
+    </lightning-card>
+    <template if:true={showMyApexJobs}>    
+        <c-lwc-dd-my-apex-jobs apex-class-name='CDdUploaderBatch' onclosebulkinstructions={handleCloseMyApexJobs}></c-lwc-dd-my-apex-jobs>
+    </template>    
+    <template if:true={showInstructions}>    
+        <c-lwc-dd-s-2-n-bulk-instructions onclosebulkinstructions={handleCloseBulkInstructions}></c-lwc-dd-s-2-n-bulk-instructions>
+    </template>
+</template>

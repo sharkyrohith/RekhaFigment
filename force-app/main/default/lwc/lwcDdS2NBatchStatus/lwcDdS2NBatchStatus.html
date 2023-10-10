@@ -1,0 +1,28 @@
+<template>
+    <template if:true={showBatchStatus}>
+        <div data-id="importStatus" class="slds-form-element slds-m-top_medium">
+            <label class="slds-form-element__label slds-m-top_medium" for="importStatusDiv">Import Status</label>
+            <div id="importStatusDiv" data-id="importStatusDiv">{importStatus}</div>
+
+            <label class="slds-form-element__label slds-m-top_medium" for="progressIndicatorDiv">Import Progress</label>
+            <div id="progressIndicatorDiv">
+                <lightning-progress-indicator data-id="progressIndicator" current-step={currentStep} has-error={hasError} type="path" variant="base" onclick={getProgress}>
+                    <lightning-progress-step label={label.progressSubmitted} value="submitted"></lightning-progress-step>
+                    <lightning-progress-step label={label.progressHolding} value="holding"></lightning-progress-step>
+                    <lightning-progress-step label={label.progressQueued} value="queued"></lightning-progress-step>
+                    <lightning-progress-step label={label.progressPreparing} value="preparing"></lightning-progress-step>
+                    <lightning-progress-step label={label.prgoressProcessing} value="processing"></lightning-progress-step>
+                    <lightning-progress-step label={label.progressCompleted} value="completed"></lightning-progress-step>
+                </lightning-progress-indicator>
+
+                <label class="slds-form-element__label slds-m-top_medium" for="progressBar">{label.batchProgress}</label>
+                <div id="progressBar">
+                    <lightning-progress-bar value={progressValue} size="large"></lightning-progress-bar>
+                </div>
+
+                <label class="slds-form-element__label slds-m-top_medium" for="importMessages">{label.importResults}</label>
+                <div id="importMessages" data-id="importMessages" class="slds-box">{importMessages}</div>
+            </div>
+        </div>
+    </template>
+</template>

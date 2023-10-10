@@ -1,0 +1,7 @@
+<design:component >
+    
+    <design:attribute name="rejectedUsers" label="Rejected Users"/>
+    <design:attribute name="CurrentUserId" label="User Id"/>
+    <design:attribute name="rejectedUserReviews" label="User Reviews"/>
+    
+</design:component>

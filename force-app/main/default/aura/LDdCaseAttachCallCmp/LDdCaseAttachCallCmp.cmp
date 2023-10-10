@@ -1,0 +1,19 @@
+<aura:component  controller="CDdCaseAttachCallCtrl" implements="force:hasRecordId,force:lightningQuickAction" access="global">
+    <aura:attribute name="callType" type="string" default="OUTBOUND"/>
+    <aura:handler event="aura:doneWaiting" action="{!c.spinnerOff}" />
+    <aura:handler event="aura:waiting" action="{!c.spinnerOn}" />
+    <lightning:spinner aura:id="pageSpinner" alternativeText="Loading..." variant="brand" size="large" class="slds-hide"/>
+    <div>
+        <div class="intro">
+            {!$Label.c.Attach_Call_Intro}
+        </div>
+
+        <lightning:select name="callType" label="Call Type" required="true" value="{!v.callType}">
+            <option value="INBOUND">Inbound</option>
+            <option value="OUTBOUND">Outbound</option>
+        </lightning:select>
+        <br/>
+        <br/>
+        <lightning:button variant="brand" label="Attach Call" title="Attach Call" onclick="{!c.attachCall}" class="slds-m-left_x-small" />
+    </div>
+</aura:component>

@@ -1,0 +1,95 @@
+<aura:component  access="global" implements="forceCommunity:availableForAllPageTypes">
+    
+    <aura:attribute default="four" name="TopicCount" type="String" />
+    <aura:attribute default="consumers" name="Community" type="String" />
+    <aura:attribute default="What kind of help do you need?" name="TopicTitle" type="String" />
+    
+    <aura:attribute default="Manage Your Account" name="TopicOneLabel" type="String" />
+    <aura:attribute default="Manage-Account" name="TopicOneImage" type="String" />
+    <aura:attribute default="0TO2L000000k9egWAA" name="TopicOneTopicID" type="String" />
+    
+    <aura:attribute default="Promotions" name="TopicTwoLabel" type="String" />
+    <aura:attribute default="Promotions" name="TopicTwoImage" type="String" />
+    <aura:attribute default="0TO2L0000001G6XWAU" name="TopicTwoTopicID" type="String" />
+    
+    <aura:attribute default="Payments" name="TopicThreeLabel" type="String" />
+    <aura:attribute default="Payments-Cx" name="TopicThreeImage" type="String" />
+    <aura:attribute default="0TO1a0000007fB6GAI" name="TopicThreeTopicID" type="String" />
+    
+    <aura:attribute default="Troubleshooting" name="TopicFourLabel" type="String" />
+    <aura:attribute default="Troubleshooting" name="TopicFourImage" type="String" />
+    <aura:attribute default="00TO1a0000007fB8GAI" name="TopicFourTopicID" type="String" />
+    
+    <aura:attribute default="Alcohol Orders" name="TopicFiveLabel" type="String" />
+    <aura:attribute default="Alcohol-Orders" name="TopicFiveImage" type="String" />
+    <aura:attribute default="0TO1a0000007fB9GAI" name="TopicFiveTopicID" type="String" />
+    
+    <aura:attribute default="Tablet Hardware" name="TopicSixLabel" type="String" />
+    <aura:attribute default="Tablet-Hardware" name="TopicSixImage" type="String" />
+    <aura:attribute default="0TO2L000000Xq0hWAC" name="TopicSixTopicID" type="String" />
+    
+    <div>
+        <div>
+            
+            <div class="dd-featured-topic-title">{!v.TopicTitle}</div>
+            
+            <div class="dd-featured-tile-wrap slds-grid slds-wrap slds-grid_align-center">
+                <div class="{!'dd-featured-item slds-text-align_center slds-p-around_small dd-featured-item-' + v.TopicCount}">
+                    
+                    <a href="{!'/' + v.Community + '/s/topic/' + v.TopicOneTopicID}" title="{!v.TopicOneLabel}" class="dd-featured-tile slds-col" style="{!'background-image: url(' + '/' + v.Community + '/resource/SRDd_Community_Featured_Topics/' + v.TopicOneImage + '.png);'}" >
+                        <span class="dd-featured-label">{!v.TopicOneLabel}</span>
+                    </a>
+                    
+                </div>
+                
+                <div class="{!'dd-featured-item slds-text-align_center slds-p-around_small dd-featured-item-' + v.TopicCount}">
+                    
+                    <a href="{!'/' + v.Community + '/s/topic/' + v.TopicTwoTopicID}" title="{!v.TopicTwoLabel}" class="dd-featured-tile slds-col" style="{!'background-image: url(' + '/' + v.Community + '/resource/SRDd_Community_Featured_Topics/' + v.TopicTwoImage + '.png);'}" >
+                        <span class="dd-featured-label">{!v.TopicTwoLabel}</span>
+                    </a>
+                    
+                </div>
+                
+                <div class="{!'dd-featured-item slds-text-align_center slds-p-around_small dd-featured-item-' + v.TopicCount}">
+                    
+                    <a href="{!'/' + v.Community + '/s/topic/' + v.TopicThreeTopicID}" title="{!v.TopicThreeLabel}" class="dd-featured-tile slds-col" style="{!'background-image: url(' + '/' + v.Community + '/resource/SRDd_Community_Featured_Topics/' + v.TopicThreeImage + '.png);'}" >
+                        <span class="dd-featured-label">{!v.TopicThreeLabel}</span>
+                    </a>
+                    
+                </div>
+                
+                <div class="{!'dd-featured-item slds-text-align_center slds-p-around_small dd-featured-item-' + v.TopicCount}">
+                    
+                    <a href="{!'/' + v.Community + '/s/topic/' + v.TopicFourTopicID}" title="{!v.TopicFourLabel}" class="dd-featured-tile slds-col" style="{!'background-image: url(' + '/' + v.Community + '/resource/SRDd_Community_Featured_Topics/' + v.TopicFourImage + '.png);'}" >
+                        <span class="dd-featured-label">{!v.TopicFourLabel}</span>
+                    </a>
+                    
+                </div>
+                
+                <aura:if isTrue="{!or(v.TopicCount == 'five', v.TopicCount == 'six')}">
+                    <div class="{!'dd-featured-item slds-text-align_center slds-p-around_small dd-featured-item-' + v.TopicCount}">
+                        
+                        <a href="{!'/' + v.Community + '/s/topic/' + v.TopicFiveTopicID}" title="{!v.TopicFiveLabel}" class="dd-featured-tile slds-col" style="{!'background-image: url(' + '/' + v.Community + '/resource/SRDd_Community_Featured_Topics/' + v.TopicFiveImage + '.png);'}" >
+                            <span class="dd-featured-label">{!v.TopicFiveLabel}</span>
+                        </a>
+                        
+                    </div>
+                </aura:if>
+                
+                <aura:if isTrue="{!v.TopicCount == 'six'}">
+                    <div class="{!'dd-featured-item slds-text-align_center slds-p-around_small dd-featured-item-' + v.TopicCount}">
+                        
+                        <a href="{!'/' + v.Community + '/s/topic/' + v.TopicSixTopicID}" title="{!v.TopicSixLabel}" class="dd-featured-tile slds-col" style="{!'background-image: url(' + '/' + v.Community + '/resource/SRDd_Community_Featured_Topics/' + v.TopicSixImage + '.png);'}" >
+                            <span class="dd-featured-label">{!v.TopicSixLabel}</span>
+                        </a>
+                        
+                    </div>
+                </aura:if>
+                
+            </div>
+            
+        </div>
+        
+    </div>
+    
+</aura:component>

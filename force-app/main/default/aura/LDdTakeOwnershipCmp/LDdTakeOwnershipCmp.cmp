@@ -1,0 +1,39 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:lightningQuickActionWithoutHeader,force:hasRecordId" access="global" controller="CDdTakeOwnershipController">
+    <aura:attribute name="isSuccess" type="Boolean" description="" default="false" />
+    <aura:attribute name="showError" type="Boolean" required="true" description="" default="false" />
+    <aura:attribute name="errorMessage" type="String" required="false" description="" access="private"/>
+    
+    <lightning:workspaceAPI aura:id="workspace" />
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <ltng:require styles="{!$Resource.SRDdQuickActionStyles}" />
+    <!-- Header -->
+    <div class="modal-header slds-modal__header slds-size_1-of-1">
+        <h4 class="title slds-text-heading–medium">Take Ownership</h4>
+    </div>
+    <!-- Header -->
+
+    <!-- Body -->
+    <div class="slds-modal__content slds-p-around–x-small slds-align_absolute-center slds-size_1-of-1 slds-is-relative">
+        <aura:if isTrue="{!v.showError}">
+            <div class="error">
+                {!v.errorMessage}
+            </div>
+        </aura:if>
+        <aura:if isTrue="{!v.isSuccess}">
+            <div>
+                Success! You have now taken ownership of the case.
+            </div>
+        </aura:if>
+        <div class="loading">
+            <lightning:spinner aura:id="pageSpinner" alternativeText="Loading" size="large" />
+        </div>
+    </div>
+    <!-- Body -->
+
+    <!-- Footer -->
+    <div class="modal-footer slds-modal__footer slds-size_1-of-1">
+        <lightning:button variant="Brand" class="slds-button" label="OK" onclick="{! c.handleOK }"/>
+    </div>
+    <!-- Footer -->
+</aura:component>

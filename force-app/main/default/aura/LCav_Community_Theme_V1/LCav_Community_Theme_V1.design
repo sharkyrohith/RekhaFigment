@@ -1,0 +1,8 @@
+<design:component label="Caviar Community Theme V1">
+
+    <design:attribute name="communityName" label="Community Name"
+                      datasource="Courier,Diner,Restaurant,Companies" default="Default" />
+    <design:attribute name="pageTheme" label="Page Type"
+                      datasource="Home,Inner,ArticleDetail" default="Home" />
+
+</design:component>

@@ -1,0 +1,41 @@
+<aura:component controller="CDdMxEINVerificationCtrl" implements="force:lightningQuickAction,force:hasRecordID" access="global">
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name="accId" type="ID"/>
+    <aura:attribute name="CaseRec" type="Case" default=""/>
+    <aura:attribute name="EIN" type="String" default=""/>
+    <aura:attribute name="showMsg" type="Boolean" default="false"/>
+    <aura:attribute name="displayMsg" type="String" default=""/>
+    <aura:attribute name="isModalOpen" type="boolean" default="true"/>
+	<aura:attribute name="color" type="String" default=""/>
+   
+    <ltng:require scripts="/support/console/50.0/integration.js"/>
+    
+    <aura:if isTrue="{!v.isModalOpen}">  
+        <section aura:id="myModal" role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+        	<div class="slds-modal__container">
+    			<fieldset class="slds-box slds-theme_default slds-container_small">
+                    <!--<legend id="newexpenseform" class="slds-text-heading_small
+                      slds-p-vertical_medium">
+                      Verify EIN
+                    </legend>-->
+                    <aura:if isTrue="{!v.showMsg}">
+                        <div class="demo-only" style="{!v.color}">
+                            <div class="slds-text-color_inverse"><i>{!v.displayMsg}</i></div>
+                        </div>
+                    </aura:if>
+                    
+                    <h2><b>Verify Tax ID</b></h2><hr/>
+                    <form class="slds-form">
+                        
+                        Account Name: <ui:outputText value="{!v.CaseRec.Account.Name}"/><br/><br/>
+                        <lightning:input name="EIN" aura:id="EIN" label="Last 4 of Tax Id" value="{!v.EIN}" maxlength="4" required="true"/><br/><br/>
+                        <lightning:button label="Verify" variant="brand" onclick="{!c.verifyEIN}"/>
+                        <lightning:button label="Done" variant="brand" onclick="{!c.closeModal}"/>
+                    </form>
+        		</fieldset>
+            </div>
+        </section>
+    </aura:if>
+    
+    <div aura:id="myModal-back" class="slds-backdrop slds-backdrop_open"></div>
+</aura:component>

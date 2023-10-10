@@ -1,0 +1,345 @@
+.THIS {
+    width: 100%;   
+    /* max-width: 1160px; */
+    margin: 0 auto;
+        position: fixed;
+        top: 0;
+        z-index: 4000;
+        background: rgb(247, 247, 247);
+        width: 100%;
+        margin: 0px;
+        display: block;
+        text-align: center;
+        right: 0px;
+        height: 50px;
+        border-bottom: #CCC solid 1px;
+}
+
+/** GLOBAL **/
+
+.THIS .ot-alert-container {
+    background-color: #F3D1CD;
+    width: 100%;
+    position: relative;
+}
+
+.THIS .ot-alert-full-width {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.THIS .ot-alert-wrap {
+    font-family: 'Brandon Text', source-sans-pro, Source Sans Pro, Helvetica Neue, Helvetica, Arial, sans-serif;
+    /* border: 1px solid #e9eaec; */
+    border-radius: 0px;
+    /* box-shadow: 0 1px 20px rgba(0,0,0,.05); */
+    text-align: left;
+    position: absolute;
+    display: flex;
+    top: 44%;
+    transform: translateY(-50%);
+    padding: 15px 15px 0px 0px;
+    max-width: 1160px;
+}
+
+.THIS .ot-alert-title {
+    font-size: 16px;
+    font-weight: bold;
+  /*  display: block; */
+    line-height: 1.2rem;
+    padding: 0px 5px 3px 0px;
+}
+
+.THIS .ot-alert-body {
+    font-size: 14px;
+    color: gray;
+    line-height: 1.1rem;
+    display: inline-block;
+    margin-bottom: 8px;
+    max-height: 113px;
+}
+
+.THIS a {
+    color: #ff3008;
+}
+
+
+.THIS .ot-alert-icon {
+    display: inline-block;
+    width: 80px;
+    height: 60px;
+    margin: 0px auto;
+    background-repeat: no-repeat;
+    background-position: left 3px;
+    padding: 20px 40px 20px 0px;
+}
+
+.THIS .ot-alert-link-1 {
+    padding-right: 5px;
+}
+
+
+/** PROMOTION **/
+
+.THIS .ot-alert-container.Promotion {
+    /*    border: 1px solid #e9eaec;    */
+    background-color: #FFF;
+}
+
+.THIS .ot-alert-container.Promotion .ot-alert-title {
+    color: #191919;
+}
+
+.THIS .ot-alert-container.Promotion .ot-alert-desc {
+    color: gray;
+}
+
+.THIS .ot-alert-container.Promotion a {
+    color: #ff3008;
+}
+
+.THIS .ot-alert-container.Promotion .ot-alert-icon {
+    background-image: url("/resource/SrDd_Alert_Icons/DD_Community_Alert_Icon-04.svg");
+    width: 60px;
+    height: 50px;
+}
+
+/** STATUS **/
+
+.THIS .ot-alert-container.Status   {
+    /*   border: 1px solid #ff3008; */
+    background-color: #F3D1CD;
+}
+
+.THIS .ot-alert-container.Status .ot-alert-title {
+    color: #191919;
+}
+
+.THIS .ot-alert-container.Status .ot-alert-desc {
+    color: #191919;
+}
+
+.THIS .ot-alert-container.Status a {
+    color: #ff3008;
+}
+
+.THIS .ot-alert-container.Status .ot-alert-icon {
+    background-image: url("/resource/SrDd_Alert_Icons/DD_Community_Alert_Icon-03.svg");
+    width: 60px;
+    height: 50px;
+}
+/** ISSUE **/
+
+.THIS .ot-alert-container.Issue  {
+    /*   border: 1px solid #FAF258; */
+    background-color: #558E8F;
+}
+
+.THIS .ot-alert-container.Issue  .ot-alert-title {
+    color: #FFF;
+}
+
+.THIS .ot-alert-container.Issue  .ot-alert-desc {
+    color: #FFF;
+}
+
+.THIS .ot-alert-container.Issue  a {
+    color: #FAF258;
+}
+
+.THIS .ot-alert-container.Issue  .ot-alert-icon {
+    background-image: url("/resource/SrDd_Alert_Icons/DD_Community_Alert_Icon-02.svg");
+    width: 60px;
+    height: 50px;
+}
+
+/** INFORMATIVE **/
+
+.THIS .ot-alert-container.Informative {
+    /*   border: 1px solid #00848E; */
+    background-color: #D1F0F6;
+}
+.THIS .ot-alert-container.Informative .ot-alert-title {
+    color: #191919;
+}
+
+.THIS .ot-alert-container.Informative .ot-alert-desc {
+    color: #191919;
+}
+
+.THIS .ot-alert-container.Informative a {
+    color: #00848E;
+}
+
+.THIS .ot-alert-container.Issue  .ot-alert-icon {
+    background-image: url("/resource/SrDd_Alert_Icons/DD_Community_Alert_Icon-02.svg");
+    width: 60px;
+    height: 50px;
+}
+
+/** OUTAGE **/
+
+.THIS .ot-alert-container.Outage {
+    background-color: #FFFEA8;
+}
+.THIS .ot-alert-container.Outage .ot-alert-title {
+    color: #000;
+        font-size: 14px !important;
+    font-weight: normal !important;
+}
+
+.THIS .ot-alert-container.Outage .ot-alert-desc {
+    color: #000;
+
+}
+
+.THIS .ot-alert-container.Outage a {
+    color: #000;
+    text-decoration: underline;
+}
+
+.THIS .ot-alert-container.Outage  .ot-alert-icon {
+    background-image: url("/resource/SrDd_Alert_Icons/Warning_icon.svg");
+background-size: 50px 40px;
+}
+
+/** Data Breach **/
+
+.THIS .ot-alert-container.DataBreach {
+    background-color: rgb(247, 247, 247);
+    border-bottom: #ccc solid 1px;
+}
+.THIS .ot-alert-container.DataBreach .ot-alert-title {
+    color: #000;
+}
+
+.THIS .ot-alert-container.DataBreach .ot-alert-desc {
+    color: #000;
+}
+
+.THIS .ot-alert-container.DataBreach {
+    height: 50px;
+}
+
+.THIS .ot-alert-container.DataBreach .ot-alert-wrap{
+position: relative !important;
+text-align: center !important;
+display: block !important;
+}
+
+.THIS .ot-alert-container.DataBreach  .ot-alert-full-width {
+    height: 51px !important;
+}
+
+
+.THIS .ot-alert-container.DataBreach a.ot-alert-link-1 {
+    color: #000;
+    text-decoration: underline;
+      text-decoration-color: #ff3300;
+    display: block;
+    text-align: center;
+    width: 100%;
+        font-size: 17px !important;
+    position: relative;
+    font-weight: 5000;
+    line-height: 22px;
+}
+
+.THIS .ot-alert-container.DataBreach  .ot-alert-icon {
+    background-image: none;
+    width: 60px;
+    height: 60px;
+}
+
+.THIS .ot-alert-container.DataBreach .ot-alert-title {
+    display: none;
+}
+.THIS .ot-alert-container.DataBreach .ot-alert-desc {
+    display: none;
+}
+.THIS .ot-alert-container.DataBreach .ot-alert-link-2 {
+    display: none;
+}
+.THIS .ot-alert-container.DataBreach .ot-alert-icon {
+    display: none;
+}
+
+  
+/*-- Desktop Med --*/
+
+
+@media (min-width:998px) {
+    .THIS .ot-alert-body {
+    line-height: 1.1rem;
+    }
+
+}
+
+
+/*-- Desktop Med --*/
+
+
+/*-- Desktop SM --*/
+
+@media (min-width:768px) {
+    .THIS .ot-alert-container {
+        height: 90px;
+    }
+
+}
+
+/*-- Tablet --*/
+@media (max-width:767px) {
+    .THIS .ot-alert-title {
+        font-size: 14px;
+
+    }
+    .THIS .ot-alert-container {
+        height: 100px;
+        line-height: 1rem;
+
+    }
+
+    .THIS .ot-alert-body {
+        font-size: .9rem;
+        line-height: 1.1rem;
+            overflow-y: scroll; 
+
+    }
+    .THIS .ot-alert-container.Outage  .ot-alert-icon {
+        width: 65px;
+        height: 45px;
+        background-size: 50px 30px;
+    }
+
+}
+
+/*-- Handheld --*/
+@media screen and (max-width: 480px) {
+    .THIS .ot-alert-title {
+              font-size: 14px;
+              line-height: 1.1rem;
+              padding-top: 20px;
+              }
+    .THIS .ot-alert-body {
+        font-size: .875rem;
+        margin-left: 0px;
+        line-height: 1rem;
+        max-height: 115px;
+        overflow-y: scroll;
+    padding-top: 20px;
+
+    }
+
+
+    .THIS .ot-alert-icon {
+        display: none;
+    }
+    .THIS .ot-alert-container {
+        height: 120px;
+    }
+    .THIS .ot-alert-wrap {
+        padding: 0px 10px 0px 10px;
+    }
+}

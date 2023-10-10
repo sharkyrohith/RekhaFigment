@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Entry 02 Support</label>
+    <protected>false</protected>
+    <values>
+        <field>Active__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>Criteria__c</field>
+        <value xsi:type="xsd:string">(Solved_at__c &lt; :hours OR (Solved_at__c = NULL AND LastModifiedDate &lt; :hours)) AND (Customer_Type__c NOT IN (&apos;Dasher&apos;,&apos;Blue Star-Ocac&apos;)) AND Previous_Queue__c NOT IN (&apos;Claims&apos;,&apos;OA Claims&apos;, &apos;Legal Claims&apos;) AND Origin NOT IN (&apos;Claims&apos;,&apos;Email - Claims&apos;)</value>
+    </values>
+    <values>
+        <field>Hours__c</field>
+        <value xsi:type="xsd:double">72.0</value>
+    </values>
+    <values>
+        <field>Logic__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>OmitProfileCheck__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>Order__c</field>
+        <value xsi:type="xsd:double">15.0</value>
+    </values>
+    <values>
+        <field>Record_Type__c</field>
+        <value xsi:type="xsd:string">Support</value>
+    </values>
+    <values>
+        <field>SkipOnWrap__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>Status_Criteria__c</field>
+        <value xsi:type="xsd:string">(Status = &apos;Solved&apos;)</value>
+    </values>
+    <values>
+        <field>Where_Clause__c</field>
+        <value xsi:type="xsd:string">(Solved_at__c &lt; :hours OR (Solved_at__c = NULL AND LastModifiedDate &lt; :hours)) AND (Customer_Type__c NOT IN (&apos;Dasher&apos;,&apos;Blue Star-Ocac&apos;)) AND Previous_Queue__c NOT IN (&apos;Claims&apos;,&apos;OA Claims&apos;, &apos;Legal Claims&apos;,&apos;Claims Insurance Transfers&apos;) AND Origin NOT IN (&apos;Claims&apos;,&apos;Email - Claims&apos;)</value>
+    </values>
+</CustomMetadata>

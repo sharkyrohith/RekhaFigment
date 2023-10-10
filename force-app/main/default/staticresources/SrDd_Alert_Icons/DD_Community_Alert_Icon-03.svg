@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #ff3008;
+        stroke-linecap: round;
+        stroke-miterlimit: 10;
+        stroke-width: 16px;
+      }
+    </style>
+  </defs>
+  <title>DD_Community_Alert_Icon</title>
+  <g id="wrench">
+    <g>
+      <path class="cls-1" d="M412.23,163.08l-58.75-15.76L337.75,88.56l56.43-56.41A109.41,109.41,0,0,0,258.54,167.39L43.27,381.8a52.24,52.24,0,0,0,0,73.89h0a52.25,52.25,0,0,0,73.9,0L331.91,241.82A109.43,109.43,0,0,0,468.67,106.66Z"/>
+      <circle class="cls-1" cx="80.38" cy="418.58" r="24.79"/>
+      <line class="cls-1" x1="296.12" y1="220.2" x2="129.84" y2="391.52"/>
+    </g>
+  </g>
+</svg>

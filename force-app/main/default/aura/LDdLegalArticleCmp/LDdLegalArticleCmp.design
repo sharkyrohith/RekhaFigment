@@ -1,0 +1,3 @@
+<design:component label="Legal Article">
+    <design:attribute name="articleURL" label="Article URL"/>
+</design:component>

@@ -1,0 +1,47 @@
+.THIS {
+}
+
+.THIS .dcc-faq-wrap{
+    padding-top: 30px;
+}
+
+.THIS .dcc-faq-content {
+    font-size: 16px;
+    padding-bottom: 26px;
+}
+
+.THIS H2 {
+    font-size: 1.5rem;
+    line-height: 30px;
+    font-weight: bold;
+    padding-bottom: 20px;
+}
+
+.THIS .dcc-faq-content H3 {
+    font-size: 1.2rem;
+    line-height: 30px;
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+
+.THIS .dcc-faq-content ul {
+	list-style: disc;
+    padding: 10px 0px 10px 22px;
+}
+
+
+@media only screen and (max-width:760px) {
+
+    .THIS .dcc-faq-content H3 {
+    font-size: 1.2rem;
+    line-height: 25px;
+}
+    
+}
+@media only screen and (max-width:480px) {
+
+.THIS .dcc-faq-content H3 {
+    font-size: 1rem;
+    line-height: 25px;
+}
+}

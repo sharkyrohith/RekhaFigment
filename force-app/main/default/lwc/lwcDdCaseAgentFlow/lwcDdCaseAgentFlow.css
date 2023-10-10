@@ -1,0 +1,65 @@
+/* test */
+
+
+.CaseAgentFlow-container {
+    display: flex;
+    background-color: #eee;
+    margin: 0px -10px;
+    padding: 5px 10px;
+  /*  flex-direction: row; */
+    min-height: 199px;
+}
+
+.CaseAgentFlow-container .CaseAgentFlow-title {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.CaseAgentFlow-container .CaseAgentFlow-tile {
+    flex-grow: 1;
+    /* max-width: 25%; */
+    padding-right: 60px;
+    position: relative;
+}
+
+.CaseAgentFlow-container .CaseAgentFlow-tile:last-child {
+    padding-right: 10px;
+}
+
+.CaseAgentFlow-container .CaseAgentFlow-subtitle {
+    font-size: 12px;
+    line-height: 14px;
+}
+
+
+.CaseAgentFlow-body .slds-rich-text-editor__output {
+    line-height: 14px;
+    font-size: 11px;
+}
+
+
+.CaseAgentFlow-container .CaseAgentFlow-tile:after {
+    content: " ▶ ";
+    position: absolute;
+    right: 20px;
+    top: 20%;
+    font-size: 25px;
+    color: #999;
+}
+
+.CaseAgentFlow-container .CaseAgentFlow-tile:last-child:after {
+    display: none;
+}
+
+tr.CaseAgentFlow-title td {
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+table.CaseAgentFlow-table {
+    background-color: #eee;
+}
+
+.CaseAgentFlow-table td {
+    padding: 0px 15px 0px 15px;
+}

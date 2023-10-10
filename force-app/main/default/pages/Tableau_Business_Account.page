@@ -1,0 +1,3 @@
+<apex:page standardcontroller="Account" >
+<apex:iframe src="https://us-west-2b.online.tableau.com/t/doordash/views/Test/Dashboard1?embed=y&:original_view=yes&:toolbar=no&:showAppBanner=false&:display_count=no&:showVizHome=no?:embed=y&SFID={!Account.Id}&:showShareOptions=true&:display_count=no"/>
+</apex:page>

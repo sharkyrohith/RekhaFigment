@@ -1,0 +1,105 @@
+<apex:page standardcontroller="Case" extensions="VCaseFeedItemNewExtension" showHeader="false">
+    <!-- Uses publisher.js rather than interaction.js -->
+    <apex:includeScript value="/canvas/sdk/js/28.0/publisher.js"/>
+    <style>
+        .block-table {display: table; margin-top: 10px; width: 100%;}
+        .block-row {display: table-row;}
+        .block-cell1 {display: table-cell; padding: 5px; width: 50%;}
+        .block-cell2 {display: table-cell; padding: 5px; width: 50%;}
+        .block-cell3 {display: table-cell; padding: 5px;}
+        .label-title {font-size: 11px; font-weight: bold;}
+        .err {color: #cc0000;}
+        .full {width: 100%;}
+        .cke_top {display: none !important;}
+    </style>
+    <div>
+        <apex:form id="form">
+            <script language="javascript">
+                Sfdc.canvas.publisher.publish({name : 'publisher.refresh',  payload : {feed: true, objectRelatedLists: {}}});
+            </script>
+            <apex:actionFunction action="{!postFeed}" name="saveFeedItem"/>
+            
+            <apex:outputPanel id="template">
+                <div class="block-table">
+                    <div class="block-row">
+                        <div class="block-cell3">
+                            <span class="label-title">Template</span><br/>
+                            <apex:selectList id="ddlTemplate" multiselect="false" value="{!selectedTemplateId}" size="1" styleClass="full">
+                                <apex:actionSupport event="onchange" action="{!loadTemplate}"/>
+                                <apex:selectOptions value="{!TemplateOptions}"></apex:selectOptions>
+                            </apex:selectList>
+                        </div>
+                    </div>
+                </div>
+            </apex:outputPanel>
+            
+            <apex:inputTextarea value="{!fi.Body}" id="feedItemBody" richText="true"/>
+            
+            <apex:outputPanel id="out" >
+                <apex:outputPanel layout="none" rendered="{!hasError}">
+					<apex:pageMessages escape="false"/>
+                    <div class="err">
+                        {!errorMessage}
+                    </div>
+                </apex:outputPanel>
+                
+                <div class="block-table">
+                    <div class="block-row">
+                        <div class="block-cell1">
+                            <span class="label-title">Status</span><br/>
+                            <apex:inputField value="{!case.Status}" styleClass="full"/>
+                        </div>
+                        <div class="block-cell2">
+                            <span class="label-title">Issue Category</span><br/>
+                            <apex:inputField value="{!case.Issue_Type__c}" styleClass="full"/>
+                        </div>
+                    </div>
+                    <div class="block-row">
+                        <div class="block-cell1">
+                            <span class="label-title">Customer Type</span><br/>
+                            <apex:inputField value="{!case.Customer_Type__c}" styleClass="full"/>
+                        </div>
+                        <div class="block-cell2">
+                            <span class="label-title">Issue</span><br/>
+                            <apex:inputField value="{!case.Issue__c}" styleClass="full"/>
+                        </div>
+                    </div>
+                    <div class="block-row">
+                        <div class="block-cell1">
+                            <span class="label-title">Delivery ID</span><br/>
+                            <apex:inputField value="{!case.DeliveryNo__c}" styleClass="full"/>
+                        </div>
+                        <div class="block-cell2">
+                            <span class="label-title">Delivery UUID</span><br/>
+                            <apex:inputField value="{!case.DeliveryUUID__c}" styleClass="full"/>
+                        </div>
+                       
+                    </div>
+                    <div class="block-row">
+                        <div class="block-cell1">
+                            <span class="label-title">Resolution Category</span><br/>
+                            <apex:inputField value="{!case.Resolution_Type__c}" styleClass="full"/>
+                        </div>
+                        <div class="block-cell2">
+                            <span class="label-title">Owner</span><br/>
+                            <apex:inputField value="{!case.OwnerId}"/>
+                        </div>
+                       
+                    </div>
+                    <div class="block-row">
+                        <div class="block-cell1">
+                            <span class="label-title">Resolution</span><br/>
+                            <apex:inputField value="{!case.Resolution__c}" styleClass="full"/>
+                        </div>
+                        <div class="block-cell2">
+                            <span class="label-title">Escalated</span><br/>
+                            <apex:inputField value="{!case.IsEscalated}"/>
+                        </div>
+                    </div>
+                </div>
+            </apex:outputPanel>
+            
+        </apex:form><br />
+        <button type="button" onclick="saveFeedItem();" style="position:fixed; bottom:0px; right:2px; padding: 5px 10px; font-size:13px;" id="cpbutton">Post</button>
+    </div>             
+</apex:page>

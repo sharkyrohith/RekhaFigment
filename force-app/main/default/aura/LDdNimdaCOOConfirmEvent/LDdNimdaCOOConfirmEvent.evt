@@ -1,0 +1,3 @@
+<aura:event type="COMPONENT" access="GLOBAL"  description="An event to handle Nimda COO Confirmation event">
+  <aura:attribute name="value" type="String" access="GLOBAL"/>
+</aura:event>

@@ -1,0 +1,46 @@
+<aura:component controller="CDdCommunity_AlertController" access="global" implements="forceCommunity:availableForAllPageTypes">
+    <aura:attribute name="alert" type="Object" default="Alert to display"/>
+    <aura:attribute name="showAlert" type="Boolean" default="false"/>
+    <aura:attribute name="pageError" type="Boolean" required="true" description="" default="false" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+    <!--
+        <aura:renderIf isTrue="{!v.showError}">
+            <div id="error">
+                Error
+            </div>
+        </aura:renderIf>
+    -->
+
+    <aura:renderIf isTrue="{!and(v.showAlert,v.alert)}">
+                   <!-- <ltng:require styles="{!$Resource.SRDdCommunityAlertsStyles}" /> -->
+          <!--   <c:LCDdCommunity_TopicCatalog/> -->
+            <aura:renderIf isTrue="{!v.alert.Alert_Type__c != 'DataBreach'}">
+                <link rel="stylesheet" href="/resource/SRDdCommunityAlertsStyles"/>
+           </aura:renderIf>
+            <aura:renderIf isTrue="{!v.alert.Alert_Type__c == 'DataBreach'}">
+            <link rel="stylesheet" href="/resource/SRDdCommunityAlertsStyles_DB"/>
+            </aura:renderIf>
+        <div>
+            <div class="{!'ot-alert-container ' + v.alert.Alert_Type__c}">
+
+                <div class="ot-alert-full-width">
+                    <div class="ot-alert-wrap">
+                        <div class="ot-alert-icon"></div>
+                        <div class="ot-alert-body">
+                            <span class="ot-alert-title">{!v.alert.Title__c}</span>
+                            <span class="ot-alert-desc">{!v.alert.Text_before_URL__c}&nbsp;</span>
+                            <a class="ot-alert-link-1" href="{!v.alert.Link_URL__c}" target="_blank">{!v.alert.Link_Label__c}</a>
+                            <span class="ot-alert-desc">{!v.alert.Text_after_URL__c}&nbsp;</span>
+                             <a class="ot-alert-link-2" href="{!v.alert.Link_URL_2__c}" target="_blank">{!v.alert.Label_URL_2__c}</a>
+                            <span class="ot-alert-desc">&nbsp;{!v.alert.End_Text__c}</span>
+							
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </aura:renderIf>
+
+</aura:component>

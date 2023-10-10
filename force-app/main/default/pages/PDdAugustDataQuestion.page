@@ -1,0 +1,15 @@
+<apex:page standardController="Account">
+    <apex:includeLightning />
+    <div id="container" />
+    <script>
+        $Lightning.use("c:LDdAugustDataQuestionApp", function() {
+            $Lightning.createComponent("c:lwcDdAugustDataQuestion",
+                {
+                    "recordId" : "{!$CurrentPage.parameters.id}"
+                },
+                "container",
+                function(cmp) {}
+            );
+        });
+    </script>
+</apex:page>

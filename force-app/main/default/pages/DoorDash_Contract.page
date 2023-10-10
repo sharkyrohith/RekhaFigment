@@ -1,0 +1,137 @@
+<apex:page standardController="Opportunity" showHeader="false" sidebar="false" renderas="Pdf">
+    <html lang = "en">
+        <head>
+        </head>
+            <style>
+                table {
+                border-spacing: 15px;
+                }
+            </style>
+        <body>
+            <div style="width:100%; float:left;">
+                <apex:image url="/servlet/servlet.ImageServer?id=0151a000000V56B&oid=00D1a000000KEiH&lastMod=1434320593000" height="200px" style="margin-left:19%; padding-bottom:30px;"/>
+                <hr />
+            </div>
+            <div style="width:80%; float:left; margin: 0 10%; text-align:center;">
+                <h2>DOORDASH PARTNERSHIP AGREEMENT</h2>
+            </div>
+            
+            <div style="width:100%; float:left;">
+            <p>This DoorDash Partnership Agreement (the “Agreement”) dated <span style="text-decoration:underline;">{!MONTH(Today())}/{!DAY(Today())}/{!YEAR(Today())}</span> (the “Effective Date”) is between DoorDash Inc. (“DoorDash”), a Delaware corporation, located at 470 Olive Ave., Palo Alto, California 94306, USA and <span style="text-decoration:underline;">{!Opportunity.Account.Name}</span> (“Restaurant”).</p>
+            </div>
+            
+            <div style="width:100%; float:left;">
+                <p><strong>1. DOORDASH DUTIES</strong><br />
+                1.1 Website and Mobile Applications<br />
+                DoorDash will display the Restaurant’s logo and menu on the DoorDash website and set of DoorDash mobile applications and accept orders for delivery on the Restaurant’s behalf.</p>
+ 
+                <p>1.2 Delivery<br />
+                DoorDash will provide its own drivers to pick up the food from the Restaurant after the order has been placed and deliver the food to the customer.</p>
+ 
+                <p><strong>2. RESTAURANT DUTIES</strong><br />
+                2.1 Accepting Orders<br />
+                The Restaurant agrees to abide by DoorDash’s Standard Operating Procedures, which includes certain equipment requirements, including but not limited to use of, an iPad, fax, or other electronic means of receiving orders. Any damages or losses of DoorDash equipment will be paid for by the Restaurant.</p>
+ 
+                <p>2.2 Liability<br />
+                The Restaurant is liable for preserving both the quality and the health standards of the food it serves to DoorDash as it does to its customers inside the store.</p>
+ 
+                <p>2.3 Trademarks and Logos<br />
+                The Restaurant permits DoorDash to use the Restaurant’s logos on DoorDash’s website and other publications.</p>
+ 
+                <p><strong>3. PAYMENT TERMS</strong><br />
+                3.1 Payment<br />
+                DoorDash drivers do not pay upon pickup. Instead, DoorDash submits payment weekly net of the commission that it receives from this Agreement.  DoorDash will pay the Restaurant every Monday via direct deposit. In the event that a calendar Monday falls on a holiday, DoorDash will submit payment the next business day.</p>
+ 
+                <p>3.2 Fees and Tax<br />
+                The Restaurant will pay DoorDash commission and/or delivery fee on the pre-tax delivery order as outlined in Section 6 (Terms of Agreement). DoorDash reserves the right to inflate Restaurant prices. This commission includes all credit card processing fees, which DoorDash will pay. All sales tax collected by DoorDash will be returned to the Restaurant, which is responsible for reporting and paying sales tax.</p>
+                
+                <p><strong>4. TERMINATION</strong><br />
+                The Restaurant may terminate this Agreement for any reason at any time by providing DoorDash 14 days notice. DoorDash reserves the right to terminate this Agreement at any time without liability to the Restaurant.</p>
+ 
+                <p><strong>5. CONFIDENTIALITY</strong><br />
+                This Agreement, including all terms and description of DoorDash’s operations, are to be kept confidential.</p>
+ 
+                <p><strong>6. TERMS OF AGREEMENT</strong></p>
+                <table style="width:100%;" cellpadding="10px">
+                  <tr style="margin:10px;">
+                       <td style="width:35%; padding-bottom:-10px;">Restaurant Name</td>
+                       <td style="width:60%; border-bottom:1px solid #000; padding-bottom:5px;">{!Opportunity.Account.Name}</td>
+                  </tr>
+                  <tr style="margin:10px; padding:10px;">
+                       <td style="width:35%; margin-top:10px;">Contact(Manager/Owner) Name</td>
+                       <td style="width:60%; margin-top:10px; border-bottom:1px solid #000; padding-bottom:5px;"><span style="color:#fff;">\managername_1\</span></td>
+                  </tr>
+                  <tr style="margin:10px;">
+                       <td style="width:35%;">Contact(Manager/Owner) Phone</td>
+                       <td style="width:60%; border-bottom:1px solid #000; padding-bottom:5px;"><span style="color:#fff;">\managerphone_1\</span></td>
+                  </tr>
+                  <tr style="margin:10px;">
+                       <td style="width:35%;">Contact(Manager/Owner) Email</td>
+                       <td style="width:60%; border-bottom:1px solid #000; padding-bottom:5px;"><span style="color:#fff;">\manageremail_1\</span></td>
+                  </tr>
+                  <tr style="margin:10px;">
+                       <td style="width:35%;">Order Protocol</td>
+                       <td style="width:60%; border-bottom:1px solid #000; padding-bottom:5px;">{!Opportunity.Order_Protocol__c}</td>
+                  </tr>
+                  <tr style="margin:10px;">
+                       <td style="width:35%;">
+                       <apex:outputText rendered="{!IF(Opportunity.Order_Protocol__c == 'Fax',True,False)}">Order Protocol Fax</apex:outputText>
+                       <apex:outputText rendered="{!IF(Opportunity.Order_Protocol__c == 'Email',True,False)}">Order Protocol Email</apex:outputText>
+                       </td>
+                       <td style="width:60%; border-bottom:1px solid #000; padding-bottom:5px;">
+                           <apex:outputText rendered="{!IF(Opportunity.Order_Protocol__c == 'Fax',True,False)}">{!Opportunity.Order_Protocol_Fax__c}</apex:outputText>
+                           <apex:outputText rendered="{!IF(Opportunity.Order_Protocol__c == 'Email',True,False)}">{!Opportunity.Order_Protocol_Email__c}</apex:outputText>
+                       </td>
+                  </tr>
+                  <tr style="margin:10px;">
+                       <td style="width:30%;">Terms</td>
+                       <td style="width:10%; border-bottom:1px solid #000; padding-bottom:5px;">Commission: {!Opportunity.Commission__c}% </td>
+                  </tr>
+                  <tr style="margin:10px;">
+                       <td style="width:35%;">Notes</td>
+                       <td style="width:60%; border-bottom:1px solid #000; padding-bottom:5px;">{!Opportunity.Contract_Notes__c}</td>
+                  </tr>
+                  
+                  </table>
+                  
+                  <p><strong>By signing below, I agree to all of the above terms of this Agreement</strong></p>
+                   
+                  <table border="1" style="width:100%" cellpadding="10px">
+                      <tr>
+                          <td style="width:10%" height="20">Signature:</td>
+                          <td style="width:40%"><span style="color:#fff">\s2\</span></td>
+                          <td style="width:10%">Signature:</td>
+                          <td style="width:40%"><span style="color:#fff">\s1\</span></td>
+                      </tr>
+                      <tr>
+                          <td style="width:10%">Name:</td>
+                          <td style="width:40%">{!Opportunity.Owner.Name}</td>
+                          <td style="width:10%">Name:</td>
+                          <td style="width:40%">{!Opportunity.Decision_Maker__r.FirstName}&nbsp;{!Opportunity.Decision_Maker__r.LastName}</td>
+                      </tr>
+                      <tr>
+                          <td style="width:10%">Title:</td>
+                          <td style="width:40%">{!Opportunity.Owner.Title}</td>
+                          <td style="width:10%">Title:</td>
+                          <td style="width:40%">{!Opportunity.DM_Title__c}</td>
+                      </tr>
+                      <tr>
+                          <td style="width:10%">Company:</td>
+                          <td style="width:40%">DoorDash, Inc.</td>
+                          <td style="width:10%">Company:</td>
+                          <td style="width:40%">{!Opportunity.Account.Name}</td>
+                      </tr>
+                      <tr>
+                          <td style="width:10%">Date:</td>
+                          <td style="width:40%"><span style="color:#fff">\d2\</span></td>
+                          <td style="width:10%">Date:</td>
+                          <td style="width:40%"><span style="color:#fff">\d1\</span></td>
+                      </tr>
+                          
+                  </table>
+            </div>
+            
+        </body>
+    
+    </html>
+</apex:page>

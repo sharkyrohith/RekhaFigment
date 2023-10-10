@@ -1,0 +1,25 @@
+.THIS .dd-incident-banner-container {
+    position: fixed;
+    top: 0;
+    z-index: 4000;
+    background: rgb(247, 247, 247);
+    width: 100%;
+    margin: 0px;
+    display: block;
+    text-align: center;
+    right: 0px;
+
+    height: 50px;
+    border-bottom: #CCC solid 1px;
+}
+
+.THIS a {
+    color: black;
+    text-decoration: none;
+    border-bottom: #ff3300 solid 1px;
+    font-size: 16px;
+    font-weight: bold;
+        padding-top: 12px;
+    line-height: 18px;
+    display: inline-block;
+}

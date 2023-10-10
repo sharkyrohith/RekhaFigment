@@ -1,0 +1,110 @@
+<template>
+    <lightning-spinner data-id="spinner" variant="brand" size="large" class="slds-hidden" alternative-text="Waiting for response from server."></lightning-spinner>
+    <div class="c-container">
+        <lightning-layout multiple-rows="true">
+            <!-- Helpful mesage -->
+            <lightning-layout-item class="slds-p-left_medium" size="6">
+                <c-lwc-dd-s-2-n-bypass-tool-uploader-info></c-lwc-dd-s-2-n-bypass-tool-uploader-info>
+            </lightning-layout-item>
+            <!-- Uploader -->
+            <!-- File Selector -->
+            <lightning-layout-item class="slds-p-left_medium" size="6">
+                <div class="slds-form">
+                    <div class="slds-form-element">
+                        <div class="slds-form-element__control">
+                            <lightning-input 
+                                disabled={isReasonDisabled}
+                                type="text"
+                                maxlength="255"
+                                data-id="reason"
+                                label={label.reasonLabel}
+                                required
+                                autocomplete="off"
+                                onchange={onChangeHandlerReason}
+                                message-when-value-missing={label.reasonLabelValidation}></lightning-input>
+                        </div>
+                    </div>
+                    <template if:true={shouldShowOverwrite}>
+                        <div class="slds-form-element">
+                            <lightning-accordion  allow-multiple-sections-open>
+                                <lightning-accordion-section name="A" label={label.settingAccordion}>
+                                    <div class="slds-form-element__control">
+                                        <lightning-input 
+                                            type="checkbox"
+                                            data-id="overwrite"
+                                            label={label.overwriteCheckbox}
+                                            onchange={onChangeHandlerOverwrite}></lightning-input>
+                                    </div>
+                                    <div class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_error" role="alert">
+                                        <h2>*{label.overwriteWarning}*: {OVERWRITE_WARNING_LABEL.data}</h2>
+                                    </div>
+                                </lightning-accordion-section>
+                            </lightning-accordion>
+                        </div>
+                    </template>
+                    <div class="slds-form-element">
+                        <span class="slds-form-element__label" id="fileSelector">{label.fileInstructions} {msSyncStage}</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-file-selector slds-file-selector_files">
+                                <div class="slds-file-selector__dropzone">
+                                    <input type="file" class="slds-file-selector__input slds-assistive-text"
+                                            accept="text/csv"
+                                            id="fileSelectorInput"
+                                            data-id="fileSelectorInput"
+                                            aria-labelledby="file-selector-primary-label file-selector-secondary-label"
+                                            onchange={onChangeHandlerUpload}
+                                            onclick={onClickHandlerUpload}
+                                    />
+                                    <label class="slds-file-selector__body" for="fileSelectorInput" id="file-selector-secondary-label">
+                                        <span class="slds-file-selector__button slds-button slds-button_neutral">{label.fileButton}</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>&nbsp;
+                        <span class="slds-form-element__label" id="fileNameLabel">{label.fileInfo}: </span>
+                        <span id="fileName" data-my-id="fileName">{filename}</span>
+                    </div>
+                </div>
+            </lightning-layout-item>
+
+            <!-- Data Table Preview -->
+
+            <lightning-layout-item class="slds-p-left_medium" size="12">
+                <div class="slds-form-element slds-is-collapsed slds-scrollable" data-id="dataTable">
+                    <span class="slds-form-element__label">{label.tablePreview}:</span>
+                    <div class="slds-form-element__control" style="height:300px">
+                        <lightning-datatable
+                                show-row-number-column=true
+                                hide-checkbox-column=true
+                                key-field="rowKey"
+                                columns={columns}
+                                data={data}
+                                errors={errors}
+                        >
+                        </lightning-datatable>
+                    </div>
+                </div>
+            </lightning-layout-item>
+
+            <lightning-layout-item class="slds-p-left_medium" size="12">
+                <!-- Upload Messages -->
+                <div data-id="uploadMessages" class="slds-form-element slds-is-collapsed">
+                    <label class="slds-form-element__label" for="uploadMessagesDiv">{label.tableUploadResults}</label>
+                    <div id="uploadMessagesDiv" data-id="uploadMessagesDiv" class="slds-box">{uploadMessages}</div>
+                </div>
+
+                <!-- Import/Reset -->
+                <div data-id="importResetDiv" class="slds-is-collapsed">
+                    <lightning-button disabled data-id="importButton" label={label.importButton} title="Import" onclick={handleImport} class="slds-m-left_x-medium"></lightning-button>
+                    <lightning-button data-id="resetButton" label={label.resetButton} title="Rest" onclick={handleReset} class="slds-m-left_x-medium"></lightning-button>
+                </div>
+            </lightning-layout-item>
+
+            <lightning-layout-item class="slds-p-left_medium" size="12">
+                <c-lwc-dd-s-2-n-batch-status></c-lwc-dd-s-2-n-batch-status>
+            </lightning-layout-item>
+        </lightning-layout>
+    </div> 
+</template>

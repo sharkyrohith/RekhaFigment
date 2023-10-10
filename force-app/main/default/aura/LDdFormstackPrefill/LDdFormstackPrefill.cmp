@@ -1,0 +1,13 @@
+<aura:component implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes" access="global" >
+    <aura:attribute name="communityURL" type="String" default="https://ddfullsand-door-dash.cs40.force.com/merchants"/>
+    <aura:attribute name="formstackURL" type="String" default="https://doordash.formstack.com"/>
+    <aura:attribute name="formID" type="String" default=""/>
+    <aura:attribute name="viewKey" type="String" default=""/>
+    <aura:attribute name="finalURL" type="String" default=""/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <center>
+        <iframe src="{!v.finalURL}" title="Merchant Inbound Form - DoorDash" 
+                width="100%" height="1500" frameBorder ="0px">
+        </iframe>
+    </center>
+</aura:component>

@@ -1,0 +1,44 @@
+<template>
+    <lightning-layout>
+        <lightning-layout-item flexibility="auto" padding="around-small">
+            <lightning-input name="enter-search"
+                label="Enter Name [Type 3 or more charecters to filter the results by Name]"
+                type="search" pattern="([a-zA-Z- ])*" min-length="3"
+                message-when-too-short="Your entry must be atleast 3 charecters"
+                message-when-pattern-mismatch="Only charecters allowed in search filter."
+                value={nameSearchTerm} onchange={handleNameSearch}>
+            </lightning-input>
+        </lightning-layout-item>
+        <lightning-layout-item flexibility="auto" padding="around-small">
+            <lightning-input type="email"
+                label="Enter Email [Type correct email format to filter the results by email]"
+                maxlength="50"
+                message-when-too-long="Your email address must not be more than 50 characters."
+                value={emailSearchTerm} onchange={handleEmailSearch}>
+            </lightning-input>
+        </lightning-layout-item>
+    </lightning-layout>
+    <lightning-layout>
+        <lightning-layout-item flexibility="auto" padding="around-small">
+
+            <lightning-input name="enter-search"
+                label="Enter Profile [Type 3 or more charecters to filter the results by Name]"
+                type="search" pattern="([a-zA-Z- ])*" min-length="3"
+                message-when-too-short="Your entry must be atleast 3 charecters"
+                message-when-pattern-mismatch="Only charecters allowed in search filter."
+                value={profileSearchTerm} onchange={handleProfileSearch}>
+            </lightning-input>
+        </lightning-layout-item>
+        <lightning-layout-item flexibility="auto" padding="around-small">
+
+            <lightning-input name="enter-search"
+                label="Enter Role [Type 3 or more charecters to filter the results by Name]"
+                type="search" pattern="([a-zA-Z- ])*" min-length="3"
+                message-when-too-short="Your entry must be atleast 3 charecters"
+                message-when-pattern-mismatch="Only charecters allowed in search filter."
+                value={roleSearchTerm} onchange={handleRoleSearch}>
+            </lightning-input>
+
+        </lightning-layout-item>
+    </lightning-layout>
+</template>

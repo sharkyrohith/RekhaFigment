@@ -1,0 +1,180 @@
+<template>
+    <lightning-card variant="Narrow" title="Queue Hygiene" icon-name="utility:anchor">
+        <!--Show Error-->
+        <template if:true={showError}>
+            <div class="error">
+                {errorMsg}
+            </div>
+        </template>
+
+        <!--Spinner-->
+        <template if:true={isLoading}>
+            <div class="slds-is-relative slds-m-around_large slds-align_absolute-center">
+                <lightning-spinner alternative-text="Loading..." variant="brand"></lightning-spinner>
+            </div>
+        </template>
+        <!--Input-->
+        <div class="columnFlex">
+            <div class="slds-p-horizontal_medium">
+            <lightning-combobox name="queueNames"
+            label="Queue Name"
+            value={queueValue}
+            options={queueNameOptions}
+            onchange={handleQueueChange}
+            required> </lightning-combobox>
+            </div>
+            <div class="slds-p-horizontal_medium">
+            <lightning-combobox name="vendorNames"
+            label="Vendor Name"
+            value={vendorValue}
+            options={vendorNameOptions}
+            onchange={handleVendorChange}
+            required> </lightning-combobox>
+            </div>
+            <div class="rowFlex">
+                <div style="padding: 20px;">
+                    <lightning-button
+                    icon-name="utility:rows"
+                    label="Proceed"
+                    variant="brand"
+                    onclick={validateQueueSkilling}>
+                    </lightning-button>
+                </div>
+                <div style="padding: 20px;">
+                    <lightning-button
+                        icon-name="utility:download"
+                        label="Export"
+                        title="Export"
+                        onclick={handleDownloadCSVFile}
+                        variant="brand">
+                    </lightning-button>
+                </div>
+            </div>
+        </div>
+
+        <!--Output-->
+        <template if:true={showStatusMsg}>
+            <div class="success">
+                {statusMsg}
+            </div>
+        </template>
+
+        <div style="width: 100%;padding: 20px;position: relative;">
+            <template if:true={showStatusSection}>
+                <!--If any new domain added for vendor-->
+                <div class="tableDiv">
+                    <template if:true={showNewDomainSection}>
+                        <div class="lgc-bg">
+                            <h1 class="header">Domains not mapped for this vendor
+                                <lightning-helptext content="Please create BASD ticket for Biz Apps to get these added.">
+                                </lightning-helptext>
+                            </h1>
+                        </div>
+                        <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-table_col-bordered">
+                            <thead>
+                                <tr class="slds-text-title_caps">
+                                    <th scope="col">
+                                        <div title="Key">New Domain</div>
+                                    </th>
+                                    <th scope="col">
+                                        <div title="Value">User Count</div>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <template for:each={mapNewDomainUserCount} for:item="mapKey">
+                                    <tr key={mapKey.key}>
+                                        <th scope="col">
+                                            <div title={mapKey.key}>{mapKey.key}</div>
+                                        </th>
+                                        <th scope="col">
+                                            <div title={mapKey.value}>{mapKey.value}</div>
+                                        </th>
+                                    </tr>
+                                </template>
+                            </tbody>
+                        </table>
+                    </template>
+                </div>
+                <!--Users from different vendor-->
+                <div class="tableDiv">
+                    <template if:true={showDiffDomainSection}>
+                        <div class="lgc-bg">
+                            <h1 class="header">Users from different vendors added to this queue
+                                <lightning-helptext content="Export these users and use Queue Management tool to fix assignment.">
+                                </lightning-helptext>
+                            </h1>
+                        </div>
+                        <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-table_col-bordered">
+                            <thead>
+                                <tr class="slds-text-title_caps">
+                                    <th scope="col">
+                                        <div title="Key">Queue Name</div>
+                                    </th>
+                                    <th scope="col">
+                                        <div title="Value">User Email</div>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <template for:each={mapDifferentDomainUsers} for:item="mapKey">
+                                    <tr key={mapKey.key}>
+                                        <th scope="col">
+                                            <div title={mapKey.key}>{mapKey.key}</div>
+                                        </th>
+                                        <template for:each={mapKey.value} for:item="user">
+                                        <tr key={user.Id}>
+                                                <th scope="col">
+                                                    <div title={user.Email}>{user.Email}</div>
+                                                </th>
+                                            </tr>
+                                        </template>
+                                    </tr>
+                                </template>
+                            </tbody>
+                        </table>
+                    </template>
+                </div>
+                <!---Users from this queue in different vendor queues-->
+                <div class="tableDiv">
+                    <template if:true={showAgentsInDiffVendorSection}>
+                        <div class="lgc-bg">
+                            <h1 class="header">Users from this queue added to other vendor queues
+                                <lightning-helptext content="Export these users and use Queue Management tool to fix assignment.">
+                                </lightning-helptext>
+                            </h1>
+                        </div>
+                        <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-table_col-bordered">
+                            <thead>
+                                <tr class="slds-text-title_caps">
+                                    <th scope="col">
+                                        <div title="Key">Vendor Name</div>
+                                    </th>
+                                    <th scope="col">
+                                        <div title="Value">User Email</div>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <template for:each={mapUsersInDifferentQueues} for:item="mapKey">
+                                    <tr key={mapKey.key}>
+                                        <th scope="col">
+                                            <div title={mapKey.key}>{mapKey.key}</div>
+                                        </th>
+                                        <template for:each={mapKey.value} for:item="user">
+                                        <tr key={user.Id}>
+                                                <th scope="col">
+                                                    <div title={user.Email}>{user.Email}</div>
+                                                </th>
+                                            </tr>
+                                        </template>
+                                    </tr>
+                                </template>
+                            </tbody>
+                        </table>
+                    </template>
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

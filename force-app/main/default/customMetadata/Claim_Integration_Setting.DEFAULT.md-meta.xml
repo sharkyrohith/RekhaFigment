@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>DEFAULT</label>
+    <protected>false</protected>
+    <values>
+        <field>AUTOB_Claim_Submission_API__c</field>
+        <value xsi:type="xsd:string">https://api.us.libertymutual.com/grs-fnol/test/v1/claims/fnol/au</value>
+    </values>
+    <values>
+        <field>AUTOB_Policy_Number__c</field>
+        <value xsi:type="xsd:string">VC866B067407012</value>
+    </values>
+    <values>
+        <field>Account_Stack_Holder_ID__c</field>
+        <value xsi:type="xsd:string">561714203</value>
+    </values>
+    <values>
+        <field>CGL_Policy_Number__c</field>
+        <value xsi:type="xsd:string">EP866B067407032</value>
+    </values>
+    <values>
+        <field>Document_Submission_API__c</field>
+        <value xsi:type="xsd:string">https://api.us.libertymutual.com/grs-fnol/production/v1/claims/docs</value>
+    </values>
+    <values>
+        <field>Named_Credentail__c</field>
+        <value xsi:type="xsd:string">LibertyMutualAuth</value>
+    </values>
+    <values>
+        <field>Sandbox_AUTOB_Claim_Submission_API__c</field>
+        <value xsi:type="xsd:string">https://api-tst.us.libertymutual.com/grs-fnol/test/v1/claims/fnol/au</value>
+    </values>
+    <values>
+        <field>Sandbox_Document_Submission_API__c</field>
+        <value xsi:type="xsd:string">https://api-tst.us.libertymutual.com/grs-fnol/test/v1/claims/docs</value>
+    </values>
+    <values>
+        <field>Sandbox_Named_Credentail__c</field>
+        <value xsi:type="xsd:string">LibertyMutualAuthSandbox</value>
+    </values>
+</CustomMetadata>

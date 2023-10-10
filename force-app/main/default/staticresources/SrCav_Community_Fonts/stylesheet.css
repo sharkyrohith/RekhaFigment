@@ -1,0 +1,39 @@
+@font-face {
+  font-family: 'SQ_Market_Thin';
+  src: url('SQMarket-Thin.eot?orgId=00D1a000000KEiH');
+  src: url('SQMarket-Thin.eot?orgId=00D1a000000KEiH#iefix') format('embedded-opentype'), url('SQMarket-Thin.woff2?orgId=00D1a000000KEiH') format('woff2'), url('SQMarket-Thin.woff?orgId=00D1a000000KEiH') format('woff'), url('SQMarket-Thin.ttf?orgId=00D1a000000KEiH') format('truetype'), url('SQMarket-Thin.svg?orgId=00D1a000000KEiH#SQMarket-Thin') format('svg');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SQ_Market_Bold';
+  src: url('SQMarket-Bold.eot?orgId=00D1a000000KEiH');
+  src: url('SQMarket-Bold.eot?orgId=00D1a000000KEiH#iefix') format('embedded-opentype'), url('SQMarket-Bold.woff2?orgId=00D1a000000KEiH') format('woff2'), url('SQMarket-Bold.woff?orgId=00D1a000000KEiH') format('woff'), url('SQMarket-Bold.ttf?orgId=00D1a000000KEiH') format('truetype'), url('SQMarket-Bold.svg?orgId=00D1a000000KEiH#SQMarket-Bold') format('svg');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SQ_Market_Light';
+  src: url('SQMarket-Light.eot?orgId=00D1a000000KEiH');
+  src: url('SQMarket-Light.eot?orgId=00D1a000000KEiH#iefix') format('embedded-opentype'), url('SQMarket-Light.woff2?orgId=00D1a000000KEiH') format('woff2'), url('SQMarket-Light.woff?orgId=00D1a000000KEiH') format('woff'), url('SQMarket-Light.ttf?orgId=00D1a000000KEiH') format('truetype'), url('SQMarket-Light.svg?orgId=00D1a000000KEiH#SQMarket-Light') format('svg');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SQ_Market_Medium';
+  src: url('SQMarket-Medium.eot?orgId=00D1a000000KEiH');
+  src: url('SQMarket-Medium.eot?orgId=00D1a000000KEiH#iefix') format('embedded-opentype'), url('SQMarket-Medium.woff2?orgId=00D1a000000KEiH') format('woff2'), url('SQMarket-Medium.woff?orgId=00D1a000000KEiH') format('woff'), url('SQMarket-Medium.ttf?orgId=00D1a000000KEiH') format('truetype'), url('SQMarket-Medium.svg?orgId=00D1a000000KEiH#SQMarket-Medium') format('svg');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SQ_Market_Regular';
+  src: url('SQMarket-Regular.eot?orgId=00D1a000000KEiH');
+  src: url('SQMarket-Regular.eot?orgId=00D1a000000KEiH#iefix') format('embedded-opentype'), url('SQMarket-Regular.woff2?orgId=00D1a000000KEiH') format('woff2'), url('SQMarket-Regular.woff?orgId=00D1a000000KEiH') format('woff'), url('SQMarket-Regular.ttf?orgId=00D1a000000KEiH') format('truetype'), url('SQMarket-Regular.svg?orgId=00D1a000000KEiH#SQMarket-Regular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}

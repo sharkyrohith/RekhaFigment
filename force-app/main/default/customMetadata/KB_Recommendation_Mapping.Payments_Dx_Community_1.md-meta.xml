@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Payments Dx Community 1</label>
+    <protected>false</protected>
+    <values>
+        <field>Case_Category__c</field>
+        <value xsi:type="xsd:string">Payments</value>
+    </values>
+    <values>
+        <field>Case_Sub_Category__c</field>
+        <value xsi:type="xsd:string">Fast Pay</value>
+    </values>
+    <values>
+        <field>Customer_Type__c</field>
+        <value xsi:type="xsd:string">Dasher</value>
+    </values>
+    <values>
+        <field>Recommended_KB_Article__c</field>
+        <value xsi:type="xsd:string">kA02L000000V38W</value>
+    </values>
+</CustomMetadata>

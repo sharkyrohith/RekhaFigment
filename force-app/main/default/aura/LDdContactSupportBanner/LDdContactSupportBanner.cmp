@@ -1,0 +1,51 @@
+<aura:component access="global" implements="forceCommunity:availableForAllPageTypes">
+        	<aura:attribute default="visible" name="BannerVisibility" type="boolean" />
+			<aura:attribute default="https://help.doordash.com/" name="BaseURL" type="String" />
+        	<aura:attribute default="consumers" name="CommunityName" type="String" />
+        	<aura:attribute default="True" name="ClicktoCall" type="boolean" />
+
+        <div>
+        <aura:renderif isTrue="{!v.BannerVisibility}">
+            
+         <aura:renderif isTrue="{!v.ClicktoCall}">
+
+            <a href="{!'tel:' + $Label.c.DdCommunity_ContactSupportBanner_Phone_Link}" target="_blank" class="home-support-tile">
+            <span>{!$Label.c.DdCommunity_ContactSupportBanner_Call}</span>{!$Label.c.DdCommunity_ContactSupportBanner_Phone}
+            </a> 
+    
+        <aura:set attribute="else">
+
+            <div class="home-support-tile">
+            	<span>{!$Label.c.DdCommunity_ContactSupportBanner_Call}</span>{!$Label.c.DdCommunity_ContactSupportBanner_Phone}
+            </div>  
+            </aura:set>
+    
+        </aura:renderif>
+				           
+            <div class="home-support-or">
+            	{!$Label.c.DdCommunity_ContactSupportBanner_Or}
+            </div>
+
+         <aura:renderif isTrue="{!v.CommunityName == 'consumers'}">
+            <a href="{!v.BaseURL + v.CommunityName + '/s/consumer-support'}" class="home-support-tile">
+            	{!$Label.c.DdCommunity_ContactSupportBanner_Submit}
+            </a>  
+        </aura:renderif>
+
+         <aura:renderif isTrue="{!v.CommunityName == 'dashers'}">
+            <a href="{!v.BaseURL + v.CommunityName + '/s/dasher-support'}" class="home-support-tile">
+            	{!$Label.c.DdCommunity_ContactSupportBanner_Submit}
+            </a>  
+        </aura:renderif>
+
+         <aura:renderif isTrue="{!v.CommunityName == 'merchants'}">
+            <a href="{!v.BaseURL + v.CommunityName + '/s/merchant-support'}" class="home-support-tile">
+            	{!$Label.c.DdCommunity_ContactSupportBanner_Submit}
+            </a>  
+        </aura:renderif>
+
+            
+        </aura:renderif>
+        </div>
+	
+</aura:component>

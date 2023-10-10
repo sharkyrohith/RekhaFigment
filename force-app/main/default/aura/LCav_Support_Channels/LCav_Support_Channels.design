@@ -1,0 +1,12 @@
+<design:component label="Caviar Support Channels">
+    <design:attribute name="community" label="Community Name" 
+                      datasource="Diner,Courier,Restaurant,Companies" default="Diner" />
+    <design:attribute name="supportPhone" label="Support Phone Number" />
+    <design:attribute name="showPhone" label="Show Phone" />
+    <design:attribute name="showChat" label="Show Chat" />
+    <design:attribute name="showEmail" label="Show Email" />
+    <design:attribute name="showTwitter" label="Show Twitter" />
+    <design:attribute name="showFacebook" label="Show Facebook" />
+    <design:attribute name="showSelfHelp" label="Show Self-Help" />
+    
+</design:component>

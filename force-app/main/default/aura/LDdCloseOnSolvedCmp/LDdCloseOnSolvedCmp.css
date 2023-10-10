@@ -1,0 +1,12 @@
+.THIS .loading{
+    position: relative;
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+}
+.THIS .error-icn svg{
+    fill: rgba(227, 35, 0, 1);
+}
+.THIS .success-icn svg{
+    fill: rgb(0, 179, 0);
+}

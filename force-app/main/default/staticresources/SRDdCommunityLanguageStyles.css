@@ -1,0 +1,92 @@
+
+.footer lightning-combobox.forceCommunityLanguageSelector43 {
+    position: fixed;
+    top: -5px;
+    z-index: 300;
+    right: 2%;
+}
+
+
+
+.footer lightning-combobox.forceCommunityLanguageSelector43 .slds-form-element__control {
+    max-width: 300px;
+    float: right;
+}
+
+.footer lightning-combobox.forceCommunityLanguageSelector43  input.slds-input {
+    text-align: right;
+    padding-right: 28px;
+    background-color: transparent;
+    color: #000;
+    border: none;
+    cursor: pointer;
+    padding: 0px 28px 0px 0px;
+    font-size: .775rem;
+    min-width: 200px;
+}
+
+.footer lightning-combobox.forceCommunityLanguageSelector43 svg {
+    fill: rgba(0, 0, 0, 0.8);
+}
+
+body.comm-page-article lightning-combobox.forceCommunityLanguageSelector43 {
+    position: fixed;
+}
+
+@media only screen and (max-width:768px) {
+    .footer lightning-combobox.forceCommunityLanguageSelector43 {
+        position: fixed;
+        top: 44px;
+        z-index: 300;
+        right: 2%;
+        background-color: rgb(255, 255, 255, 1);
+        width: 100%; 
+    }
+    
+    body.comm-page-article .footer lightning-combobox.forceCommunityLanguageSelector43 {
+    position: fixed;
+        right: 0% !important;
+    }
+    
+    
+    .footer lightning-combobox.forceCommunityLanguageSelector43  input.slds-input {
+        font-size: .675rem;
+        height: 24px !important;
+    	min-height: 20px !important;
+    }
+    body.comm-page-home .footer lightning-combobox.forceCommunityLanguageSelector43 {
+        position: fixed !important;
+        top: -5px;
+        z-index: 300 !important;
+        right: 2% !important;
+        background-color: transparent !important;
+        width: auto !important;
+    }
+}
+
+@media only screen and (max-width:480px) {
+    
+    body .footer lightning-combobox.forceCommunityLanguageSelector43 {
+        position: fixed;
+        top: -10px;
+    }
+    
+    body.comm-page-article .footer lightning-combobox.forceCommunityLanguageSelector43 {
+    position: fixed;
+        right: 0%;
+    }
+    
+}
+
+/*-- Hides English (Australian) (AU) from dropdown START --
+lightning-base-combobox-item span[title="English (Australian) (AU)"] {
+display: none !important;
+}
+
+.forceCommunityLanguageSelector43 lightning-base-combobox-item[data-value="en_AU"] {
+display: none !important;
+}
+*/
+/*-- Hides English (Australian) (AU) from dropdown END --*/
+
+

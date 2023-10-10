@@ -1,0 +1,13 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId,lightning:actionOverride,lightning:isUrlAddressable" access="global" >
+    <aura:attribute name="parentId" type="String"/>
+    <aura:attribute name="enclosingTabId" type="String"/>
+    <aura:attribute name="parentTabId" type="String"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <lightning:workspaceAPI aura:id="workspace" />
+
+    <c:lwcDdLegalCmsVersionNewOverride parentId="{!v.parentId}" enclosingTabId="{!v.enclosingTabId}" parentTabId="{!v.parentTabId}"
+        oncloseenclosingtab="{!c.handleCloseEnclosingTab}"
+        onopennewversioninsubtab="{!c.handleOpenNewVersionInSubtab}"
+    />
+</aura:component>

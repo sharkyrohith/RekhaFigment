@@ -1,0 +1,21 @@
+<!--
+ - Created by Jeremy S. Johnson, Perficient, Inc. on 3/14/2020.
+ - A window overlay for performing bulk lead conversions from GridBuddy
+ -->
+<apex:page id="GridBuddyLeadConvert"
+           controller="CDdBulkLeadConvertController"
+           showHeader="false"
+           sideBar="false">
+    <apex:includeLightning />
+    <apex:slds />
+    <div id='container'></div>
+    <script>
+        $Lightning.use("c:LDdUploaderApp", function()
+        {
+            $Lightning.createComponent(
+                "c:LwcDdBulkLeadConvert", {},
+                "container",
+                function(cmp) {});
+        });
+    </script>
+</apex:page>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ApexComponent xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>51.0</apiVersion>
+    <description>Approval Template created by ATG to ensure Quote Lines are in the proper order. Q2C-134</description>
+    <label>ApprovalEmailTemplateComponent</label>
+    <packageVersions>
+        <majorNumber>230</majorNumber>
+        <minorNumber>6</minorNumber>
+        <namespace>SBQQ</namespace>
+    </packageVersions>
+</ApexComponent>

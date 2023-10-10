@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Germany PROD</label>
+    <protected>false</protected>
+    <values>
+        <field>Active__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>Endpoint__c</field>
+        <value xsi:type="xsd:string">https://iad1.qualtrics.com/inbound-event/v1/events/JSON/triggers?contextId=SV_6sz2XGnMnwo1GSy&amp;userId=UR_83dcWG5FMIWpmNo&amp;brandId=doordash&amp;triggerId=OC_1IM1Y3hxUxzWBig</value>
+    </values>
+    <values>
+        <field>Is_Sandbox__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>Language__c</field>
+        <value xsi:type="xsd:string">German</value>
+    </values>
+    <values>
+        <field>Topic_ARN__c</field>
+        <value xsi:nil="true"/>
+    </values>
+</CustomMetadata>

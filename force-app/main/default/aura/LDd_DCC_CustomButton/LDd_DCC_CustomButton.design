@@ -1,0 +1,8 @@
+<design:component label="DCC Button">
+    
+         <design:attribute name="ButtonLink" label="Button URL" />
+         <design:attribute name="ButtonLabel" label="Button Label" />
+         <design:attribute name="ButtonStyle" label="Button Style" datasource="primary,secondary,inactive" default="primary" />
+
+
+</design:component>

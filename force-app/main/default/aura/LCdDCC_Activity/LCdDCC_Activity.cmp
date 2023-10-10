@@ -1,0 +1,48 @@
+<aura:component access="global" implements="forceCommunity:availableForAllPageTypes">
+
+    <div>
+          <div class="dd-dcc-subtitle">The DCC in action</div>
+
+        <div class="DCC-ta-container"> 
+            
+            <img class="DCC-ta-image" src="{!$Resource.SRdDCC_Assets + '/action_photos/DCC_Activities_2020_Main.jpg'}"/>
+            <img class="DCC-ta-image" src="{!$Resource.SRdDCC_Assets + '/action_photos/DCC_Activities_2020_Row_2.jpg'}"/>
+            <img class="DCC-ta-image" src="{!$Resource.SRdDCC_Assets + '/action_photos/image-1@2x.jpg'}"/>
+            <img class="DCC-ta-image" src="{!$Resource.SRdDCC_Assets + '/action_photos/image-2@2x.jpg'}"/>
+            <img class="DCC-ta-image" src="{!$Resource.SRdDCC_Assets + '/action_photos/image-3@2x.jpg'}"/>
+                
+        </div>
+        
+           <div class="dd-custom-apply-wrap" style="background-color: #FFF !important;">
+              
+            <div class="dd-dcc-subtitle">Big Wins by the DCC</div>
+            
+            <div class="dd-dcc-text">
+ 
+                    <ul>
+                        <li><b>COVID-19 Relief Efforts</b> - shared perspectives on how the Financial Assistance and telehealth programs should be designed to best support Dashers in need. Also provided feedback to help increase effectiveness of no-contact deliveries.  
+                        </li>
+                        <li><b>App Super Testers</b> - volunteered to early test beta versions of the app and provided actionable feedback (e.g., testing in-app navigation, no-contact deliveries).
+                        </li>
+                        <li><b>Dasher Ratings</b> -  Provided feedback on ratings fairness and helped to define scenarios that are beyond Dashers’ control. DoorDash is now excluding low customer ratings (below 5 stars) for deliveries having long merchant wait, missing or incorrect when the bag is sealed, and others. See <a href="https://help.doordash.com/dashers/s/article/Dasher-Ratings-Explained?language=en_US" target="new">Dasher Ratings Explained</a> for more details. 
+                        </li>
+                        <li><b>Consistent Feedback Sessions</b> - provided important perspectives into the planning and execution of special projects including Merchant interactions, and the new Dasher engagement, and improved drop offs instructions. 
+                        </li>
+                        <li><b>Policy Initiatives</b> - shared their unique stories in states like California, New Jersey, and New York where lawmakers debated the future of gig economy work.  
+                        </li>
+                        <li><b>Top Dasher Program</b> - beta tested the Top Dasher program to provide actionable feedback on how to make qualifications attainable, even for those who do not dash full time.
+                        </li>
+                        <li><b>Dasher Digest</b> - helped launch the Dasher newsletter and provided advice for the “Dasher-to-Dasher” section, which has helped millions of Dashers learn about delivering with DoorDash. 
+                        </li>
+                        <li><b>Dasher Community Events </b> - led our first ever local community events, where Dashers gathered to share experiences, ask questions, and form bonds.
+                        </li>
+                </ul>
+
+                
+                    </div>
+            </div>       
+                    
+        
+    </div>
+    
+</aura:component>

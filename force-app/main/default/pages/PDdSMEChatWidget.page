@@ -1,0 +1,283 @@
+<apex:page id="AgentChatWidget" showHeader="false" sideBar="false" docType="html-5.0" standardController="Task" extensions="CDdSMEChatWidgetController">
+  <html style="width: 100%; height: 100%;">
+
+  <head>
+    <title>Chat Widget</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+    <script src="https://d3uxkn3ir2hcc6.cloudfront.net/amazon-connect-chat-interface.js"></script>
+
+    <style>
+      html {
+        height: 100%;
+
+        background-color: transparent;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      body {
+        position: relative;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+
+        background-color: transparent;
+      }
+
+      .connect-customer-interface {
+        width: 100% !important;
+        height: 100% !important;
+        margin: 0 !important;
+      }
+
+      #button-container {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        display: flex;
+        justify-content: flex-end;
+        place-items: flex-end;
+      }
+
+      #chat-form-overlay {
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+        width: 430px !important;
+
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 40px;
+        padding-bottom: 20px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        background-color: white;
+      }
+
+      #form-title {
+        margin-top: 30px;
+        margin-bottom: 60px;
+        color: #7b848c;
+        font-weight: 700;
+      }
+
+      #avail-title {
+        color: #7b848c;
+        font-weight: 400;
+        margin: 10px 0;
+        font-size: larger;
+      }
+
+      #chat-widget-root {
+        width: 100%;
+        height: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: white;
+      }
+
+      #chat-icon {
+        width: 80%;
+        height: 80%;
+        display: "flex";
+        flex-direction: "row-reverse";
+      }
+
+      #chat-form-submit {
+        cursor: pointer;
+      }
+
+      #userdata {
+        width: 100%;
+        padding: 0 20px;
+        box-sizing: border-box;
+      }
+
+      #formdata {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      #userdata label {
+        display: none;
+      }
+
+      #userdata input {
+        width: 80%;
+        height: 30px;
+        margin-bottom: 12px;
+
+        border: 1px solid grey;
+        border-radius: 4px;
+        padding: 2px 16px;
+        font-size: large;
+      }
+
+    </style>
+
+  </head>
+
+  <body style="width: 100%; height: 100%;">
+    <div style="width: 100%; height: 100%; position: relative;">
+
+        <!-- Has the actual chat interaction widget -->
+        <div id="chat-widget-root" style="display: none;"></div>
+
+        <!-- Flips to 'display: none' once all data is entered. -->
+        <div id="button-container" style="position: absolute; left: 0; bottom: 0; right: 0; top: 0;">
+          <div style="display: flex; justify-content: center; align-items: center; width: 100%; height: 100%;">
+            <div id="chat-form-submit">
+              <span id="chat-icon" style="background-color: #4E9CAF; color: white; padding: 10px 40px;">
+                Connect to chat
+              </span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <script type="text/javascript">
+      (() => {
+          const user_id = "{!$User.Id}";
+          const task_id = "{!currentRecordId}";
+          const CONNECT_REGION = "{!connectRegion}";
+          const INSTANCE_ID = "{!instanceId}";
+          const API_URL = "{!acAPIURL}".replace("${task_id}", task_id).replace("${user_id}", user_id);
+          const CONTACT_FLOW_ID = "{!contactFlowId}";
+        console.log(user_id)
+        console.log(task_id)
+
+          
+          const ALLOW_ATTACHMENTS = true;
+          
+
+          const CHAT_WIDGET_HEADER_HTML =
+          '<div class="chat-header" style="background-color: #ff3008; padding-left: 14px; color: white; flex-shrink: 0; text-align: left;"><p>Chat with Teammate</p></div>';
+
+          let open_chat = false; // This variable tracks if the chat is currently connected or not.
+          let open_window = false; // This tracks if the chat window is open or not.
+
+          const onPageReady = () => {
+          connect.ChatInterface.init({
+            containerId: "chat-widget-root",
+            headerConfig: {
+              isHTML: true,
+              render: () => CHAT_WIDGET_HEADER_HTML,
+            },
+          });
+
+          // if (Notification.permission !== "granted") Notification.requestPermission();
+          };
+
+          window.addEventListener("load", onPageReady);
+          console.log("Ready State:", document.readyState);
+
+          connect.ChatSession.setGlobalConfig({
+          region: CONNECT_REGION,
+          });
+
+          const start_button = document.getElementById("chat-form-submit");
+          const text_span = document.getElementById("chat-icon");
+          const chat_panel = document.getElementById("chat-widget-root");
+
+          const button_container = document.getElementById("button-container");
+
+          start_button.addEventListener("click", () => {
+            console.log("Attempting to create a new chat session.");
+            chat_panel.style.display = "";
+            text_span.innerText = "Loading...";
+            start_button.style.cursor = "default";
+            start_button.setAttribute("disabled", true);
+
+            connect.ChatInterface.initiateChat(
+              {
+                name: "Agent",
+                region: CONNECT_REGION,
+                apiGatewayEndpoint: API_URL,
+                contactFlowId: CONTACT_FLOW_ID,
+                instanceId: INSTANCE_ID,
+                featurePermissions: {
+                  ATTACHMENTS: ALLOW_ATTACHMENTS,
+                },
+              },
+              successHandler,
+              failureHandler
+            );
+          });
+
+          function resetForm() {
+            chat_panel.style.display = "none";
+            start_button.style.display = "";
+            start_button.style.cursor = "pointer";
+            text_span.innerText = "Chat with Support";
+            start_button.removeAttribute("disabled");
+            button_container.style.display = "";
+          }
+
+          function successHandler(chat_session) {
+            console.log("Chat session established successfully:", chat_session);
+            open_chat = true;
+            start_button.style.display = "none";
+            text_span.innerText = "Chat with Support";
+            start_button.removeAttribute("disabled");
+            start_button.style.cursor = "pointer";
+            button_container.style.display = "none";
+
+            // Show chat window if not already shown:
+            $("#section-chat").fadeIn(400);
+
+            // Listen for incoming messages and display notifications.
+            chat_session.onIncoming((message) => {
+              if (!message.Content) return console.log("No content for this incoming message.");
+              // if (Notification.permission !== "granted")
+              //   return console.log("Permission not granted to display a notification for this message.");
+
+              // new Notification(INBOUND_NOTIFICATION_TITLE, {
+              //   body: message.Content,
+              // });
+            });
+
+            // Must transform incoming message author if it is SYSTEM_MESSAGE.
+            // Do using method found here: https://github.com/amazon-connect/amazon-connect-chat-ui-examples/blob/279df2d2bfc427e80b9c0fe4dc7dcc242ffa2714/cloudformationTemplates/urlPreviewForAsyncChat/website/index.html#L327
+            chat_session.incomingItemDecorator = item => {
+            if (item.displayName === "SYSTEM_MESSAGE") item.displayName = "Teammate";
+            return item;
+            }
+
+            const handleUnload = () => {
+              if (!open_chat) return;
+              chat_session.disconnectParticipant();
+            };
+
+            window.addEventListener("beforeunload", handleUnload);
+
+            // Indicate that a chat is disconnected when that happens.
+            chat_session.onChatDisconnected((data) => {
+              open_chat = false;
+              resetForm();
+              window.removeEventListener("beforeunload", handleUnload);
+            });
+
+            // When the chat closes, hide the widget.
+            chat_session.onChatClose((data) => {
+              $("#section-chat").fadeOut(400);
+              setTimeout(resetForm, 400);
+              open_window = false;
+            });
+          }
+
+          function failureHandler(err) {
+            console.error("Failed to establish chat session:", err);
+            resetForm();
+          }
+      })();
+      </script>
+  </body>
+  </html>
+</apex:page>

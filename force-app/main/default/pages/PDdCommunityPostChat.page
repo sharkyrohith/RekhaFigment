@@ -1,0 +1,3 @@
+<apex:page controller="CDdCommunityPostChatController" showHeader="false" sidebar="false" action="{!goToSurvey}"  language="{!lang}">
+    <apex:outputText value="{!$Label.DdCommunity_Loading}" />
+</apex:page>

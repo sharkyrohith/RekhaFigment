@@ -1,0 +1,6 @@
+<design:component label="DCC FAQ's">
+	
+            <design:attribute name="FAQsource" label="FAQ Source" datasource="DCC,VDC" default="DCC"/>
+
+    
+</design:component>

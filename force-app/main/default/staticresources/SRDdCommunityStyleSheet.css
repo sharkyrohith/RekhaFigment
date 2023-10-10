@@ -1,0 +1,538 @@
+.forceCommunityHeadline .headlineTitle {
+    font-size: 44px !important;
+    font-weight: 500 !important;
+    line-height: 59px !important;
+    text-align: left !important;
+    padding: .2em 0 0 0 !important;
+}
+
+/* Full Footer Width*/
+.themeLayoutStarterWrapper .footer {
+    display: block;
+    width: 100%;
+}
+
+body img[width="1"][height="1"] {
+    display: none !important;
+}
+body img[width="1"] {
+    display: none !important;
+}
+
+.forceCommunityThemeHeaderBase .themeBgOverlay {
+    background-color: rgba(255, 255, 255, 1.0) !important;
+}
+
+.forceCommunityThemeHeaderBase .themeBottomBorder {
+    background-color: #EEE !important;
+}
+
+
+
+/*.forceTopicFeaturedTopicItem .topicLabel {
+font-size: 24px !important;
+}
+*/
+
+.forceCommunityTopArticleListForTopic .empty-list .slds-text-title {
+    font-size: 0.875rem;
+}
+
+
+/*attempt to remove article title from article detail*/
+.article-summary.selfServiceArticleHeaderDetail {
+    display: none !important;
+}
+
+/*remove article views from detail*/
+.selfServiceSimilarArticles42 li .slds-grid {
+    display: none !important;
+}
+
+/* remove the article field titles from an article */
+.selfServiceArticleLayout .test-id__field-label {
+    display: none;
+}
+
+/* remove the article details view, count, article type from article detail */
+.selfServiceArticleLayout .meta {
+    display: none !important;
+}
+
+
+
+/* remove the article footer items view, count, etc from search page */
+ul.slds-list--horizontal.slds-wrap.slds-has-dividers--right {
+    display: none;
+}
+
+/* remove the article footer items in topic view */
+.selfServiceArticleListItem .footer {
+    display: none;
+}
+
+/* make topic sub-list text larger */
+.topic-subNavList {
+    font-size: 1rem !important;
+}
+
+.article-column .content .forcePageBlockSectionRow:nth-child(2) {
+    display: none !important;
+}
+
+.article-column .content .forcePageBlockSectionRow:nth-child(3) {
+    display: none !important;
+}
+
+.selfServiceArticleLayout .content .forcePageBlockSectionRow:nth-child(2), .selfServiceArticleLayout .content .forcePageBlockSectionRow:nth-child(3) {
+    display: none !important;
+}
+
+.article-column .content .forcePageBlockSectionRow:nth-child(3) {
+    display: none !important;
+}
+
+/*make margin around top topics - Doesnt work 
+.forceCommunityTopArticleLst .forceCommunityTopArticleListForTopic {
+margin-left: auto !important;
+padding: 10px !important;
+width: 99% !important;
+}
+*/
+
+/*make article titles larger*/
+.forceCommunityTopArticleItem .article-title {
+    white-space: normal;
+    font-size: larger !important;
+}
+
+/* make topic header larger with underline */
+.forceCommunityTopArticleListForTopic .topicHeaderLink {
+    white-space: normal;
+    font-size: 1.5em;
+    color: #484848 !important;
+    display: inline-block;
+    border-bottom: 2px solid #ff3008;
+    padding-bottom: 1em;
+    width: 80%;
+}
+
+/*topiclist with margin and padding */
+.forceTopicFeaturedTopics .TopicList {
+    margin: auto !important;
+    padding: 50px !important;
+    height: 300px !important;
+}
+
+
+/*Ensure that there are no transformations on header for featured topics*/
+.forceTopicFeaturedTopics .featuredTopicHeader {
+    text-transform: none !important;
+    font-size: 1.5em !important;
+    color: #484848 !important;
+    display: inline-block;
+    border-bottom: 2px solid #ff3008;
+    padding-bottom: 1em;
+}
+
+/*remove article attributes views, article type, etc from view*/
+.forceCommunityDeflectionOption .option-attribute-list {
+    color: transparent !important;
+}
+
+.view-metrics {
+    display: none !important;
+}
+
+.question-metrics {
+    display: none !important;
+}
+
+/* make breadcrumbs lowercase and larger*/
+.forceCommunityBreadcrumbs .slds-breadcrumb__item {
+    text-transform: none !important;
+}
+
+/*  NAVIGATION UPDATES  */
+.forceCommunityThemeNav .mainNavItem .linkBtn {
+    border: none;
+    background: none;
+    padding: 0 5px;
+    width: 100%;
+    text-align: left;
+    font-weight: bold;
+    font-size: .875rem;
+}
+
+/* adds external link icon - Consumer 
+a.comm-navigation__top-level-item-link[href="http://doordash.com"]::after, a.comm-navigation__top-level-item-link[href="https://www.doordash.com/orders/"]::after {
+content: '';
+background-image: url('/consumers/resource/1557381941000/SRDdHelpSelectAssets/arrow-2px.svg');
+height: 15px;
+width: 15px;
+display: inline-block;
+background-repeat: no-repeat;
+position: relative;
+top: 5px;
+margin-left: 5px;
+}
+*/
+/* adds external link icon - Dashers 
+a.comm-navigation__top-level-item-link[href="https://help.doordash.com/dashers/s/article/Dasher-Offices"]::after, a.comm-navigation__top-level-item-link[href="https://www.doordash.com/dasher/signup/?source=dx_signup_help_header"]::after, a.comm-navigation__top-level-item-link[href="https://doordashstore.com/default.aspx"]::after {
+content: '';
+background-image: url('/consumers/resource/1557381941000/SRDdHelpSelectAssets/arrow-2px.svg');
+height: 15px;
+width: 15px;
+display: inline-block;
+background-repeat: no-repeat;
+position: relative;
+top: 5px;
+margin-left: 5px;
+}
+*/
+
+/* adds external link icon - Merchants 
+a.comm-navigation__top-level-item-link[href="http://doordash.com/merchant/apply"]::after, a.comm-navigation__top-level-item-link[href="https://www.doordash.com/drive/portal/discover"]::after {
+content: '';
+background-image: url('/consumers/resource/1557381941000/SRDdHelpSelectAssets/arrow-2px.svg');
+height: 15px;
+width: 15px;
+display: inline-block;
+background-repeat: no-repeat;
+position: relative;
+top: 5px;
+margin-left: 5px;
+}
+*/
+a.comm-navigation__top-level-item-link[href*="http://"]::after, a.comm-navigation__top-level-item-link[href*="https://"]::after {
+    content: '';
+    background-image: url('/consumers/resource/1557381941000/SRDdHelpSelectAssets/arrow-2px.svg');
+    height: 15px;
+    width: 15px;
+    display: inline-block;
+    background-repeat: no-repeat;
+    position: relative;
+    top: 5px;
+    margin-left: 5px;
+}
+
+/*  TRENDING ARTICLE COMPONENT UPDATES - HOME  */
+@media only screen and (min-width:760px) {
+    .forceCommunityTopArticleList .forceCommunityTopArticleListForTopic {
+        padding: 0 18px 28px 0 !important;
+    }
+    
+    .forceCommunityTopArticleListForTopic:last-child {
+        padding: 0 10px 28px 0 !important;
+    }
+}
+
+/*  Contact Support Button  */
+.forceCommunityContactSupportButton.contactSupportButton {
+    font-size: 1.1rem !important;
+}
+
+/*  TRENDING ARTICLE COMPONENT UPDATES - Article Detail  */
+.selfServiceSimilarArticles42 > h2, .selfServiceTopicTrendingArticles42 > h2,  .forceCommunityRelatedTopics .forceTopicTopicList .leftLabelNoHeader .uiOutputText {
+    font-size: 1.3rem;
+    font-weight: bold;
+    display: block;
+}
+
+.selfServiceSimilarArticles42 li > a, .selfServiceSimilarArticles42 li > .comm-related-articles__item > a {
+    display: table !important;
+    width: 100%;
+}
+
+community_article-topic-trending-articles-list, community_article-similar-articles-list {
+    margin-bottom: 20px !important;
+    display: inline-block;
+}
+
+community_article-similar-articles-item a span, community_article-topic-trending-articles-item a span {
+    font-size: .875rem !important;
+    word-break: normal;
+}
+
+.forceCommunityRelatedTopics .forceTopicTopicList .topicItemLink {
+    font-size: .875rem !important;
+    line-height: 1.2;
+}
+/*  Breadcrumb - Article Detail  */
+.forceCommunityBreadcrumbs .slds-breadcrumb__item {
+    text-transform: none !important;
+    font-weight: bold;
+}
+
+/*  Article Body - Article Detail  */
+.selfServiceArticleLayout .forceOutputRichText {
+    font-family: DDTTNorms1, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important;
+    font-size: 1rem;
+}
+
+.selfServiceArticleLayout .forceOutputRichText p, .selfServiceArticleLayout .forceOutputRichText b, .selfServiceArticleLayout .forceOutputRichText span {
+    font-family: DDTTNorms1, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important;
+}
+
+.selfServiceArticleLayout .test-id__field-label-container.slds-form-element__label {
+    display: none;
+}
+
+.selfServiceArticleLayout .forceOutputRichText p, .selfServiceArticleLayout .forceOutputRichText span {
+    line-height: 24px;
+}
+
+.selfServiceArticleLayout .forceOutputRichText ol {
+    margin: 1.5rem;
+    list-style: decimal;
+}
+
+.selfServiceArticleLayout .slds-form-element_readonly {
+    margin-bottom: 20px;
+    padding-bottom: 20px !important;
+}
+
+article .uiOutputRichText a, article .uiOutputRichText a span, article .uiOutputRichText a span span {
+    color: rgb(255, 48, 8) !important;
+    text-decoration: none !important;
+}
+
+/*  Topic Detail  */
+.selfServiceTopicArticleList .selfServiceArticleListItem {
+    margin: 0 25px;
+    padding: 16px 0 8px 0 !important;
+}
+
+.selfServiceArticleListItem .article-head {
+    font-size: 1rem !important;
+    line-height: 1.5;
+    font-weight: bold !important;
+}
+
+/*-- Left Aligns sub-topics --*/
+.forceTopicSubTopicNavigation .topic-subNavContainer {
+    text-align: left !important;
+}
+
+/*  Anchor Tag spacing  
+.forceOutputRichText span b a[rel="noopener"] {
+    position: relative;
+    top: -120px;
+    display: block; 
+}
+
+.forceOutputRichText span[style="font-size: 14px;"] b a[rel="noopener"] {
+    position: relative;
+    top: -120px;
+    display: block;
+}
+*/
+/*---------- CONTACT SUPPORT -----------*/
+
+/* Case Deflection */
+.forceCommunityCaseDeflection .comm-topic-trending-articles.selfServiceTopicTrendingArticles42 {
+    padding: 0px 10%;
+    display: inline-block;
+    width: 100%;
+}
+
+.forceCommunityCaseDeflection .comm-topic-trending-articles.selfServiceTopicTrendingArticles42 lightning-formatted-date-time {
+    display: none;
+}
+
+/*---------- Rich Text Component Overrides ------------*/
+
+.forceCommunityRichText .uiOutputRichText p, .forceCommunityRichText .uiOutputRichText span {
+    line-height: 24px;
+}
+
+
+.forceCommunityRichText .uiOutputRichText a,  .forceCommunityRichText .uiOutputRichText a span {
+    color: rgb(255, 48, 8) !important;
+    text-decoration: none !important;
+}
+
+.forceCommunityRichText .uiOutputRichText H1 {
+    line-height: 33px;
+}
+
+/*---------- Language Picker Overrides ------------
+
+
+.footer lightning-combobox.forceCommunityLanguageSelector43 {
+position: fixed;
+top: -5px;
+z-index: 300;
+right: 2%;
+}
+
+.footer lightning-combobox.forceCommunityLanguageSelector43 .slds-form-element__control {
+max-width: 120px;
+float: right;
+}
+
+.footer lightning-combobox.forceCommunityLanguageSelector43  input.slds-input {
+text-align: right;
+padding-right: 28px;
+background-color: transparent;
+color: #000;
+border: none;
+cursor: pointer;
+padding: 0px 28px 0px 0px;
+font-size: .775rem;
+}
+
+.footer lightning-combobox.forceCommunityLanguageSelector43 svg {
+fill: rgba(0, 0, 0, 0.8);
+}
+
+@media only screen and (max-width:768px) {
+.footer lightning-combobox.forceCommunityLanguageSelector43 {
+position: fixed;
+top: 44px;
+z-index: 300;
+right: 2%;
+background-color: rgb(255, 255, 255, 1);
+width: 100%;
+}
+
+.footer lightning-combobox.forceCommunityLanguageSelector43  input.slds-input {
+font-size: .675rem;
+}
+body.comm-page-home .footer lightning-combobox.forceCommunityLanguageSelector43 {
+position: fixed !important;
+top: -5px !important;
+z-index: 300 !important;
+right: 2% !important;
+background-color: transparent !important;
+width: auto !important;
+}
+}
+
+*/
+
+iframe[frameborder="0px"] {
+    border: none !important;
+}
+img[src="https://staging-pt.ispot.tv/v2/TC-3597-1.gif?app=web&type=visit"] {
+    display: none !important;
+}
+body lightning-combobox.forceCommunityLanguageSelector43 {
+    background-color: transparent !important;
+}
+
+@media only screen and (max-width:480px) {
+    
+    body .footer lightning-combobox.forceCommunityLanguageSelector43 {
+        top: -8px !important;
+    }
+
+}
+
+.forceCommunityThemeSearch.websterInnerHeader .search-input:focus {
+    border: 1px #ccc solid !important;
+    padding-left: 5px;
+}
+
+/*
+article .uiOutputRichText a[href^="mailto:"] {
+    cursor: text;
+    color: inherit !important;
+    pointer-events: none;
+}
+*/
+/* Disables security@doordash.com link in articles */
+
+article .uiOutputRichText a[href="mailto:security@doordash.com"] {
+    color: inherit !important;
+    pointer-events: none !important;
+    cursor: text !important;
+}
+.themeNav .forceCommunityThemeNav.websterHomeHeader .mainNavItem {
+    background-color: rgb(255, 255, 255) !important;
+}
+
+/*article headline*/
+
+.selfServiceArticleLayout h1.article-head.selfServiceArticleHeaderDetail {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 32px;
+    letter-spacing: -0.04ch;
+    display: none !important;
+}
+
+/*-- reCAPTCHA ---*/
+
+/* button disabled styles --*/
+
+.forceCommunityContactSupportForm button.contactSupportButton[disabled] {
+    background-color: #CCC !important;
+	border-color: #AAA !important;
+        position: relative;
+    top: 100px;
+}
+
+.forceCommunityContactSupportForm button.contactSupportButton.contactButton-verified {
+    top: 0px;
+}
+
+
+div#recaptchaCheckbox {
+    position: relative;
+    top: -70px;
+}
+div#recaptchaCheckbox > div {
+        margin: 0px auto;
+}
+
+/*-- Styles for Merchant Middleware Terms --*/
+
+div.DD-merchant-middleware-terms .section {
+    margin-bottom: 14px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}
+
+div.DD-merchant-middleware-terms .section.center {
+	font-weight: bold;
+    font-size: 1.1rem;
+}
+
+div.DD-merchant-middleware-terms .title {
+	font-weight: 500;
+    font-size: 1.4rem;
+    margin-top: 20px;
+    margin-bottom: 25px;
+}
+
+div.DD-merchant-middleware-terms .center {
+    text-align: center;
+}
+
+div.DD-merchant-middleware-terms .justify {
+    text-align: justify;
+}
+
+div.DD-merchant-middleware-terms p {
+    margin: 0 0 10px;
+}
+
+div.DD-merchant-middleware-terms .left-margin {
+    margin-left: 60px;
+}
+
+div.DD-merchant-middleware-terms b, div.DD-merchant-middleware-terms strong {
+    font-weight: bold;
+    text-shadow: 0px 0px 0 #000, 0px 0px 0 #000, 0px 0px 0 #000, 0px 0px 0 #000;
+}
+
+div.DD-merchant-middleware-terms .lettered-list {
+    list-style: lower-alpha;
+}
+div.DD-merchant-middleware-terms ol {
+    padding: 0 12px;
+    margin-bottom: 10px;
+}
+

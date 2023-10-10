@@ -1,0 +1,10 @@
+<template>
+	<div>
+		<lightning-input type="text" data-id="Addressline1" label="Addressline 1" onchange={handleInputChange} value={accountDetails.Addressline1} required></lightning-input>
+		<lightning-input type="text" data-id="Addressline2" label="Addressline 2" onchange={handleInputChange} value={accountDetails.Addressline2}></lightning-input>
+		<lightning-input type="text" data-id="City" label="City" onchange={handleInputChange} value={accountDetails.City} required></lightning-input>
+		<lightning-input type="text" data-id="State" label="State" onchange={handleInputChange} value={accountDetails.State} disabled="true" required></lightning-input>
+		<lightning-input type="text" data-id="Country" label="Country" onchange={handleInputChange} value={accountDetails.Country} required disabled="true"></lightning-input>
+		<lightning-input data-id="PostalCode" type="text" label="Postal Code" onchange={handleInputChange} value={accountDetails.PostalCode} required></lightning-input>
+	</div>
+</template>

@@ -1,0 +1,16 @@
+<apex:page sidebar="false" showheader="false" lightningStylesheets="true">
+    <apex:includeLightning />    
+    <div id="LightningComponentId" />   
+    <script>
+        $Lightning.use("c:LDdProfilePictureUploaderApp", function() {
+            $Lightning.createComponent("c:lwcDdProfilePictureUploader",
+            {
+                recordId : '{!$User.Id}'
+            },
+            "LightningComponentId",
+            function(component) {
+                console.log('Component Created Succesfully !');
+            });
+        });
+    </script>
+</apex:page>

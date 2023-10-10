@@ -1,0 +1,14 @@
+{
+  "agent_ui_end_chat_dismiss": "閉じる",
+  "agent_ui_end_chat_subtitle": "チャットセッションの終了中にエラーが発生しました。",
+  "agent_ui_end_chat_title": "チャットを終了できません",
+  "agent_ui_transer_chat_confirmation_message": "キュー「{{queueName}}」にチャットを転送します。",
+  "agent_ui_transer_chat_confirmation_close_message": "このケースのタブは自動的に閉じます。",
+  "agent_ui_transfer_chat_modal_subtitle": "このチャットを転送しようとしています",
+  "agent_ui_transfer_chat_modal_title": "チャットを転送",
+  "agent_ui_transfer_chat_modal_primary_text": "転送",
+  "agent_ui_transfer_chat_error_text": "このリクエストをキャンセルし、エラーを修正してから再試行してください",
+  "agent_ui_transfer_chat_modal_secondary_text": "キャンセル",
+  "agent_ui_transfer_chat_modal_failure_message": "転送に失敗しましたもう一度お試しください。",
+  "agent_ui_cannot_connect_msg": "このチャットは有効ではありません。トランスクリプトをチェックして前の会話を確認してください。"
+}

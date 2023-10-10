@@ -1,0 +1,239 @@
+<template>
+    <lightning-card variant="Narrow" title="Queue Management" icon-name="utility:database">
+       <!--Progress Bar-->
+        <div style="padding: 0.8rem;padding-bottom: 0.1rem;">
+            <lightning-progress-indicator current-step={currentStep} type="path" variant="base">
+                <lightning-progress-step label="Step 1:Select Search Criteria" value="1" ></lightning-progress-step>
+                <lightning-progress-step label="Step 2:Select Users and Update Queue" value="2" ></lightning-progress-step>
+                <lightning-progress-step label="Step 3:Results" value="3"></lightning-progress-step>
+            </lightning-progress-indicator>
+        </div>
+        <!--Show Error-->
+        <template if:true={showError}>
+            <div class="error">
+                {errorMsg}
+            </div>
+        </template>
+        <!--Spinner-->
+        <template if:true={isLoading}>
+            <div class="slds-is-relative slds-m-around_large slds-align_absolute-center">
+                <lightning-spinner alternative-text="Loading..." variant="brand"></lightning-spinner>
+            </div>
+        </template>
+
+
+        <!--STEP 1-->
+        <div style="width: 100%;padding: 20px;position: relative;">
+            <template if:true={isStepOne}>
+            <lightning-tabset variant="scoped" active-tab-value={activeTabName} style="">
+                <lightning-tab label="Role" value="role" onactive={setFlowAttributes}>
+                    <div class="columnFlex">
+                        <c-dd-data-table-with-filter
+                            selected-records = {selectedRoleItems}
+                            table-columns = {roleColumns}
+                            initial-rec-list = {currentRoleList}
+                            current-rec-list = {currentRoleList}
+                            unique-identifier = "roleSelection"
+                            k-field-name="value"
+                            filter-holder-label ="Filter by Role"
+                            show-filter-box>
+                        </c-dd-data-table-with-filter>
+                        <div class="slds-m-around_medium">
+                            <lightning-button
+                                icon-name="utility:rows"
+                                label="Get Users"
+                                variant="brand"
+                                onclick={validateGetUsers}>
+                            </lightning-button>
+                        </div>
+                    </div>
+                </lightning-tab>
+                <lightning-tab label="Email" value="email" onactive={setFlowAttributes}>
+                    <div class="columnFlex">
+                        <div class="slds-m-around_medium">
+                            <template if:true={selectedUserByEmail} >
+                                <div>
+                                    {selectedUserByEmail}
+                                </div>
+                            </template>
+                            <c-dd-multi-select-picklist
+                                unique-identifier="userSearch"
+                                custom-search-name="Queue_Manager_User_Search"
+                                onchange={handleUserSearchOnChange}>
+                            </c-dd-multi-select-picklist>
+                        </div>
+                        <div class="slds-m-around_medium">
+                            <lightning-button
+                                icon-name="utility:rows"
+                                label="Proceed"
+                                variant="brand"
+                                onclick={validateGetUsers}>
+                            </lightning-button>
+                        </div>
+                    </div>
+                </lightning-tab>
+                <lightning-tab label="File" value="file" onactive={setFlowAttributes}>
+                    <div class="rowFlex">
+                        <c-lwc-dd-csv-to-data-table-component
+                            uploadmsg="Upload a csv file with Email">
+                        </c-lwc-dd-csv-to-data-table-component>
+                        <div style="padding-top:40px">
+                            <lightning-button
+                                icon-name="utility:rows"
+                                label="Proceed"
+                                variant="brand"
+                                onclick={validateGetUsers}>
+                            </lightning-button>
+                        </div>
+                    </div>
+                </lightning-tab>
+            </lightning-tabset>
+            </template>
+        </div>
+
+        <!--STEP 2-->
+        <template if:true={isStepTwo}>
+            <template if:false={isLoading}>
+                <div class="step2Flex">
+                    <div class="slds-m-around_medium">
+                        <lightning-button
+                            variant="brand"
+                            label="Back"
+                            icon-name="utility:chevronleft"
+                            onclick={handlePrev}
+                            class="slds-align_absolute-center">
+                        </lightning-button>
+                    </div>
+                    <div class="slds-m-around_medium">
+                        <lightning-button
+                            icon-name="utility:download"
+                            label="Export"
+                            title="Export"
+                            onclick={handleDownloadCSVFile}
+                            variant="brand"
+                            class="slds-align_absolute-center">
+                        </lightning-button>
+                    </div>
+                    <div class="slds-m-around_medium">
+                        <lightning-button
+                            icon-name="utility:record_update"
+                            variant="brand"
+                            onclick={openQueueModal}
+                            value="Update Queue"
+                            label="Update Queue"
+                            disabled={disableQueueUpdateButton}
+                            class="slds-align_absolute-center">
+                        </lightning-button>
+                    </div>
+                </div>
+                <div></div>
+                <!--Use template if:true to display/hide popup based on isModalOpen value-->
+                <c-dd-modal data-id="modal"
+                    title="Queue Update"
+                    size="large"
+                    type="confirm"
+                    primary-button-label-override="Save"
+                    secondary-button-label-override="Cancel"
+                    onsecondarybuttonclick={closeRoleModal}
+                    onprimarybuttonclick={submitDetails}
+                    modal-content-overflow>
+                    <div slot="content" style="display: unset;">
+                        <lightning-accordion active-section-name="X" allow-multiple-sections-open>
+                            <lightning-accordion-section name="Y" label={selectedUserTableLabelValue}>
+                                <div style="padding:0.5rem;">
+                                    <lightning-datatable
+                                        key-field="id"
+                                        data={showSelectedUsersOnModal}
+                                        columns={userColumns}
+                                        data-id="selectedUserTable"
+                                        hide-checkbox-column ="true">
+                                    </lightning-datatable>
+                                </div>
+                            </lightning-accordion-section>
+                            <template if:true={showErrorPopUp}>
+                                <div class="slds-notify slds-notify_alert slds-alert_warning" role="alert">
+                                    <lightning-icon
+                                        class="slds-p-right_x-small" icon-name="utility:warning"
+                                        alternative-text="Warning!" size="xx-small" title="Warning">
+                                    </lightning-icon>
+                                    <h2>{errorMsgPopUp}</h2>
+                                </div>
+                            </template>
+                            <lightning-accordion-section name="X" label="Queue Selection">
+                                <template if:true={currentQueueList} >
+                                    <c-dd-data-table-with-filter
+                                        selected-records = {selectedQueues}
+                                        table-columns = {queueColumns}
+                                        initial-rec-list = {currentQueueList}
+                                        current-rec-list = {currentQueueList}
+                                        unique-identifier = "queueSelection"
+                                        k-field-name="id"
+                                        data-id="queueTable"
+                                        filter-holder-label ="Filter by Queue"
+                                        column-width-mode="auto"
+                                        show-filter-box>
+                                    </c-dd-data-table-with-filter>
+                                </template>
+                            </lightning-accordion-section>
+                        </lightning-accordion>
+                    </div>
+                </c-dd-modal>
+
+                <div style="padding-left:10px">
+                    <h2 class="slds-modal__header" ><b>Total Users : {usersList.length}</b></h2>
+                </div>
+
+                 <template if:true={showUsers}>
+                    <div class=" demo-only slds-table--header-fixed_container" style="height:1000px;padding:0.5rem;">
+                        <c-dd-data-table-with-filter
+                            selected-records = {selectedUsers}
+                            table-columns = {userColumns}
+                            initial-rec-list = {usersList}
+                            current-rec-list = {usersList}
+                            unique-identifier = "userTable"
+                            k-field-name="id"
+                            data-id="userTable"
+                            filter-holder-label ="Search by Email/Role/Current Queue"
+                            column-width-mode="auto"
+                            show-filter-box
+                            onchange={handleUserTableRowAction}>
+                        </c-dd-data-table-with-filter>
+                    </div>
+                </template>
+                <div style="padding-left: 10px;">
+                    <template if:false={showUsers} >
+                        No Users found
+                    </template>
+                </div>
+            </template>
+        </template>
+
+        <!--STEP 3-->
+        <template if:true={isStepThree}>
+            <div class="step3Flex">
+                <div class="slds-m-around_medium">
+                   <lightning-button
+                        icon-name="utility:home"
+                        label="Start Again"
+                        variant="brand"
+                        onclick={handleReset}
+                        class="slds-align_absolute-center">
+                    </lightning-button>
+                </div>
+                <div class="demo-only" style="padding:0.5rem;">
+                    <c-dd-data-table-with-filter
+                        selected-records = {selectedUsers}
+                        table-columns = {userColumns}
+                        initial-rec-list = {showSelectedUsersOnModal}
+                        current-rec-list = {showSelectedUsersOnModal}
+                        unique-identifier = "userFinalTable"
+                        k-field-name="Id"
+                        data-id="userFinalTable"
+                        column-width-mode="auto"
+                        hide-check-box-column>
+                    </c-dd-data-table-with-filter>
+                </div>
+            </div>
+        </template>
+    </lightning-card>
+ </template>

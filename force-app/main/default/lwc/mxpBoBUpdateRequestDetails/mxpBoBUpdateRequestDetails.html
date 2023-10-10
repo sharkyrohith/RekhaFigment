@@ -1,0 +1,24 @@
+<template>
+    <template if:true={isLoading}>
+        <div style="height:80px" class="slds-is-relative">
+            <lightning-spinner alternative-text="Loading" size="large"></lightning-spinner>
+        </div>
+    </template>
+    <template if:false={isLoading}>
+        <lightning-card title="Additional Information">
+            <lightning-button label="Refresh" slot="actions" icon-name="utility:refresh" onclick={handleRefreshClick}></lightning-button>
+            <div class="slds-card__body_inner">
+                <div class="slds-var-p-around_medium">Note: The information below reflects the current status of the system, and not a snapshot of the system at the time of the request.</div>
+                <div class="slds-var-p-around_medium">
+                    <ul class="slds-list_dotted">
+                        <template for:item="item" for:each={data}>
+                            <li key={item}>
+                                <lightning-formatted-rich-text value={item}></lightning-formatted-rich-text>
+                            </li>
+                        </template>
+                    </ul>
+                </div>
+            </div>
+        </lightning-card>
+    </template>
+</template>

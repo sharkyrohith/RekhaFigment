@@ -1,0 +1,88 @@
+<template>
+    <lightning-layout class="slds-m-top_x-small">
+        <article class="slds-card lightning-card headerBottomBorder forceRelatedListCardDesktop slds-card_boundary">
+            <div class="slds-page-header slds-grid forceRelatedListCardHeader">
+              <header class="slds-media slds-media_center slds-has-flexi-truncate ">
+                <div class="slds-media__figure">
+                    <lightning-icon icon-name={iconName} size="small"></lightning-icon>
+                </div>
+                <div class="slds-media__body">
+                  <h2 class="slds-card__header-title">
+                    <template if:true={dataThere}>
+                        <a class="slds-card__header-link" onclick={handleGotoRelatedList}>Products</a>
+                    </template>
+                    <template if:false={dataThere}>
+                        <p class="slds-card__header-link">Products</p>
+                    </template>
+                  </h2>
+                </div>
+                <!-- <div class="slds-no-flex">
+                    <lightning-button label="Add Products" onclick={handleCreateRecord}></lightning-button>
+                </div> -->
+              </header>
+            </div>
+            <template if:true={dataThere}>
+                <div class="slds-card__body">
+                    <ul class="uiAbstractList">
+                        <template for:each={data} for:item="prod">
+                            <li key={prod.Id} class="slds-var-p-horizontal_medium slds-var-p-vertical_xx-small desktop forceImageRelatedStencil forceRecordLayout">
+                                <article key={prod.Id} class="listItemBody withActions slds-media">
+                                    <div key={prod.Id} class="slds-media__body">
+                                        <div key={prod.Id} class="slds-grid slds-grid_align-spread slds-has-flexi-truncate">
+                                            <h3 key={prod.Id} class="primaryField slds-tile__title slds-truncate textUnderline">
+                                                <div class="outputLookupContainer forceOutputLookupWithPreview">
+                                                    <a key={prod.Id} class="textUnderline outputLookupLink slds-truncate forceOutputLookup" 
+                                                    href="#" data-record-id={prod.Id} onclick={handleGotoRecordPage}>{prod.Product_Name__c}</a>
+                                                </div>
+                                            </h3>
+                                        </div>
+                                        <div key={prod.Id} class="slds-tile__detail">
+                                            <ul key={prod.Id} class="itemRows truncate">
+                                                <li key={prod.Id} class="tableRowGroup">
+                                                    <div key={prod.Id} class="slds-list--horizontal forceListRecordItem">
+                                                        <div key={prod.Id} class="slds-item--label slds-truncate recordCell" title="Order Service Type:">
+                                                            Order Service Type:
+                                                        </div>
+                                                        <div key={prod.Id} class="slds-item--detail slds-truncate recordCell">
+                                                            <span key={prod.Id}>{prod.Order_Service_Type__c}</span>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li key={prod.Id} class="tableRowGroup">
+                                                    <div key={prod.Id} class="slds-list--horizontal forceListRecordItem">
+                                                        <div key={prod.Id} class="slds-item--label slds-truncate recordCell" title="Target Cx Audience:">
+                                                            Target Cx Audience:
+                                                        </div>
+                                                        <div key={prod.Id} class="slds-item--detail slds-truncate recordCell">
+                                                            <span key={prod.Id}>{prod.Target_Cx_Audience__c}</span>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li key={prod.Id} class="tableRowGroup">
+                                                    <div key={prod.Id} class="slds-list--horizontal forceListRecordItem">
+                                                        <div key={prod.Id} class="slds-item--label slds-truncate recordCell" title="Marketing Flat Fee:">
+                                                            Marketing Flat Fee:
+                                                        </div>
+                                                        <div key={prod.Id} class="slds-item--detail slds-truncate recordCell">
+                                                            <span key={prod.Id}>{prod.Marketing_Flat_Fee__c}</span>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </article>
+                            </li>
+                        </template>
+                    </ul>
+                </div>
+                <footer class="slds-card__footer">
+                    <a onclick={handleGotoRelatedList}>View All</a>
+                </footer>
+            </template>
+            <template if:true={error}>
+                <!-- handle Apex error -->
+            </template>
+        </article>
+        </lightning-layout>
+</template>

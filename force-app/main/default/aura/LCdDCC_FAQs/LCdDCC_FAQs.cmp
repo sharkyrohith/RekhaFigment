@@ -1,0 +1,141 @@
+<aura:component access="global" implements="forceCommunity:availableForAllPageTypes">
+    <aura:attribute default="DCC" name="FAQsource" type="String" />
+    <div>
+        <aura:if isTrue="{!v.FAQsource == 'DCC'}">
+            <h2>DCC (Dasher Community Council) FAQs</h2>
+            <div class="dcc-faq-wrap">
+                <div class="dcc-faq-content">
+                    
+                    <h3> 
+                        Who is eligible to serve as a member?
+                    </h3>
+                    For the July 2020 DCC term, requirements were the following. Requirements may not stay exactly the same for future terms.
+                    <ul>
+                        <li>Customer rating of 4.7 or higher (Dasher only)</li>  
+                        <li>Completion rate of 95% or higher (Dasher only)</li>  
+                        <li>Completed 500 lifetime deliveries (Dasher, Courier)</li>  
+                        <li>Have completed a minimum of 30 deliveries total in the last three months (Dasher, Courier)</li>      
+                    </ul>
+                    
+                </div>
+                
+                <div class="dcc-faq-content">
+                    
+                    <h3> 
+                        What is the time commitment?
+                        
+                    </h3>
+                    DCC members are required to join us once a month for 90 minutes via video conference. We sometimes invite members to speak with DoorDash teammates for their feedback on additional special projects.
+                </div>
+                
+                <div class="dcc-faq-content">
+                    
+                    <h3> 
+                        I’m not sure if I can serve on the DCC at this time. Will there be another opportunity in the future?                </h3>
+                    DCC members, known as Dasher Community Reps, will each serve six-month terms. We re-open the application every six months so you’ll have a chance to apply later.
+                </div>
+                
+                <div class="dcc-faq-content">
+                    
+                    <h3> 
+                        How will you decide who serves on the Dasher Community Council?
+                    </h3>
+                    DoorDash reviews applicants for the eligibility requirements and make selections based on a variety of factors. We are seeking a diverse, representative group of 9 Dashers/Couriers to serve on the DCC. As a growing global company, we also want to ensure that geographic regions are represented. 
+                </div>
+                
+                <div class="dcc-faq-content">
+                    
+                    <h3> 
+                        When will I find out if I’m selected?
+                    </h3>
+                    Decisions will be made by early July. 
+                </div>
+                
+                
+                <div class="dcc-faq-content">
+                    
+                    <h3> 
+                        If I applied to the DCC before and was not selected, can I apply again?
+                    </h3>
+                    Yes, you can apply as long as you continue to meet the eligibility requirements.             
+                </div>
+                
+                <div class="dcc-faq-content">
+                    
+                    <h3> 
+                        Is this a paid position?
+                    </h3>
+                    No, DCC members are volunteers. Applying to or being selected for the DCC does not establish an employer/employee relationship with DoorDash.          
+                </div>
+                
+                
+            </div>
+            
+        </aura:if>
+        
+        <aura:if isTrue="{!v.FAQsource == 'VDC'}">
+            
+            
+            <!-- VDC (Voices from Dashers of Color) FAQs: -->
+            
+            
+            <h2>VDC (Voices from Dashers of Color) FAQs:</h2>
+            
+            
+            <div class="dcc-faq-wrap">
+                
+                
+                <div class="dcc-faq-content">
+                    
+                    <h3> 
+                        What is the difference between the VDC and DCC? 
+                    </h3>
+                    The DCC (Dasher Community Council) will address experiences of Dashers overall, whereas the VDC will focus on experiences and current affairs that relate specifically to Dashers of color.                
+                </div>
+                
+                <div class="dcc-faq-content">
+                    
+                    <h3> 
+                        Who is eligible to serve on the VDC?
+                    </h3>
+                    Dashers with at least 100 deliveries are encouraged to apply.                 
+                </div>
+                
+                
+                <div class="dcc-faq-content">
+                    
+                    <h3> 
+                        What is the time commitment?
+                    </h3>
+                    The time commitment will be 6 semi-monthly video meetings (each 60-90 minutes) over the course of 3 months. 
+                </div>
+                
+                <div class="dcc-faq-content">
+                    
+                    <h3> 
+                        How long will each VDC term be?
+                    </h3>
+                    Each term will be 3 months total. 
+                </div>
+                
+                                <div class="dcc-faq-content">
+                    
+                    <h3> 
+                        When is the next term?
+                    </h3>
+                    Planning for the next cycle is still in progress. When application opens, it will be announced in the Dasher Digest emails. 
+
+                </div>
+                
+                <div class="dcc-faq-content">
+                    
+                    <h3> 
+                        Is this a paid position?
+                    </h3>
+                    No, VDC members are volunteers. Applying to or being selected for the VDC does not establish an employer/employee relationship with DoorDash.
+                </div>            
+                
+            </div>
+        </aura:if>
+    </div>
+</aura:component>

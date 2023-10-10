@@ -1,0 +1,6 @@
+<aura:event type="COMPONENT" access="GLOBAL" description="An event to track Nimda Sync functionality" >
+    <aura:attribute name="step" type="String" access="GLOBAL" />
+    <aura:attribute name="version" type="Integer" access="GLOBAL" />
+    <aura:attribute name="value" type="String" access="GLOBAL" />
+    <aura:attribute name="isChangeOfOwnership" type="Boolean" access="GLOBAL" />
+</aura:event>
